@@ -14,7 +14,6 @@
 
 # Optional (root-level)
 !git-template
-!webp-tighten.config
 
 # Icons and source images (webp/ and namespaced subdirs: webp/aws/, webp/macos/, etc.)
 !webp/

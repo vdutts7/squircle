@@ -1,22 +1,23 @@
 #!/bin/zsh
 # git-webp-tighten.sh - Git history rewrite: webp/ has only "latest" or "last N" versions; full history for everything else.
 # Usage: ./git-webp-tighten.sh [N]
-#   N from config (webp-tighten.config WINDOW=) when no arg; else N=1.
+#   N from config (bin/git-webp-tighten.config WINDOW=) when no arg; else N=1.
 #   N=1: In every commit, replace webp/ with HEAD's webp/. One copy of webp in object store.
 #   N>1: Sliding window of last N commits keep their webp/; older commits get Nth-from-tip's webp/.
 # Runs git gc --aggressive --prune=now at the end.
 
 set -e
 ROOT="$(git rev-parse --show-toplevel)"
+SCRIPT_DIR="${0:h}"
 cd "$ROOT"
 
-# Default N: from config file, else 1
+# Default N: from config file (next to script), else 1
 if [[ -n "$1" ]]; then
   N="$1"
 else
   N=1
-  if [[ -f "$ROOT/webp-tighten.config" ]]; then
-    source "$ROOT/webp-tighten.config" 2>/dev/null || true
+  if [[ -f "$SCRIPT_DIR/git-webp-tighten.config" ]]; then
+    source "$SCRIPT_DIR/git-webp-tighten.config" 2>/dev/null || true
     [[ -n "$WINDOW" ]] && N="$WINDOW"
   fi
 fi
