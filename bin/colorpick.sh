@@ -1,8 +1,9 @@
 #!/usr/bin/env zsh
-# colorpick - CLI color dropper: sample pixel(s) or dominant palette from an image → hex.
-# Usage: colorpick <image> [x y]           → hex at (x,y); no coords = center pixel
-#        colorpick <image> --palette [N]  → N dominant colors (default 8)
-#        colorpick <image> --average       → single average color
+# colorpick - CLI color dropper: dominant palette (default) or single pixel/average.
+# Usage: colorpick <image>              → dominant colors (default 8)
+#        colorpick <image> --palette [N] → N dominant colors
+#        colorpick <image> [x y]        → hex at (x,y); no coords = center pixel
+#        colorpick <image> --average    → single average color
 # Deps: ImageMagick (magick)
 
 set -e
@@ -20,9 +21,10 @@ swatch_hex() {
 }
 
 usage() {
-  echo "Usage: colorpick [-q] <image> [x y]           # hex at (x,y); omit = center" >&2
+  echo "Usage: colorpick [-q] <image>                 # dominant palette (default)" >&2
   echo "       colorpick [-q] <image> --palette [N]    # N dominant colors (default 8)" >&2
-  echo "       colorpick [-q] <image> --average        # one average color" >&2
+  echo "       colorpick [-q] <image> [x y]           # hex at (x,y); omit = center" >&2
+  echo "       colorpick [-q] <image> --average       # one average color" >&2
   echo "       -q  no swatch, hex only" >&2
   exit 1
 }
@@ -36,7 +38,7 @@ IMG="$1"
 SHOW_SWATCH=0
 [[ $QUIET -eq 0 && -t 1 ]] && SHOW_SWATCH=1
 
-# Image size for center default
+# Image size for center default (used for pixel mode)
 DIMS=$($MAGICK "$IMG" -format "%w %h" info: 2>/dev/null) || { echo "colorpick: could not read image" >&2; exit 1; }
 W=${DIMS%% *}
 H=${DIMS##* }
@@ -60,7 +62,19 @@ case "${2:-}" in
     ;;
 esac
 
-# Sample at (x,y)
+# Default: show palette (dominant colors)
+if [[ $# -eq 1 ]]; then
+  N=8
+  $MAGICK "$IMG" -resize 200x200 -colors "$N" -unique-colors txt:- 2>/dev/null | while read -r line; do
+    if [[ "$line" =~ '#'([0-9A-Fa-f]{6}) ]]; then
+      HEX="#${match[1]:l}"
+      if [[ $SHOW_SWATCH -eq 1 ]]; then swatch_hex "$HEX"; else echo "$HEX"; fi
+    fi
+  done
+  exit 0
+fi
+
+# Two numeric args = pixel at (x,y)
 if [[ -n "$2" && -n "$3" ]]; then
   X="$2"
   Y="$3"

@@ -56,13 +56,14 @@ Options:
   --icon-color #   Recolor logo (transparent-background path only).
   --size N         Output size (default: 1024).
   --out path.webp  Output path. Default: \$SQUIRCLE/webp/<name>.webp or same dir as input.
-  --padding        Center logo with margin (SVGs/edge-to-edge). Default: fill (scale to fill frame).
-
+  --padding [N]    Center logo with margin. N = padding in px per side (default ~100); omit for default.
   -h, --help       Show this help.
 
 Examples:
   $SCRIPT_NAME icon.png
   $SCRIPT_NAME icon.svg --padding
+  $SCRIPT_NAME icon.svg --padding 80
+  $SCRIPT_NAME icon.svg --padding 150
   $SCRIPT_NAME icon.icns --bg "#FF0000" --out ./out.webp
   $SCRIPT_NAME /path/to/ph.ico --out webp/ph.webp
   $SCRIPT_NAME ~/Downloads
@@ -118,8 +119,8 @@ retry_run() {
 # --- Argument parsing ---
 parse_args() {
   typeset -a save_args=("$@")
-  typeset -g BG_OVERRIDE ICON_COLOR SIZE OUTPUT INPUT OPAQUE_PADDING
-  BG_OVERRIDE=(); ICON_COLOR=(); SIZE=(); OUTPUT=(); OPAQUE_PADDING=0
+  typeset -g BG_OVERRIDE ICON_COLOR SIZE OUTPUT INPUT OPAQUE_PADDING PADDING_PX
+  BG_OVERRIDE=(); ICON_COLOR=(); SIZE=(); OUTPUT=(); OPAQUE_PADDING=0; PADDING_PX=""
   typeset -a args=()
   next=""
   for a in "${save_args[@]}"; do
@@ -127,18 +128,28 @@ parse_args() {
     if [[ "$next" == "icon-color" ]]; then ICON_COLOR="$a"; next=""; continue; fi
     if [[ "$next" == "size" ]]; then SIZE="$a"; next=""; continue; fi
     if [[ "$next" == "out" ]]; then OUTPUT="$a"; next=""; continue; fi
+    if [[ "$next" == "padding" ]]; then
+      [[ "$a" == [0-9]* ]] && PADDING_PX="$a"
+      next=""
+      OPAQUE_PADDING=1
+      continue
+    fi
     case "$a" in
       --bg) next="bg" ;;
       --icon-color) next="icon-color" ;;
       --size) next="size" ;;
       --out) next="out" ;;
-      --padding) OPAQUE_PADDING=1 ;;
+      --padding) next="padding"; OPAQUE_PADDING=1 ;;
       *) args+=("$a") ;;
     esac
   done
-  [[ ${#args[@]} -lt 1 ]] && { echo "🔴 Usage: $0 <input> [--bg #HEX] [--icon-color #HEX] [--size 1024] [--out path.webp] [--padding]" >&2; exit 1; }
+  [[ "$next" == "padding" ]] && { OPAQUE_PADDING=1; next=""; }
+  [[ ${#args[@]} -lt 1 ]] && { echo "🔴 Usage: $0 <input> [--bg #HEX] [--icon-color #HEX] [--size 1024] [--out path.webp] [--padding [N]]" >&2; exit 1; }
   INPUT="${args[1]}"
-  [[ -z "$OUTPUT" && -n "${args[2]:-}" && "${args[2]}" != --* ]] && OUTPUT="${args[2]}"
+  # Only use args[2] as OUTPUT if it looks like a path (has . or /), not a number
+  if [[ -z "$OUTPUT" && -n "${args[2]:-}" && "${args[2]}" != --* ]]; then
+    [[ "${args[2]}" == *.* || "${args[2]}" == */* ]] && OUTPUT="${args[2]}"
+  fi
   [[ -z "$SIZE" && -n "${args[3]:-}" && "${args[3]}" != --* ]] && SIZE="${args[3]}"
   [[ ! -f "$INPUT" ]] && { echo "🔴 Not a file: $INPUT" >&2; exit 1; }
   : "${SIZE:=$DEFAULT_SIZE}"
@@ -272,10 +283,16 @@ main() {
   normalize_input "$INPUT" "$SIZE"
   typeset -g BG_HEX
   BG_HEX=$(get_background "$IN_FOR_MAGICK")
-  local logo_size=$(( SIZE * LOGO_RATIO / 1024 ))
-  [[ $logo_size -lt 8 ]] && logo_size=8
   build_mask "$SIZE" >/dev/null
   local padding_bg="${BG_OVERRIDE:-#FFFFFF}"   # margin color when --padding; --bg or white
+  local logo_size
+  if [[ -n "$PADDING_PX" && "$PADDING_PX" -ge 0 ]]; then
+    logo_size=$(( SIZE - 2 * PADDING_PX ))
+    [[ $logo_size -lt 8 ]] && logo_size=8
+  else
+    logo_size=$(( SIZE * LOGO_RATIO / 1024 ))
+    [[ $logo_size -lt 8 ]] && logo_size=8
+  fi
 
   if [[ "$BG_HEX" == "OPAQUE" ]]; then
     if [[ $OPAQUE_PADDING -eq 1 ]]; then
