@@ -1,6 +1,7 @@
 #!/bin/zsh
-# squircle.sh - One image in → squircle WebP out. Intended for $CURTOOLS; use alias squircle.
-# Usage: squircle <input> [--out path] [--size N] [--bg #HEX] [--icon-color #HEX] [--padding]
+# squircle.sh - One image in → squircle WebP out. Or: <dir> → batch (parallel over dir, output to webp/).
+# Usage: squircle <file> [options]   OR   squircle <directory>
+# File: pipeline as below. Directory: GNU Parallel over all files, output to $SQUIRCLE/webp/.
 #
 # Pipeline: parse → normalize input to raster → get background (or OPAQUE) → build mask → render → strip metadata.
 # Render paths: OPAQUE fill (scale to fill) | OPAQUE + --padding (centered, margin = --bg or white) | transparent base + logo.
@@ -64,6 +65,8 @@ Examples:
   $SCRIPT_NAME icon.svg --padding
   $SCRIPT_NAME icon.icns --bg "#FF0000" --out ./out.webp
   $SCRIPT_NAME /path/to/ph.ico --out webp/ph.webp
+  $SCRIPT_NAME ~/Downloads
+  $SCRIPT_NAME /path/to/dir
 
 EOF
   exit 0
@@ -73,6 +76,18 @@ EOF
 for a in "$@"; do
   case "$a" in -h|--help) show_help ;; esac
 done
+
+# --- Router: if first arg is a directory → batch (parallel), then exit ---
+if [[ $# -ge 1 && -d "$1" ]]; then
+  ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+  export SQUIRCLE="${SQUIRCLE:-$ROOT}"
+  command -v parallel &>/dev/null || { echo "GNU Parallel required: brew install parallel"; exit 1; }
+  for f in "$1"/*; do
+    [[ -f "$f" ]] && echo "$f"
+  done | parallel --no-notice -j 0 "$SCRIPT_DIR/$SCRIPT_NAME" {}
+  echo "Done."
+  exit 0
+fi
 
 # --- Ensure ImageMagick (scriptify: auto-install or clear error) ---
 ensure_magick() {

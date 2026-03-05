@@ -3,7 +3,7 @@ flow:
   - install: "cp bin/squircle.sh bin/get-bg-color.sh bin/mask.png \$CURTOOLS/ ; alias squircle='\$CURTOOLS/squircle.sh'"
   - copy: "$SQUIRCLE/webp/"
     note: "$SQUIRCLE = $A/squircle (this repo, check ~/.zshrc); no auto-run"
-  - run: "squircle <file>   # or squircle <file> --out webp/<name>.webp ; default size 1024"
+  - run: "squircle <file>  OR  squircle <dir> (batch, parallel); default size 1024"
   - commit: "pre-commit blocks unless normalized"
 
 normalized:
@@ -19,5 +19,5 @@ hook:
 
 layout:
   root: "config, docs, bin, hooks"
-  bin: "squircle.sh, squircle-batch.sh, get-bg-color.sh, mask.png"
+  bin: "squircle.sh, get-bg-color.sh, mask.png"
   webp: "icons + source images; use subdirs for namespaces (e.g. webp/aws/, webp/macos/)"
