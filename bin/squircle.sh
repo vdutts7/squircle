@@ -63,6 +63,7 @@ Examples:
   $SCRIPT_NAME icon.png
   $SCRIPT_NAME icon.svg --padding
   $SCRIPT_NAME icon.icns --bg "#FF0000" --out ./out.webp
+  $SCRIPT_NAME /path/to/ph.ico --out webp/ph.webp
 
 EOF
   exit 0
@@ -137,7 +138,7 @@ parse_args() {
 }
 
 # --- Input normalization: produce a raster path ImageMagick can read ---
-# Handles: .icns (sips), .svg/.svgz (rsvg-convert or qlmanage). Other formats passed through.
+# Handles: .icns (sips), .ico/.cur (magick first frame), .svg/.svgz (rsvg-convert or qlmanage). Other formats passed through.
 # Sets globals: IN_FOR_MAGICK, and optionally TMP_PNG, TMP_SVG_PNG, TMP_QL_DIR (for cleanup).
 normalize_input() {
   local raw="$1" size="${2:-$DEFAULT_SIZE}"
@@ -147,6 +148,11 @@ normalize_input() {
   if [[ "$(uname)" == Darwin ]] && [[ "$raw" == *".icns" ]]; then
     TMP_PNG="${SCRIPT_DIR}/.squircle_tmp_$$.png"
     retry_run $SIPS -s format png "$raw" --out "$TMP_PNG" && IN_FOR_MAGICK="$TMP_PNG"
+  fi
+  # .ico / .cur → first frame to PNG (multi-resolution; use [0])
+  if [[ "$raw" == *".ico" ]] || [[ "$raw" == *".cur" ]]; then
+    TMP_PNG="${SCRIPT_DIR}/.squircle_tmp_$$.png"
+    retry_run $MAGICK "${raw}[0]" -resize "${size}x${size}" "$TMP_PNG" && IN_FOR_MAGICK="$TMP_PNG"
   fi
   # .svg / .svgz → PNG (rsvg-convert or macOS Quick Look)
   if [[ "$raw" == *".svg" ]] || [[ "$raw" == *".svgz" ]]; then

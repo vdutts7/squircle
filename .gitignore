@@ -5,7 +5,7 @@
 !.gitconfig
 !.hooks/
 !.hooks/**
-!README.md
+!repo.config.json
 !workflow.yaml
 !image-formats.txt
 !bin/

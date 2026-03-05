@@ -1,0 +1,50 @@
+{
+  "_description": "webp icon CDN: normalized squircle icons 1024×1024, .webp only, under webp/",
+  "_workflow": "workflow.yaml",
+  "_see": "https://github.com/vdutts7/gh-template",
+  "_template_local": "$GHT ($HOME/Documents/a/gh-template)",
+  "_manifest": {
+    "file_tree": {
+      ".": "single point of entry: this file",
+      "repo.config.json": "this file; full tree + cross-refs here only",
+      "workflow.yaml": "flow, normalized spec, hook allow/block; _workflow",
+      ".gitconfig": "core.hooksPath=.hooks",
+      ".gitignore": "whitelist tracked paths (bin, webp, .hooks, etc)",
+      "image-formats.txt": "extensions allowed for normalization; consumed by .hooks/pre-commit",
+      "bin": "scripts + mask; see bin/* one-liners below",
+      "bin/squircle.sh": "one image → squircle WebP; pipeline in script header",
+      "bin/squircle-batch.sh": "batch: run squircle on every file in dir (GNU Parallel, -j 0 = one per CPU)",
+      "bin/get-bg-color.sh": "edge/corner sampling → #HEX or OPAQUE; used by squircle.sh",
+      "bin/sharpen.sh": "sharpen image; optional pre-step for sources",
+      "bin/svg2png.sh": "convert by file type (SVG/JPEG/WebP/PNG) → PNG",
+      "bin/colorpick.sh": "CLI color dropper: pixel or palette → hex",
+      "bin/git-webp-tighten.sh": "history rewrite: webp/ = latest or sliding window; reads bin/git-webp-tighten.config",
+      "bin/git-webp-tighten.config": "WINDOW=N for git-webp-tighten.sh (default 5)",
+      "bin/mask.png": "squircle mask; squircle.sh uses or fallback round-rect",
+      ".hooks": "pre-commit + setup; see .hooks/* below",
+      ".hooks/pre-commit": "only staged under webp/; 1024×1024 .webp only; strip metadata; refs image-formats.txt",
+      ".hooks/scripts/setup.sh": "one-time: git config include + chmod hooks",
+      "git-template": "stub hooks for git init; clone uses this",
+      "git-template/hooks/pre-commit": "stub: exit 1 until .hooks/scripts/setup.sh run",
+      "webp": "output dir: icons 1024×1024 .webp; subdirs = namespaces",
+      "webp/aws": "namespace subdir",
+      "webp/macos": "namespace subdir"
+    },
+    "config_files": ["repo.config.json", "workflow.yaml", ".gitconfig", ".gitignore"],
+    "docs": "optional: docs/*.config.json for large tangents only; else self-document in scripts (inline) or workflow",
+    "_digest_manifest": {
+      "flow_and_hook": "workflow.yaml",
+      "normalized_spec": "workflow.yaml#normalized",
+      "format_list": "image-formats.txt",
+      "hook_impl": ".hooks/pre-commit",
+      "install_steps": "workflow.yaml#flow"
+    }
+  },
+  "deps": ["magick", "exiftool", "parallel"],
+  "after_clone": [".hooks/scripts/setup.sh"],
+  "normalized": { "_ref": "workflow.yaml#normalized", "path": "webp/<name>.webp", "size": "1024x1024", "format": "webp", "metadata": "stripped" },
+  "hook": { "_ref": "workflow.yaml#hook", "allow": ["webp/**/*.webp @ 1024x1024", "non-image files in root"], "block": ["webp/**/*.{png,icns,...}", "root images", "webp/**/*.webp !1024x1024"], "on_allow": "strip metadata" },
+  "add": ["./bin/squircle.sh <file>", "output -> webp/<name>.webp"],
+  "url": "https://raw.githubusercontent.com/vdutts7/webp/main/webp/{name}.webp",
+  "format": "![icon](url)"
+}
