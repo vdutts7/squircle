@@ -1,7 +1,6 @@
 # Ignore everything
 *
 
-# Repo root
 !.gitignore
 !.gitconfig
 !.hooks/
@@ -12,7 +11,6 @@
 !bin/
 !bin/**
 
-# Optional (root-level)
 !git-template
 
 # Icons and source images (webp/ and namespaced subdirs: webp/aws/, webp/macos/, etc.)
