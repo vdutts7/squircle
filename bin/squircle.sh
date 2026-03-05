@@ -220,11 +220,11 @@ build_mask() {
   echo "$MASK_TMP"
 }
 
-# --- Render: OPAQUE fill (scale to fill frame) ---
+# --- Render: OPAQUE fill (trim transparent edges, then scale to fill frame) ---
 render_opaque_fill() {
   local raster="$1" mask="$2" output="$3" size="$4"
   $MAGICK -limit thread 1 \
-    \( "$raster" -resize "${size}x${size}^" -gravity center -extent "${size}x${size}" \) \
+    \( "$raster" -trim +repage -resize "${size}x${size}^" -gravity center -extent "${size}x${size}" \) \
     "$mask" -alpha off -compose CopyOpacity -composite \
     -define webp:method=$WEBP_METHOD -quality $WEBP_QUALITY "$output"
 }
