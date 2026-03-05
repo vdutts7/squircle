@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Run squircle on every file in a directory in parallel (GNU Parallel).
 # Usage: squircle-batch.sh <directory>
-# -j 0 = one job per CPU core; avoids overloading. Export WEBP to send output to webp/.
+# -j 0 = one job per CPU core; avoids overloading. Export SQUIRCLE ($A/squircle) to send output to webp/.
 
 set -e
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"

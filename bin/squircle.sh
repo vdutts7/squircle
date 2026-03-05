@@ -54,7 +54,7 @@ Options:
   --bg #HEX        Background color (e.g. #FFFFFF). With --padding, margin color.
   --icon-color #   Recolor logo (transparent-background path only).
   --size N         Output size (default: 1024).
-  --out path.webp  Output path. Default: \$WEBP/webp/<name>.webp or same dir as input.
+  --out path.webp  Output path. Default: \$SQUIRCLE/webp/<name>.webp or same dir as input.
   --padding        Center logo with margin (SVGs/edge-to-edge). Default: fill (scale to fill frame).
 
   -h, --help       Show this help.
@@ -128,9 +128,9 @@ parse_args() {
   [[ ! -f "$INPUT" ]] && { echo "🔴 Not a file: $INPUT" >&2; exit 1; }
   : "${SIZE:=$DEFAULT_SIZE}"
   if [[ -z "$OUTPUT" ]]; then
-    if [[ -n "${WEBP:-}" ]]; then
-      mkdir -p "$WEBP/webp"
-      OUTPUT="$WEBP/webp/${INPUT:t:r}.webp"
+  if [[ -n "${SQUIRCLE:-}" ]]; then
+      mkdir -p "$SQUIRCLE/webp"
+      OUTPUT="$SQUIRCLE/webp/${INPUT:t:r}.webp"
     else
       OUTPUT="${INPUT:r}.webp"
     fi

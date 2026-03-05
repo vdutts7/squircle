@@ -45,6 +45,7 @@
   "normalized": { "_ref": "workflow.yaml#normalized", "path": "webp/<name>.webp", "size": "1024x1024", "format": "webp", "metadata": "stripped" },
   "hook": { "_ref": "workflow.yaml#hook", "allow": ["webp/**/*.webp @ 1024x1024", "non-image files in root"], "block": ["webp/**/*.{png,icns,...}", "root images", "webp/**/*.webp !1024x1024"], "on_allow": "strip metadata" },
   "add": ["./bin/squircle.sh <file>", "output -> webp/<name>.webp"],
-  "url": "https://raw.githubusercontent.com/vdutts7/webp/main/webp/{name}.webp",
+  "repo_env": "SQUIRCLE=$A/squircle (this repo, check ~/.zshrc)",
+  "url": "https://raw.githubusercontent.com/vdutts7/squircle/main/webp/{name}.webp",
   "format": "![icon](url)"
 }
