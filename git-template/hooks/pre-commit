@@ -1,0 +1,11 @@
+#!/bin/sh
+# Stub: only blocks commit if this repo has .hooks/scripts/setup.sh and it hasn't been run.
+# After setup.sh runs, Git uses core.hooksPath and runs .hooks/pre-commit instead; this file is not used.
+# One-time per machine: git config --global init.templateDir "$(pwd)/git-template" (from this repo root)
+ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
+[ -z "$ROOT" ] && exit 0
+[ ! -f "$ROOT/.hooks/scripts/setup.sh" ] && exit 0
+hp="$(git config core.hooksPath 2>/dev/null)"
+[ "$hp" = ".hooks" ] && exit 0
+echo "Run .hooks/scripts/setup.sh first (one-time per clone)."
+exit 1

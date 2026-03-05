@@ -1,0 +1,54 @@
+#!/bin/zsh
+# pre-commit: block commits that contain unnormalized images.
+# Normalized = 1024×1024 WebP under webp/ (any depth: webp/, webp/aws/, webp/macos/, etc.), metadata stripped.
+
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+
+MAGICK=/opt/homebrew/bin/magick
+[[ -x "$MAGICK" ]] || MAGICK=/usr/local/bin/magick
+
+FORMATS_FILE="$ROOT/image-formats.txt"
+[[ ! -f "$FORMATS_FILE" ]] && { echo "Missing image-formats.txt"; exit 1; }
+
+exts=( ${(f)"$(awk -F'\t' '!/^#/ && $1 != "" {print $1}' "$FORMATS_FILE")"} )
+ext_pattern='\.('"${(j:|:)exts}"')$'
+
+# Staged image files only under webp/ (any depth)
+staged=(${(f)"$(git diff --cached --name-only --diff-filter=ACM | grep -iE "$ext_pattern" | grep -E '^webp/')"})
+
+[[ ${#staged[@]} -eq 0 ]] && exit 0
+
+# Under webp/: only .webp allowed
+unnormalized=()
+for f in "${staged[@]}"; do
+  ext="${f##*.}"
+  [[ "${ext:l}" != "webp" ]] && unnormalized+=("$f")
+done
+
+if [[ ${#unnormalized[@]} -gt 0 ]]; then
+  echo "❌ Unnormalized images staged (only webp/…/*.webp at 1024×1024 allowed):"
+  for f in "${unnormalized[@]}"; do echo "   $f"; done
+  echo ""
+  echo "Put source images in webp/ (or webp/aws/, webp/macos/, etc.), then: squircle <file> [--out webp/<name>.webp]  (or ./bin/squircle.sh if not in \$CURTOOLS)"
+  exit 1
+fi
+
+# For staged webp/**/*.webp: require 1024×1024, then strip metadata
+for f in "${staged[@]}"; do
+  [[ ! -f "$f" ]] && continue
+  [[ "${f#webp/}" == "$f" ]] && continue
+  [[ "${f:l}" != *.webp ]] && continue
+
+  dims=$($MAGICK identify -format "%wx%h" "$f" 2>/dev/null) || dims=""
+  if [[ "$dims" != "1024x1024" ]]; then
+    echo "❌ $f is not 1024×1024 (got: ${dims:-unknown}). Normalize first: squircle or ./bin/squircle.sh"
+    exit 1
+  fi
+
+  exiftool -all= -overwrite_original -q -q "$f" 2>/dev/null || true
+  xattr -c "$f" 2>/dev/null || true
+  git add "$f"
+done
+
+echo "✅ Done"

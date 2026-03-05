@@ -1,0 +1,110 @@
+# image-formats.txt - Extensions allowed for normalization (normalizer + pre-commit).
+# One per line. Optional second column: [0] = use first frame/page.
+png
+apng	[0]
+jpg
+jpeg
+jpe
+gif
+bmp
+dib
+tiff
+tif
+webp
+avif
+heic
+heif
+#
+# JPEG 2000 / XL / XR
+jp2
+j2k
+j2c
+jpt
+jpf
+jpx
+jxl
+jxr
+wdp
+#
+# Other raster
+bpg
+dds
+exr
+hdr
+tga
+pcx
+pbm
+pgm
+ppm
+pnm
+pfm
+phm
+pict
+pct
+cut
+sgi
+sun
+ras
+viff
+vif
+xbm
+xpm
+wbmp
+jng
+mng	[0]
+flif
+qoi
+ff
+dpx
+cin
+fits
+fit
+fts
+miff
+pcd
+pcds
+psd
+psb
+ptif
+xcf
+ora
+art
+avs
+dcx	[0]
+fpx
+hrz
+mtv
+otb
+palm
+pdb
+pix
+pwp
+rad
+rla
+rle
+sct
+sfw
+tim
+vicar
+#
+# Icon / cursor (multi-resolution, use first frame)
+ico	[0]
+icns	[0]
+cur	[0]
+#
+# Vector / document (rasterized; first page/frame)
+svg
+svgz
+pdf	[0]
+eps	[0]
+epsf	[0]
+epsi	[0]
+ept	[0]
+epi	[0]
+ps	[0]
+ps2	[0]
+ps3	[0]
+ai
+emf
+wmf
+xwd
