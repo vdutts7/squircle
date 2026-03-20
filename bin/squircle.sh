@@ -1,11 +1,128 @@
 #!/bin/zsh
-# squircle.sh - One image in → squircle WebP out. Or: <dir> → batch (parallel over dir, output to webp/).
-# Usage: squircle <file> [options]   OR   squircle <directory>
-# File: pipeline as below. Directory: GNU Parallel over all files, output to $SQUIRCLE/webp/.
+# =============================================================================
+# SPEC: squircle.sh — raster input → 1024² (default) WebP composited with squircle alpha mask; transparent outside mask.
+# Machine-oriented header: behavior contracts, flags, algorithms, non-goals. Human README elsewhere.
+# =============================================================================
 #
-# Pipeline: parse → normalize input to raster → get background (or OPAQUE) → build mask → render → strip metadata.
-# Render paths: OPAQUE fill (scale to fill) | OPAQUE + --padding (centered, margin = --bg or white) | transparent base + logo.
-# Scriptify-compliant: ENV load, show_help, trap EXIT/ERR/TERM/INT, logmoji, ensure_dependency, retry for external calls.
+# ENTRY_MODES:
+#   file_mode: argv[1] is regular file → parse_args → main → exit (no parallel).
+#   dir_mode:  argv[1] is directory → router → spawn children (see BATCH_ROUTER) → exit 0 after "Done.".
+#
+# INTERFACE (CLI → globals in parse_args / router locals):
+#   --size N                    SIZE default=DEFAULT_SIZE (1024).
+#   --out PATH                  OUTPUT WebP path.
+#   --out-dir DIR               batch only; default_out_dir="${SQUIRCLE:-<repo_root>}/webp".
+#   --overwrite                 batch + --no-clip-queue: allow replacing existing OUTPUT (see SKIP_RULES).
+#   --bg #RRGGBB                BG_OVERRIDE; forces background path in get_background; margin color when padding.
+#   --icon-color #RRGGBB        transparent-logo path only (render_with_base).
+#   --padding [N]               OPAQUE_PADDING=1; N optional → PADDING_PX; if omitted logo_size=SIZE*LOGO_RATIO/1024.
+#   --clip-detect               CLIP_DETECT=1; opaque: compute_clip_marker pre-render; may call mitigate_opaque_clipping.
+#   --clip-detect-only          CLIP_DETECT=1 CLIP_DETECT_ONLY=1; exit after marker, no WebP write.
+#   --clip-threshold X          CLIP_THRESHOLD default 0.05; clip if corner_mean_diff >= X.
+#   --clip-crop-divisor D       CLIP_CROP_DIVISOR default 11; corner crop side = clamp(SIZE/D,32,128).
+#   --clip-padding-start N      CLIP_PADDING_START default 100 (mitigation first numeric padding try for fill→pad).
+#   --clip-padding-step N       CLIP_PADDING_STEP default 50 (added per failed mitigation iteration).
+#   --clip-padding-max-iter K   CLIP_PADDING_MAX_ITER default 4 (mitigation loop upper bound).
+#   --clip-queue / --no-clip-queue   batch only; clip_queue default 1.
+#   --clip-keep-markers         batch: do not delete OUTPUT.CLIPPED after run; skip unfixed cleanup rm.
+#
+# ENV:
+#   SQUIRCLE                    repo root default for OUTPUT and batch out_dir when unset.
+#   ENV_FILE                    default "$HOME/scripts/.env"; sourced if present (non-fatal).
+#   MAGICK_THREAD_LIMIT         export 1 (serialized IM).
+#
+# CONSTANTS (edit in-script):
+#   DEFAULT_SIZE=1024 LOGO_RATIO=824 WEBP_QUALITY=95 WEBP_METHOD=4 RETRY_ATTEMPTS=3 RETRY_SLEEP=1
+#   MAGICK=/opt/homebrew/bin/magick fallback /usr/local/bin/magick
+#   MASK_FILE="$SCRIPT_DIR/mask.png" | fallback mask = roundRect corner radius SIZE/4 threshold 50%
+#   CLIP_MARKER_SUFFIX=".CLIPPED"
+#   SQUIRCLE_TMPBASE="${TMPDIR:-/tmp}/squircle_$$" — all intermediate PNGs (mask, svg raster, clip_*) use ${SQUIRCLE_TMPBASE}.<suffix>.png (not SCRIPT_DIR; avoids IDE watcher churn in repo)
+#
+# PIPELINE_ORDER (main):
+#   parse_args → ensure_magick → normalize_input → BG_HEX=get_background(IN_FOR_MAGICK) → build_mask(SIZE)
+#   → compute padding_bg logo_size → [CLIP_DETECT opaque: compute_clip_marker]
+#   → [render branch] → strip_metadata(OUTPUT) → stdout status line.
+#
+# NORMALIZE_INPUT (input extension):
+#   .icns+Darwin → sips → TMP_PNG
+#   .ico/.cur     → magick "raw[0]" resize → TMP_PNG
+#   .svg/.svgz    → rsvg-convert (-w/-h SIZE) else qlmanage -t -s SIZE → TMP_* ; failure → exit 1
+#   else          → IN_FOR_MAGICK=raw path
+#
+# BACKGROUND_CLASS:
+#   get_background: if BG_OVERRIDE set → echo it; else get-bg-color.sh → #HEX | OPAQUE | NEXT→#FFFFFF
+#   BG_HEX==OPAQUE → render_opaque_* ; else render_with_base(BG_HEX).
+#
+# RENDER_OPAQUE_FILL:
+#   magick: (raster -trim +repage -resize SxS^ -gravity center -extent SxS) + mask CopyOpacity → WebP.
+#
+# RENDER_OPAQUE_PADDING:
+#   logo_size=max(8, SIZE-2*PADDING_PX) when PADDING_PX set; else ratio branch above.
+#   magick: (raster -resize ${logo_size}x${logo_size}^ -gravity center -background margin -extent SxS) + mask → WebP.
+#   margin: padding_bg; if OPAQUE_PADDING && default #FFFFFF → sample_corner_bg_hex(IN_FOR_MAGICK).
+#
+# RENDER_TRANSPARENT (BG_HEX not OPAQUE):
+#   xc:bg + logo scaled to logo_size extent center; optional icon_color alpha trick; mask CopyOpacity → WebP.
+#
+# CLIP_DETECT_ALGORITHM (opaque only; compute_clip_marker):
+#   Build CLIP_FRAME_TMP = unmasked square frame (fill: trim+resize^+extent; padding: resize^+extent with margin).
+#   CLIP_MASKED_TMP = CLIP_FRAME_TMP composed with mask alpha CopyOpacity.
+#   diff_bg_hex = sample_corner_bg_hex(CLIP_FRAME_TMP)   # avoids false unclipped on white icons vs hardcoded white.
+#   Flatten frame and masked to diff_bg_hex (alpha remove); difference composite → CLIP_DIFF_TMP.
+#   crop_px = clamp(SIZE/CLIP_CROP_DIVISOR, 32, 128); x=y=SIZE-crop_px.
+#   clip_score = mean(tl,tr,bl,br) of %[fx:mean] on each crop of CLIP_DIFF_TMP.
+#   clipped = (clip_score >= CLIP_THRESHOLD) ? 1 : 0.
+#   marker path = "${OUTPUT}${CLIP_MARKER_SUFFIX}"; clipped → : > marker ; else rm -f marker.
+#
+# MITIGATION (mitigate_opaque_clipping; invoked when CLIP_DETECT && OPAQUE && marker present before/instead of bad render):
+#   Regresses prior bug: single-file --clip-detect used to write .CLIPPED but still output fill-only WebP.
+#   Loop iter in 0..CLIP_PADDING_MAX_ITER-1:
+#     pad = start_pad + iter*CLIP_PADDING_STEP ; start_pad = CLIP_PADDING_START (fill path)
+#           or PADDING_PX+CLIP_PADDING_STEP (explicit --padding path still clipped).
+#     Set OPAQUE_PADDING=1 PADDING_PX=pad; recompute logo_size margin; compute_clip_marker; render_opaque_padding.
+#     Break if marker absent.
+#   If still clipped after loop: marker remains; batch post-pass records OUTPUT in out_dir/.clip_queue_unfixed.txt.
+#
+# CLIP_DETECT branch summary (opaque):
+#   !marker after initial compute → render fill OR user padding render once.
+#   marker → mitigate loop (no fill-only output for fill+clipped case).
+#
+# BATCH_ROUTER (argv[1] is directory):
+#   Preconditions: command -v parallel (required for all dir_mode; clip-queue uses sequential child spawns anyway).
+#   ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"; SQUIRCLE="${SQUIRCLE:-$ROOT}".
+#   Enumerate: for f in "$INPUT_DIR"/**/* ; [[ -f "$f" ]] → pairs (input, output).
+#   output_path = "${out_dir}/${rel_without_input_prefix%.*}.webp"; mkdir -p "${out_path:h}".
+#   Arrays all_inputs/all_outputs: zsh 1-based indices in run_*_by_indexes loops.
+#   SKIP_RULES:
+#     clip_queue==1 → never continue/skip on existing output (full tree reprocessed each run).
+#     clip_queue==0 → skip if [[ -f out_path && overwrite -ne 1 ]].
+#   clip_queue==1 → run_sequential_by_indexes all; CLIP_EXTRA_ARGS=(
+#       --clip-detect --clip-threshold --clip-crop-divisor
+#       --clip-padding-start --clip-padding-step --clip-padding-max-iter ).
+#   clip_queue==0 → run_parallel_by_indexes all; parallel -j 0 tab-separated; CLIP_EXTRA_ARGS=().
+#   Child argv: "$SCRIPT_DIR/$SCRIPT_NAME" INPUT --out OUTPUT $CLIP_EXTRA_ARGS $pass_args
+#   pass_args: strips argv[1], --out-dir*, --out*, --overwrite, all clip-queue tuning flags, --padding* (batch output path fixed).
+#   Post clip_queue==1 && !clip_keep_markers: truncate out_dir/.clip_queue_unfixed.txt; for each planned OUTPUT append line if
+#     OUTPUT.CLIPPED exists then rm marker (report lists unfixed paths).
+#
+# OUTPUT_ARTIFACTS:
+#   Primary: OUTPUT.webp
+#   Side: OUTPUT.CLIPPED (empty file; presence means heuristic still clipped after mitigation); batch cleanup removes unless
+#     --clip-keep-markers.
+#   Batch report: "${out_dir}/.clip_queue_unfixed.txt" (one OUTPUT path per line; empty file if none unfixed).
+#
+# STRIP_METADATA: exiftool -all= -overwrite_original; xattr -c; both errors ignored.
+#
+# NON_GOALS / HARD_LIMITS:
+#   interpreter=zsh only (${0:h}, arrays, glob **, parse_args indexing).
+#   dir_mode hard-depends on GNU parallel binary even when clip_queue sequential.
+#   clip metric = corner mean of |frame−masked| post-flatten; not geometric stroke bbox; false+/false− possible.
+#   mitigation capped at CLIP_PADDING_MAX_ITER; no unbounded padding search.
+#   no file locking; concurrent writers same OUTPUT undefined behavior.
+#   transparent BG path: no mitigate_opaque_clipping; CLIP_DETECT clears marker for non-opaque.
+#   SVG pixel identity varies by rsvg-convert vs qlmanage.
+#
+# =============================================================================
 
 set -e
 setopt pipefail 2>/dev/null || true
@@ -30,6 +147,9 @@ WEBP_METHOD=4
 RETRY_ATTEMPTS=3
 RETRY_SLEEP=1
 
+# Ephemeral rasters (must NOT live under SCRIPT_DIR: IDE file watchers on $PWD/repo jerk on create/delete).
+typeset -g SQUIRCLE_TMPBASE="${TMPDIR:-/tmp}/squircle_$$"
+
 # Temp paths (cleaned in trap)
 typeset -g MASK_TMP TMP_PNG TMP_SVG_PNG TMP_QL_DIR
 MASK_TMP=""; TMP_PNG=""; TMP_SVG_PNG=""; TMP_QL_DIR=""
@@ -46,6 +166,11 @@ cleanup() {
   [[ -n "$CLIP_DIFF_TMP" && -f "$CLIP_DIFF_TMP" ]] && rm -f "$CLIP_DIFF_TMP"
   [[ -n "$CLIP_FRAME_FLAT_TMP" && -f "$CLIP_FRAME_FLAT_TMP" ]] && rm -f "$CLIP_FRAME_FLAT_TMP"
   [[ -n "$CLIP_MASKED_FLAT_TMP" && -f "$CLIP_MASKED_FLAT_TMP" ]] && rm -f "$CLIP_MASKED_FLAT_TMP"
+  # Belt-and-suspenders: squircle_${$}.* under TMPDIR (signal mid-run); omit dirs (rm -f skips dirs).
+  if [[ -n "${SQUIRCLE_TMPBASE:-}" ]]; then
+    () { setopt local_options null_glob; rm -f "${SQUIRCLE_TMPBASE}".*; }
+    [[ -d "${SQUIRCLE_TMPBASE}.ql.d" ]] && rm -rf "${SQUIRCLE_TMPBASE}.ql.d"
+  fi
 }
 trap 'cleanup; exit' EXIT
 trap 'cleanup; exit 1' ERR
@@ -66,10 +191,9 @@ Options:
   --out-dir DIR    Output directory (batch mode only). Created if missing.
                    Directory mode is recursive and preserves the input folder structure:
                    <out-dir>/<relative_path_from_input>/<basename>.webp (existing files are skipped).
-  --clip-queue     Batch: detect likely edge clipping then rerender with increasing padding until fixed. (default)
-  --no-clip-queue  Disable automatic clip detection + rerender in batch mode.
-                   Creates marker files: <output>.CLIPPED
-                   Queue output path stays the same; only padding changes.
+  --clip-queue     Batch: detect likely edge clipping; each file rerenders with increasing padding until fixed. (default)
+  --no-clip-queue  Disable automatic clip detection + padding escalation in batch mode.
+                   With --clip-detect on a single file, creates <output>.CLIPPED if still clipped after max tries.
   --clip-keep-markers  Keep .CLIPPED marker files after queue finishes (otherwise deleted; report kept).
   --clip-padding-start N   Initial padding px (default: 100).
   --clip-padding-step  N   Padding increment per iteration (default: 50).
@@ -243,29 +367,18 @@ if [[ $# -ge 1 && -d "$1" ]]; then
   }
 
   if (( clip_queue == 1 )); then
-    # Iteration 0: fill-mode detect-only (no --padding), write markers next to outputs.
+    # One pass per file: child runs fill clip-detect, then escalates padding internally until unclipped or max iter.
     typeset -a idxs=()
     for ((i=1; i<=${#all_inputs[@]}; i++)); do idxs+=("$i"); done
-    CLIP_EXTRA_ARGS=(--clip-detect --clip-threshold "$clip_threshold" --clip-crop-divisor "$clip_crop_divisor")
+    CLIP_EXTRA_ARGS=(
+      --clip-detect
+      --clip-threshold "$clip_threshold"
+      --clip-crop-divisor "$clip_crop_divisor"
+      --clip-padding-start "$clip_padding_start"
+      --clip-padding-step "$clip_padding_step"
+      --clip-padding-max-iter "$clip_padding_max_iter"
+    )
     run_sequential_by_indexes "${idxs[@]}"
-
-    # Subsequent iterations: rerender only files whose marker still exists.
-    iter=1
-    pad="$clip_padding_start"
-    while (( iter <= clip_padding_max_iter )); do
-      typeset -a rerun_idxs=()
-      for ((i=1; i<=${#all_outputs[@]}; i++)); do
-        marker="${all_outputs[$i]}.CLIPPED"
-        [[ -f "$marker" ]] && rerun_idxs+=("$i")
-      done
-      (( ${#rerun_idxs[@]} == 0 )) && break
-
-      CLIP_EXTRA_ARGS=(--clip-detect --padding "$pad" --clip-threshold "$clip_threshold" --clip-crop-divisor "$clip_crop_divisor")
-      run_sequential_by_indexes "${rerun_idxs[@]}"
-
-      pad=$(( pad + clip_padding_step ))
-      iter=$(( iter + 1 ))
-    done
   else
     # Normal batch mode: run over all_inputs/all_outputs (already filtered by skip/overwrite).
     typeset -a idxs=()
@@ -324,9 +437,11 @@ parse_args() {
   typeset -a save_args=("$@")
   typeset -g BG_OVERRIDE ICON_COLOR SIZE OUTPUT INPUT OPAQUE_PADDING PADDING_PX
   typeset -g CLIP_DETECT CLIP_DETECT_ONLY CLIP_THRESHOLD CLIP_CROP_DIVISOR CLIP_MARKER_SUFFIX
+  typeset -g CLIP_PADDING_START CLIP_PADDING_STEP CLIP_PADDING_MAX_ITER
   BG_OVERRIDE=(); ICON_COLOR=(); SIZE=(); OUTPUT=(); INPUT=""
   OPAQUE_PADDING=0; PADDING_PX=""
   CLIP_DETECT=0; CLIP_DETECT_ONLY=0; CLIP_THRESHOLD="0.05"; CLIP_CROP_DIVISOR=11; CLIP_MARKER_SUFFIX=".CLIPPED"
+  CLIP_PADDING_START=100; CLIP_PADDING_STEP=50; CLIP_PADDING_MAX_ITER=4
   typeset -a args=()
   next=""
   for a in "${save_args[@]}"; do
@@ -336,6 +451,9 @@ parse_args() {
     if [[ "$next" == "out" ]]; then OUTPUT="$a"; next=""; continue; fi
     if [[ "$next" == "clip-threshold" ]]; then CLIP_THRESHOLD="$a"; next=""; continue; fi
     if [[ "$next" == "clip-crop-divisor" ]]; then CLIP_CROP_DIVISOR="$a"; next=""; continue; fi
+    if [[ "$next" == "clip-padding-start" ]]; then CLIP_PADDING_START="$a"; next=""; continue; fi
+    if [[ "$next" == "clip-padding-step" ]]; then CLIP_PADDING_STEP="$a"; next=""; continue; fi
+    if [[ "$next" == "clip-padding-max-iter" ]]; then CLIP_PADDING_MAX_ITER="$a"; next=""; continue; fi
     if [[ "$next" == "padding" ]]; then
       [[ "$a" == [0-9]* ]] && PADDING_PX="$a"
       next=""
@@ -352,11 +470,17 @@ parse_args() {
       --clip-detect-only) CLIP_DETECT=1; CLIP_DETECT_ONLY=1 ;;
       --clip-threshold) next="clip-threshold" ;;
       --clip-crop-divisor) next="clip-crop-divisor" ;;
+      --clip-padding-start) next="clip-padding-start" ;;
+      --clip-padding-start=*) CLIP_PADDING_START="${a#--clip-padding-start=}" ;;
+      --clip-padding-step) next="clip-padding-step" ;;
+      --clip-padding-step=*) CLIP_PADDING_STEP="${a#--clip-padding-step=}" ;;
+      --clip-padding-max-iter) next="clip-padding-max-iter" ;;
+      --clip-padding-max-iter=*) CLIP_PADDING_MAX_ITER="${a#--clip-padding-max-iter=}" ;;
       *) args+=("$a") ;;
     esac
   done
   [[ "$next" == "padding" ]] && { OPAQUE_PADDING=1; next=""; }
-  [[ ${#args[@]} -lt 1 ]] && { echo "🔴 Usage: $0 <input> [--bg #HEX] [--icon-color #HEX] [--size 1024] [--out path.webp] [--padding [N]] [--clip-detect|--clip-detect-only] [--clip-threshold X] [--clip-crop-divisor D]" >&2; exit 1; }
+  [[ ${#args[@]} -lt 1 ]] && { echo "🔴 Usage: $0 <input> [--bg #HEX] [--icon-color #HEX] [--size 1024] [--out path.webp] [--padding [N]] [--clip-detect|--clip-detect-only] [--clip-threshold X] [--clip-crop-divisor D] [--clip-padding-start N] [--clip-padding-step N] [--clip-padding-max-iter K]" >&2; exit 1; }
   INPUT="${args[1]}"
   # Only use args[2] as OUTPUT if it looks like a path (has . or /), not a number
   if [[ -z "$OUTPUT" && -n "${args[2]:-}" && "${args[2]}" != --* ]]; then
@@ -384,12 +508,12 @@ normalize_input() {
   IN_FOR_MAGICK="$raw"
   # .icns → PNG (macOS)
   if [[ "$(uname)" == Darwin ]] && [[ "$raw" == *".icns" ]]; then
-    TMP_PNG="${SCRIPT_DIR}/.squircle_tmp_$$.png"
+    TMP_PNG="${SQUIRCLE_TMPBASE}.tmp.png"
     retry_run $SIPS -s format png "$raw" --out "$TMP_PNG" && IN_FOR_MAGICK="$TMP_PNG"
   fi
   # .ico / .cur → first frame to PNG (multi-resolution; use [0])
   if [[ "$raw" == *".ico" ]] || [[ "$raw" == *".cur" ]]; then
-    TMP_PNG="${SCRIPT_DIR}/.squircle_tmp_$$.png"
+    TMP_PNG="${SQUIRCLE_TMPBASE}.tmp.png"
     retry_run $MAGICK "${raw}[0]" -resize "${size}x${size}" "$TMP_PNG" && IN_FOR_MAGICK="$TMP_PNG"
   fi
   # .svg / .svgz → PNG (rsvg-convert or macOS Quick Look)
@@ -397,11 +521,11 @@ normalize_input() {
     local rsvg=/opt/homebrew/bin/rsvg-convert
     [[ -x "$rsvg" ]] || rsvg=/usr/local/bin/rsvg-convert
     if [[ -x "$rsvg" ]]; then
-      TMP_SVG_PNG="${SCRIPT_DIR}/.squircle_svg_$$.png"
+      TMP_SVG_PNG="${SQUIRCLE_TMPBASE}.svg.png"
       retry_run $rsvg -w "$size" -h "$size" "$raw" -o "$TMP_SVG_PNG" && IN_FOR_MAGICK="$TMP_SVG_PNG"
     fi
     if [[ "$(uname)" == Darwin ]] && { [[ -z "$IN_FOR_MAGICK" ]] || [[ "$IN_FOR_MAGICK" == "$raw" ]]; }; then
-      TMP_QL_DIR="${TMPDIR:-/tmp}/squircle_svg_$$.d"
+      TMP_QL_DIR="${SQUIRCLE_TMPBASE}.ql.d"
       mkdir -p "$TMP_QL_DIR"
       if retry_run qlmanage -t -s "$size" -o "$TMP_QL_DIR" "$raw"; then
         local ql_png="${TMP_QL_DIR}/${raw:t}.png"
@@ -466,7 +590,7 @@ sample_corner_bg_hex() {
 # --- Mask: IconSur mask.png or round-rect fallback ---
 build_mask() {
   local size="$1"
-  MASK_TMP="${SCRIPT_DIR}/.mask_$$.png"
+  typeset -g MASK_TMP="${SQUIRCLE_TMPBASE}.mask.png"
   if [[ -f "$MASK_FILE" ]]; then
     $MAGICK -limit thread 1 "$MASK_FILE" -resize "${size}x${size}" -alpha extract -threshold 50% "$MASK_TMP"
   else
@@ -526,11 +650,11 @@ compute_clip_marker() {
   x=$(( size - crop_px ))
   y=$(( size - crop_px ))
 
-  CLIP_FRAME_TMP="${SCRIPT_DIR}/.clip_frame_$$.png"
-  CLIP_MASKED_TMP="${SCRIPT_DIR}/.clip_masked_$$.png"
-  CLIP_DIFF_TMP="${SCRIPT_DIR}/.clip_diff_$$.png"
-  CLIP_FRAME_FLAT_TMP="${SCRIPT_DIR}/.clip_frame_flat_$$.png"
-  CLIP_MASKED_FLAT_TMP="${SCRIPT_DIR}/.clip_masked_flat_$$.png"
+  CLIP_FRAME_TMP="${SQUIRCLE_TMPBASE}.clip_frame.png"
+  CLIP_MASKED_TMP="${SQUIRCLE_TMPBASE}.clip_masked.png"
+  CLIP_DIFF_TMP="${SQUIRCLE_TMPBASE}.clip_diff.png"
+  CLIP_FRAME_FLAT_TMP="${SQUIRCLE_TMPBASE}.clip_frame_flat.png"
+  CLIP_MASKED_FLAT_TMP="${SQUIRCLE_TMPBASE}.clip_masked_flat.png"
 
   if [[ $OPAQUE_PADDING -eq 1 ]]; then
     # Padding mode unmasked: scaled logo centered with margin background.
@@ -570,6 +694,33 @@ compute_clip_marker() {
   else
     [[ -f "$marker" ]] && rm -f "$marker"
   fi
+}
+
+# When clip-detect says the opaque render would clip, rerender with numeric padding,
+# increasing until the marker clears or we hit max_iter (same defaults as batch clip-queue).
+mitigate_opaque_clipping() {
+  local start_pad="$1" step="$2" max_iter="$3"
+  local pad="$start_pad" iter=0 ls margin
+
+  while (( iter < max_iter )); do
+    typeset -g OPAQUE_PADDING=1
+    typeset -g PADDING_PX=$pad
+    ls=$(( SIZE - 2 * PADDING_PX ))
+    (( ls < 8 )) && ls=8
+    margin="#FFFFFF"
+    if (( ${#BG_OVERRIDE[@]} > 0 )); then
+      margin="$BG_OVERRIDE[1]"
+    fi
+    if [[ "$BG_HEX" == "OPAQUE" && "$margin" == "#FFFFFF" ]]; then
+      margin="$(sample_corner_bg_hex "$IN_FOR_MAGICK" || echo "#FFFFFF")"
+    fi
+    compute_clip_marker "$IN_FOR_MAGICK" "$MASK_TMP" "$SIZE" "$margin" "$ls" || true
+    render_opaque_padding "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$margin" "$ls"
+    [[ ! -f "${OUTPUT}${CLIP_MARKER_SUFFIX}" ]] && return 0
+    pad=$(( pad + step ))
+    iter=$(( iter + 1 ))
+  done
+  return 0
 }
 
 # --- Strip metadata (repo standard) ---
@@ -617,10 +768,30 @@ main() {
   fi
 
   if [[ "$BG_HEX" == "OPAQUE" ]]; then
-    if [[ $OPAQUE_PADDING -eq 1 ]]; then
-      render_opaque_padding "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$padding_bg" "$logo_size"
+    if (( CLIP_DETECT == 1 )); then
+      if [[ $OPAQUE_PADDING -eq 1 ]]; then
+        if [[ -f "${OUTPUT}${CLIP_MARKER_SUFFIX}" ]]; then
+          local mit_start="$CLIP_PADDING_START"
+          if [[ -n "$PADDING_PX" && "$PADDING_PX" -ge 0 ]]; then
+            mit_start=$(( PADDING_PX + CLIP_PADDING_STEP ))
+          fi
+          mitigate_opaque_clipping "$mit_start" "$CLIP_PADDING_STEP" "$CLIP_PADDING_MAX_ITER"
+        else
+          render_opaque_padding "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$padding_bg" "$logo_size"
+        fi
+      else
+        if [[ -f "${OUTPUT}${CLIP_MARKER_SUFFIX}" ]]; then
+          mitigate_opaque_clipping "$CLIP_PADDING_START" "$CLIP_PADDING_STEP" "$CLIP_PADDING_MAX_ITER"
+        else
+          render_opaque_fill "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE"
+        fi
+      fi
     else
-      render_opaque_fill "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE"
+      if [[ $OPAQUE_PADDING -eq 1 ]]; then
+        render_opaque_padding "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$padding_bg" "$logo_size"
+      else
+        render_opaque_fill "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE"
+      fi
     fi
   else
     render_with_base "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$BG_HEX" "$ICON_COLOR" "$logo_size"
@@ -628,7 +799,15 @@ main() {
 
   strip_metadata "$OUTPUT"
   if [[ "$BG_HEX" == "OPAQUE" ]]; then
-    echo "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: fill — transparent outside squircle)"
+    if [[ $OPAQUE_PADDING -eq 1 ]]; then
+      if [[ -n "$PADDING_PX" ]]; then
+        echo "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: padding ${PADDING_PX}px — transparent outside squircle)"
+      else
+        echo "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: padding (inset) — transparent outside squircle)"
+      fi
+    else
+      echo "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: fill — transparent outside squircle)"
+    fi
   else
     echo "🟢 $OUTPUT (${SIZE}×${SIZE}, bg ${BG_HEX})"
   fi

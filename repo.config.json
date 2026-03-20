@@ -12,7 +12,7 @@
       ".gitignore": "whitelist tracked paths (bin, webp, .hooks, etc)",
       "image-formats.txt": "extensions allowed for normalization; consumed by .hooks/pre-commit",
       "bin": "scripts + mask; see bin/* one-liners below",
-      "bin/squircle.sh": "one image → squircle WebP; or <dir> → batch (parallel -j 0). Supports --out-dir for recursive conversion and nested folder preservation; skips existing outputs. Also supports --clip-queue to detect likely edge clipping and rerender flagged files with increasing --padding until fixed (marker: <output>.CLIPPED).",
+      "bin/squircle.sh": "one image → squircle WebP; or <dir> → batch (parallel -j 0). Supports --out-dir for recursive conversion and nested folder preservation; skips existing outputs. --clip-queue (default in batch) passes --clip-detect per file; opaque fill that would clip is rerendered with escalating --padding in-process. Single-file --clip-detect does the same. Remaining <output>.CLIPPED after max iters is reported and markers cleaned unless --clip-keep-markers.",
       "bin/get-bg-color.sh": "edge/corner sampling → #HEX or OPAQUE; used by squircle.sh",
       "bin/sharpen.sh": "sharpen image; optional pre-step for sources",
       "bin/svg2png.sh": "convert by file type (SVG/JPEG/WebP/PNG) → PNG",
