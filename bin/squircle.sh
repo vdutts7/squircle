@@ -1,45 +1,29 @@
 #!/bin/zsh
 # =============================================================================
-# SPEC: squircle.sh — raster input → 1024² (default) WebP composited with squircle alpha mask; transparent outside mask.
-# Machine-oriented header: behavior contracts, flags, algorithms, non-goals. Human README elsewhere.
+# SPEC: squircle.sh — raster input → WebP composited with squircle alpha; transparent outside mask.
+# All tunables live in CONFIG below (no .env / no SQUIRCLE / no SQUIRCLE_PARALLEL_J). CLI overrides where listed.
 # =============================================================================
 #
 # ENTRY_MODES:
 #   file_mode: argv[1] is regular file → parse_args → main → exit (no parallel).
-#   dir_mode:  argv[1] is directory → router → spawn children (see BATCH_ROUTER) → exit 0 after "Done.".
+#   dir_mode:  argv[1] is directory → router → GNU Parallel children → exit 0 after "Done.".
 #
-# INTERFACE (CLI → globals in parse_args / router locals):
-#   --size N                    SIZE default=DEFAULT_SIZE (1024).
-#   --out PATH                  OUTPUT WebP path.
-#   --out-dir DIR               batch only; default_out_dir="${SQUIRCLE:-<repo_root>}/webp".
-#   --overwrite                 batch + --no-clip-queue: allow replacing existing OUTPUT (see SKIP_RULES).
-#   --bg #RRGGBB                BG_OVERRIDE; forces background path in get_background; margin color when padding.
-#   --icon-color #RRGGBB        transparent-logo path only (render_with_base).
-#   --padding [N]               OPAQUE_PADDING=1; N optional → PADDING_PX; if omitted logo_size=SIZE*LOGO_RATIO/1024.
-#   --clip-detect               CLIP_DETECT=1; opaque: compute_clip_marker pre-render; may call mitigate_opaque_clipping.
-#   --clip-detect-only          CLIP_DETECT=1 CLIP_DETECT_ONLY=1; exit after marker, no WebP write.
-#   --clip-threshold X          CLIP_THRESHOLD default 0.05; clip if corner_mean_diff >= X.
-#   --clip-crop-divisor D       CLIP_CROP_DIVISOR default 11; corner crop side = clamp(SIZE/D,32,128).
-#   --clip-padding-start N      CLIP_PADDING_START default 100 (mitigation first numeric padding try for fill→pad).
-#   --clip-padding-step N       CLIP_PADDING_STEP default 50 (added per failed mitigation iteration).
-#   --clip-padding-max-iter K   CLIP_PADDING_MAX_ITER default 6 (mitigation loop upper bound).
-#   --clip-queue / --no-clip-queue   batch only; clip_queue default 1.
-#   --clip-queue-sequential     batch: with clip_queue==1, use run_sequential_by_indexes (default clip-queue uses parallel -j "$parallel_jobs").
-#   --clip-keep-markers         batch: do not delete OUTPUT.CLIPPED after run; skip unfixed cleanup rm.
+# REPO_ROOT: parent of bin/ (directory containing this script’s bin/). Default --out and batch --out-dir use REPO_ROOT/webp/.
 #
-# ENV:
-#   SQUIRCLE                    repo root default for OUTPUT and batch out_dir when unset.
-#   ENV_FILE                    default "$HOME/scripts/.env"; sourced if present (non-fatal).
-#   MAGICK_THREAD_LIMIT         export 1 (serialized IM).
-#   SQUIRCLE_PARALLEL_J         batch GNU Parallel -j (default 100% = one job slot per CPU core; unset oversubscription).
-#                               export 125% or 200% for more I/O overlap if RAM/thermals allow; see help.
+# INTERFACE (CLI overrides; defaults from CONFIG):
+#   --size N                    output square size (CONFIG: DEFAULT_SIZE).
+#   --out PATH                  WebP path (default REPO_ROOT/webp/<input_basename>.webp).
+#   --out-dir DIR               batch only; default REPO_ROOT/webp if omitted.
+#   --overwrite                 batch + --no-clip-queue: replace existing outputs (see SKIP_RULES).
+#   --parallel-j ARG            batch only; GNU Parallel -j (default CONFIG: PARALLEL_J). E.g. 100%, 125%, 200%, 0.
+#   --bg / --icon-color / --padding  per-run logo path (unchanged).
+#   --clip-detect / --clip-detect-only / --clip-threshold / --clip-crop-divisor / --clip-padding-*  opaque clip pipeline.
+#   --clip-queue / --no-clip-queue / --clip-queue-sequential / --clip-keep-markers  batch routing.
 #
-# CONSTANTS (edit in-script):
-#   DEFAULT_SIZE=1024 LOGO_RATIO=824 WEBP_QUALITY=95 WEBP_METHOD=4 RETRY_ATTEMPTS=3 RETRY_SLEEP=1
-#   MAGICK=/opt/homebrew/bin/magick fallback /usr/local/bin/magick
-#   MASK_FILE="$SCRIPT_DIR/mask.png" | fallback mask = roundRect corner radius SIZE/4 threshold 50%
-#   CLIP_MARKER_SUFFIX=".CLIPPED"
-#   SQUIRCLE_TMPBASE="${TMPDIR:-/tmp}/squircle_$$" — all intermediate PNGs (mask, svg raster, clip_*) use ${SQUIRCLE_TMPBASE}.<suffix>.png (not SCRIPT_DIR; avoids IDE watcher churn in repo)
+# CONFIG (authoritative numbers — see block after SCRIPT_DIR):
+#   REPO_ROOT PARALLEL_J SQUIRCLE_TMP_PARENT DEFAULT_SIZE LOGO_RATIO WEBP_* RETRY_* 
+#   CLIP_PADDING_START STEP MAX_ITER THRESHOLD CROP_DIVISOR CLIP_MARKER_SUFFIX MAGICK SIPS MASK_FILE
+#   Ephemeral: SQUIRCLE_TMPBASE="${SQUIRCLE_TMP_PARENT}/squircle_$$" (+ .jobs.tsv, .ql.d); never under SCRIPT_DIR.
 #
 # PIPELINE_ORDER (main):
 #   parse_args → mkdir -p "${OUTPUT:h}" (file_mode) → ensure_magick → normalize_input → BG_HEX=get_background(IN_FOR_MAGICK) → build_mask(SIZE)
@@ -92,8 +76,8 @@
 #   Without --clip-detect, opaque+!user_padding still uses render_opaque_fill as before.
 #
 # BATCH_ROUTER (argv[1] is directory):
-#   Preconditions: command -v parallel (required for all dir_mode). parallel_jobs=${SQUIRCLE_PARALLEL_J:-100%}; CLI --parallel-j overrides.
-#   ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"; SQUIRCLE="${SQUIRCLE:-$ROOT}".
+#   Preconditions: command -v parallel. parallel_jobs=CONFIG.PARALLEL_J; CLI --parallel-j overrides.
+#   REPO_ROOT from CONFIG (parent of bin/).
 #   Enumerate: for f in "$INPUT_DIR"/**/* ; [[ -f "$f" ]] → pairs (input, output).
 #   output_path = "${out_dir}/${rel_without_input_prefix%.*}.webp"; mkdir -p "${out_path:h}".
 #   Arrays all_inputs/all_outputs: zsh 1-based indices in run_*_by_indexes loops.
@@ -107,11 +91,11 @@
 #   Child argv: "$SCRIPT_DIR/$SCRIPT_NAME" INPUT --out OUTPUT $CLIP_EXTRA_ARGS $pass_args
 #   pass_args: strips argv[1], --out-dir*, --out*, --overwrite, all clip-queue tuning flags, --padding* (batch output path fixed).
 #   Post clip_queue==1 && !clip_keep_markers: truncate out_dir/.clip_queue_unfixed.txt; for each planned OUTPUT append line if
-#     OUTPUT.CLIPPED exists then rm marker (report lists unfixed paths).
+#     "${OUTPUT}${CLIP_MARKER_SUFFIX}" exists then rm marker (report lists unfixed paths).
 #
 # OUTPUT_ARTIFACTS:
-#   Primary: OUTPUT.webp
-#   Side: OUTPUT.CLIPPED (empty file; presence means heuristic still clipped after mitigation); batch cleanup removes unless
+#   Primary: OUTPUT (path to .webp).
+#   Side: "${OUTPUT}${CLIP_MARKER_SUFFIX}" (empty file; presence means heuristic still clipped after mitigation); batch cleanup removes unless
 #     --clip-keep-markers.
 #   Batch report: "${out_dir}/.clip_queue_unfixed.txt" (one OUTPUT path per line; empty file if none unfixed).
 #
@@ -134,28 +118,34 @@
 set -e
 setopt pipefail 2>/dev/null || true
 
-# ---------- Load environment ----------
-ENV_FILE="${ENV_FILE:-$HOME/scripts/.env}"
-[[ -f "$ENV_FILE" ]] && source "$ENV_FILE" 2>/dev/null || true
-
-# --- Constants & paths ---
 SCRIPT_DIR="${0:h}"
 SCRIPT_NAME="${0:t}"
-MAGICK=/opt/homebrew/bin/magick
-[[ -x "$MAGICK" ]] || MAGICK=/usr/local/bin/magick
-SIPS=/usr/bin/sips
-export MAGICK_THREAD_LIMIT=1
 
-MASK_FILE="${SCRIPT_DIR}/mask.png"
+# =============================================================================
+# CONFIG — single edit block (no env vars for squircle behavior). ImageMagick: -limit thread 1 on every magick call.
+# =============================================================================
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+SQUIRCLE_TMP_PARENT=/tmp
+PARALLEL_J=100%
+CLIP_PADDING_START=100
+CLIP_PADDING_STEP=50
+CLIP_PADDING_MAX_ITER=6
+CLIP_THRESHOLD=0.05
+CLIP_CROP_DIVISOR=11
+CLIP_MARKER_SUFFIX=.CLIPPED
 DEFAULT_SIZE=1024
-LOGO_RATIO=824   # 824/1024 = logo size when using --padding (inset from edges)
+LOGO_RATIO=824
 WEBP_QUALITY=95
 WEBP_METHOD=4
 RETRY_ATTEMPTS=3
 RETRY_SLEEP=1
+MAGICK=/opt/homebrew/bin/magick
+[[ -x "$MAGICK" ]] || MAGICK=/usr/local/bin/magick
+SIPS=/usr/bin/sips
+MASK_FILE="${SCRIPT_DIR}/mask.png"
+# =============================================================================
 
-# Ephemeral rasters (must NOT live under SCRIPT_DIR: IDE file watchers on $PWD/repo jerk on create/delete).
-typeset -g SQUIRCLE_TMPBASE="${TMPDIR:-/tmp}/squircle_$$"
+typeset -g SQUIRCLE_TMPBASE="${SQUIRCLE_TMP_PARENT}/squircle_$$"
 
 # Temp paths (cleaned in trap)
 typeset -g MASK_TMP TMP_PNG TMP_SVG_PNG TMP_QL_DIR
@@ -201,36 +191,34 @@ show_help() {
   cat << EOF
 Usage: $SCRIPT_NAME <input> [options] [--out path.webp]
 
-  One image in → squircle WebP out (1024×1024 by default).
+  One image in → squircle WebP out (default size from CONFIG: DEFAULT_SIZE).
+
+  Tunables: edit CONFIG at top of this script (REPO_ROOT, PARALLEL_J, clip/WebP/retry paths, etc.). No env vars.
 
 Options:
   --bg #HEX        Background color (e.g. #FFFFFF). With --padding, margin color.
   --icon-color #   Recolor logo (transparent-background path only).
-  --size N         Output size (default: 1024).
-  --out path.webp  Output path. Default: \$SQUIRCLE/webp/<name>.webp or same dir as input.
-  --out-dir DIR    Output directory (batch mode only). Created if missing.
+  --size N         Output size (default: CONFIG DEFAULT_SIZE).
+  --out path.webp  Output path. Default: REPO_ROOT/webp/<input_basename>.webp (REPO_ROOT = parent of bin/).
+  --out-dir DIR    Output directory (batch mode only). Default REPO_ROOT/webp if omitted. Created if missing.
                    Directory mode is recursive and preserves the input folder structure:
                    <out-dir>/<relative_path_from_input>/<basename>.webp (existing files are skipped).
-  --clip-queue     Batch: clip-detect + padding escalation via GNU Parallel (default -j from env, see below).
+  --clip-queue     Batch: clip-detect + padding escalation via GNU Parallel (-j CONFIG PARALLEL_J unless --parallel-j).
   --clip-queue-sequential  Same as --clip-queue but one job at a time (low RAM / ordered logs).
-  --no-clip-queue  Batch: parallel (same -j as --clip-queue), no clip-detect / no padding escalation (skip exists unless --overwrite).
-  --parallel-j ARG  Batch: GNU Parallel -j ARG (e.g. 100%, 125%, 200%, 0). Default: \$SQUIRCLE_PARALLEL_J or 100% (one slot/core).
-                   With --clip-detect on a single file, creates <output>.CLIPPED if still clipped after max tries.
-  --clip-keep-markers  Keep .CLIPPED marker files after queue finishes (otherwise deleted; report kept).
-                        Note: <out>.CLIPPED is an empty sidecar (heuristic still “hot”), not an image.
-  --clip-padding-start N   Initial padding px (default: 100).
-  --clip-padding-step  N   Padding increment per iteration (default: 50).
-  --clip-padding-max-iter K Max padding iterations (default: 6).
-  --clip-threshold X       Clipping threshold (default: 0.05).
-  --clip-crop-divisor D   Corner crop size = size/D (default: 11).
+  --no-clip-queue  Batch: parallel (-j same as above), no clip-detect / no padding escalation (skip exists unless --overwrite).
+  --parallel-j ARG  Batch: GNU Parallel -j ARG (e.g. 100%, 125%, 200%, 0). Default: CONFIG PARALLEL_J.
+                   With --clip-detect on a single file, creates <output>${CLIP_MARKER_SUFFIX} if still clipped after max tries.
+  --clip-keep-markers  Keep clip marker sidecars after queue finishes (otherwise deleted; report kept).
+  --clip-padding-start N   Initial padding px (default: CONFIG CLIP_PADDING_START).
+  --clip-padding-step  N   Padding increment per iteration (default: CONFIG CLIP_PADDING_STEP).
+  --clip-padding-max-iter K Max padding iterations (default: CONFIG CLIP_PADDING_MAX_ITER).
+  --clip-threshold X       Clipping threshold (default: CONFIG CLIP_THRESHOLD).
+  --clip-crop-divisor D   Corner crop size = size/D (default: CONFIG CLIP_CROP_DIVISOR).
   --clip-detect-only        Compute clip markers but do not write WebP.
   --clip-detect             Compute clip markers and write WebP.
   --overwrite               Directory mode: overwrite existing outputs.
   --padding [N]    Center logo with margin. N = padding in px per side (default ~100); omit for default.
   -h, --help       Show this help.
-
-  Env (batch): SQUIRCLE_PARALLEL_J  Default 100% if unset (≈ one parallel job per CPU core; low oversubscription).
-                   Try 125% or 200% when I/O-bound and you have RAM headroom; 0 = GNU Parallel’s core autodetect.
 
   Batch interrupt: Use Ctrl+C once and wait. Do not Ctrl+Z (suspends). Hammering Ctrl+C can hit GNU Parallel's signal limit.
 
@@ -255,24 +243,20 @@ done
 
 # --- Router: if first arg is a directory → batch, then exit ---
 if [[ $# -ge 1 && -d "$1" ]]; then
-  ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-  export SQUIRCLE="${SQUIRCLE:-$ROOT}"
   command -v parallel &>/dev/null || { echo "GNU Parallel required: brew install parallel"; exit 1; }
 
   typeset -a argv=("$@")
   typeset out_dir=""
   typeset clip_queue=1
-  typeset clip_padding_start=100
-  typeset clip_padding_step=50
-  typeset clip_padding_max_iter=6
-  typeset clip_threshold="0.05"
-  typeset clip_crop_divisor=11
+  typeset clip_padding_start="$CLIP_PADDING_START"
+  typeset clip_padding_step="$CLIP_PADDING_STEP"
+  typeset clip_padding_max_iter="$CLIP_PADDING_MAX_ITER"
+  typeset clip_threshold="$CLIP_THRESHOLD"
+  typeset clip_crop_divisor="$CLIP_CROP_DIVISOR"
   typeset overwrite=0
   typeset clip_keep_markers=0
   typeset clip_queue_sequential=0
-  # GNU Parallel -j: 100% ≈ one job slot per logical CPU (default: fast, minimal RAM/fight vs background apps).
-  # 125%/200% oversubscribe for I/O wait; each child still uses MAGICK_THREAD_LIMIT=1.
-  typeset parallel_jobs="${SQUIRCLE_PARALLEL_J:-100%}"
+  typeset parallel_jobs="$PARALLEL_J"
 
   # Extract --out-dir (supports `--out-dir X` and `--out-dir=X`)
   for ((idx=1; idx<=$#argv; idx++)); do
@@ -315,7 +299,7 @@ if [[ $# -ge 1 && -d "$1" ]]; then
     esac
   done
 
-  [[ -z "$out_dir" ]] && out_dir="${SQUIRCLE:-$ROOT}/webp"
+  [[ -z "$out_dir" ]] && out_dir="${REPO_ROOT}/webp"
   [[ -d "$out_dir" ]] || mkdir -p "$out_dir"
 
   # Forward all args except:
@@ -447,7 +431,7 @@ if [[ $# -ge 1 && -d "$1" ]]; then
     report="${out_dir}/.clip_queue_unfixed.txt"
     : > "$report"
     for ((i=1; i<=${#all_outputs[@]}; i++)); do
-      marker="${all_outputs[$i]}.CLIPPED"
+      marker="${all_outputs[$i]}${CLIP_MARKER_SUFFIX}"
       if [[ -f "$marker" ]]; then
         printf '%s\n' "${all_outputs[$i]}" >> "$report"
         rm -f "$marker"
@@ -493,8 +477,7 @@ parse_args() {
   typeset -g CLIP_PADDING_START CLIP_PADDING_STEP CLIP_PADDING_MAX_ITER
   BG_OVERRIDE=(); ICON_COLOR=(); SIZE=(); OUTPUT=(); INPUT=""
   OPAQUE_PADDING=0; PADDING_PX=""
-  CLIP_DETECT=0; CLIP_DETECT_ONLY=0; CLIP_THRESHOLD="0.05"; CLIP_CROP_DIVISOR=11; CLIP_MARKER_SUFFIX=".CLIPPED"
-  CLIP_PADDING_START=100; CLIP_PADDING_STEP=50; CLIP_PADDING_MAX_ITER=6
+  CLIP_DETECT=0; CLIP_DETECT_ONLY=0
   typeset -a args=()
   next=""
   for a in "${save_args[@]}"; do
@@ -543,12 +526,8 @@ parse_args() {
   [[ ! -f "$INPUT" ]] && { echo "🔴 Not a file: $INPUT" >&2; exit 1; }
   : "${SIZE:=$DEFAULT_SIZE}"
   if [[ -z "$OUTPUT" ]]; then
-  if [[ -n "${SQUIRCLE:-}" ]]; then
-      mkdir -p "$SQUIRCLE/webp"
-      OUTPUT="$SQUIRCLE/webp/${INPUT:t:r}.webp"
-    else
-      OUTPUT="${INPUT:r}.webp"
-    fi
+    mkdir -p "$REPO_ROOT/webp"
+    OUTPUT="$REPO_ROOT/webp/${INPUT:t:r}.webp"
   fi
 }
 
@@ -567,7 +546,7 @@ normalize_input() {
   # .ico / .cur → first frame to PNG (multi-resolution; use [0])
   if [[ "$raw" == *".ico" ]] || [[ "$raw" == *".cur" ]]; then
     TMP_PNG="${SQUIRCLE_TMPBASE}.tmp.png"
-    retry_run $MAGICK "${raw}[0]" -resize "${size}x${size}" "$TMP_PNG" && IN_FOR_MAGICK="$TMP_PNG"
+    retry_run $MAGICK -limit thread 1 "${raw}[0]" -resize "${size}x${size}" "$TMP_PNG" && IN_FOR_MAGICK="$TMP_PNG"
   fi
   # .svg / .svgz → PNG (rsvg-convert or macOS Quick Look)
   if [[ "$raw" == *".svg" ]] || [[ "$raw" == *".svgz" ]]; then
@@ -728,15 +707,15 @@ compute_clip_marker() {
   # then compute a corner-only difference score.
   local diff_bg_hex
   diff_bg_hex="$(sample_corner_bg_hex "$CLIP_FRAME_TMP" || echo "#FFFFFF")"
-  $MAGICK "$CLIP_FRAME_TMP" -background "$diff_bg_hex" -alpha remove -alpha off "$CLIP_FRAME_FLAT_TMP" >/dev/null 2>&1 || cp "$CLIP_FRAME_TMP" "$CLIP_FRAME_FLAT_TMP"
-  $MAGICK "$CLIP_MASKED_TMP" -background "$diff_bg_hex" -alpha remove -alpha off "$CLIP_MASKED_FLAT_TMP" >/dev/null 2>&1 || cp "$CLIP_MASKED_TMP" "$CLIP_MASKED_FLAT_TMP"
+  $MAGICK -limit thread 1 "$CLIP_FRAME_TMP" -background "$diff_bg_hex" -alpha remove -alpha off "$CLIP_FRAME_FLAT_TMP" >/dev/null 2>&1 || cp "$CLIP_FRAME_TMP" "$CLIP_FRAME_FLAT_TMP"
+  $MAGICK -limit thread 1 "$CLIP_MASKED_TMP" -background "$diff_bg_hex" -alpha remove -alpha off "$CLIP_MASKED_FLAT_TMP" >/dev/null 2>&1 || cp "$CLIP_MASKED_TMP" "$CLIP_MASKED_FLAT_TMP"
 
-  $MAGICK "$CLIP_FRAME_FLAT_TMP" "$CLIP_MASKED_FLAT_TMP" -alpha off -compose difference -composite "$CLIP_DIFF_TMP" >/dev/null 2>&1 || true
+  $MAGICK -limit thread 1 "$CLIP_FRAME_FLAT_TMP" "$CLIP_MASKED_FLAT_TMP" -alpha off -compose difference -composite "$CLIP_DIFF_TMP" >/dev/null 2>&1 || true
 
-  tl=$($MAGICK "$CLIP_DIFF_TMP" -crop ${crop_px}x${crop_px}+0+0 +repage -format "%[fx:mean]" info: 2>/dev/null | tr -d '\n' || echo "")
-  tr=$($MAGICK "$CLIP_DIFF_TMP" -crop ${crop_px}x${crop_px}+${x}+0 +repage -format "%[fx:mean]" info: 2>/dev/null | tr -d '\n' || echo "")
-  bl=$($MAGICK "$CLIP_DIFF_TMP" -crop ${crop_px}x${crop_px}+0+${y} +repage -format "%[fx:mean]" info: 2>/dev/null | tr -d '\n' || echo "")
-  br=$($MAGICK "$CLIP_DIFF_TMP" -crop ${crop_px}x${crop_px}+${x}+${y} +repage -format "%[fx:mean]" info: 2>/dev/null | tr -d '\n' || echo "")
+  tl=$($MAGICK -limit thread 1 "$CLIP_DIFF_TMP" -crop ${crop_px}x${crop_px}+0+0 +repage -format "%[fx:mean]" info: 2>/dev/null | tr -d '\n' || echo "")
+  tr=$($MAGICK -limit thread 1 "$CLIP_DIFF_TMP" -crop ${crop_px}x${crop_px}+${x}+0 +repage -format "%[fx:mean]" info: 2>/dev/null | tr -d '\n' || echo "")
+  bl=$($MAGICK -limit thread 1 "$CLIP_DIFF_TMP" -crop ${crop_px}x${crop_px}+0+${y} +repage -format "%[fx:mean]" info: 2>/dev/null | tr -d '\n' || echo "")
+  br=$($MAGICK -limit thread 1 "$CLIP_DIFF_TMP" -crop ${crop_px}x${crop_px}+${x}+${y} +repage -format "%[fx:mean]" info: 2>/dev/null | tr -d '\n' || echo "")
 
   clip_score=$(awk -v tl="$tl" -v tr="$tr" -v bl="$bl" -v br="$br" 'BEGIN{print (tl+tr+bl+br)/4}' 2>/dev/null || echo "1")
   # Padding path: corner samples overlap squircle anti-alias vs square margin → mean diff often ~0.06–0.09

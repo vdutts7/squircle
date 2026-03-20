@@ -1,8 +1,8 @@
 # webp icon workflow — machine-parseable
 flow:
   - install: "cp bin/squircle.sh bin/get-bg-color.sh bin/mask.png \$CURTOOLS/ ; alias squircle='\$CURTOOLS/squircle.sh'"
-  - copy: "$SQUIRCLE/webp/"
-    note: "$SQUIRCLE = $A/squircle (this repo, check ~/.zshrc); no auto-run"
+  - copy: "<repo>/webp/"
+    note: "this checkout’s webp/; squircle defaults to REPO_ROOT/webp from CONFIG (no SQUIRCLE env); no auto-run"
   - run: "squircle <file>  OR  squircle <dir> (batch, parallel); default size 1024"
   - commit: "pre-commit blocks unless normalized"
 

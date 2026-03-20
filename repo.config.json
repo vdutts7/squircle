@@ -12,7 +12,7 @@
       ".gitignore": "whitelist tracked paths (bin, webp, .hooks, etc)",
       "image-formats.txt": "extensions allowed for normalization; consumed by .hooks/pre-commit",
       "bin": "scripts + mask; see bin/* one-liners below",
-      "bin/squircle.sh": "one image → squircle WebP; or <dir> → batch. Default --clip-queue: GNU Parallel -j 100% (SQUIRCLE_PARALLEL_J) + --clip-detect per child; --parallel-j / env for 125%/200% if desired. --clip-queue-sequential one-at-a-time. --no-clip-queue: parallel, no clip pipeline. --out-dir recursive. Markers cleaned unless --clip-keep-markers.",
+      "bin/squircle.sh": "one image → squircle WebP; or <dir> → batch. Tunables in CONFIG at top of script (PARALLEL_J, paths, clip/WebP). Default --clip-queue: GNU Parallel -j PARALLEL_J + --clip-detect per child; --parallel-j overrides. --clip-queue-sequential one-at-a-time. --no-clip-queue: parallel, no clip pipeline. Default --out REPO_ROOT/webp; --out-dir for batch. Markers cleaned unless --clip-keep-markers.",
       "bin/get-bg-color.sh": "edge/corner sampling → #HEX or OPAQUE; used by squircle.sh",
       "bin/sharpen.sh": "sharpen image; optional pre-step for sources",
       "bin/svg2png.sh": "convert by file type (SVG/JPEG/WebP/PNG) → PNG",
@@ -48,7 +48,7 @@
     "output -> webp/<name>.webp",
     "./bin/squircle.sh <dir> --out-dir <dir> (recursive, preserves nested folders, skips existing outputs)"
   ],
-  "repo_env": "SQUIRCLE=$A/squircle (this repo, check ~/.zshrc)",
+  "repo_env": "none required for squircle.sh (CONFIG in script). Optional: set paths in shell for other tooling.",
   "url": "https://raw.githubusercontent.com/vdutts7/squircle/main/webp/{name}.webp",
   "format": "![icon](url)"
 }
