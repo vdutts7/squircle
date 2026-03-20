@@ -23,7 +23,7 @@
 #
 # CONFIG (authoritative numbers — see block after SCRIPT_DIR):
 #   REPO_ROOT PARALLEL_J SQUIRCLE_TMP_PARENT DEFAULT_SIZE LOGO_RATIO WEBP_* RETRY_* 
-#   DEFAULT_CLIP_DETECT CLIP_PADDING_START STEP MAX_ITER THRESHOLD CROP_DIVISOR CLIP_MARKER_SUFFIX MAGICK SIPS MASK_FILE
+#   DEFAULT_CLIP_DETECT CLIP_PADDING_* THRESHOLD CROP_DIVISOR CLIP_MARKER_SUFFIX WEBP_* WEBP_LOSSLESS MAGICK_RESIZE_FILTER MAGICK SIPS MASK_FILE
 #   PLATE_FX PLATE_FX_GRADIENT PLATE_FX_DROP_SHADOW — optional post-render polish (see CONFIG block).
 #   Ephemeral: SQUIRCLE_TMPBASE="${SQUIRCLE_TMP_PARENT}/squircle_$$" (+ .jobs.tsv, .ql.d); never under SCRIPT_DIR.
 #
@@ -140,6 +140,10 @@ DEFAULT_SIZE=1024
 LOGO_RATIO=824
 WEBP_QUALITY=95
 WEBP_METHOD=4
+# 1 = lossless WebP (sharp text/lines; larger files). 0 = lossy at WEBP_QUALITY.
+WEBP_LOSSLESS=0
+# ImageMagick filter before logo/raster -resize (empty = IM default). Lanczos sharpens upscales from small sources.
+MAGICK_RESIZE_FILTER=Lanczos
 RETRY_ATTEMPTS=3
 RETRY_SLEEP=1
 MAGICK=/opt/homebrew/bin/magick
@@ -153,6 +157,16 @@ PLATE_FX_GRADIENT='rgba(255,255,255,0.14)-rgba(0,0,0,0.10)'
 PLATE_FX_DROP_SHADOW=''
 # Example: PLATE_FX=1 and PLATE_FX_DROP_SHADOW='70x4+0+14' (ImageMagick -shadow: opacity%xsigma+dx+dy)
 # =============================================================================
+
+typeset -ga MAGICK_RF=()
+[[ -n "${MAGICK_RESIZE_FILTER:-}" ]] && MAGICK_RF=( -filter "$MAGICK_RESIZE_FILTER" )
+
+typeset -ga WEBP_OUT=()
+if (( ${WEBP_LOSSLESS:-0} == 1 )); then
+  WEBP_OUT=( -define webp:lossless=true )
+else
+  WEBP_OUT=( -define webp:method="$WEBP_METHOD" -quality "$WEBP_QUALITY" )
+fi
 
 typeset -g SQUIRCLE_TMPBASE="${SQUIRCLE_TMP_PARENT}/squircle_$$"
 
@@ -585,7 +599,7 @@ normalize_input() {
   # .ico / .cur → first frame to PNG (multi-resolution; use [0])
   if [[ "$raw" == *".ico" ]] || [[ "$raw" == *".cur" ]]; then
     TMP_PNG="${SQUIRCLE_TMPBASE}.tmp.png"
-    retry_run $MAGICK -limit thread 1 "${raw}[0]" -resize "${size}x${size}" "$TMP_PNG" && IN_FOR_MAGICK="$TMP_PNG"
+    retry_run $MAGICK -limit thread 1 "${raw}[0]" "${MAGICK_RF[@]}" -resize "${size}x${size}" "$TMP_PNG" && IN_FOR_MAGICK="$TMP_PNG"
   fi
   # .svg / .svgz → PNG (rsvg-convert or macOS Quick Look)
   if [[ "$raw" == *".svg" ]] || [[ "$raw" == *".svgz" ]]; then
@@ -675,18 +689,18 @@ build_mask() {
 render_opaque_fill() {
   local raster="$1" mask="$2" output="$3" size="$4"
   $MAGICK -limit thread 1 \
-    \( "$raster" -trim +repage -resize "${size}x${size}^" -gravity center -extent "${size}x${size}" \) \
+    \( "$raster" -trim +repage "${MAGICK_RF[@]}" -resize "${size}x${size}^" -gravity center -extent "${size}x${size}" \) \
     "$mask" -alpha off -compose CopyOpacity -composite \
-    -define webp:method=$WEBP_METHOD -quality $WEBP_QUALITY "$output"
+    "${WEBP_OUT[@]}" "$output"
 }
 
 # --- Render: OPAQUE with padding (scale to LOGO_SIZE, center, margin color) ---
 render_opaque_padding() {
   local raster="$1" mask="$2" output="$3" size="$4" margin_bg="$5" logo_size="$6"
   $MAGICK -limit thread 1 \
-    \( "$raster" -resize "${logo_size}x${logo_size}^" -gravity center -background "$margin_bg" -extent "${size}x${size}" \) \
+    \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}^" -gravity center -background "$margin_bg" -extent "${size}x${size}" \) \
     "$mask" -alpha off -compose CopyOpacity -composite \
-    -define webp:method=$WEBP_METHOD -quality $WEBP_QUALITY "$output"
+    "${WEBP_OUT[@]}" "$output"
 }
 
 # --- Render: base layer + logo for transparent-background sources; optional icon_color recols logo ---
@@ -696,17 +710,17 @@ render_with_base() {
   if [[ -n "$icon_color" ]]; then
     $MAGICK -limit thread 1 \
       \( -size "${size}x${size}" xc:"$bg_hex" \) -write mpr:base +delete \
-      \( "$raster" -resize "${logo_size}x${logo_size}^" -gravity center -background none -extent "${size}x${size}" -alpha extract -negate -write mpr:amask +delete -size "${size}x${size}" xc:"$icon_color" mpr:amask -alpha off -compose CopyOpacity -composite \) -write mpr:logo +delete \
+      \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}^" -gravity center -background none -extent "${size}x${size}" -alpha extract -negate -write mpr:amask +delete -size "${size}x${size}" xc:"$icon_color" mpr:amask -alpha off -compose CopyOpacity -composite \) -write mpr:logo +delete \
       mpr:base mpr:logo -compose Over -composite \
       "$mask" -alpha off -compose CopyOpacity -composite \
-      -define webp:method=$WEBP_METHOD -quality $WEBP_QUALITY "$output"
+      "${WEBP_OUT[@]}" "$output"
   else
     $MAGICK -limit thread 1 \
       \( -size "${size}x${size}" xc:"$bg_hex" \) -write mpr:base +delete \
-      \( "$raster" -resize "${logo_size}x${logo_size}^" -gravity center -background none -extent "${size}x${size}" \) -write mpr:logo +delete \
+      \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}^" -gravity center -background none -extent "${size}x${size}" \) -write mpr:logo +delete \
       mpr:base mpr:logo -compose Over -composite \
       "$mask" -alpha off -compose CopyOpacity -composite \
-      -define webp:method=$WEBP_METHOD -quality $WEBP_QUALITY "$output"
+      "${WEBP_OUT[@]}" "$output"
   fi
 }
 
@@ -730,12 +744,12 @@ compute_clip_marker() {
   if [[ $OPAQUE_PADDING -eq 1 ]]; then
     # Padding mode unmasked: scaled logo centered with margin background.
     $MAGICK -limit thread 1 \
-      \( "$raster" -resize "${logo_size}x${logo_size}^" -gravity center -background "$padding_bg" -extent "${size}x${size}" \) \
+      \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}^" -gravity center -background "$padding_bg" -extent "${size}x${size}" \) \
       -strip "$CLIP_FRAME_TMP"
   else
     # Fill mode unmasked: trim transparent edges then scale-to-fill the frame.
     $MAGICK -limit thread 1 \
-      \( "$raster" -trim +repage -resize "${size}x${size}^" -gravity center -extent "${size}x${size}" \) \
+      \( "$raster" -trim +repage "${MAGICK_RF[@]}" -resize "${size}x${size}^" -gravity center -extent "${size}x${size}" \) \
       -strip "$CLIP_FRAME_TMP"
   fi
 
@@ -830,7 +844,7 @@ apply_plate_fx() {
     mv -f "$tmp2" "$tmp"
   fi
 
-  $MAGICK -limit thread 1 PNG32:"$tmp" -define webp:method="$WEBP_METHOD" -quality "$WEBP_QUALITY" "$out"
+  $MAGICK -limit thread 1 PNG32:"$tmp" "${WEBP_OUT[@]}" "$out"
   rm -f "$tmp" "$tmp2" 2>/dev/null || true
 }
 
