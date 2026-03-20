@@ -70,6 +70,7 @@ Options:
   --no-clip-queue  Disable automatic clip detection + rerender in batch mode.
                    Creates marker files: <output>.CLIPPED
                    Queue output path stays the same; only padding changes.
+  --clip-keep-markers  Keep .CLIPPED marker files after queue finishes (otherwise deleted; report kept).
   --clip-padding-start N   Initial padding px (default: 100).
   --clip-padding-step  N   Padding increment per iteration (default: 50).
   --clip-padding-max-iter K Max padding iterations (default: 4).
@@ -115,6 +116,7 @@ if [[ $# -ge 1 && -d "$1" ]]; then
   typeset clip_threshold="0.05"
   typeset clip_crop_divisor=11
   typeset overwrite=0
+  typeset clip_keep_markers=0
 
   # Extract --out-dir (supports `--out-dir X` and `--out-dir=X`)
   for ((idx=1; idx<=$#argv; idx++)); do
@@ -149,6 +151,7 @@ if [[ $# -ge 1 && -d "$1" ]]; then
       --clip-crop-divisor)
         if (( idx < $#argv )); then clip_crop_divisor="${argv[$((idx+1))]}"; fi ;;
       --overwrite) overwrite=1 ;;
+      --clip-keep-markers) clip_keep_markers=1 ;;
     esac
   done
 
@@ -172,6 +175,7 @@ if [[ $# -ge 1 && -d "$1" ]]; then
       --overwrite) : ;;
       --clip-queue) : ;;
       --no-clip-queue) : ;;
+      --clip-keep-markers) : ;;
       --clip-padding-start) skip_next=1 ;;
       --clip-padding-start=*) : ;;
       --clip-padding-step) skip_next=1 ;;
@@ -268,6 +272,21 @@ if [[ $# -ge 1 && -d "$1" ]]; then
     for ((i=1; i<=${#all_inputs[@]}; i++)); do idxs+=("$i"); done
     CLIP_EXTRA_ARGS=()
     run_parallel_by_indexes "${idxs[@]}"
+  fi
+
+  # Clip markers are debug-only by default.
+  # If markers remain after max iterations, write an "unfixed" report
+  # and delete the marker files to avoid clutter.
+  if (( clip_queue == 1 && clip_keep_markers == 0 )); then
+    report="${out_dir}/.clip_queue_unfixed.txt"
+    : > "$report"
+    for ((i=1; i<=${#all_outputs[@]}; i++)); do
+      marker="${all_outputs[$i]}.CLIPPED"
+      if [[ -f "$marker" ]]; then
+        printf '%s\n' "${all_outputs[$i]}" >> "$report"
+        rm -f "$marker"
+      fi
+    done
   fi
 
   echo "Done."
@@ -411,6 +430,39 @@ get_background() {
   echo "$bg"
 }
 
+# Sample average corner background color (downscale + average 4 corners).
+# Output: "#RRGGBB"
+sample_corner_bg_hex() {
+  local img="$1"
+  [[ ! -f "$img" ]] && { echo "#FFFFFF"; return 0; }
+
+  get_corner_rgb() {
+    local x="$1" y="$2"
+    # 64x64 sample; corners are at 0/48 for a 16x16 crop.
+    $MAGICK -limit thread 1 "$img" -resize 64x64 -alpha on -background none \
+      -crop 16x16+${x}+${y} +repage -scale 1x1! \
+      -format "%[fx:round(255*u.r)] %[fx:round(255*u.g)] %[fx:round(255*u.b)]" info: 2>/dev/null
+  }
+
+  local c1 c2 c3 c4
+  c1="$(get_corner_rgb 0 0)" || c1="255 255 255"
+  c2="$(get_corner_rgb 48 0)" || c2="255 255 255"
+  c3="$(get_corner_rgb 0 48)" || c3="255 255 255"
+  c4="$(get_corner_rgb 48 48)" || c4="255 255 255"
+
+  local avg r g b
+  avg="$(printf '%s\n%s\n%s\n%s\n' "$c1" "$c2" "$c3" "$c4" | awk '{r+=$1;g+=$2;b+=$3} END{printf "%d %d %d", int(r/4+0.5), int(g/4+0.5), int(b/4+0.5)}' 2>/dev/null)" || avg="255 255 255"
+  r="$(echo "$avg" | awk '{print $1}')"
+  g="$(echo "$avg" | awk '{print $2}')"
+  b="$(echo "$avg" | awk '{print $3}')"
+
+  # Clamp to 0-255 just in case.
+  r=$(( r < 0 ? 0 : (r > 255 ? 255 : r) ))
+  g=$(( g < 0 ? 0 : (g > 255 ? 255 : g) ))
+  b=$(( b < 0 ? 0 : (b > 255 ? 255 : b) ))
+  printf "#%02X%02X%02X\n" "$r" "$g" "$b"
+}
+
 # --- Mask: IconSur mask.png or round-rect fallback ---
 build_mask() {
   local size="$1"
@@ -495,9 +547,12 @@ compute_clip_marker() {
   # Apply squircle mask (creates transparency outside rounded shape).
   $MAGICK -limit thread 1 "$CLIP_FRAME_TMP" "$mask" -alpha off -compose CopyOpacity -composite "$CLIP_MASKED_TMP"
 
-  # Flatten both against white, then compute a corner-only difference score.
-  $MAGICK "$CLIP_FRAME_TMP" -background white -alpha remove -alpha off "$CLIP_FRAME_FLAT_TMP" >/dev/null 2>&1 || cp "$CLIP_FRAME_TMP" "$CLIP_FRAME_FLAT_TMP"
-  $MAGICK "$CLIP_MASKED_TMP" -background white -alpha remove -alpha off "$CLIP_MASKED_FLAT_TMP" >/dev/null 2>&1 || cp "$CLIP_MASKED_TMP" "$CLIP_MASKED_FLAT_TMP"
+  # Flatten both against the unmasked frame's corner background color,
+  # then compute a corner-only difference score.
+  local diff_bg_hex
+  diff_bg_hex="$(sample_corner_bg_hex "$CLIP_FRAME_TMP" || echo "#FFFFFF")"
+  $MAGICK "$CLIP_FRAME_TMP" -background "$diff_bg_hex" -alpha remove -alpha off "$CLIP_FRAME_FLAT_TMP" >/dev/null 2>&1 || cp "$CLIP_FRAME_TMP" "$CLIP_FRAME_FLAT_TMP"
+  $MAGICK "$CLIP_MASKED_TMP" -background "$diff_bg_hex" -alpha remove -alpha off "$CLIP_MASKED_FLAT_TMP" >/dev/null 2>&1 || cp "$CLIP_MASKED_TMP" "$CLIP_MASKED_FLAT_TMP"
 
   $MAGICK "$CLIP_FRAME_FLAT_TMP" "$CLIP_MASKED_FLAT_TMP" -alpha off -compose difference -composite "$CLIP_DIFF_TMP" >/dev/null 2>&1 || true
 
@@ -531,7 +586,10 @@ main() {
   typeset -g BG_HEX
   BG_HEX=$(get_background "$IN_FOR_MAGICK")
   build_mask "$SIZE" >/dev/null
-  local padding_bg="${BG_OVERRIDE:-#FFFFFF}"   # margin color when --padding; --bg or white
+  local padding_bg="#FFFFFF"
+  if (( ${#BG_OVERRIDE[@]} > 0 )); then
+    padding_bg="$BG_OVERRIDE[1]"
+  fi
   local logo_size
   if [[ -n "$PADDING_PX" && "$PADDING_PX" -ge 0 ]]; then
     logo_size=$(( SIZE - 2 * PADDING_PX ))
@@ -539,6 +597,11 @@ main() {
   else
     logo_size=$(( SIZE * LOGO_RATIO / 1024 ))
     [[ $logo_size -lt 8 ]] && logo_size=8
+  fi
+
+  # In OPAQUE+padding mode, default margin color should match the source background.
+  if [[ "$BG_HEX" == "OPAQUE" && $OPAQUE_PADDING -eq 1 && "$padding_bg" == "#FFFFFF" ]]; then
+    padding_bg="$(sample_corner_bg_hex "$IN_FOR_MAGICK" || echo "#FFFFFF")"
   fi
 
   # Optional: compute clipping marker before rendering (opaque path only).
