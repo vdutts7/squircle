@@ -56,6 +56,9 @@ Options:
   --icon-color #   Recolor logo (transparent-background path only).
   --size N         Output size (default: 1024).
   --out path.webp  Output path. Default: \$SQUIRCLE/webp/<name>.webp or same dir as input.
+  --out-dir DIR    Output directory (batch mode only). Created if missing.
+                   Directory mode is recursive and preserves the input folder structure:
+                   <out-dir>/<relative_path_from_input>/<basename>.webp (existing files are skipped).
   --padding [N]    Center logo with margin. N = padding in px per side (default ~100); omit for default.
   -h, --help       Show this help.
 
@@ -83,9 +86,68 @@ if [[ $# -ge 1 && -d "$1" ]]; then
   ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
   export SQUIRCLE="${SQUIRCLE:-$ROOT}"
   command -v parallel &>/dev/null || { echo "GNU Parallel required: brew install parallel"; exit 1; }
-  for f in "$1"/*; do
-    [[ -f "$f" ]] && echo "$f"
-  done | parallel --no-notice -j 0 "$SCRIPT_DIR/$SCRIPT_NAME" {}
+
+  typeset -a argv=("$@")
+  typeset out_dir=""
+
+  # Extract --out-dir (supports `--out-dir X` and `--out-dir=X`)
+  for ((idx=1; idx<=$#argv; idx++)); do
+    a="${argv[$idx]}"
+    case "$a" in
+      --out-dir=*) out_dir="${a#--out-dir=}" ;;
+      --out-dir)
+        if (( idx < $#argv )); then out_dir="${argv[$((idx+1))]}"; fi
+        ;;
+    esac
+  done
+
+  [[ -z "$out_dir" ]] && out_dir="${SQUIRCLE:-$ROOT}/webp"
+  [[ -d "$out_dir" ]] || mkdir -p "$out_dir"
+
+  # Forward all args except:
+  # - the input directory itself (argv[1])
+  # - --out-dir (+ value) and --out (+ value), since batch output path is controlled by --out-dir
+  typeset -a pass_args=()
+  typeset skip_next=0
+  for ((idx=1; idx<=$#argv; idx++)); do
+    (( idx == 1 )) && continue
+    if (( skip_next )); then skip_next=0; continue; fi
+    a="${argv[$idx]}"
+    case "$a" in
+      --out-dir) skip_next=1 ;;
+      --out-dir=*) : ;;
+      --out) skip_next=1 ;;
+      --out=*) : ;;
+      *) pass_args+=("$a") ;;
+    esac
+  done
+
+  # Shell-escape forwarded args for safe inclusion in parallel command line.
+  typeset PASS_ARGS_STR=""
+  if (( ${#pass_args[@]} )); then
+    printf -v PASS_ARGS_STR '%q ' "${pass_args[@]}"
+  fi
+
+  # Each parallel job gets: input_file  output_path
+  setopt local_options
+  INPUT_DIR="${1%/}"
+  for f in "$INPUT_DIR"/**/*; do
+    [[ -f "$f" ]] || continue
+
+    # Preserve relative folder structure under --out-dir.
+    rel="${f#$INPUT_DIR/}"          # e.g. "subdir/foo.svg"
+    out_path="$out_dir/${rel%.*}.webp"  # e.g. ".../out/subdir/foo.webp"
+
+    # Parent folders are not created by squircle when --out is a nested path.
+    mkdir -p "${out_path:h}"
+
+    if [[ -f "$out_path" ]]; then
+      echo "skip (exists): $out_path" >&2
+      continue
+    fi
+    printf '%s\t%s\n' "$f" "$out_path"
+  done | parallel --no-notice -j 0 --colsep '\t' "$SCRIPT_DIR/$SCRIPT_NAME" {1} --out {2} $PASS_ARGS_STR
+
   echo "Done."
   exit 0
 fi
