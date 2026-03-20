@@ -24,13 +24,15 @@
 #   --clip-padding-step N       CLIP_PADDING_STEP default 50 (added per failed mitigation iteration).
 #   --clip-padding-max-iter K   CLIP_PADDING_MAX_ITER default 6 (mitigation loop upper bound).
 #   --clip-queue / --no-clip-queue   batch only; clip_queue default 1.
-#   --clip-queue-sequential     batch: with clip_queue==1, use run_sequential_by_indexes (default clip-queue uses parallel -j 0).
+#   --clip-queue-sequential     batch: with clip_queue==1, use run_sequential_by_indexes (default clip-queue uses parallel -j "$parallel_jobs").
 #   --clip-keep-markers         batch: do not delete OUTPUT.CLIPPED after run; skip unfixed cleanup rm.
 #
 # ENV:
 #   SQUIRCLE                    repo root default for OUTPUT and batch out_dir when unset.
 #   ENV_FILE                    default "$HOME/scripts/.env"; sourced if present (non-fatal).
 #   MAGICK_THREAD_LIMIT         export 1 (serialized IM).
+#   SQUIRCLE_PARALLEL_J         batch GNU Parallel -j (default 100% = one job slot per CPU core; unset oversubscription).
+#                               export 125% or 200% for more I/O overlap if RAM/thermals allow; see help.
 #
 # CONSTANTS (edit in-script):
 #   DEFAULT_SIZE=1024 LOGO_RATIO=824 WEBP_QUALITY=95 WEBP_METHOD=4 RETRY_ATTEMPTS=3 RETRY_SLEEP=1
@@ -90,7 +92,7 @@
 #   Without --clip-detect, opaque+!user_padding still uses render_opaque_fill as before.
 #
 # BATCH_ROUTER (argv[1] is directory):
-#   Preconditions: command -v parallel (required for all dir_mode). clip_queue==1 → parallel -j 0 unless --clip-queue-sequential.
+#   Preconditions: command -v parallel (required for all dir_mode). parallel_jobs=${SQUIRCLE_PARALLEL_J:-100%}; CLI --parallel-j overrides.
 #   ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"; SQUIRCLE="${SQUIRCLE:-$ROOT}".
 #   Enumerate: for f in "$INPUT_DIR"/**/* ; [[ -f "$f" ]] → pairs (input, output).
 #   output_path = "${out_dir}/${rel_without_input_prefix%.*}.webp"; mkdir -p "${out_path:h}".
@@ -101,7 +103,7 @@
 #   clip_queue==1 → run_parallel_by_indexes all (or run_sequential_by_indexes if --clip-queue-sequential); CLIP_EXTRA_ARGS=(
 #       --clip-detect --clip-threshold --clip-crop-divisor
 #       --clip-padding-start --clip-padding-step --clip-padding-max-iter ).
-#   clip_queue==0 → run_parallel_by_indexes all; parallel -j 0 tab-separated; CLIP_EXTRA_ARGS=().
+#   clip_queue==0 → run_parallel_by_indexes all; parallel -j "$parallel_jobs"; CLIP_EXTRA_ARGS=().
 #   Child argv: "$SCRIPT_DIR/$SCRIPT_NAME" INPUT --out OUTPUT $CLIP_EXTRA_ARGS $pass_args
 #   pass_args: strips argv[1], --out-dir*, --out*, --overwrite, all clip-queue tuning flags, --padding* (batch output path fixed).
 #   Post clip_queue==1 && !clip_keep_markers: truncate out_dir/.clip_queue_unfixed.txt; for each planned OUTPUT append line if
@@ -123,6 +125,9 @@
 #   no file locking; concurrent writers same OUTPUT undefined behavior.
 #   transparent BG path: no mitigate_opaque_clipping; CLIP_DETECT clears marker for non-opaque.
 #   SVG pixel identity varies by rsvg-convert vs qlmanage.
+#   Batch + GNU Parallel: Ctrl+Z suspends the job (zsh: suspended) and leaves a mess. Rapid repeated Ctrl+C can exceed
+#     parallel's pending-signal cap (~120) → "Maximal count of pending signals exceeded". Use one Ctrl+C and wait; if stuck,
+#     `killall parallel` (kills all parallel on machine — use only if you know it's safe).
 #
 # =============================================================================
 
@@ -179,7 +184,8 @@ cleanup() {
       "${SQUIRCLE_TMPBASE}.clip_masked.png" \
       "${SQUIRCLE_TMPBASE}.clip_diff.png" \
       "${SQUIRCLE_TMPBASE}.clip_frame_flat.png" \
-      "${SQUIRCLE_TMPBASE}.clip_masked_flat.png" 2>/dev/null || true
+      "${SQUIRCLE_TMPBASE}.clip_masked_flat.png" \
+      "${SQUIRCLE_TMPBASE}.jobs.tsv" 2>/dev/null || true
     if [[ -d "${SQUIRCLE_TMPBASE}.ql.d" ]]; then
       rm -rf "${SQUIRCLE_TMPBASE}.ql.d"
     fi
@@ -205,9 +211,10 @@ Options:
   --out-dir DIR    Output directory (batch mode only). Created if missing.
                    Directory mode is recursive and preserves the input folder structure:
                    <out-dir>/<relative_path_from_input>/<basename>.webp (existing files are skipped).
-  --clip-queue     Batch: clip-detect + padding escalation per file via GNU Parallel -j 0. (default)
+  --clip-queue     Batch: clip-detect + padding escalation via GNU Parallel (default -j from env, see below).
   --clip-queue-sequential  Same as --clip-queue but one job at a time (low RAM / ordered logs).
-  --no-clip-queue  Batch: parallel -j 0, no clip-detect / no padding escalation (skip exists unless --overwrite).
+  --no-clip-queue  Batch: parallel (same -j as --clip-queue), no clip-detect / no padding escalation (skip exists unless --overwrite).
+  --parallel-j ARG  Batch: GNU Parallel -j ARG (e.g. 100%, 125%, 200%, 0). Default: \$SQUIRCLE_PARALLEL_J or 100% (one slot/core).
                    With --clip-detect on a single file, creates <output>.CLIPPED if still clipped after max tries.
   --clip-keep-markers  Keep .CLIPPED marker files after queue finishes (otherwise deleted; report kept).
                         Note: <out>.CLIPPED is an empty sidecar (heuristic still “hot”), not an image.
@@ -221,6 +228,11 @@ Options:
   --overwrite               Directory mode: overwrite existing outputs.
   --padding [N]    Center logo with margin. N = padding in px per side (default ~100); omit for default.
   -h, --help       Show this help.
+
+  Env (batch): SQUIRCLE_PARALLEL_J  Default 100% if unset (≈ one parallel job per CPU core; low oversubscription).
+                   Try 125% or 200% when I/O-bound and you have RAM headroom; 0 = GNU Parallel’s core autodetect.
+
+  Batch interrupt: Use Ctrl+C once and wait. Do not Ctrl+Z (suspends). Hammering Ctrl+C can hit GNU Parallel's signal limit.
 
 Examples:
   $SCRIPT_NAME icon.png
@@ -258,6 +270,9 @@ if [[ $# -ge 1 && -d "$1" ]]; then
   typeset overwrite=0
   typeset clip_keep_markers=0
   typeset clip_queue_sequential=0
+  # GNU Parallel -j: 100% ≈ one job slot per logical CPU (default: fast, minimal RAM/fight vs background apps).
+  # 125%/200% oversubscribe for I/O wait; each child still uses MAGICK_THREAD_LIMIT=1.
+  typeset parallel_jobs="${SQUIRCLE_PARALLEL_J:-100%}"
 
   # Extract --out-dir (supports `--out-dir X` and `--out-dir=X`)
   for ((idx=1; idx<=$#argv; idx++)); do
@@ -294,6 +309,9 @@ if [[ $# -ge 1 && -d "$1" ]]; then
         if (( idx < $#argv )); then clip_crop_divisor="${argv[$((idx+1))]}"; fi ;;
       --overwrite) overwrite=1 ;;
       --clip-keep-markers) clip_keep_markers=1 ;;
+      --parallel-j=*) parallel_jobs="${a#--parallel-j=}" ;;
+      --parallel-j)
+        if (( idx < $#argv )); then parallel_jobs="${argv[$((idx+1))]}"; fi ;;
     esac
   done
 
@@ -329,6 +347,8 @@ if [[ $# -ge 1 && -d "$1" ]]; then
       --clip-threshold=*) : ;;
       --clip-crop-divisor) skip_next=1 ;;
       --clip-crop-divisor=*) : ;;
+      --parallel-j) skip_next=1 ;;
+      --parallel-j=*) : ;;
       --clip-detect) : ;;
       --clip-detect-only) : ;;
       --padding) skip_next=1 ;;
@@ -365,14 +385,24 @@ if [[ $# -ge 1 && -d "$1" ]]; then
   done
 
   # Helper: run parallel tasks for a selected set of indexes.
+  # Use a job file + :::: instead of printf | parallel so the foreground process is only `parallel` (cleaner Ctrl+C/Ctrl+Z
+  # than a pipeline suspended as one unit).
   run_parallel_by_indexes() {
     typeset -a idxs=("$@")
     if (( ${#idxs[@]} == 0 )); then return 0; fi
 
-    # Emit input/output pairs for GNU Parallel.
+    local jf="${SQUIRCLE_TMPBASE}.jobs.tsv"
+    : > "$jf"
     for k in "${idxs[@]}"; do
       printf '%s\t%s\n' "${all_inputs[$k]}" "${all_outputs[$k]}"
-    done | parallel --no-notice -j 0 --colsep '\t' "$SCRIPT_DIR/$SCRIPT_NAME" {1} --out {2} "${CLIP_EXTRA_ARGS[@]}" "${pass_args[@]}"
+    done > "$jf"
+
+    if (( ${#idxs[@]} > 15 )) && (( clip_queue_sequential == 0 )); then
+      print -r -- "squircle: GNU Parallel -j ${parallel_jobs} — stop with one Ctrl+C (wait); avoid Ctrl+Z / machine-gun Ctrl+C." >&2
+    fi
+
+    parallel --no-notice -j "$parallel_jobs" --colsep '\t' \
+      "$SCRIPT_DIR/$SCRIPT_NAME" {1} --out {2} "${CLIP_EXTRA_ARGS[@]}" "${pass_args[@]}" :::: "$jf"
   }
 
   # Same as run_parallel_by_indexes, but sequential (debug/robustness mode).
