@@ -926,10 +926,10 @@ main() {
         fi
       fi
     else
-      if [[ $OPAQUE_PADDING -eq 1 ]]; then
-        render_opaque_padding "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$padding_bg" "$logo_size"
-      else
-        render_opaque_fill "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE"
+    if [[ $OPAQUE_PADDING -eq 1 ]]; then
+      render_opaque_padding "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$padding_bg" "$logo_size"
+    else
+      render_opaque_fill "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE"
       fi
     fi
   else
@@ -946,7 +946,7 @@ main() {
         echo "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: padding (inset) — transparent outside squircle)"
       fi
     else
-      echo "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: fill — transparent outside squircle)"
+    echo "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: fill — transparent outside squircle)"
     fi
   else
     echo "🟢 $OUTPUT (${SIZE}×${SIZE}, bg ${BG_HEX})"
