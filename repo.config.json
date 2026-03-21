@@ -12,7 +12,7 @@
       ".gitignore": "whitelist tracked paths (bin, webp, .hooks, etc)",
       "image-formats.txt": "extensions allowed for normalization; consumed by .hooks/pre-commit",
       "bin": "scripts + mask; see bin/* one-liners below",
-      "bin/squircle.sh": "one image → squircle WebP; or <dir> → batch. Tunables in CONFIG at top of script (PARALLEL_J, paths, clip/WebP). Default --clip-queue: GNU Parallel -j PARALLEL_J + --clip-detect per child; --parallel-j overrides. --clip-queue-sequential one-at-a-time. --no-clip-queue: parallel, no clip pipeline. Default --out REPO_ROOT/webp; --out-dir for batch. Markers cleaned unless --clip-keep-markers.",
+      "bin/squircle.sh": "single entrypoint: one image → squircle WebP; <dir> → batch; or --domain HOST → parallel logo fetch then same pipeline (curl). Tunables in CONFIG at top (PARALLEL_J, paths, clip/WebP). Batch: default --clip-queue (GNU Parallel + --clip-detect); --logo-rip-only / --logo-rip-keep only with --domain. bin/logo-rip.zsh forwards to squircle.sh --domain.",
       "bin/get-bg-color.sh": "edge/corner sampling → #HEX or OPAQUE; used by squircle.sh",
       "bin/sharpen.sh": "sharpen image; optional pre-step for sources",
       "bin/svg2png.sh": "convert by file type (SVG/JPEG/WebP/PNG) → PNG",
@@ -39,14 +39,15 @@
       "install_steps": "workflow.yaml#flow"
     }
   },
-  "deps": ["magick", "exiftool", "parallel", "rsvg-convert (librsvg)"],
+  "deps": ["magick", "exiftool", "parallel", "rsvg-convert (librsvg)", "curl (for --domain)"],
   "after_clone": [".hooks/scripts/setup.sh"],
   "normalized": { "_ref": "workflow.yaml#normalized", "path": "webp/<name>.webp", "size": "1024x1024", "format": "webp", "metadata": "stripped" },
   "hook": { "_ref": "workflow.yaml#hook", "allow": ["webp/**/*.webp @ 1024x1024", "non-image files in root"], "block": ["webp/**/*.{png,icns,...}", "root images", "webp/**/*.webp !1024x1024"], "on_allow": "strip metadata" },
   "add": [
     "./bin/squircle.sh <file>",
     "output -> webp/<name>.webp",
-    "./bin/squircle.sh <dir> --out-dir <dir> (recursive, preserves nested folders, skips existing outputs)"
+    "./bin/squircle.sh <dir> --out-dir <dir> (recursive, preserves nested folders, skips existing outputs)",
+    "./bin/squircle.sh --domain example.com [--logo-rip-only] (fetch logos → best → WebP under webp/)"
   ],
   "repo_env": "none required for squircle.sh (CONFIG in script). Optional: set paths in shell for other tooling.",
   "url": "https://raw.githubusercontent.com/vdutts7/squircle/main/webp/{name}.webp",

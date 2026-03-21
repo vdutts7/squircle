@@ -7,6 +7,9 @@
 # ENTRY_MODES:
 #   file_mode: argv[1] is regular file → parse_args → main → exit (no parallel).
 #   dir_mode:  argv[1] is directory → router → GNU Parallel children → exit 0 after "Done.".
+#   domain_mode: --domain HOST anywhere in argv → parallel logo URLs → pick largest raster → main on temp file
+#     (default --out REPO_ROOT/webp/<host-dashes>.webp). --logo-rip-only = fetch/compare table only (no WebP).
+#     Requires curl + magick. If --domain is present it wins over dir/file first-arg routing.
 #
 # REPO_ROOT: parent of bin/ (directory containing this script’s bin/). Default --out and batch --out-dir use REPO_ROOT/webp/.
 #
@@ -169,6 +172,7 @@ else
 fi
 
 typeset -g SQUIRCLE_TMPBASE="${SQUIRCLE_TMP_PARENT}/squircle_$$"
+typeset -g DOMAIN_RIP_TMP=""
 
 # Temp paths (cleaned in trap)
 typeset -g MASK_TMP TMP_PNG TMP_SVG_PNG TMP_QL_DIR
@@ -205,11 +209,143 @@ cleanup() {
       rm -rf "${SQUIRCLE_TMPBASE}.ql.d"
     fi
   fi
+  if [[ -n "${DOMAIN_RIP_TMP:-}" && -d "${DOMAIN_RIP_TMP}" ]]; then
+    rm -rf "${DOMAIN_RIP_TMP}"
+    DOMAIN_RIP_TMP=""
+  fi
   :
 }
-trap 'cleanup; exit' EXIT
+trap 'ex=$?; cleanup; exit "$ex"' EXIT
 trap 'cleanup; exit 1' ERR
 trap cleanup SIGTERM SIGINT
+
+# --- Ensure ImageMagick (scriptify: auto-install or clear error); used by file pipeline and --domain ---
+ensure_magick() {
+  if [[ -x "$MAGICK" ]]; then return 0; fi
+  if command -v brew &>/dev/null; then
+    echo "🟡 ImageMagick not found. Installing via brew..." >&2
+    brew install imagemagick 2>/dev/null || true
+    MAGICK=/opt/homebrew/bin/magick
+    [[ -x "$MAGICK" ]] || MAGICK=/usr/local/bin/magick
+  fi
+  if [[ ! -x "$MAGICK" ]]; then
+    echo "🔴 ImageMagick (magick) required. Install: brew install imagemagick" >&2
+    exit 1
+  fi
+}
+
+# --- --domain: parallel logo fetch, pick best geometry, then main() on raster (or --logo-rip-only) ---
+run_domain_entry() {
+  local d_raw="$1" rip_only="$2" rip_keep="$3"
+  shift 3
+  typeset -a pass_args=("$@")
+
+  local d="${d_raw:l}"
+  d="${d#https://}"
+  d="${d#http://}"
+  d="${d%%/*}"
+  d="${d#www.}"
+  [[ -n "$d" ]] || { echo "🔴 empty hostname after --domain normalize" >&2; return 1 }
+
+  command -v curl &>/dev/null || { echo "🔴 curl required for --domain" >&2; return 1 }
+  ensure_magick
+
+  local TMP
+  TMP="$(mktemp -d "${TMPDIR:-/tmp}/squircle-domain.XXXXXX")"
+  if (( rip_keep == 0 )); then
+    typeset -g DOMAIN_RIP_TMP="$TMP"
+  fi
+
+  typeset -a SRC=(
+    "hunter|https://logos.hunter.io/${d}"
+    "clearbit|https://logo.clearbit.com/${d}"
+    "g256|https://www.google.com/s2/favicons?domain=${d}&sz=256"
+    "g128|https://www.google.com/s2/favicons?domain=${d}&sz=128"
+    "ddg|https://icons.duckduckgo.com/ip3/${d}.ico"
+    "apple|https://${d}/apple-touch-icon.png"
+    "apple-www|https://www.${d}/apple-touch-icon.png"
+    "favicon|https://${d}/favicon.ico"
+    "favicon-www|https://www.${d}/favicon.ico"
+  )
+
+  rip_one_domain() {
+    local name="${1%%|*}" url="${1#*|}"
+    local out="${TMP}/${name}.bin"
+    if curl -sfL --max-time 20 -A "squircle-logo-rip/1.0" "$url" -o "$out" 2>/dev/null && [[ -s "$out" ]]; then
+      :
+    else
+      rm -f "$out"
+    fi
+  }
+
+  local row
+  for row in "${SRC[@]}"; do
+    rip_one_domain "$row" &
+  done
+  wait
+
+  typeset -a LOGO_ROWS=()
+  local f base meta fmt wh sz w h max bytes pad
+  for f in "$TMP"/*.bin(N); do
+    [[ -s "$f" ]] || continue
+    base="${f:t:r}"
+    meta="$("$MAGICK" identify -format '%m %wx%h %b' "${f}[0]" 2>/dev/null | head -n1)" || continue
+    read -r fmt wh sz <<<"${meta//,/}"
+    [[ -n "$wh" ]] || continue
+    w="${wh%x*}"
+    h="${wh#*x}"
+    max=$(( w > h ? w : h ))
+    bytes="$(wc -c <"$f" | tr -d '[:space:]')"
+    printf -v pad '%05d' "$max"
+    LOGO_ROWS+=( "${pad}"$'\t'"${base}"$'\t'"${fmt}"$'\t'"${wh}"$'\t'"${sz}"$'\t'"${bytes}" )
+  done
+
+  print -r -- "domain: $d"
+  print -r -- $'maxPx\tsource\tformat\tgeometry\tsize_field\tbytes'
+  if (( ! ${#LOGO_ROWS[@]} )); then
+    print -r -- "(no valid images downloaded)"
+    return 1
+  fi
+
+  printf '%s\n' "${LOGO_ROWS[@]}" | LC_ALL=C sort -t $'\t' -k1,1nr
+  print -r -- ""
+  local best
+  best="$(printf '%s\n' "${LOGO_ROWS[@]}" | LC_ALL=C sort -t $'\t' -k1,1nr | head -n1)"
+  print -r -- "best_line: $best"
+  print -r -- "tmpdir: $TMP"
+  (( rip_keep )) && print -r -- "(kept on disk; rm -rf manually when done)"
+
+  local best_src best_fmt best_bin
+  IFS=$'\t' read -r _pad best_src best_fmt _g _s _b <<<"$best"
+  best_bin="${TMP}/${best_src}.bin"
+  [[ -s "$best_bin" ]] || { echo "🔴 missing winner file" >&2; return 1 }
+
+  if (( rip_only )); then
+    return 0
+  fi
+
+  local ext="${(L)best_fmt}"
+  case "$ext" in
+    png|jpeg|jpg|webp|avif|gif|ico|svg|bmp|tiff|tif) ;;
+    *) ext=png ;;
+  esac
+  [[ "$ext" == jpeg ]] && ext=jpg
+  local rip_in="${TMP}/squircle-input.${ext}"
+  cp "$best_bin" "$rip_in"
+
+  typeset has_out=0
+  typeset -a pa=("${pass_args[@]}")
+  local j
+  for (( j = 1; j <= ${#pa[@]}; j++ )); do
+    case "${pa[j]}" in
+      --out|--out=*) has_out=1; break ;;
+    esac
+  done
+  (( has_out )) || pa=(--out "$REPO_ROOT/webp/${d//./-}.webp" "${pa[@]}")
+
+  print -r -- "squircle: $rip_in → (see status line below)"
+  main "$rip_in" "${pa[@]}"
+}
 
 # --- Help (scriptify requirement) ---
 show_help() {
@@ -245,6 +381,10 @@ Options:
   --no-clip-detect          Force clip-detect off (escape hatch when DEFAULT_CLIP_DETECT=1).
   --overwrite               Directory mode: overwrite existing outputs.
   --padding [N]    Center logo with margin. N = padding in px per side (default ~100); omit for default.
+  --domain HOST    Fetch logo candidates for HOST (parallel HTTP), pick best by pixel size, then run this pipeline
+                   on the winner (default --out REPO_ROOT/webp/<host-with-dots-as-dashes>.webp). Requires curl.
+  --logo-rip-only  With --domain: print comparison table only; do not write WebP.
+  --logo-rip-keep  With --domain: keep download temp dir on disk (otherwise removed on exit); tmpdir path is printed.
   -h, --help       Show this help.
 
   Batch interrupt: Use Ctrl+C once and wait. Do not Ctrl+Z (suspends). Hammering Ctrl+C can hit GNU Parallel's signal limit.
@@ -258,6 +398,9 @@ Examples:
   $SCRIPT_NAME /path/to/ph.ico --out webp/ph.webp
   $SCRIPT_NAME ~/Downloads
   $SCRIPT_NAME /path/to/dir
+  $SCRIPT_NAME --domain example.com
+  $SCRIPT_NAME --domain example.com --logo-rip-only
+  $SCRIPT_NAME --domain example.com --out webp/custom.webp --padding
 
 EOF
   exit 0
@@ -268,8 +411,43 @@ for a in "$@"; do
   case "$a" in -h|--help) show_help ;; esac
 done
 
+# --- Router: --domain (logo fetch) → optional main(); takes precedence over file/dir first arg ---
+typeset DOMAIN_ARG=""
+typeset LOGO_RIP_ONLY=0
+typeset LOGO_RIP_KEEP=0
+typeset -a ARGV_WITHOUT_DOMAIN=()
+typeset -i _si=1
+while (( _si <= $# )); do
+  a="${@[_si]}"
+  case "$a" in
+    --domain=*)
+      DOMAIN_ARG="${a#--domain=}"
+      ((_si++))
+      ;;
+    --domain)
+      ((_si++))
+      ((_si <= $#)) || { echo "🔴 --domain needs a hostname" >&2; exit 1 }
+      DOMAIN_ARG="${@[_si]}"
+      ((_si++))
+      ;;
+    --logo-rip-only)
+      LOGO_RIP_ONLY=1
+      ((_si++))
+      ;;
+    --logo-rip-keep)
+      LOGO_RIP_KEEP=1
+      ((_si++))
+      ;;
+    *)
+      ARGV_WITHOUT_DOMAIN+=("$a")
+      ((_si++))
+      ;;
+  esac
+done
+
 # --- Router: if first arg is a directory → batch, then exit ---
-if [[ $# -ge 1 && -d "$1" ]]; then
+# (--domain is handled at end of script so run_domain_entry can call main after it is defined.)
+if [[ -z "$DOMAIN_ARG" && $# -ge 1 && -d "$1" ]]; then
   command -v parallel &>/dev/null || { echo "GNU Parallel required: brew install parallel"; exit 1; }
 
   typeset -a argv=("$@")
@@ -487,21 +665,6 @@ if [[ $# -ge 1 && -d "$1" ]]; then
   echo "Done."
   exit 0
 fi
-
-# --- Ensure ImageMagick (scriptify: auto-install or clear error) ---
-ensure_magick() {
-  if [[ -x "$MAGICK" ]]; then return 0; fi
-  if command -v brew &>/dev/null; then
-    echo "🟡 ImageMagick not found. Installing via brew..." >&2
-    brew install imagemagick 2>/dev/null || true
-    MAGICK=/opt/homebrew/bin/magick
-    [[ -x "$MAGICK" ]] || MAGICK=/usr/local/bin/magick
-  fi
-  if [[ ! -x "$MAGICK" ]]; then
-    echo "🔴 ImageMagick (magick) required. Install: brew install imagemagick" >&2
-    exit 1
-  fi
-}
 
 # --- Retry external command (scriptify: retry for external calls) ---
 retry_run() {
@@ -952,5 +1115,10 @@ main() {
     echo "🟢 $OUTPUT (${SIZE}×${SIZE}, bg ${BG_HEX})"
   fi
 }
+
+if [[ -n "$DOMAIN_ARG" ]]; then
+  run_domain_entry "$DOMAIN_ARG" "$LOGO_RIP_ONLY" "$LOGO_RIP_KEEP" "${ARGV_WITHOUT_DOMAIN[@]}"
+  exit $?
+fi
 
 main "$@"
