@@ -2,11 +2,15 @@
 *
 
 !.gitignore
+!.cursor/
+!.cursor/commands/
+!.cursor/commands/venv.md
 !.gitconfig
 !.hooks/
 !.hooks/**
 !repo.config.json
 !workflow.yaml
+!requirements.txt
 !image-formats.txt
 !bin/
 !bin/**

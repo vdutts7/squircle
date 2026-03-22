@@ -14,6 +14,7 @@
       "bin": "scripts + mask; see bin/* one-liners below",
       "bin/squircle.sh": "single entrypoint: one image → squircle WebP; <dir> → batch; or --domain HOST → parallel logo fetch then same pipeline (curl). Tunables in CONFIG at top (PARALLEL_J, paths, clip/WebP). Batch: default --clip-queue (GNU Parallel + --clip-detect); --logo-rip-only / --logo-rip-keep only with --domain. bin/logo-rip.zsh forwards to squircle.sh --domain.",
       "bin/get-bg-color.sh": "edge/corner sampling → #HEX or OPAQUE; used by squircle.sh",
+      "bin/squircle-prep-logo.zsh": "sourced by squircle.sh --domain: fuzz-trim / content-bounds before main (optional --no-domain-prep)",
       "bin/sharpen.sh": "sharpen image; optional pre-step for sources",
       "bin/svg2png.sh": "convert by file type (SVG/JPEG/WebP/PNG) → PNG",
       "bin/colorpick.sh": "CLI color dropper: pixel or palette → hex",
@@ -47,7 +48,7 @@
     "./bin/squircle.sh <file>",
     "output -> webp/<name>.webp",
     "./bin/squircle.sh <dir> --out-dir <dir> (recursive, preserves nested folders, skips existing outputs)",
-    "./bin/squircle.sh --domain example.com [--logo-rip-only] (fetch logos → best → WebP under webp/)"
+    "./bin/squircle.sh --domain example.com [--logo-rip-only] (default out webp/example.webp from first hostname label)"
   ],
   "repo_env": "none required for squircle.sh (CONFIG in script). Optional: set paths in shell for other tooling.",
   "url": "https://raw.githubusercontent.com/vdutts7/squircle/main/webp/{name}.webp",

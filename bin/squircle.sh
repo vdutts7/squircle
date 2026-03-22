@@ -7,16 +7,22 @@
 # ENTRY_MODES:
 #   file_mode: argv[1] is regular file → parse_args → main → exit (no parallel).
 #   dir_mode:  argv[1] is directory → router → GNU Parallel children → exit 0 after "Done.".
-#   domain_mode: --domain HOST anywhere in argv → parallel logo URLs → pick largest raster → main on temp file
-#     (default --out REPO_ROOT/webp/<host-dashes>.webp). --logo-rip-only = fetch/compare table only (no WebP).
+#   domain_mode: --domain HOST → parallel fetch (Google s2 favicons, site icons, Bing Images HTML scrape for bing-*.bin)
+#     → winner: phash-pick (g256/g128 vs Bing) → largest Bing under Hamming + max-edge; if no Bing match or no Bing rips,
+#       Google favicon (g256/g128); if those missing → geometric sort → optional prep
+#     (bin/squircle-prep-logo.zsh: fuzz-trim content bounds) → main on temp file
+#     (default --out REPO_ROOT/webp/<first-label>.webp e.g. medium.com -> medium.webp). --logo-rip-only = fetch/compare table only (no WebP).
 #     Requires curl + magick. If --domain is present it wins over dir/file first-arg routing.
+#     Opaque sources still use CONFIG clip-detect in main; prep tightens margins before get-bg / render.
+#     Default (domain_dump): durable dir /tmp/squircle-domain-artifacts/<host>-<pid>/ (always under /tmp; not deleted on exit);
+#     symlink /tmp/squircle-domain-artifacts/_last -> latest run. --no-domain-dump: mktemp under TMPDIR (deleted on exit unless --logo-rip-keep).
 #
-# REPO_ROOT: parent of bin/ (directory containing this script’s bin/). Default --out and batch --out-dir use REPO_ROOT/webp/.
+# REPO_ROOT: parent of bin/ (directory containing this script’s bin/). Default --out file and batch --out-dir use REPO_ROOT/webp/.
 #
 # INTERFACE (CLI overrides; defaults from CONFIG):
 #   --size N                    output square size (CONFIG: DEFAULT_SIZE).
-#   --out PATH                  WebP path (default REPO_ROOT/webp/<input_basename>.webp).
-#   --out-dir DIR               batch only; default REPO_ROOT/webp if omitted.
+#   --out PATH                  WebP path (default REPO_ROOT/webp/<input_basename>.webp); otherwise the path you pass (relative = cwd).
+#   --out-dir DIR               batch: output tree root (default REPO_ROOT/webp). Single-file / --domain: consumed here — use --out for clarity.
 #   --overwrite                 batch + --no-clip-queue: replace existing outputs (see SKIP_RULES).
 #   --parallel-j ARG            batch only; GNU Parallel -j (default CONFIG: PARALLEL_J). E.g. 100%, 125%, 200%, 0.
 #   --bg / --icon-color / --padding  per-run logo path (unchanged).
@@ -46,11 +52,11 @@
 #   BG_HEX==OPAQUE → render_opaque_* ; else render_with_base(BG_HEX).
 #
 # RENDER_OPAQUE_FILL:
-#   magick: (raster -trim +repage -resize SxS^ -gravity center -extent SxS) + mask CopyOpacity → WebP.
+#   magick: trim +repage, fit -resize SxS (no ^), corner margin color, -extent SxS + mask CopyOpacity → WebP.
 #
 # RENDER_OPAQUE_PADDING:
 #   logo_size=max(8, SIZE-2*PADDING_PX) when PADDING_PX set; else ratio branch above.
-#   magick: (raster -resize ${logo_size}x${logo_size}^ -gravity center -background margin -extent SxS) + mask → WebP.
+#   magick: (raster -resize ${logo_size}x${logo_size} fit -gravity center -background margin -extent SxS) + mask → WebP.
 #   margin: padding_bg; if OPAQUE_PADDING && default #FFFFFF → sample_corner_bg_hex(IN_FOR_MAGICK).
 #
 # RENDER_TRANSPARENT (BG_HEX not OPAQUE):
@@ -83,6 +89,7 @@
 # BATCH_ROUTER (argv[1] is directory):
 #   Preconditions: command -v parallel. parallel_jobs=CONFIG.PARALLEL_J; CLI --parallel-j overrides.
 #   REPO_ROOT from CONFIG (parent of bin/).
+#   out_dir: default REPO_ROOT/webp if --out-dir omitted; if set, used as given (relative paths are cwd-relative).
 #   Enumerate: for f in "$INPUT_DIR"/**/* ; [[ -f "$f" ]] → pairs (input, output).
 #   output_path = "${out_dir}/${rel_without_input_prefix%.*}.webp"; mkdir -p "${out_path:h}".
 #   Arrays all_inputs/all_outputs: zsh 1-based indices in run_*_by_indexes loops.
@@ -159,6 +166,9 @@ PLATE_FX=1
 PLATE_FX_GRADIENT='rgba(255,255,255,0.14)-rgba(0,0,0,0.10)'
 PLATE_FX_DROP_SHADOW=''
 # Example: PLATE_FX=1 and PLATE_FX_DROP_SHADOW='70x4+0+14' (ImageMagick -shadow: opacity%xsigma+dx+dy)
+#
+# --domain Bing: HTML scrape of bing.com/images/search (embedded murl fields); no API key. Fragile if Bing changes markup.
+# --domain phash: SQUIRCLE_PHASH_THRESHOLD (default 26), SQUIRCLE_PHASH_MAX_EDGE (default 2000) — Bing vs g256/g128; largest match under max edge first.
 # =============================================================================
 
 typeset -ga MAGICK_RF=()
@@ -234,11 +244,80 @@ ensure_magick() {
   fi
 }
 
+# --- --domain: Bing Images HTML scrape → raw/bing-NN.bin (no API key; python3 parses embedded murl fields) ---
+squircle_bing_image_rip() {
+  local TMP="$1" d="$2"
+  command -v python3 &>/dev/null || return 0
+  local ua='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
+  local q enc page
+  q="${d} logo"
+  enc="$(python3 -c "import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1]))" "$q")" || return 0
+  page="$(curl -sfL --max-time 35 -A "$ua" \
+    "https://www.bing.com/images/search?q=${enc}&first=1" 2>/dev/null)" || return 0
+  [[ -n "$page" ]] || return 0
+  typeset -a bing_urls=()
+  while IFS= read -r line; do
+    [[ -n "$line" ]] && bing_urls+=("$line")
+  done < <(print -r -- "$page" | python3 -c '
+import re, sys
+html = sys.stdin.read()
+seen, urls = set(), []
+for m in re.finditer(r"murl&quot;:&quot;(https://[^&]+?)&quot;", html):
+    u = m.group(1).replace("&amp;", "&")
+    if u in seen or u.startswith("https://www.bing.com"):
+        continue
+    seen.add(u)
+    urls.append(u)
+    if len(urls) >= 20:
+        break
+if len(urls) < 20:
+    dq = chr(34)
+    pat2 = dq + "murl" + dq + ":" + dq + "(https://[^" + dq + "]+)" + dq
+    for m in re.finditer(pat2, html):
+        u = m.group(1).replace("&amp;", "&")
+        if u in seen or u.startswith("https://www.bing.com"):
+            continue
+        seen.add(u)
+        urls.append(u)
+        if len(urls) >= 20:
+            break
+for u in urls[:20]:
+    print(u)
+')
+  (( ${#bing_urls[@]} )) || return 0
+  local i=0 u out
+  for u in "${bing_urls[@]}"; do
+    [[ -n "$u" ]] || continue
+    out="${TMP}/raw/bing-$(printf '%02d' "$i").bin"
+    # Subshell: failed curls must not trip set -e / ERR on background jobs.
+    ( curl -sfL --max-time 25 -A "$ua" -e 'https://www.bing.com/images/search' "$u" -o "$out" || true ) &
+    i=$(( i + 1 ))
+    (( i >= 20 )) && break
+  done
+  wait || true
+  local bf
+  for bf in "${TMP}"/raw/bing-*.bin(N); do
+    [[ -s "$bf" ]] || rm -f "$bf"
+  done
+  return 0
+}
+
 # --- --domain: parallel logo fetch, pick best geometry, then main() on raster (or --logo-rip-only) ---
 run_domain_entry() {
   local d_raw="$1" rip_only="$2" rip_keep="$3"
   shift 3
   typeset -a pass_args=("$@")
+
+  typeset domain_dump=1
+  typeset -a _pass_f=()
+  local _t
+  for _t in "${pass_args[@]}"; do
+    case "$_t" in
+      --no-domain-dump) domain_dump=0 ;;
+      *) _pass_f+=("$_t") ;;
+    esac
+  done
+  pass_args=( "${_pass_f[@]}" )
 
   local d="${d_raw:l}"
   d="${d#https://}"
@@ -247,21 +326,61 @@ run_domain_entry() {
   d="${d#www.}"
   [[ -n "$d" ]] || { echo "🔴 empty hostname after --domain normalize" >&2; return 1 }
 
+  # --out-dir is batch-only in the dir router; here it used to pass through to main(), break parse_args
+  # positional SIZE (magick saw pathxpath). Fold into --out: .webp path as file, else directory + host stem.
+  typeset -a _odb=()
+  local _i=1 _v
+  while (( _i <= ${#pass_args[@]} )); do
+    _t="${pass_args[_i]}"
+    case "$_t" in
+      --out-dir=*)
+        _v="${_t#--out-dir=}"
+        if [[ "${_v:l}" == *.webp ]]; then
+          _odb+=(--out "$_v")
+        else
+          _v="${_v%/}"
+          _odb+=(--out "$_v/${d%%.*}.webp")
+        fi
+        ;;
+      --out-dir)
+        ((_i < ${#pass_args[@]})) || { echo "🔴 --out-dir needs a path" >&2; return 1 }
+        ((_i++))
+        _v="${pass_args[_i]}"
+        if [[ "${_v:l}" == *.webp ]]; then
+          _odb+=(--out "$_v")
+        else
+          _v="${_v%/}"
+          _odb+=(--out "$_v/${d%%.*}.webp")
+        fi
+        ;;
+      *) _odb+=("$_t") ;;
+    esac
+    ((_i++))
+  done
+  pass_args=( "${_odb[@]}" )
+
   command -v curl &>/dev/null || { echo "🔴 curl required for --domain" >&2; return 1 }
   ensure_magick
 
+  local ART_ROOT="/tmp/squircle-domain-artifacts"
   local TMP
-  TMP="$(mktemp -d "${TMPDIR:-/tmp}/squircle-domain.XXXXXX")"
-  if (( rip_keep == 0 )); then
-    typeset -g DOMAIN_RIP_TMP="$TMP"
+  if (( domain_dump )); then
+    mkdir -p "$ART_ROOT"
+    TMP="$ART_ROOT/${d//[.\/]/-}-$$"
+    mkdir -p "$TMP"
+    ln -sfn "$TMP" "$ART_ROOT/_last" 2>/dev/null || true
+  else
+    TMP="$(mktemp -d "${TMPDIR:-/tmp}/squircle-domain.XXXXXX")"
+    if (( rip_keep == 0 )); then
+      typeset -g DOMAIN_RIP_TMP="$TMP"
+    fi
   fi
+  mkdir -p "$TMP/raw"
 
+  # Google s2 = stable small reference (good for downstream p-hash anchoring). Bing scrape = breadth (no API key).
   typeset -a SRC=(
-    "hunter|https://logos.hunter.io/${d}"
-    "clearbit|https://logo.clearbit.com/${d}"
     "g256|https://www.google.com/s2/favicons?domain=${d}&sz=256"
     "g128|https://www.google.com/s2/favicons?domain=${d}&sz=128"
-    "ddg|https://icons.duckduckgo.com/ip3/${d}.ico"
     "apple|https://${d}/apple-touch-icon.png"
     "apple-www|https://www.${d}/apple-touch-icon.png"
     "favicon|https://${d}/favicon.ico"
@@ -270,7 +389,7 @@ run_domain_entry() {
 
   rip_one_domain() {
     local name="${1%%|*}" url="${1#*|}"
-    local out="${TMP}/${name}.bin"
+    local out="${TMP}/raw/${name}.bin"
     if curl -sfL --max-time 20 -A "squircle-logo-rip/1.0" "$url" -o "$out" 2>/dev/null && [[ -s "$out" ]]; then
       :
     else
@@ -283,10 +402,11 @@ run_domain_entry() {
     rip_one_domain "$row" &
   done
   wait
+  squircle_bing_image_rip "$TMP" "$d"
 
   typeset -a LOGO_ROWS=()
-  local f base meta fmt wh sz w h max bytes pad
-  for f in "$TMP"/*.bin(N); do
+  local f base meta fmt wh sz w h max bytes sort_pri ar src_rank rank_pad sp arp mp
+  for f in "$TMP"/raw/*.bin(N); do
     [[ -s "$f" ]] || continue
     base="${f:t:r}"
     meta="$("$MAGICK" identify -format '%m %wx%h %b' "${f}[0]" 2>/dev/null | head -n1)" || continue
@@ -296,8 +416,33 @@ run_domain_entry() {
     h="${wh#*x}"
     max=$(( w > h ? w : h ))
     bytes="$(wc -c <"$f" | tr -d '[:space:]')"
-    printf -v pad '%05d' "$max"
-    LOGO_ROWS+=( "${pad}"$'\t'"${base}"$'\t'"${fmt}"$'\t'"${wh}"$'\t'"${sz}"$'\t'"${bytes}" )
+    # Prefer logo-sized rasters (128–1600px max side). Raw "largest wins" picks 4k+ hero plates / banners;
+    # opaque+^resize then center-crops → solid-color slices (junk squircles).
+    if (( max >= 128 && max <= 1600 )); then
+      sort_pri=$(( 1000000 + max ))
+    else
+      sort_pri=$max
+    fi
+    ar=0
+    if (( w > 0 && h > 0 )); then
+      if (( w >= h )); then ar=$(( h * 10000 / w ))
+      else ar=$(( w * 10000 / h )); fi
+    fi
+    src_rank=50
+    case "$base" in
+      bing-*) src_rank=102 ;; # prefer Bing raster when tied on max dimension vs favicons
+      g256) src_rank=100 ;;
+      g128) src_rank=99 ;;
+      apple) src_rank=96 ;;
+      apple-www) src_rank=95 ;;
+      favicon) src_rank=94 ;;
+      favicon-www) src_rank=93 ;;
+    esac
+    printf -v rank_pad '%03d' "$src_rank"
+    printf -v sp '%08d' "$sort_pri"
+    printf -v arp '%05d' "$ar"
+    printf -v mp '%05d' "$max"
+    LOGO_ROWS+=( "${sp}"$'\t'"${arp}"$'\t'"${mp}"$'\t'"${base}"$'\t'"${fmt}"$'\t'"${wh}"$'\t'"${sz}"$'\t'"${bytes}"$'\t'"${rank_pad}" )
   done
 
   print -r -- "domain: $d"
@@ -307,20 +452,116 @@ run_domain_entry() {
     return 1
   fi
 
-  printf '%s\n' "${LOGO_ROWS[@]}" | LC_ALL=C sort -t $'\t' -k1,1nr
+  printf '%s\n' "${LOGO_ROWS[@]}" | LC_ALL=C sort -t $'\t' -k1,1nr -k2,2nr -k9,9nr -k8,8nr | cut -f3-8
   print -r -- ""
-  local best
-  best="$(printf '%s\n' "${LOGO_ROWS[@]}" | LC_ALL=C sort -t $'\t' -k1,1nr | head -n1)"
-  print -r -- "best_line: $best"
-  print -r -- "tmpdir: $TMP"
-  (( rip_keep )) && print -r -- "(kept on disk; rm -rf manually when done)"
 
-  local best_src best_fmt best_bin
-  IFS=$'\t' read -r _pad best_src best_fmt _g _s _b <<<"$best"
-  best_bin="${TMP}/${best_src}.bin"
+  local sort_best
+  sort_best="$(printf '%s\n' "${LOGO_ROWS[@]}" | LC_ALL=C sort -t $'\t' -k1,1nr -k2,2nr -k9,9nr -k8,8nr | head -n1)"
+
+  local best_bin="" best_src="" best_fmt=""
+  local phash_th="${SQUIRCLE_PHASH_THRESHOLD:-26}"
+  local phash_cap="${SQUIRCLE_PHASH_MAX_EDGE:-2000}"
+  local anchor="${TMP}/raw/g256.bin"
+  [[ -s "$anchor" ]] || anchor="${TMP}/raw/g128.bin"
+  typeset -a bing_bins=()
+  local _bf
+  for _bf in "${TMP}"/raw/bing-*.bin(N); do
+    [[ -s "$_bf" ]] && bing_bins+=("$_bf")
+  done
+  if [[ -s "$anchor" ]] && (( ${#bing_bins[@]} )) && [[ -x "$SCRIPT_DIR/phash-pick.zsh" ]]; then
+    local ph_out
+    ph_out="$("$SCRIPT_DIR/phash-pick.zsh" --threshold "$phash_th" --max-edge "$phash_cap" "$anchor" "${bing_bins[@]}" 2>/dev/null)" || ph_out=""
+    if [[ -n "$ph_out" && "${ph_out:t}" == bing-*.bin ]]; then
+      best_bin="${ph_out:A}"
+      best_src="${best_bin:t:r}"
+      best_fmt="$("$MAGICK" identify -format '%m' "${best_bin}[0]" 2>/dev/null | head -n1 | tr '[:upper:]' '[:lower:]')"
+    fi
+  fi
+
+  if [[ -n "$best_bin" ]]; then
+    local _wh _w _h _mx _bc
+    _wh="$("$MAGICK" identify -format '%wx%h' "${best_bin}[0]" 2>/dev/null | head -n1)"
+    _w="${_wh%x*}"
+    _h="${_wh#*x}"
+    _mx=$(( _w > _h ? _w : _h ))
+    _bc="$(wc -c <"$best_bin" | tr -d '[:space:]')"
+    local _szb
+    _szb="$("$MAGICK" identify -format '%b' "${best_bin}[0]" 2>/dev/null | head -n1)"
+    printf -v _mxp '%05d' "$_mx"
+    print -r -- "best_line: ${_mxp}"$'\t'"${best_src}"$'\t'"${best_fmt}"$'\t'"${_wh}"$'\t'"${_szb}"$'\t'"${_bc}"$'\t'"phash≤${phash_th} cap≤${phash_cap}px vs ${anchor:t}"
+  elif [[ -s "$anchor" ]]; then
+    # No Bing passed phash (or no Bing downloads / phash unavailable): use Google favicon as raster, not a random Bing sort.
+    best_bin="$anchor"
+    best_src="${best_bin:t:r}"
+    best_fmt="$("$MAGICK" identify -format '%m' "${best_bin}[0]" 2>/dev/null | head -n1 | tr '[:upper:]' '[:lower:]')"
+    local _wh _w _h _mx _bc _szb _mxp
+    _wh="$("$MAGICK" identify -format '%wx%h' "${best_bin}[0]" 2>/dev/null | head -n1)"
+    _w="${_wh%x*}"
+    _h="${_wh#*x}"
+    _mx=$(( _w > _h ? _w : _h ))
+    _bc="$(wc -c <"$best_bin" | tr -d '[:space:]')"
+    _szb="$("$MAGICK" identify -format '%b' "${best_bin}[0]" 2>/dev/null | head -n1)"
+    printf -v _mxp '%05d' "$_mx"
+    print -r -- "best_line: ${_mxp}"$'\t'"${best_src}"$'\t'"${best_fmt}"$'\t'"${_wh}"$'\t'"${_szb}"$'\t'"${_bc}"$'\t'"Google favicon fallback (no Bing perceptual match)"
+  else
+    local best="$sort_best"
+    print -r -- "best_line: $(print -r -- "$best" | cut -f3-8)"$'\t'"geometric sort (no g256/g128; phash/Bing unusable)"
+    IFS=$'\t' read -r _sp _ar _mp best_src best_fmt _g _s _b _rank <<<"$best"
+    best_bin="${TMP}/raw/${best_src}.bin"
+  fi
+
+  if (( ! domain_dump )); then
+    print -r -- "fetch_tmp (deleted when squircle exits unless --logo-rip-keep): $TMP" >&2
+    (( rip_keep )) && print -r -- "(logo-rip-keep: tmp not auto-deleted)" >&2
+  fi
+
   [[ -s "$best_bin" ]] || { echo "🔴 missing winner file" >&2; return 1 }
 
+  local DUMP_DIR=""
+  local mag dump_ext chosen_ex
+  if (( domain_dump )); then
+    DUMP_DIR="$TMP"
+    {
+      print -r -- "domain: $d"
+      print -r -- "work_dir: $DUMP_DIR (kept after squircle exits)"
+      print -r -- "OPEN THESE: preview-*.png (every candidate) and 00-CHOSEN.png (winner). Finder / Quick Look work."
+      print -r -- "raw/*.bin = original curl bytes (ignore unless debugging)"
+      print -r -- "Bing: bing-*.bin from bing.com/images/search HTML scrape (no API key)"
+      print -r -- "latest symlink: $ART_ROOT/_last"
+      print -r -- ""
+      print -r -- "CHOSEN-<source>.<ext> = raw-format copy of winner"
+      print -r -- "into-squircle.<ext>   = input passed to main render"
+      print -r -- "after-domain-prep.png = post fuzz-trim (if prep ran)"
+      print -r -- "candidates.tsv        = ranking table; winner: phash Bing match, else Google favicon, else geometric"
+      print -r -- ""
+    } >"$DUMP_DIR/README.txt"
+    printf '%s\n' "${LOGO_ROWS[@]}" | LC_ALL=C sort -t $'\t' -k1,1nr -k2,2nr -k9,9nr -k8,8nr | cut -f3-8 >"$DUMP_DIR/candidates.tsv"
+    for f in "$TMP"/raw/*.bin(N); do
+      [[ -s "$f" ]] || continue
+      base="${f:t:r}"
+      "$MAGICK" -limit thread 1 "${f}[0]" "${MAGICK_RF[@]}" -strip PNG32:"$DUMP_DIR/preview-${base}.png" 2>/dev/null || true
+    done
+    mag="$("$MAGICK" identify -format '%m' "${best_bin}[0]" 2>/dev/null | tr '[:upper:]' '[:lower:]')"
+    case "$mag" in
+      png) chosen_ex=png ;;
+      jpeg|jpg) chosen_ex=jpg ;;
+      webp) chosen_ex=webp ;;
+      gif) chosen_ex=gif ;;
+      mvg|svg) chosen_ex=svg ;;
+      bmp|bitmap) chosen_ex=bmp ;;
+      tiff|tif) chosen_ex=tif ;;
+      icon) chosen_ex=ico ;;
+      *) chosen_ex=png ;;
+    esac
+    cp -f "$best_bin" "$DUMP_DIR/CHOSEN-${best_src}.${chosen_ex}"
+    "$MAGICK" -limit thread 1 "${best_bin}[0]" "${MAGICK_RF[@]}" -strip PNG32:"$DUMP_DIR/00-CHOSEN.png" 2>/dev/null || cp -f "$best_bin" "$DUMP_DIR/00-CHOSEN.${chosen_ex}"
+    print -r -- "inspect_dir (PNG previews on top): $DUMP_DIR" >&2
+    print -r -- "inspect_symlink: $ART_ROOT/_last -> $TMP" >&2
+    print -r -- "open (macOS): open '$DUMP_DIR'" >&2
+  fi
+
   if (( rip_only )); then
+    [[ -n "$DUMP_DIR" ]] && print -r -- "done (rip-only). inspect: $DUMP_DIR   or: ls -la $ART_ROOT/_last" >&2
     return 0
   fi
 
@@ -332,19 +573,43 @@ run_domain_entry() {
   [[ "$ext" == jpeg ]] && ext=jpg
   local rip_in="${TMP}/squircle-input.${ext}"
   cp "$best_bin" "$rip_in"
+  [[ -n "$DUMP_DIR" ]] && cp -f "$rip_in" "$DUMP_DIR/into-squircle.${ext}"
+
+  typeset -a pa=()
+  typeset domain_prep=1
+  local t
+  for t in "${pass_args[@]}"; do
+    case "$t" in
+      --no-domain-prep) domain_prep=0 ;;
+      *) pa+=("$t") ;;
+    esac
+  done
 
   typeset has_out=0
-  typeset -a pa=("${pass_args[@]}")
   local j
   for (( j = 1; j <= ${#pa[@]}; j++ )); do
     case "${pa[j]}" in
       --out|--out=*) has_out=1; break ;;
     esac
   done
-  (( has_out )) || pa=(--out "$REPO_ROOT/webp/${d//./-}.webp" "${pa[@]}")
+  (( has_out )) || pa=(--out "$REPO_ROOT/webp/${d%%.*}.webp" "${pa[@]}")
 
+  if (( domain_prep )) && [[ -r "$SCRIPT_DIR/squircle-prep-logo.zsh" ]]; then
+    source "$SCRIPT_DIR/squircle-prep-logo.zsh"
+    local prep_out="${TMP}/squircle-input-prep.png"
+    if squircle_prep_logo_raster "$rip_in" "$prep_out" && [[ -s "$prep_out" ]]; then
+      rip_in="$prep_out"
+      print -r -- "domain-prep: fuzz-trim → $rip_in" >&2
+      [[ -n "$DUMP_DIR" ]] && cp -f "$prep_out" "$DUMP_DIR/after-domain-prep.png"
+    fi
+  fi
+
+  if [[ -n "$DUMP_DIR" ]]; then
+    print -r -- "squircle_raster_input: $rip_in (copy also in inspect_dir)" >&2
+  fi
   print -r -- "squircle: $rip_in → (see status line below)"
   main "$rip_in" "${pa[@]}"
+  [[ -n "$DUMP_DIR" ]] && print -r -- "done. inspect: $DUMP_DIR   or: ls -la $ART_ROOT/_last" >&2
 }
 
 # --- Help (scriptify requirement) ---
@@ -361,8 +626,9 @@ Options:
   --bg #HEX        Background color (e.g. #FFFFFF). With --padding, margin color.
   --icon-color #   Recolor logo (transparent-background path only).
   --size N         Output size (default: CONFIG DEFAULT_SIZE).
-  --out path.webp  Output path. Default: REPO_ROOT/webp/<input_basename>.webp (REPO_ROOT = parent of bin/).
-  --out-dir DIR    Output directory (batch mode only). Default REPO_ROOT/webp if omitted. Created if missing.
+  --out path.webp  Output path. Default: REPO_ROOT/webp/<input_basename>.webp (REPO_ROOT = parent of bin/). Other paths are used as given.
+  --out-dir DIR    Batch (directory input): output tree root; default REPO_ROOT/webp. Single-file / --domain: treated as output
+                   location (.webp path = that file; else directory + input basename.webp). Prefer --out for one file.
                    Directory mode is recursive and preserves the input folder structure:
                    <out-dir>/<relative_path_from_input>/<basename>.webp (existing files are skipped).
   --clip-queue     Batch: clip-detect + padding escalation via GNU Parallel (-j CONFIG PARALLEL_J unless --parallel-j).
@@ -381,10 +647,14 @@ Options:
   --no-clip-detect          Force clip-detect off (escape hatch when DEFAULT_CLIP_DETECT=1).
   --overwrite               Directory mode: overwrite existing outputs.
   --padding [N]    Center logo with margin. N = padding in px per side (default ~100); omit for default.
-  --domain HOST    Fetch logo candidates for HOST (parallel HTTP), pick best by pixel size, then run this pipeline
-                   on the winner (default --out REPO_ROOT/webp/<host-with-dots-as-dashes>.webp). Requires curl.
+  --domain HOST    Fetch logo candidates for HOST (Google s2 favicons, site icons, Bing Images HTML scrape → bing-*.bin).
+                   Winner: phash Bing vs Google g256 (./bin/venv.zsh + phash-pick.zsh), Hamming ≤ SQUIRCLE_PHASH_THRESHOLD (default 26),
+                   largest under SQUIRCLE_PHASH_MAX_EDGE (default 2000px); if no Bing match → Google favicon; else geometric sort.
+                   Bing HTML parse needs python3; curl required.
   --logo-rip-only  With --domain: print comparison table only; do not write WebP.
   --logo-rip-keep  With --domain: keep download temp dir on disk (otherwise removed on exit); tmpdir path is printed.
+  --no-domain-prep With --domain: skip squircle-prep-logo.zsh (fuzz-trim / margin crop before main).
+  --no-domain-dump With --domain: ephemeral mktemp fetch dir only (deleted on exit); no durable inspect_dir or _last symlink.
   -h, --help       Show this help.
 
   Batch interrupt: Use Ctrl+C once and wait. Do not Ctrl+Z (suspends). Hammering Ctrl+C can hit GNU Parallel's signal limit.
@@ -687,6 +957,7 @@ parse_args() {
   OPAQUE_PADDING=0; PADDING_PX=""
   CLIP_DETECT=$(( DEFAULT_CLIP_DETECT ? 1 : 0 ))
   CLIP_DETECT_ONLY=0
+  typeset OUT_DIR_PASS=""
   typeset -a args=()
   next=""
   for a in "${save_args[@]}"; do
@@ -694,6 +965,14 @@ parse_args() {
     if [[ "$next" == "icon-color" ]]; then ICON_COLOR="$a"; next=""; continue; fi
     if [[ "$next" == "size" ]]; then SIZE="$a"; next=""; continue; fi
     if [[ "$next" == "out" ]]; then OUTPUT="$a"; next=""; continue; fi
+    if [[ "$next" == "out-dir" ]]; then
+      if [[ -z "$OUTPUT" ]]; then
+        if [[ "${a:l}" == *.webp ]]; then OUTPUT="$a"
+        else OUT_DIR_PASS="${a%/}"; fi
+      fi
+      next=""
+      continue
+    fi
     if [[ "$next" == "clip-threshold" ]]; then CLIP_THRESHOLD="$a"; next=""; continue; fi
     if [[ "$next" == "clip-crop-divisor" ]]; then CLIP_CROP_DIVISOR="$a"; next=""; continue; fi
     if [[ "$next" == "clip-padding-start" ]]; then CLIP_PADDING_START="$a"; next=""; continue; fi
@@ -710,6 +989,14 @@ parse_args() {
       --icon-color) next="icon-color" ;;
       --size) next="size" ;;
       --out) next="out" ;;
+      --out-dir) next="out-dir" ;;
+      --out-dir=*)
+        if [[ -z "$OUTPUT" ]]; then
+          typeset _odv="${a#--out-dir=}"
+          if [[ "${_odv:l}" == *.webp ]]; then OUTPUT="$_odv"
+          else OUT_DIR_PASS="${_odv%/}"; fi
+        fi
+        ;;
       --padding) next="padding"; OPAQUE_PADDING=1 ;;
       --clip-detect) CLIP_DETECT=1 ;;
       --no-clip-detect) CLIP_DETECT=0 ;;
@@ -742,8 +1029,13 @@ parse_args() {
   [[ ! -f "$INPUT" ]] && { echo "🔴 Not a file: $INPUT" >&2; exit 1; }
   : "${SIZE:=$DEFAULT_SIZE}"
   if [[ -z "$OUTPUT" ]]; then
-    mkdir -p "$REPO_ROOT/webp"
-    OUTPUT="$REPO_ROOT/webp/${INPUT:t:r}.webp"
+    if [[ -n "$OUT_DIR_PASS" ]]; then
+      mkdir -p "$OUT_DIR_PASS"
+      OUTPUT="${OUT_DIR_PASS}/${INPUT:t:r}.webp"
+    else
+      mkdir -p "$REPO_ROOT/webp"
+      OUTPUT="$REPO_ROOT/webp/${INPUT:t:r}.webp"
+    fi
   fi
 }
 
@@ -848,11 +1140,13 @@ build_mask() {
   echo "$MASK_TMP"
 }
 
-# --- Render: OPAQUE fill (trim transparent edges, then scale to fill frame) ---
+# --- Render: OPAQUE fill (trim, then fit inside S×S — no ^ crop; wide wordmarks stay legible) ---
 render_opaque_fill() {
   local raster="$1" mask="$2" output="$3" size="$4"
+  local mb
+  mb="$(sample_corner_bg_hex "$raster" || echo "#FFFFFF")"
   $MAGICK -limit thread 1 \
-    \( "$raster" -trim +repage "${MAGICK_RF[@]}" -resize "${size}x${size}^" -gravity center -extent "${size}x${size}" \) \
+    \( "$raster" -trim +repage "${MAGICK_RF[@]}" -resize "${size}x${size}" -gravity center -background "$mb" -extent "${size}x${size}" \) \
     "$mask" -alpha off -compose CopyOpacity -composite \
     "${WEBP_OUT[@]}" "$output"
 }
@@ -861,7 +1155,7 @@ render_opaque_fill() {
 render_opaque_padding() {
   local raster="$1" mask="$2" output="$3" size="$4" margin_bg="$5" logo_size="$6"
   $MAGICK -limit thread 1 \
-    \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}^" -gravity center -background "$margin_bg" -extent "${size}x${size}" \) \
+    \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}" -gravity center -background "$margin_bg" -extent "${size}x${size}" \) \
     "$mask" -alpha off -compose CopyOpacity -composite \
     "${WEBP_OUT[@]}" "$output"
 }
@@ -870,17 +1164,18 @@ render_opaque_padding() {
 render_with_base() {
   local raster="$1" mask="$2" output="$3" size="$4" bg_hex="$5" icon_color="${6:-}"
   local logo_size="$7"
+  # Resize without ^: fit inside logo_size box (preserve aspect); ^ would crop non-square art (cut-off).
   if [[ -n "$icon_color" ]]; then
     $MAGICK -limit thread 1 \
       \( -size "${size}x${size}" xc:"$bg_hex" \) -write mpr:base +delete \
-      \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}^" -gravity center -background none -extent "${size}x${size}" -alpha extract -negate -write mpr:amask +delete -size "${size}x${size}" xc:"$icon_color" mpr:amask -alpha off -compose CopyOpacity -composite \) -write mpr:logo +delete \
+      \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}" -gravity center -background none -extent "${size}x${size}" -alpha extract -negate -write mpr:amask +delete -size "${size}x${size}" xc:"$icon_color" mpr:amask -alpha off -compose CopyOpacity -composite \) -write mpr:logo +delete \
       mpr:base mpr:logo -compose Over -composite \
       "$mask" -alpha off -compose CopyOpacity -composite \
       "${WEBP_OUT[@]}" "$output"
   else
     $MAGICK -limit thread 1 \
       \( -size "${size}x${size}" xc:"$bg_hex" \) -write mpr:base +delete \
-      \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}^" -gravity center -background none -extent "${size}x${size}" \) -write mpr:logo +delete \
+      \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}" -gravity center -background none -extent "${size}x${size}" \) -write mpr:logo +delete \
       mpr:base mpr:logo -compose Over -composite \
       "$mask" -alpha off -compose CopyOpacity -composite \
       "${WEBP_OUT[@]}" "$output"
@@ -907,12 +1202,14 @@ compute_clip_marker() {
   if [[ $OPAQUE_PADDING -eq 1 ]]; then
     # Padding mode unmasked: scaled logo centered with margin background.
     $MAGICK -limit thread 1 \
-      \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}^" -gravity center -background "$padding_bg" -extent "${size}x${size}" \) \
+      \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}" -gravity center -background "$padding_bg" -extent "${size}x${size}" \) \
       -strip "$CLIP_FRAME_TMP"
   else
-    # Fill mode unmasked: trim transparent edges then scale-to-fill the frame.
+    # Fill mode unmasked: match render_opaque_fill (fit inside S×S, margin from corners).
+    local mb_fill
+    mb_fill="$(sample_corner_bg_hex "$raster" || echo "#FFFFFF")"
     $MAGICK -limit thread 1 \
-      \( "$raster" -trim +repage "${MAGICK_RF[@]}" -resize "${size}x${size}^" -gravity center -extent "${size}x${size}" \) \
+      \( "$raster" -trim +repage "${MAGICK_RF[@]}" -resize "${size}x${size}" -gravity center -background "$mb_fill" -extent "${size}x${size}" \) \
       -strip "$CLIP_FRAME_TMP"
   fi
 
