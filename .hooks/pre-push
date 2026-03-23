@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+# Warn-only repo size check before push.
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+CHECK_SCRIPT="${ROOT}/bin/check-repo-size.sh"
+
+if [[ -x "${CHECK_SCRIPT}" ]]; then
+  "${CHECK_SCRIPT}" || true
+fi
+
+exit 0
