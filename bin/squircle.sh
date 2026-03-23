@@ -165,8 +165,9 @@ MAGICK=/opt/homebrew/bin/magick
 SIPS=/usr/bin/sips
 MASK_FILE="${SCRIPT_DIR}/mask.png"
 # Optional post-render “store-style” plate (after main render, before metadata strip).
-# Mimics a light top / slightly darker bottom + optional floating shadow — tune to taste; not pixel-Apple.
-PLATE_FX=1
+# Default off: full-canvas gradient can read as a light border on transparent WebPs; legacy runs had no plate.
+# Set 1 for a light top / slightly darker bottom + optional PLATE_FX_DROP_SHADOW.
+PLATE_FX=0
 PLATE_FX_GRADIENT='rgba(255,255,255,0.14)-rgba(0,0,0,0.10)'
 PLATE_FX_DROP_SHADOW=''
 # Example: PLATE_FX=1 and PLATE_FX_DROP_SHADOW='70x4+0+14' (ImageMagick -shadow: opacity%xsigma+dx+dy)
@@ -1135,9 +1136,12 @@ sample_corner_bg_hex() {
   printf "#%02X%02X%02X\n" "$r" "$g" "$b"
 }
 
-# Full-bleed icons (GitLab fox, etc.): corners are orange logo, not a gray app tile — don't use that as squircle margin.
+# Full-bleed icons (GitLab fox, etc.): corners are saturated logo, not a flat app-tile frame — don't use that as margin color.
+# Fill path (pad_mode 0): high chroma → #FFFFFF (legacy matte for trim/fill).
+# Padding path (pad_mode 1): high chroma → none — white letterbox around a full-bleed blue tile reads as a halo at the squircle edge.
 opaque_margin_from_corner_hex() {
   local s="$1"
+  local pad_mode="${2:-0}"
   [[ ${#s} -eq 7 && "${s:0:1}" == '#' ]] || { echo "#FFFFFF"; return }
   local x="${s:1}"
   (( ${#x} == 6 )) || { echo "#FFFFFF"; return }
@@ -1149,7 +1153,11 @@ opaque_margin_from_corner_hex() {
   (( b < lo )) && lo=$b
   local chroma=$(( hi - lo )) lim="${OPAQUE_MARGIN_MAX_CHROMA:-42}"
   if (( chroma > lim )); then
-    echo "#FFFFFF"
+    if [[ "$pad_mode" == "1" ]]; then
+      echo "none"
+    else
+      echo "#FFFFFF"
+    fi
   else
     echo "$s"
   fi
@@ -1157,8 +1165,9 @@ opaque_margin_from_corner_hex() {
 
 opaque_extent_margin_hex() {
   local hx
+  local pad_mode="${2:-0}"
   hx="$(sample_corner_bg_hex "$1" || echo "#FFFFFF")"
-  opaque_margin_from_corner_hex "$hx"
+  opaque_margin_from_corner_hex "$hx" "$pad_mode"
 }
 
 # --- Mask: IconSur mask.png or round-rect fallback ---
@@ -1198,17 +1207,22 @@ render_opaque_padding() {
 render_with_base() {
   local raster="$1" mask="$2" output="$3" size="$4" bg_hex="$5" icon_color="${6:-}"
   local logo_size="$7"
+  # With --padding, default white base fills the inset as a solid square; after the squircle mask that reads as a white ring. Transparent base keeps letterbox margins clear.
+  local base_hex="$bg_hex"
+  if [[ $OPAQUE_PADDING -eq 1 && -z "${BG_OVERRIDE:-}" && "$bg_hex" == "#FFFFFF" ]]; then
+    base_hex="none"
+  fi
   # Resize without ^: fit inside logo_size box (preserve aspect); ^ would crop non-square art (cut-off).
   if [[ -n "$icon_color" ]]; then
     $MAGICK -limit thread 1 \
-      \( -size "${size}x${size}" xc:"$bg_hex" \) -write mpr:base +delete \
+      \( -size "${size}x${size}" xc:"$base_hex" \) -write mpr:base +delete \
       \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}" -gravity center -background none -extent "${size}x${size}" -alpha extract -negate -write mpr:amask +delete -size "${size}x${size}" xc:"$icon_color" mpr:amask -alpha off -compose CopyOpacity -composite \) -write mpr:logo +delete \
       mpr:base mpr:logo -compose Over -composite \
       "$mask" -alpha off -compose CopyOpacity -composite \
       "${WEBP_OUT[@]}" "$output"
   else
     $MAGICK -limit thread 1 \
-      \( -size "${size}x${size}" xc:"$bg_hex" \) -write mpr:base +delete \
+      \( -size "${size}x${size}" xc:"$base_hex" \) -write mpr:base +delete \
       \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}" -gravity center -background none -extent "${size}x${size}" \) -write mpr:logo +delete \
       mpr:base mpr:logo -compose Over -composite \
       "$mask" -alpha off -compose CopyOpacity -composite \
@@ -1297,7 +1311,7 @@ mitigate_opaque_clipping() {
       margin="$BG_OVERRIDE[1]"
     fi
     if [[ "$BG_HEX" == "OPAQUE" && "$margin" == "#FFFFFF" ]]; then
-      margin="$(opaque_extent_margin_hex "$IN_FOR_MAGICK")"
+      margin="$(opaque_extent_margin_hex "$IN_FOR_MAGICK" 1)"
     fi
     compute_clip_marker "$IN_FOR_MAGICK" "$MASK_TMP" "$SIZE" "$margin" "$ls" || true
     render_opaque_padding "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$margin" "$ls"
@@ -1373,7 +1387,7 @@ main() {
 
   # In OPAQUE+padding mode, default margin matches sampled corners unless corners look like logo (high chroma) → white.
   if [[ "$BG_HEX" == "OPAQUE" && $OPAQUE_PADDING -eq 1 && "$padding_bg" == "#FFFFFF" ]]; then
-    padding_bg="$(opaque_extent_margin_hex "$IN_FOR_MAGICK")"
+    padding_bg="$(opaque_extent_margin_hex "$IN_FOR_MAGICK" 1)"
   fi
 
   # Optional: compute clipping marker before rendering (opaque path only).
