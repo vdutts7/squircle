@@ -25,9 +25,12 @@
       "bin/colorpick.sh": "standalone CLI: palette / pixel / average → hex — not invoked by squircle.sh",
       "bin/git-webp-tighten.sh": "standalone: git history rewrite for webp/ sliding window; reads bin/git-webp-tighten.config",
       "bin/git-webp-tighten.config": "data: WINDOW=N for git-webp-tighten.sh (default 5)",
+      "bin/check-repo-size.sh": "standalone/hook utility: warns when git size-pack exceeds threshold; suggests git-webp-tighten.sh",
+      "bin/repo-size-watch.config": "data: SIZE_PACK_WARN_MB threshold for check-repo-size.sh (default 500)",
       "requirements.txt": "symlink → bin/requirements.txt (pip -r from repo root still works)",
       ".hooks": "pre-commit + setup; see .hooks/* below",
       ".hooks/pre-commit": "only staged under webp/; 1024×1024 .webp only; strip metadata; refs image-formats.txt",
+      ".hooks/pre-push": "warn-only repo size monitor; runs bin/check-repo-size.sh",
       ".hooks/scripts/setup.sh": "one-time: git config include + chmod hooks",
       "git-template": "stub hooks for git init; clone uses this",
       "git-template/hooks/pre-commit": "stub: exit 1 until .hooks/scripts/setup.sh run",
@@ -67,7 +70,8 @@
       "bin/svg2png.sh",
       "bin/sharpen.sh",
       "bin/colorpick.sh",
-      "bin/git-webp-tighten.sh (+ bin/git-webp-tighten.config)"
+      "bin/git-webp-tighten.sh (+ bin/git-webp-tighten.config)",
+      "bin/check-repo-size.sh (+ bin/repo-size-watch.config; also called by .hooks/pre-push)"
     ]
   },
   "deps": [

@@ -4,4 +4,4 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 git config --local include.path ../.gitconfig
 chmod +x .hooks/* .hooks/scripts/*.sh 2>/dev/null || true
-echo "hooks activated: .hooks/pre-commit"
+echo "🟢 - hooks activated: .hooks/pre-commit + .hooks/pre-push"
