@@ -25,5 +25,6 @@ webp/**/*.webp.CLIPPED
 
 !TODOs.md
 !.gitattributes
+!data
 !data/domains.txt.example
 !docs/logo-pipeline-handoff.yaml
