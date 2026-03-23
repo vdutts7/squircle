@@ -22,3 +22,6 @@
 !webp/**
 # squircle clip-queue empty sidecars (not WebP assets)
 webp/**/*.webp.CLIPPED
+
+!TODOs.md
+!.gitattributes
