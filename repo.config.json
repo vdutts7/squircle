@@ -11,16 +11,21 @@
       ".gitconfig": "core.hooksPath=.hooks",
       ".gitignore": "whitelist tracked paths (bin, webp, .hooks, etc)",
       "image-formats.txt": "extensions allowed for normalization; consumed by .hooks/pre-commit",
-      "bin": "scripts + mask; see bin/* one-liners below",
-      "bin/squircle.sh": "single entrypoint: one image → squircle WebP; <dir> → batch; or --domain HOST → parallel logo fetch then same pipeline (curl). Tunables in CONFIG at top (PARALLEL_J, paths, clip/WebP). Batch: default --clip-queue (GNU Parallel + --clip-detect); --logo-rip-only / --logo-rip-keep only with --domain. bin/logo-rip.zsh forwards to squircle.sh --domain.",
-      "bin/get-bg-color.sh": "edge/corner sampling → #HEX or OPAQUE; used by squircle.sh",
-      "bin/squircle-prep-logo.zsh": "sourced by squircle.sh --domain: fuzz-trim / content-bounds before main (optional --no-domain-prep)",
-      "bin/sharpen.sh": "sharpen image; optional pre-step for sources",
-      "bin/svg2png.sh": "convert by file type (SVG/JPEG/WebP/PNG) → PNG",
-      "bin/colorpick.sh": "CLI color dropper: pixel or palette → hex",
-      "bin/git-webp-tighten.sh": "history rewrite: webp/ = latest or sliding window; reads bin/git-webp-tighten.config",
-      "bin/git-webp-tighten.config": "WINDOW=N for git-webp-tighten.sh (default 5)",
-      "bin/mask.png": "squircle mask; squircle.sh uses or fallback round-rect",
+      "bin": "all paths below; directed graph in top-level key \"bin\"",
+      "bin/squircle.sh": "entrypoint only: file → WebP; dir → batch (GNU Parallel); --domain HOST → fetch (Google s2, site icons, Bing HTML) → phash-pick / prep / same render pipeline. CONFIG at top. See key \"bin\" for subprocess list.",
+      "bin/get-bg-color.sh": "subprocess: squircle.sh (get_background) — edge/corner sampling → #HEX or OPAQUE",
+      "bin/mask.png": "data: squircle.sh CONFIG MASK_FILE — squircle alpha (else round-rect fallback)",
+      "bin/squircle-prep-logo.zsh": "sourced: squircle.sh --domain — fuzz-trim / content bounds before main (--no-domain-prep skips)",
+      "bin/phash-pick.zsh": "subprocess: squircle.sh --domain — uses SCRIPT_DIR/.venv/bin/python3 or auto venv.zsh + bin/requirements.txt",
+      "bin/venv.zsh": "creates SCRIPT_DIR/.venv, pip install from SCRIPT_DIR/requirements.txt (or parent requirements.txt legacy)",
+      "bin/requirements.txt": "Pillow/imagehash/etc. for phash; copied with bin/ into $CURTOOLS; root requirements.txt → symlink to this file",
+      "bin/logo-rip.zsh": "wrapper: exec squircle.sh --domain (maps --keep → --logo-rip-keep); deprecated alias",
+      "bin/sharpen.sh": "standalone CLI: ImageMagick -sharpen — not invoked by squircle.sh",
+      "bin/svg2png.sh": "standalone CLI: type-sniff → PNG — not invoked by squircle.sh",
+      "bin/colorpick.sh": "standalone CLI: palette / pixel / average → hex — not invoked by squircle.sh",
+      "bin/git-webp-tighten.sh": "standalone: git history rewrite for webp/ sliding window; reads bin/git-webp-tighten.config",
+      "bin/git-webp-tighten.config": "data: WINDOW=N for git-webp-tighten.sh (default 5)",
+      "requirements.txt": "symlink → bin/requirements.txt (pip -r from repo root still works)",
       ".hooks": "pre-commit + setup; see .hooks/* below",
       ".hooks/pre-commit": "only staged under webp/; 1024×1024 .webp only; strip metadata; refs image-formats.txt",
       ".hooks/scripts/setup.sh": "one-time: git config include + chmod hooks",
@@ -37,10 +42,42 @@
       "normalized_spec": "workflow.yaml#normalized",
       "format_list": "image-formats.txt",
       "hook_impl": ".hooks/pre-commit",
-      "install_steps": "workflow.yaml#flow"
+      "install_steps": "workflow.yaml#flow",
+      "bin_entrypoint_and_edges": "repo.config.json → key \"bin\""
     }
   },
-  "deps": ["magick", "exiftool", "parallel", "rsvg-convert (librsvg)", "curl (for --domain)"],
+  "bin": {
+    "entrypoint": "bin/squircle.sh",
+    "invoked_or_sourced_by_squircle": {
+      "bin/get-bg-color.sh": "external command: background color probe for opaque vs composited render",
+      "bin/mask.png": "read as raster mask path from CONFIG",
+      "bin/squircle-prep-logo.zsh": "zsh source: post-fetch logo trim before main()",
+      "bin/phash-pick.zsh": "external command: --domain winner among Bing bins vs Google favicon anchor (Hamming + max-edge)"
+    },
+    "forwards_to_entrypoint": {
+      "bin/logo-rip.zsh": "exec squircle.sh --domain …"
+    },
+    "domain_phash_stack": [
+      "bin/requirements.txt lists Pillow/imagehash/etc.",
+      "bin/venv.zsh → SCRIPT_DIR/.venv (same dir as squircle.sh, e.g. $CURTOOLS/.venv)",
+      "squircle.sh auto-runs venv.zsh when .venv missing and Bing phash needed unless SQUIRCLE_AUTO_VENV=0",
+      "phash-pick.zsh prefers SCRIPT_DIR/.venv, else legacy parent .venv, else python3"
+    ],
+    "standalone_cli_not_used_by_squircle": [
+      "bin/svg2png.sh",
+      "bin/sharpen.sh",
+      "bin/colorpick.sh",
+      "bin/git-webp-tighten.sh (+ bin/git-webp-tighten.config)"
+    ]
+  },
+  "deps": [
+    "magick",
+    "exiftool",
+    "parallel (batch / --domain parallel curls)",
+    "rsvg-convert (librsvg) — optional; squircle SVG path",
+    "curl — --domain fetches",
+    "python3 — --domain Bing phash; deps installed into SCRIPT_DIR/.venv via bin/requirements.txt (auto or ./bin/venv.zsh)"
+  ],
   "after_clone": [".hooks/scripts/setup.sh"],
   "normalized": { "_ref": "workflow.yaml#normalized", "path": "webp/<name>.webp", "size": "1024x1024", "format": "webp", "metadata": "stripped" },
   "hook": { "_ref": "workflow.yaml#hook", "allow": ["webp/**/*.webp @ 1024x1024", "non-image files in root"], "block": ["webp/**/*.{png,icns,...}", "root images", "webp/**/*.webp !1024x1024"], "on_allow": "strip metadata" },
@@ -50,7 +87,14 @@
     "./bin/squircle.sh <dir> --out-dir <dir> (recursive, preserves nested folders, skips existing outputs)",
     "./bin/squircle.sh --domain example.com [--logo-rip-only] (default out webp/example.webp from first hostname label)"
   ],
-  "repo_env": "none required for squircle.sh (CONFIG in script). Optional: set paths in shell for other tooling.",
+  "repo_env": "squircle.sh: CONFIG in script. --domain phash: .venv next to squircle.sh (repo bin/.venv or $CURTOOLS/squircle/.venv); SQUIRCLE=checkout with webp/ when using namespaced tools; SQUIRCLE_AUTO_VENV=0 disables auto pip.",
+  "curtools_and_shell": {
+    "_model": "Mirror repo bin/ → $CURTOOLS/squircle/ (same filenames as bin/: squircle.sh, mask.png, requirements.txt, *.zsh, …).",
+    "_sync": "rsync -a --delete bin/ \"$CURTOOLS/squircle/\"",
+    "_repo_root": "squircle.sh sets REPO_ROOT from SQUIRCLE when SQUIRCLE/webp exists (so WebPs land in the git checkout, not under $CURTOOLS).",
+    "_venv": "$CURTOOLS/squircle/.venv — auto or ./venv.zsh from that directory.",
+    "_shell": "squircle () { [[ -d \"$PWD/webp\" ]] && export SQUIRCLE=\"$PWD\"; \"$CURTOOLS/squircle/squircle.sh\" \"$@\" }"
+  },
   "url": "https://raw.githubusercontent.com/vdutts7/squircle/main/webp/{name}.webp",
   "format": "![icon](url)"
 }

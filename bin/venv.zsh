@@ -1,21 +1,42 @@
 #!/usr/bin/env zsh
-# Repo .venv: create if missing, upgrade pip, install requirements (default requirements.txt).
-# Usage: ./bin/venv.zsh [requirements-file]     paths relative to repo root or absolute
+# Tools-directory .venv: created next to squircle.sh / phash-pick.zsh (e.g. $CURTOOLS/.venv).
+# requirements: default $TOOLS/requirements.txt, else parent ../requirements.txt (legacy repo layout).
+# Usage: ./venv.zsh [requirements-file-or-name]   absolute path OK; relative names resolve under TOOLS then repo parent
 set -e
 setopt pipefail 2>/dev/null || true
-SCRIPT_DIR="${0:A:h}"
-REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-cd "$REPO_ROOT"
+TOOLS="${0:A:h}"
+cd "$TOOLS"
 PY="${PYTHON:-python3}"
-REQ_NAME="${1:-requirements.txt}"
-if [[ "$REQ_NAME" == /* ]]; then
-  REQ="$REQ_NAME"
-else
-  REQ="$REPO_ROOT/$REQ_NAME"
-fi
-[[ -f "$REQ" ]] || { echo "🔴 missing requirements file: $REQ" >&2; exit 1 }
 
-VENV="$REPO_ROOT/.venv"
+resolve_req() {
+  local name="$1"
+  if [[ "$name" == /* ]]; then
+    [[ -f "$name" ]] && { print -r -- "$name"; return 0 }
+    return 1
+  fi
+  [[ -f "$TOOLS/$name" ]] && { print -r -- "$TOOLS/$name"; return 0 }
+  local up
+  up="$(cd "$TOOLS/.." && pwd)"
+  [[ -f "$up/$name" ]] && { print -r -- "$up/$name"; return 0 }
+  return 1
+}
+
+typeset REQ
+if (( $# )); then
+  REQ="$(resolve_req "$1")" || { echo "🔴 missing requirements file: $1" >&2; exit 1 }
+elif [[ -f "$TOOLS/requirements.txt" ]]; then
+  REQ="$TOOLS/requirements.txt"
+else
+  up="$(cd "$TOOLS/.." && pwd)"
+  if [[ -f "$up/requirements.txt" ]]; then
+    REQ="$up/requirements.txt"
+  else
+    echo "🔴 missing requirements.txt (expected $TOOLS/requirements.txt)" >&2
+    exit 1
+  fi
+fi
+
+VENV="$TOOLS/.venv"
 if [[ ! -x "$VENV/bin/python3" ]]; then
   "$PY" -m venv "$VENV"
 fi

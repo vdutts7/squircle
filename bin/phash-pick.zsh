@@ -1,15 +1,21 @@
 #!/usr/bin/env zsh
 # pHash pick: anchor vs candidates → stdout = best path (largest max dimension within Hamming threshold).
-# Uses REPO_ROOT/.venv/bin/python3 when present; else PYTHON or python3. Run ./bin/venv.zsh first.
+# Python: SCRIPT_DIR/.venv/bin/python3 (tools dir, e.g. $CURTOOLS), else legacy ../.venv, else PYTHON or python3.
 # Usage: ./bin/phash-pick.zsh [--threshold N] [--max-edge M] ANCHOR CAND1 [CAND2 ...]
 #   --max-edge M: prefer candidates with max(w,h) <= M; if none qualify, fall back to any Hamming match (largest).
 SCRIPT_DIR="${0:A:h}"
-REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-VPY="$REPO_ROOT/.venv/bin/python3"
-if [[ -z "${PYTHON:-}" && -x "$VPY" ]]; then
-  PYTHON="$VPY"
+if [[ -n "${PYTHON:-}" ]]; then
+  :
+elif [[ -x "$SCRIPT_DIR/.venv/bin/python3" ]]; then
+  PYTHON="$SCRIPT_DIR/.venv/bin/python3"
+else
+  REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+  if [[ -x "$REPO_ROOT/.venv/bin/python3" ]]; then
+    PYTHON="$REPO_ROOT/.venv/bin/python3"
+  else
+    PYTHON=python3
+  fi
 fi
-: "${PYTHON:=python3}"
 exec "$PYTHON" - "$@" <<'PY'
 import sys
 from pathlib import Path
@@ -22,7 +28,7 @@ try:
     import imagehash
     from PIL import Image
 except ImportError:
-    die("need: ./bin/venv.zsh (installs requirements.txt into .venv)", 1)
+    die("need: ./venv.zsh in the same dir (installs into .venv next to these scripts)", 1)
 
 argv = sys.argv[1:]
 th = 10

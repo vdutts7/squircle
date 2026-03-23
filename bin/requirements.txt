@@ -1,0 +1,5 @@
+# Phash / --domain Bing pick; install: ./bin/venv.zsh (creates .venv/ dir next to this file)
+imagehash>=4.3
+Pillow>=10
+numpy>=1.26
+scipy>=1.11

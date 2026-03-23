@@ -1,7 +1,7 @@
 #!/bin/zsh
 # =============================================================================
 # SPEC: squircle.sh — raster input → WebP composited with squircle alpha; transparent outside mask.
-# All tunables live in CONFIG below (no .env / no SQUIRCLE / no SQUIRCLE_PARALLEL_J). CLI overrides where listed.
+# All tunables live in CONFIG below (no .env / no SQUIRCLE_PARALLEL_J). Optional: SQUIRCLE=project dir with webp/ → REPO_ROOT for tools-only installs ($CURTOOLS/squircle/…). CLI overrides where listed.
 # =============================================================================
 #
 # ENTRY_MODES:
@@ -17,7 +17,7 @@
 #     Default (domain_dump): durable dir /tmp/squircle-domain-artifacts/<host>-<pid>/ (always under /tmp; not deleted on exit);
 #     symlink /tmp/squircle-domain-artifacts/_last -> latest run. --no-domain-dump: mktemp under TMPDIR (deleted on exit unless --logo-rip-keep).
 #
-# REPO_ROOT: parent of bin/ (directory containing this script’s bin/). Default --out file and batch --out-dir use REPO_ROOT/webp/.
+# REPO_ROOT: parent of bin/ in-repo; else SQUIRCLE (if webp/ exists) when tools live under e.g. $CURTOOLS/squircle/. Default --out uses REPO_ROOT/webp/.
 #
 # INTERFACE (CLI overrides; defaults from CONFIG):
 #   --size N                    output square size (CONFIG: DEFAULT_SIZE).
@@ -57,7 +57,7 @@
 # RENDER_OPAQUE_PADDING:
 #   logo_size=max(8, SIZE-2*PADDING_PX) when PADDING_PX set; else ratio branch above.
 #   magick: (raster -resize ${logo_size}x${logo_size} fit -gravity center -background margin -extent SxS) + mask → WebP.
-#   margin: padding_bg; if OPAQUE_PADDING && default #FFFFFF → sample_corner_bg_hex(IN_FOR_MAGICK).
+#   margin: padding_bg; if OPAQUE_PADDING && default #FFFFFF → corner sample, then OPAQUE_MARGIN_MAX_CHROMA gate (saturated → #FFFFFF).
 #
 # RENDER_TRANSPARENT (BG_HEX not OPAQUE):
 #   xc:bg + logo scaled to logo_size extent center; optional icon_color alpha trick; mask CopyOpacity → WebP.
@@ -88,7 +88,7 @@
 #
 # BATCH_ROUTER (argv[1] is directory):
 #   Preconditions: command -v parallel. parallel_jobs=CONFIG.PARALLEL_J; CLI --parallel-j overrides.
-#   REPO_ROOT from CONFIG (parent of bin/).
+#   REPO_ROOT: parent of bin/ or SQUIRCLE when tools-dir layout + exported SQUIRCLE.
 #   out_dir: default REPO_ROOT/webp if --out-dir omitted; if set, used as given (relative paths are cwd-relative).
 #   Enumerate: for f in "$INPUT_DIR"/**/* ; [[ -f "$f" ]] → pairs (input, output).
 #   output_path = "${out_dir}/${rel_without_input_prefix%.*}.webp"; mkdir -p "${out_path:h}".
@@ -136,6 +136,8 @@ SCRIPT_NAME="${0:t}"
 # CONFIG — single edit block (no env vars for squircle behavior). ImageMagick: -limit thread 1 on every magick call.
 # =============================================================================
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+# If scripts live under a tools prefix (e.g. $CURTOOLS/squircle/), parent is not the icon repo — use a checkout that has webp/.
+[[ -n "${SQUIRCLE:-}" && -d "${SQUIRCLE}/webp" ]] && REPO_ROOT="${SQUIRCLE:A}"
 SQUIRCLE_TMP_PARENT=/tmp
 PARALLEL_J=100%
 CLIP_PADDING_START=100
@@ -148,6 +150,8 @@ CLIP_MARKER_SUFFIX=.CLIPPED
 DEFAULT_CLIP_DETECT=1
 DEFAULT_SIZE=1024
 LOGO_RATIO=824
+# Opaque margin from corner sample: if max(r,g,b)-min(r,g,b) > this, corners read as logo (e.g. full-bleed favicon) → use #FFFFFF.
+OPAQUE_MARGIN_MAX_CHROMA=42
 WEBP_QUALITY=95
 WEBP_METHOD=4
 # 1 = lossless WebP (sharp text/lines; larger files). 0 = lossy at WEBP_QUALITY.
@@ -168,7 +172,7 @@ PLATE_FX_DROP_SHADOW=''
 # Example: PLATE_FX=1 and PLATE_FX_DROP_SHADOW='70x4+0+14' (ImageMagick -shadow: opacity%xsigma+dx+dy)
 #
 # --domain Bing: HTML scrape of bing.com/images/search (embedded murl fields); no API key. Fragile if Bing changes markup.
-# --domain phash: SQUIRCLE_PHASH_THRESHOLD (default 26), SQUIRCLE_PHASH_MAX_EDGE (default 2000) — Bing vs g256/g128; largest match under max edge first.
+# --domain phash: SQUIRCLE_PHASH_THRESHOLD (26), SQUIRCLE_PHASH_MAX_EDGE (2000); venv in SCRIPT_DIR/.venv (bin/requirements.txt). SQUIRCLE_AUTO_VENV=0 skips auto ./venv.zsh before phash.
 # =============================================================================
 
 typeset -ga MAGICK_RF=()
@@ -469,6 +473,10 @@ run_domain_entry() {
     [[ -s "$_bf" ]] && bing_bins+=("$_bf")
   done
   if [[ -s "$anchor" ]] && (( ${#bing_bins[@]} )) && [[ -x "$SCRIPT_DIR/phash-pick.zsh" ]]; then
+    if [[ "${SQUIRCLE_AUTO_VENV:-1}" != 0 ]] && [[ ! -x "$SCRIPT_DIR/.venv/bin/python3" ]] && [[ -f "$SCRIPT_DIR/requirements.txt" ]] && [[ -x "$SCRIPT_DIR/venv.zsh" ]]; then
+      print -r -- "domain: installing phash venv → $SCRIPT_DIR/.venv …" >&2
+      "$SCRIPT_DIR/venv.zsh" >&2 || true
+    fi
     local ph_out
     ph_out="$("$SCRIPT_DIR/phash-pick.zsh" --threshold "$phash_th" --max-edge "$phash_cap" "$anchor" "${bing_bins[@]}" 2>/dev/null)" || ph_out=""
     if [[ -n "$ph_out" && "${ph_out:t}" == bing-*.bin ]]; then
@@ -626,7 +634,7 @@ Options:
   --bg #HEX        Background color (e.g. #FFFFFF). With --padding, margin color.
   --icon-color #   Recolor logo (transparent-background path only).
   --size N         Output size (default: CONFIG DEFAULT_SIZE).
-  --out path.webp  Output path. Default: REPO_ROOT/webp/<input_basename>.webp (REPO_ROOT = parent of bin/). Other paths are used as given.
+  --out path.webp  Default: REPO_ROOT/webp/<input_basename>.webp (REPO_ROOT = parent of bin/ in a git checkout, or SQUIRCLE when set and webp/ exists — e.g. $CURTOOLS/squircle/squircle.sh + project dir).
   --out-dir DIR    Batch (directory input): output tree root; default REPO_ROOT/webp. Single-file / --domain: treated as output
                    location (.webp path = that file; else directory + input basename.webp). Prefer --out for one file.
                    Directory mode is recursive and preserves the input folder structure:
@@ -648,8 +656,8 @@ Options:
   --overwrite               Directory mode: overwrite existing outputs.
   --padding [N]    Center logo with margin. N = padding in px per side (default ~100); omit for default.
   --domain HOST    Fetch logo candidates for HOST (Google s2 favicons, site icons, Bing Images HTML scrape → bing-*.bin).
-                   Winner: phash Bing vs Google g256 (./bin/venv.zsh + phash-pick.zsh), Hamming ≤ SQUIRCLE_PHASH_THRESHOLD (default 26),
-                   largest under SQUIRCLE_PHASH_MAX_EDGE (default 2000px); if no Bing match → Google favicon; else geometric sort.
+                   Winner: phash Bing vs Google g256 (phash-pick.zsh; Python in SCRIPT_DIR/.venv if present, else auto ./venv.zsh + bin/requirements.txt unless SQUIRCLE_AUTO_VENV=0).
+                   Hamming ≤ SQUIRCLE_PHASH_THRESHOLD (26), max edge SQUIRCLE_PHASH_MAX_EDGE (2000); no match → favicon; else geometric.
                    Bing HTML parse needs python3; curl required.
   --logo-rip-only  With --domain: print comparison table only; do not write WebP.
   --logo-rip-keep  With --domain: keep download temp dir on disk (otherwise removed on exit); tmpdir path is printed.
@@ -1127,6 +1135,32 @@ sample_corner_bg_hex() {
   printf "#%02X%02X%02X\n" "$r" "$g" "$b"
 }
 
+# Full-bleed icons (GitLab fox, etc.): corners are orange logo, not a gray app tile — don't use that as squircle margin.
+opaque_margin_from_corner_hex() {
+  local s="$1"
+  [[ ${#s} -eq 7 && "${s:0:1}" == '#' ]] || { echo "#FFFFFF"; return }
+  local x="${s:1}"
+  (( ${#x} == 6 )) || { echo "#FFFFFF"; return }
+  local r=$(( 16#${x:0:2} )) g=$(( 16#${x:2:2} )) b=$(( 16#${x:4:2} ))
+  local hi=$r lo=$r
+  (( g > hi )) && hi=$g
+  (( g < lo )) && lo=$g
+  (( b > hi )) && hi=$b
+  (( b < lo )) && lo=$b
+  local chroma=$(( hi - lo )) lim="${OPAQUE_MARGIN_MAX_CHROMA:-42}"
+  if (( chroma > lim )); then
+    echo "#FFFFFF"
+  else
+    echo "$s"
+  fi
+}
+
+opaque_extent_margin_hex() {
+  local hx
+  hx="$(sample_corner_bg_hex "$1" || echo "#FFFFFF")"
+  opaque_margin_from_corner_hex "$hx"
+}
+
 # --- Mask: IconSur mask.png or round-rect fallback ---
 build_mask() {
   local size="$1"
@@ -1144,7 +1178,7 @@ build_mask() {
 render_opaque_fill() {
   local raster="$1" mask="$2" output="$3" size="$4"
   local mb
-  mb="$(sample_corner_bg_hex "$raster" || echo "#FFFFFF")"
+  mb="$(opaque_extent_margin_hex "$raster")"
   $MAGICK -limit thread 1 \
     \( "$raster" -trim +repage "${MAGICK_RF[@]}" -resize "${size}x${size}" -gravity center -background "$mb" -extent "${size}x${size}" \) \
     "$mask" -alpha off -compose CopyOpacity -composite \
@@ -1207,7 +1241,7 @@ compute_clip_marker() {
   else
     # Fill mode unmasked: match render_opaque_fill (fit inside S×S, margin from corners).
     local mb_fill
-    mb_fill="$(sample_corner_bg_hex "$raster" || echo "#FFFFFF")"
+    mb_fill="$(opaque_extent_margin_hex "$raster")"
     $MAGICK -limit thread 1 \
       \( "$raster" -trim +repage "${MAGICK_RF[@]}" -resize "${size}x${size}" -gravity center -background "$mb_fill" -extent "${size}x${size}" \) \
       -strip "$CLIP_FRAME_TMP"
@@ -1263,7 +1297,7 @@ mitigate_opaque_clipping() {
       margin="$BG_OVERRIDE[1]"
     fi
     if [[ "$BG_HEX" == "OPAQUE" && "$margin" == "#FFFFFF" ]]; then
-      margin="$(sample_corner_bg_hex "$IN_FOR_MAGICK" || echo "#FFFFFF")"
+      margin="$(opaque_extent_margin_hex "$IN_FOR_MAGICK")"
     fi
     compute_clip_marker "$IN_FOR_MAGICK" "$MASK_TMP" "$SIZE" "$margin" "$ls" || true
     render_opaque_padding "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$margin" "$ls"
@@ -1337,9 +1371,9 @@ main() {
     [[ $logo_size -lt 8 ]] && logo_size=8
   fi
 
-  # In OPAQUE+padding mode, default margin color should match the source background.
+  # In OPAQUE+padding mode, default margin matches sampled corners unless corners look like logo (high chroma) → white.
   if [[ "$BG_HEX" == "OPAQUE" && $OPAQUE_PADDING -eq 1 && "$padding_bg" == "#FFFFFF" ]]; then
-    padding_bg="$(sample_corner_bg_hex "$IN_FOR_MAGICK" || echo "#FFFFFF")"
+    padding_bg="$(opaque_extent_margin_hex "$IN_FOR_MAGICK")"
   fi
 
   # Optional: compute clipping marker before rendering (opaque path only).

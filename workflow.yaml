@@ -1,8 +1,12 @@
 # webp icon workflow — machine-parseable
 flow:
-  - install: "cp bin/squircle.sh bin/get-bg-color.sh bin/mask.png \$CURTOOLS/ ; alias squircle='\$CURTOOLS/squircle.sh'"
+  - install: |
+      Namespace tools under $CURTOOLS/squircle/ (same layout as repo bin/): rsync -a --delete bin/ "$CURTOOLS/squircle/"
+      Venv: $CURTOOLS/squircle/.venv (venv.zsh or auto on --domain). Python deps only beside squircle.sh + system python3.
+      From a project checkout that has webp/, export SQUIRCLE="$PWD" so outputs go there (your shell can set this when webp/ exists).
+      Example: squircle () { [[ -d "$PWD/webp" ]] && export SQUIRCLE="$PWD"; "$CURTOOLS/squircle/squircle.sh" "$@" }
   - copy: "<repo>/webp/"
-    note: "this checkout’s webp/; squircle defaults to REPO_ROOT/webp from CONFIG (no SQUIRCLE env); no auto-run"
+    note: "squircle defaults to REPO_ROOT/webp; with $CURTOOLS/squircle/ scripts, set SQUIRCLE to the checkout (see install example)"
   - run: "squircle <file>  OR  squircle <dir> (batch, parallel); default size 1024"
   - commit: "pre-commit blocks unless normalized"
 
@@ -19,5 +23,5 @@ hook:
 
 layout:
   root: "config, docs, bin, hooks"
-  bin: "squircle.sh, get-bg-color.sh, mask.png"
+  bin: "repo bin/* → install copy at $CURTOOLS/squircle/* (flat mirror); .venv lives in squircle/"
   webp: "icons + source images; use subdirs for namespaces (e.g. webp/aws/, webp/macos/)"
