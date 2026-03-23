@@ -1,0 +1,3 @@
+# One domain per line (copy to domains.txt or set PIPELINE_DOMAINS_FILE / fetch --domains)
+# stripe.com
+# circleci.com
