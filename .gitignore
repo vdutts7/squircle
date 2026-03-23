@@ -1,4 +1,5 @@
 # Ignore everything
+!data/domains.txt.example
 *
 
 !.gitignore
@@ -10,6 +11,8 @@
 !.hooks/**
 !repo.config.json
 !workflow.yaml
+!workflows/
+!workflows/**
 !requirements.txt
 !image-formats.txt
 !bin/
@@ -25,6 +28,4 @@ webp/**/*.webp.CLIPPED
 
 !TODOs.md
 !.gitattributes
-!data
-!data/domains.txt.example
-!docs/logo-pipeline-handoff.yaml
+!workflows

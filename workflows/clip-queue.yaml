@@ -1,0 +1,40 @@
+# clip-queue workflow— detect likely edge clipping and auto-rerender with padding
+flow:
+  - set_vars:
+      input_dir: "/Users/vdog/Downloads/material-icons"
+      out_dir: "/Users/vdog/Documents/a/squircle/webp/material-icons"
+      size: 1024
+      clip:
+        threshold: 0.05
+        crop_divisor: 11
+        padding_start: 160
+        padding_step: 40
+        padding_max_iter: 4
+  - run: >
+      squircle "${input_dir}" --out-dir "${out_dir}"
+      --size "${size}"
+      --clip-queue
+      --clip-padding-start "${clip.padding_start}"
+      --clip-padding-step "${clip.padding_step}"
+      --clip-padding-max-iter "${clip.padding_max_iter}"
+      --clip-threshold "${clip.threshold}"
+      --clip-crop-divisor "${clip.crop_divisor}"
+  - verify:
+      - markers: "no files matching: ${out_dir}/**/*.webp.CLIPPED"
+      - visual_samples:
+          - input: "${out_dir}/folder-supabase-open.webp (or nested namespace equivalent)"
+            png_tmp: "/tmp/squircle_clipq_sample_supabase.png"
+            steps:
+              - "magick <input> -resize 512x512 <png_tmp>"
+              - "/view-with-vision <png_tmp>"
+          - input: "${out_dir}/react.webp (or nested namespace equivalent)"
+            png_tmp: "/tmp/squircle_clipq_sample_react.png"
+            steps:
+              - "magick <input> -resize 512x512 <png_tmp>"
+              - "/view-with-vision <png_tmp>"
+  - loop_until_fixed:
+      stop_condition: "markers == empty AND visual_samples == acceptable"
+      next_if_bad:
+        - "lower sensitivity: rerun with --clip-threshold 0.02"
+        - "or increase padding_start: rerun with --clip-padding-start 200"
+      max_reruns: 3

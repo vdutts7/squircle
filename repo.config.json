@@ -7,7 +7,10 @@
     "file_tree": {
       ".": "single point of entry: this file",
       "repo.config.json": "this file; full tree + cross-refs here only",
-      "workflow.yaml": "flow, normalized spec, hook allow/block; _workflow",
+      "workflow.yaml": "canonical baseline workflow: flow, normalized spec, hook allow/block; _workflow",
+      "workflows": "organized supplemental workflow docs/runbooks",
+      "workflows/clip-queue.yaml": "operation runbook for --clip-queue rerender tuning loop",
+      "workflows/logo-fetch-phash-pipeline.yaml": "planned domain-logo fetch + pHash clustering pipeline design",
       ".gitconfig": "core.hooksPath=.hooks",
       ".gitignore": "whitelist tracked paths (bin, webp, .hooks, etc)",
       "image-formats.txt": "extensions allowed for normalization; consumed by .hooks/pre-commit",
@@ -38,7 +41,7 @@
       "webp/aws": "namespace subdir",
       "webp/macos": "namespace subdir"
     },
-    "config_files": ["repo.config.json", "workflow.yaml", ".gitconfig", ".gitignore"],
+    "config_files": ["repo.config.json", "workflow.yaml", ".gitconfig", ".gitignore", "workflows/clip-queue.yaml", "workflows/logo-fetch-phash-pipeline.yaml"],
     "docs": "optional: docs/*.config.json for large tangents only; else self-document in scripts (inline) or workflow",
     "_digest_manifest": {
       "flow_and_hook": "workflow.yaml",

@@ -25,3 +25,7 @@ layout:
   root: "config, docs, bin, hooks"
   bin: "repo bin/* → install copy at $CURTOOLS/squircle/* (flat mirror); .venv lives in squircle/"
   webp: "icons + source images; use subdirs for namespaces (e.g. webp/aws/, webp/macos/)"
+
+related_workflows:
+  - "workflows/clip-queue.yaml (operation profile for --clip-queue tuning/reruns)"
+  - "workflows/logo-fetch-phash-pipeline.yaml (planned domain logo-fetch + pHash pipeline)"
