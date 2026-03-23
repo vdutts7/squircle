@@ -1,0 +1,157 @@
+# Logo fetch + perceptual-hash validation — implementation plan (squircle repo)
+# Research trace: GitHub API (gh-search pattern), web search, /tmp tool smoke tests.
+# Parallel batching: align with machinegunspray-style “fan-out jobs, merge results”.
+
+meta:
+  title: "Canonical-domain logo fetch with pHash clustering → squircle WebP"
+  version: 1
+  status: planned
+  owner: squircle
+  relates_to:
+    - workflow.yaml
+    - bin/squircle.sh
+    - bin/squircle-prep-logo.zsh
+
+# --- Deep-research rollup (what we validated vs what Claude’s sketch assumed) ---
+architecture_decisions:
+  canonical_source:
+    description: >
+      Treat HTML on https://{domain}/ as primary: parse link[rel~=icon], apple-touch-icon,
+      meta[property=og:image], meta[name=twitter:image]. These are self-declared brand assets.
+    fallback_order:
+      - "squircle.sh --domain uses Google s2 favicons + site icons + Bing Images HTML scrape (no API key; embedded murl fields)."
+      - "Legacy Clearbit/Hunter/DDG favicon endpoints removed from squircle.sh (2026-03)."
+  hashing:
+    description: >
+      Perceptual hash (pHash) for clustering candidates; Hamming distance vs domain anchor.
+      Do not mix hash implementations across the pipeline — each library uses different resize/DCT details.
+    recommended_runtime: "Python 3.11+ venv (avoid bleeding-edge 3.14 for heavy ML stacks until tested)."
+    single_library_policy: "Pick ONE of {imagehash, imagededup, goimagehash} for encode + compare in production."
+
+# --- gh-search style queries run during plan authoring (curl GitHub API) ---
+github_research:
+  queries:
+    - "perceptual hash image python stars:>100 → photohash, blockhash-python, dhash"
+    - "imagehash phash → forks; canonical upstream is JohannesBuchner/imagehash"
+    - "goimagehash language:go → corona10/goimagehash"
+    - "idealo/imagededup → duplicate-image toolkit with PHash, CNN, etc."
+  canonical_repos:
+    - name: imagehash
+      url: https://github.com/JohannesBuchner/imagehash
+      stars_note: "~3.8k+; PyPI `imagehash`; default choice for small CLI helpers."
+    - name: imagededup
+      url: https://github.com/idealo/imagededup
+      stars_note: "~5.6k+; heavier deps; good if you want CNN / batch dedup later."
+    - name: goimagehash
+      url: https://github.com/corona10/goimagehash
+      stars_note: "~830★; embed in a single static binary without Python."
+  also_considered:
+    - name: python-libphash
+      url: https://pypi.org/project/python-libphash/
+      note: "CFFI / libpHash — faster; not exercised in /tmp for this plan (add PoC if needed)."
+
+# --- /tmp verification (2026-03-22, local machine) ---
+toolify_tmp_tests:
+  base_dir_python: /tmp/squircle-phash-research
+  base_dir_go: /tmp/squircle-phash-go
+  synthetic_images: |
+    magick -size 64x64 xc:'#7c3aed' -fill white -draw 'circle 32,32 32,8' a.png
+    magick a.png -resize 32x32 b.png
+    magick a.png -modulate 100,80,100 c.png
+  results:
+    - tool: "PyPI imagehash 4.3.2 + Pillow"
+      command: ".venv/bin/python3 (embedded script)"
+      observation: "phash Hamming a vs downscaled b = 2; phash a vs sat-shift c = 0; dhash/whash also computed."
+      verdict: suitable_for_prototype
+    - tool: "corona10/goimagehash v1.1.0"
+      command: "go run . a.png b.png"
+      observation: "PerceptionHash distance a vs b = 2 (matches Python imagehash trend)."
+      verdict: suitable_for_native_cli
+    - tool: "idealo/imagededup PHash"
+      command: "from imagededup.methods import PHash"
+      observation: "Install pulls matplotlib/scipy stack; first run builds font cache (~30s). Encoded hash length 16 chars; Hamming a vs b reported 0 — different internal normalization than imagehash; DO NOT cross-compare hashes between libraries."
+      verdict: suitable_if_entire_pipeline_uses_imagededup_only
+
+# --- Target pipeline (decoupled scripts — resumable / idempotent) ---
+phases:
+  - id: domains
+    script: "bin/domains.sh (new) or stdin / data/domains.txt"
+    outputs:
+      - path: data/domains.txt
+    idempotency: "append-only or deterministic sort | uniq"
+    parallel_note: "machinegunspray: one subprocess per chunk of N domains if list is huge."
+
+  - id: logo_fetch
+    script: "bin/logo-fetch.sh (new) or python tools/logo_fetch/"
+    inputs:
+      - data/domains.txt
+    outputs:
+      - path: raw/{domain}/candidates/*.bin   # or .png after sniff
+      - path: raw/{domain}/manifest.json      # urls, bytes, phash hex, chosen flag
+    steps:
+      - fetch_canonical_html: "curl -fsSL --max-time 15 https://{domain}/"
+      - parse_assets: "python -m html.parser or beautifulsoup4 — extract icon / og / twitter URLs"
+      - fetch_candidates: "canonical URLs + existing squircle URL set + optional Bing (API key)"
+      - normalize_raster: "optional: magick identify; reject non-images"
+      - compute_phash: "single library; store 64-bit (or hex string) per file"
+      - cluster_and_pick:
+          description: >
+            Anchor = phash(canonical_best_or_favicon). For each other candidate within Hamming <= T (start 10),
+            prefer largest max(width,height). If no neighbor within T, use anchor file only.
+            If anchor missing, fall back to largest cluster by single-linkage or greedy ball around densest hash.
+          parameters:
+            hamming_threshold_default: 10
+            min_edge_px_fallback_bing: 512
+      - atomic_write: "tmp + mv manifest.json"
+
+  - id: logo_squircle
+    script: "bin/squircle.sh (existing entrypoint)"
+    inputs:
+      - "raw/{domain}/chosen.png (or path from manifest)"
+    outputs:
+      - webp/{domain-dashes}.webp
+    notes:
+      - "Reuse --no-domain-prep if raw already trimmed in logo_fetch."
+      - "Batch: squircle.sh raw/batch_dir --out-dir webp/..."
+
+# --- Dependencies to add (pick minimal set) ---
+dependencies:
+  python_production:
+    required: ["pillow", "imagehash", "numpy", "scipy"]
+    install: "pip install imagehash pillow numpy scipy"
+    optional_parse: ["beautifulsoup4", "lxml"]
+  go_alternative:
+    module: "github.com/corona10/goimagehash"
+    install: "go get github.com/corona10/goimagehash@latest"
+  heavy_optional:
+    package: imagededup
+    note: "Only if you standardize on idealo/imagededup for hashing + future CNN dedup."
+
+# --- Risk register ---
+risks:
+  - id: R1
+    text: "Bing / search APIs rate limits and ToS — keep optional and key-gated."
+  - id: R2
+    text: "Hash mismatch across libraries — lock one implementation per manifest schema version."
+  - id: R3
+    text: "Malicious SVG/HTML — fetch in sandboxed temp; no eval; cap redirect depth."
+  - id: R4
+    text: "False pHash matches across unrelated brands — combine with resolution + source-trust score."
+
+# --- machinegunspray parallel pattern (fan-out / merge) ---
+parallel_execution:
+  reference_command: "/machinegunspray (Cursor) — parallel mass operations"
+  apply_here:
+    - "domains: split domains.txt into chunks; N workers fetch HTML in parallel."
+    - "logo_fetch: parallel curl per domain with per-domain lockfile; join manifests in post-pass."
+    - "squircle: already uses GNU Parallel in dir mode — reuse for raw/*/chosen.png batch."
+  guardrails:
+    - "Respect robots / rate limits; default User-Agent + jitter sleep."
+    - "Cap concurrent domains (e.g. 8–32) to avoid tripping home egress or API quotas."
+
+# --- Next actionable tickets (for implementer) ---
+tickets:
+  - "Schema v1 for raw/{domain}/manifest.json (urls, phash, dims, picked_reason)."
+  - "Python module tools/phash_cluster.py — stdin JSON lines → chosen path (unit tests with fixtures)."
+  - "logo-fetch: integrate with squircle.sh without forking render logic (call squircle on file)."
+  - "Document SQUIRCLE_PREP_FUZZ interaction: run prep after pick or only in squircle — avoid double-trim."
