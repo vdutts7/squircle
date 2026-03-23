@@ -826,8 +826,17 @@ if [[ -z "$DOMAIN_ARG" && $# -ge 1 && -d "$1" ]]; then
       --parallel-j=*) : ;;
       --clip-detect) : ;;
       --clip-detect-only) : ;;
-      --padding) skip_next=1 ;;
-      --padding=*) : ;;
+      --padding)
+        pass_args+=("$a")
+        if (( idx < $#argv )); then
+          typeset _nx="${argv[$((idx+1))]}"
+          if [[ "$_nx" == [0-9]* ]]; then
+            pass_args+=("$_nx")
+            skip_next=1
+          fi
+        fi
+        ;;
+      --padding=*) pass_args+=("$a") ;;
       *) pass_args+=("$a") ;;
     esac
   done
