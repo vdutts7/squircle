@@ -1,0 +1,96 @@
+{
+  "_description": "CDN icon path + filename rules for webp/ (flat public surface; one bulk namespace exception)",
+  "_see": "repo.config.json",
+  "version": 1,
+
+  "layout": {
+    "default": "flat",
+    "public_root": "webp/",
+    "public_path": "webp/{basename}.webp",
+    "cdn_url": "https://raw.githubusercontent.com/vdutts7/squircle/main/webp/{basename}.webp",
+    "bulk_namespaces": {
+      "webp/material-icons/": "curated icon pack (~1k+); internal storage, not primary CDN surface"
+    },
+    "deprecated": [
+      "webp/adobe/",
+      "webp/amazon/",
+      "webp/aws/",
+      "webp/google/",
+      "webp/macos/",
+      "webp/microsoft/"
+    ],
+    "note": "Brand/product icons live flat at webp/*.webp; only bulk import packs use subdirs"
+  },
+
+  "basename": {
+    "format": "kebab-case",
+    "extension": ".webp",
+    "uniqueness": "globally unique basename across webp/*.webp (flat root is canonical CDN)",
+    "collision_with_bulk": "if basename exists in a bulk namespace (e.g. material-icons/), prefix flat file by product family"
+  },
+
+  "prefix_tiers": [
+    {
+      "id": "microsoft_branded",
+      "pattern": "microsoft-{product}.webp",
+      "when": "Microsoft-branded app or service where 'Microsoft' is part of the product identity",
+      "examples": ["microsoft-copilot.webp", "microsoft-defender.webp", "microsoft-authenticator.webp"]
+    },
+    {
+      "id": "azure_service",
+      "pattern": "azure-{service}.webp",
+      "when": "Azure cloud service or Azure-branded SKU (not generic microsoft-* app)",
+      "examples": ["azure-devops.webp", "azure-cosmos-db.webp", "azure-kusto.webp", "azure-front-door.webp"],
+      "renames": {
+        "kusto.webp": "azure-kusto.webp"
+      }
+    },
+    {
+      "id": "vendor_suite",
+      "pattern": "{vendor}-{product}.webp",
+      "when": "Large product family ingested as a set; prefix avoids clutter and collisions",
+      "examples": ["aws-lambda.webp", "aws-s3.webp", "macos-messages.webp", "adobe-photoshop.webp", "amazon-music.webp"]
+    },
+    {
+      "id": "standalone_brand",
+      "pattern": "{name}.webp",
+      "when": "Globally recognized standalone brand; bare name is unambiguous at CDN root",
+      "examples": ["github.webp", "linkedin.webp", "xbox.webp", "stripe.webp", "notion.webp"]
+    },
+    {
+      "id": "developer_tool",
+      "pattern": "{tool}.webp",
+      "when": "Tool known by its own name (may be Microsoft-owned); use bare name unless it collides",
+      "examples": ["visual-studio-code.webp", "powershell.webp", "docker.webp"]
+    },
+    {
+      "id": "domain_fetch",
+      "pattern": "{hostname-first-label}.webp",
+      "when": "squircle.sh --domain HOST default --out",
+      "examples": ["medium.com → medium.webp", "notion.so → notion.webp"],
+      "override": "use explicit --out when first label is ambiguous or collides"
+    }
+  ],
+
+  "decision_order": [
+    "1. Is this a bulk import pack? → webp/material-icons/ (or future pack dir); do not flatten",
+    "2. Would bare basename collide with webp/*.webp or webp/material-icons/*.webp? → prefix by family",
+    "3. Azure service? → azure-{service}.webp",
+    "4. Microsoft-branded app (Copilot, Defender, 365 admin, etc.)? → microsoft-{product}.webp",
+    "5. Part of a vendor suite (aws-, macos-, adobe-, amazon-)? → {vendor}-{product}.webp",
+    "6. Standalone brand or --domain default? → {name}.webp at webp/ root"
+  ],
+
+  "squircle_cli": {
+    "single_file_default": "webp/{input_basename}.webp",
+    "domain_default": "webp/{hostname-first-label}.webp",
+    "batch": "--out-dir webp/ (flat); do not recreate deprecated brand subdirs",
+    "bulk_batch": "--out-dir webp/material-icons/ for Material-style packs only"
+  },
+
+  "maintenance": {
+    "on_add": "pick tier from decision_order; never add webp/{brand}/ subdirs for single icons",
+    "on_collision": "rename newer or less-canonical file; keep one winner at flat root",
+    "material_icons": "webp/material-icons/{name}.webp is non-canonical for CDN; root wins when names differ"
+  }
+}
