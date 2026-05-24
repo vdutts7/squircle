@@ -15,6 +15,7 @@ avif
 heic
 heif
 #
+
 # JPEG 2000 / XL / XR
 jp2
 j2k
