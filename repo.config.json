@@ -7,6 +7,7 @@
     "file_tree": {
       ".": "single point of entry: this file",
       "repo.config.json": "this file; full tree + cross-refs here only",
+      "webp-naming.config.json": "webp/ flat layout + prefix tiers (microsoft-, azure-, vendor suites); _ref naming",
       "workflow.yaml": "canonical baseline workflow: flow, normalized spec, hook allow/block; _workflow",
       "workflows": "organized supplemental workflow docs/runbooks",
       "workflows/clip-queue.yaml": "operation runbook for --clip-queue rerender tuning loop",
@@ -37,11 +38,10 @@
       ".hooks/scripts/setup.sh": "one-time: git config include + chmod hooks",
       "git-template": "stub hooks for git init; clone uses this",
       "git-template/hooks/pre-commit": "stub: exit 1 until .hooks/scripts/setup.sh run",
-      "webp": "output dir: icons 1024×1024 .webp; subdirs = namespaces",
-      "webp/aws": "namespace subdir",
-      "webp/macos": "namespace subdir"
+      "webp": "output dir: icons 1024×1024 .webp; flat CDN at webp/*.webp",
+      "webp/material-icons": "bulk icon pack namespace only; see webp-naming.config.json"
     },
-    "config_files": ["repo.config.json", "workflow.yaml", ".gitconfig", ".gitignore", "workflows/clip-queue.yaml", "workflows/logo-fetch-phash-pipeline.yaml"],
+    "config_files": ["repo.config.json", "webp-naming.config.json", "workflow.yaml", ".gitconfig", ".gitignore", "workflows/clip-queue.yaml", "workflows/logo-fetch-phash-pipeline.yaml"],
     "docs": "optional: docs/*.config.json for large tangents only; else self-document in scripts (inline) or workflow",
     "_digest_manifest": {
       "flow_and_hook": "workflow.yaml",
@@ -49,9 +49,11 @@
       "format_list": "image-formats.txt",
       "hook_impl": ".hooks/pre-commit",
       "install_steps": "workflow.yaml#flow",
-      "bin_entrypoint_and_edges": "repo.config.json → key \"bin\""
+      "bin_entrypoint_and_edges": "repo.config.json → key \"bin\"",
+      "webp_naming_rules": "webp-naming.config.json"
     }
   },
+  "naming": { "_ref": "webp-naming.config.json" },
   "bin": {
     "entrypoint": "bin/squircle.sh",
     "invoked_or_sourced_by_squircle": {

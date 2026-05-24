@@ -24,7 +24,7 @@ hook:
 layout:
   root: "config, docs, bin, hooks"
   bin: "repo bin/* → install copy at $CURTOOLS/squircle/* (flat mirror); .venv lives in squircle/"
-  webp: "icons + source images; use subdirs for namespaces (e.g. webp/aws/, webp/macos/)"
+  webp: "flat CDN at webp/*.webp; bulk packs only in webp/material-icons/ — see webp-naming.config.json"
 
 related_workflows:
   - "workflows/clip-queue.yaml (operation profile for --clip-queue tuning/reruns)"
