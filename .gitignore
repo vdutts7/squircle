@@ -9,7 +9,7 @@
 !.gitconfig
 !.hooks/
 !.hooks/**
-!repo.config.json
+!repo.spine.json
 !webp-naming.config.json
 !workflow.yaml
 !workflows/
