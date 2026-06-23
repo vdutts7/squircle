@@ -1,6 +1,6 @@
 {
   "_description": "CDN icon path + filename rules for webp/ (flat public surface; one bulk namespace exception)",
-  "_see": "repo.config.json",
+  "_see": "repo.spine.json",
   "version": 1,
 
   "layout": {
