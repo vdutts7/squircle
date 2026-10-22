@@ -4,6 +4,9 @@
 
 version: 1
 
+fixtures_registry: "$CURREGISTRY/squircle/render-csp/fixtures.json"
+regression: "bin/squircle-render-csp.regression.sh"
+
 fixed:
   canvas_px: 1024
   output_format: webp

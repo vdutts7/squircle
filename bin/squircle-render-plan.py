@@ -42,12 +42,48 @@ def run_magick(args: list[str]) -> str:
     return p.stdout.strip()
 
 
+def alpha_stats(img: Path) -> tuple[float, float]:
+    mean = float(
+        run_magick([str(img), "-resize", "64x64", "-alpha", "extract", "-format", "%[fx:mean]", "info:"])
+        or 0
+    )
+    center = float(
+        run_magick(
+            [
+                str(img),
+                "-resize",
+                "64x64",
+                "-alpha",
+                "extract",
+                "-gravity",
+                "center",
+                "-crop",
+                "50%x50%+0+0",
+                "+repage",
+                "-format",
+                "%[fx:mean]",
+                "info:",
+            ]
+        )
+        or 0
+    )
+    return mean, center
+
+
 def get_bg_class(raster: Path) -> str:
     if GET_BG.is_file():
         p = subprocess.run([str(GET_BG), str(raster)], capture_output=True, text=True)
         v = (p.stdout or "").strip()
         if v == "OPAQUE":
             return "opaque_tile"
+    w, h = identify_wh(raster)
+    mean_a, center_a = alpha_stats(raster)
+    # Favicon / app icon: transparent corners, solid center → opaque tile path (margin + padding CSP).
+    if max(w, h) <= 512 and (center_a >= 0.32 or mean_a >= 0.38):
+        return "opaque_tile"
+    # Wide marks / screenshots: mostly opaque raster.
+    if mean_a >= 0.55:
+        return "opaque_tile"
     return "transparent_logo"
 
 
