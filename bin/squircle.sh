@@ -137,6 +137,13 @@ PATH_INVOKE_LIB="$CURTOOLS/path-invocation/path-invoke.zsh"
 METRICS_LIB="$CURTOOLS/subroutines/metrics-latency.zsh"
 [[ -f "$PATH_INVOKE_LIB" ]] && source "$PATH_INVOKE_LIB"
 [[ -f "$METRICS_LIB" ]] && source "$METRICS_LIB"
+TUI_LIB="$CURTOOLS/tui/tui-box.zsh"
+SQUIRCLE_TUI_LIB="$CURTOOLS/tui/squircle.tui.zsh"
+[[ -f "$TUI_LIB" ]] && source "$TUI_LIB"
+[[ -f "$SQUIRCLE_TUI_LIB" ]] && source "$SQUIRCLE_TUI_LIB"
+typeset -gi SHOW_TUI=1
+typeset -gi SQUIRCLE_QUIET=0
+[[ ! -t 1 || -n "${NO_COLOR:-}" ]] && SHOW_TUI=0
 
 # =============================================================================
 # CONFIG — single edit block (no env vars for squircle behavior). ImageMagick: -limit thread 1 on every magick call.
@@ -1207,6 +1214,9 @@ apply_render_plan() {
   typeset -g SQUIRCLE_PLAN_JSON
   SQUIRCLE_PLAN_JSON="${SQUIRCLE_TMPBASE}.plan.json"
   print -r -- "$plan_json" >"$SQUIRCLE_PLAN_JSON"
+  if [[ -n "${SQUIRCLE_PLAN_SNAPSHOT:-}" ]]; then
+    cp -f "$SQUIRCLE_PLAN_JSON" "$SQUIRCLE_PLAN_SNAPSHOT"
+  fi
   typeset -g SQUIRCLE_PLAN_APPLIED=1
 }
 
@@ -1475,6 +1485,9 @@ main() {
   typeset -g BG_HEX
   BG_HEX=$(get_background "$IN_FOR_MAGICK")
   apply_render_plan
+  if (( SQUIRCLE_PLAN_APPLIED == 1 && SQUIRCLE_AUTO_PLAN == 1 && ${#BG_OVERRIDE[@]} == 0 )); then
+    typeset -g CLIP_DETECT=0
+  fi
   if [[ $SQUIRCLE_PLAN_APPLIED -eq 1 ]]; then
     if (( OPAQUE_PADDING == 0 )); then
       BG_HEX="${SQUIRCLE_PLAN_MARGIN:-$DEFAULT_BG_HEX}"

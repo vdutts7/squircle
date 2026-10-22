@@ -206,6 +206,9 @@ def prep_trim(src: Path, dst: Path) -> bool:
     rw = nw * 100 // ow if ow else 100
     rh = nh * 100 // oh if oh else 100
     if min(rw, rh) < 62 and max(rw, rh) > 88:
+        # Wide wordmark plates: full width, vertical dead bands trimmed (e.g. farsight).
+        if rw >= 95 and nh * 100 <= oh * 55:
+            return True
         return False
     return True
 

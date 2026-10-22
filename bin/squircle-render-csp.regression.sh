@@ -60,6 +60,7 @@ while IFS= read -r case_json; do
   fi
   ok "$cid plan"
 
+  export SQUIRCLE_PLAN_SNAPSHOT="$plan_out"
   if ! SQUIRCLE_AUTO_PLAN=1 "$SQUIRCLE_SH" "$inp" --out "$out" >/dev/null 2>&1; then
     bad "$cid render"
     continue
