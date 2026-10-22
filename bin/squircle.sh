@@ -48,7 +48,7 @@
 #   else          → IN_FOR_MAGICK=raw path
 #
 # BACKGROUND_CLASS:
-#   get_background: if BG_OVERRIDE set → echo it; else get-bg-color.sh → #HEX | OPAQUE | NEXT→#FFFFFF
+#   get_background: --bg → echo it; else get-bg-color.sh → OPAQUE | else DEFAULT_BG_HEX (#FFFFFF; no corner hex for render)
 #   BG_HEX==OPAQUE → render_opaque_* ; else render_with_base(BG_HEX).
 #
 # RENDER_OPAQUE_FILL:
@@ -156,6 +156,8 @@ CLIP_MARKER_SUFFIX=.CLIPPED
 DEFAULT_CLIP_DETECT=1
 DEFAULT_SIZE=1024
 LOGO_RATIO=824
+# Composited / letterbox background when --bg omitted (no corner sampling — avoids black/drift per asset).
+DEFAULT_BG_HEX="#FFFFFF"
 # Opaque margin from corner sample: if max(r,g,b)-min(r,g,b) > this, corners read as logo (e.g. full-bleed favicon) → use #FFFFFF.
 OPAQUE_MARGIN_MAX_CHROMA=42
 WEBP_QUALITY=95
@@ -1122,19 +1124,38 @@ normalize_input() {
   fi
 }
 
-# --- Background: explicit --bg or get-bg-color.sh (returns #HEX or "OPAQUE" for mostly-opaque images) ---
+# --- Background: --bg wins; else probe OPAQUE vs transparent (never sampled #HEX for render — use DEFAULT_BG_HEX) ---
 get_background() {
   local raster="$1"
-  if [[ -n "$BG_OVERRIDE" ]]; then
-    echo "$BG_OVERRIDE"
+  if (( ${#BG_OVERRIDE[@]} > 0 )); then
+    echo "$BG_OVERRIDE[1]"
     return
   fi
-  local bg="#FFFFFF"
+  local probe="${DEFAULT_BG_HEX}"
   if [[ -x "$SCRIPT_DIR/get-bg-color.sh" ]]; then
-    bg=$("$SCRIPT_DIR/get-bg-color.sh" "$raster" 2>/dev/null) || true
-    [[ -z "$bg" || "$bg" == "NEXT" ]] && bg="#FFFFFF"
+    probe=$("$SCRIPT_DIR/get-bg-color.sh" "$raster" 2>/dev/null) || true
+    [[ -z "$probe" || "$probe" == "NEXT" ]] && probe="${DEFAULT_BG_HEX}"
   fi
-  echo "$bg"
+  if [[ "$probe" == "OPAQUE" ]]; then
+    echo "OPAQUE"
+  else
+    echo "${DEFAULT_BG_HEX}"
+  fi
+}
+
+# Margin / extent color for renders (not clip-diff internals). Without --bg: always DEFAULT_BG_HEX.
+render_margin_hex() {
+  if (( ${#BG_OVERRIDE[@]} > 0 )); then
+    echo "$BG_OVERRIDE[1]"
+    return
+  fi
+  echo "${DEFAULT_BG_HEX}"
+}
+
+normalize_extent_bg() {
+  local m="$1"
+  [[ -z "$m" || "$m" == "none" ]] && m="${DEFAULT_BG_HEX}"
+  echo "$m"
 }
 
 # Sample average corner background color (downscale + average 4 corners).
@@ -1221,7 +1242,12 @@ build_mask() {
 render_opaque_fill() {
   local raster="$1" mask="$2" output="$3" size="$4"
   local mb
-  mb="$(opaque_extent_margin_hex "$raster")"
+  if (( ${#BG_OVERRIDE[@]} > 0 )); then
+    mb="$(opaque_extent_margin_hex "$raster")"
+  else
+    mb="$(render_margin_hex)"
+  fi
+  mb="$(normalize_extent_bg "$mb")"
   $MAGICK -limit thread 1 \
     \( "$raster" -trim +repage "${MAGICK_RF[@]}" -resize "${size}x${size}" -gravity center -background "$mb" -extent "${size}x${size}" \) \
     "$mask" -alpha off -compose CopyOpacity -composite \
@@ -1231,6 +1257,7 @@ render_opaque_fill() {
 # --- Render: OPAQUE with padding (scale to LOGO_SIZE, center, margin color) ---
 render_opaque_padding() {
   local raster="$1" mask="$2" output="$3" size="$4" margin_bg="$5" logo_size="$6"
+  margin_bg="$(normalize_extent_bg "$margin_bg")"
   $MAGICK -limit thread 1 \
     \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}" -gravity center -background "$margin_bg" -extent "${size}x${size}" \) \
     "$mask" -alpha off -compose CopyOpacity -composite \
@@ -1241,11 +1268,7 @@ render_opaque_padding() {
 render_with_base() {
   local raster="$1" mask="$2" output="$3" size="$4" bg_hex="$5" icon_color="${6:-}"
   local logo_size="$7"
-  # With --padding, default white base fills the inset as a solid square; after the squircle mask that reads as a white ring. Transparent base keeps letterbox margins clear.
   local base_hex="$bg_hex"
-  if [[ $OPAQUE_PADDING -eq 1 && -z "${BG_OVERRIDE:-}" && "$bg_hex" == "#FFFFFF" ]]; then
-    base_hex="none"
-  fi
   # Resize without ^: fit inside logo_size box (preserve aspect); ^ would crop non-square art (cut-off).
   if [[ -n "$icon_color" ]]; then
     $MAGICK -limit thread 1 \
@@ -1340,13 +1363,7 @@ mitigate_opaque_clipping() {
     typeset -g PADDING_PX=$pad
     ls=$(( SIZE - 2 * PADDING_PX ))
     (( ls < 8 )) && ls=8
-    margin="#FFFFFF"
-    if (( ${#BG_OVERRIDE[@]} > 0 )); then
-      margin="$BG_OVERRIDE[1]"
-    fi
-    if [[ "$BG_HEX" == "OPAQUE" && "$margin" == "#FFFFFF" ]]; then
-      margin="$(opaque_extent_margin_hex "$IN_FOR_MAGICK" 1)"
-    fi
+    margin="$(render_margin_hex)"
     compute_clip_marker "$IN_FOR_MAGICK" "$MASK_TMP" "$SIZE" "$margin" "$ls" || true
     render_opaque_padding "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$margin" "$ls"
     [[ ! -f "${OUTPUT}${CLIP_MARKER_SUFFIX}" ]] && return 0
@@ -1406,10 +1423,8 @@ main() {
   typeset -g BG_HEX
   BG_HEX=$(get_background "$IN_FOR_MAGICK")
   build_mask "$SIZE" >/dev/null
-  local padding_bg="#FFFFFF"
-  if (( ${#BG_OVERRIDE[@]} > 0 )); then
-    padding_bg="$BG_OVERRIDE[1]"
-  fi
+  local padding_bg
+  padding_bg="$(render_margin_hex)"
   local logo_size
   if [[ -n "$PADDING_PX" && "$PADDING_PX" -ge 0 ]]; then
     logo_size=$(( SIZE - 2 * PADDING_PX ))
@@ -1417,11 +1432,6 @@ main() {
   else
     logo_size=$(( SIZE * LOGO_RATIO / 1024 ))
     [[ $logo_size -lt 8 ]] && logo_size=8
-  fi
-
-  # In OPAQUE+padding mode, default margin matches sampled corners unless corners look like logo (high chroma) → white.
-  if [[ "$BG_HEX" == "OPAQUE" && $OPAQUE_PADDING -eq 1 && "$padding_bg" == "#FFFFFF" ]]; then
-    padding_bg="$(opaque_extent_margin_hex "$IN_FOR_MAGICK" 1)"
   fi
 
   # Optional: compute clipping marker before rendering (opaque path only).
@@ -1458,11 +1468,8 @@ main() {
           typeset -g PADDING_PX=$CLIP_PADDING_START
           local safe_logo=$(( SIZE - 2 * CLIP_PADDING_START ))
           (( safe_logo < 8 )) && safe_logo=8
-          local margin="#FFFFFF"
-          if (( ${#BG_OVERRIDE[@]} > 0 )); then margin="$BG_OVERRIDE[1]"; fi
-          if [[ "$margin" == "#FFFFFF" ]]; then
-            margin="$(sample_corner_bg_hex "$IN_FOR_MAGICK" || echo "#FFFFFF")"
-          fi
+          local margin
+          margin="$(render_margin_hex)"
           compute_clip_marker "$IN_FOR_MAGICK" "$MASK_TMP" "$SIZE" "$margin" "$safe_logo" || true
           render_opaque_padding "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$margin" "$safe_logo"
         fi
