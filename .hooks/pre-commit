@@ -7,6 +7,9 @@ cd "$ROOT"
 SLUG="$ROOT/.hooks/scripts/sluggify-paths.sh"
 [[ -x "$SLUG" ]] && "$SLUG" --staged "$ROOT"
 
+BLOCK="$ROOT/.hooks/scripts/block-artifact-paths.sh"
+[[ -x "$BLOCK" ]] && "$BLOCK" --staged "$ROOT"
+
 MAGICK=/opt/homebrew/bin/magick
 [[ -x "$MAGICK" ]] || MAGICK=/usr/local/bin/magick
 
