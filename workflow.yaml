@@ -28,5 +28,6 @@ layout:
   webp: "flat CDN at webp/*.webp; bulk packs only in webp/material-icons/ — see webp-naming.config.json"
 
 related_workflows:
+  - "workflows/render-csp.yaml (constraint SSOT: padding, margin, clip — bin/squircle-render-plan.py)"
   - "workflows/clip-queue.yaml (operation profile for --clip-queue tuning/reruns)"
   - "workflows/logo-fetch-phash-pipeline.yaml (planned domain logo-fetch + pHash pipeline)"

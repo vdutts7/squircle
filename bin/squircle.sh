@@ -156,8 +156,10 @@ CLIP_MARKER_SUFFIX=.CLIPPED
 DEFAULT_CLIP_DETECT=1
 DEFAULT_SIZE=1024
 LOGO_RATIO=824
-# Composited / letterbox background when --bg omitted (no corner sampling — avoids black/drift per asset).
+# Composited / letterbox background when --bg omitted (transparent_logo path only).
 DEFAULT_BG_HEX="#FFFFFF"
+# 1 = bin/squircle-render-plan.py solves padding + margin under workflows/render-csp.yaml
+SQUIRCLE_AUTO_PLAN=1
 # Opaque margin from corner sample: if max(r,g,b)-min(r,g,b) > this, corners read as logo (e.g. full-bleed favicon) → use #FFFFFF.
 OPAQUE_MARGIN_MAX_CHROMA=42
 WEBP_QUALITY=95
@@ -202,6 +204,8 @@ typeset -g MASK_TMP TMP_PNG TMP_SVG_PNG TMP_QL_DIR
 MASK_TMP=""; TMP_PNG=""; TMP_SVG_PNG=""; TMP_QL_DIR=""
 typeset -g CLIP_FRAME_TMP CLIP_MASKED_TMP CLIP_DIFF_TMP CLIP_FRAME_FLAT_TMP CLIP_MASKED_FLAT_TMP
 CLIP_FRAME_TMP=""; CLIP_MASKED_TMP=""; CLIP_DIFF_TMP=""; CLIP_FRAME_FLAT_TMP=""; CLIP_MASKED_FLAT_TMP=""
+typeset -g SQUIRCLE_PLAN_MARGIN SQUIRCLE_PLAN_APPLIED
+SQUIRCLE_PLAN_MARGIN=""; SQUIRCLE_PLAN_APPLIED=0
 
 cleanup() {
   [[ -n "$MASK_TMP" && -f "$MASK_TMP" ]] && /bin/unlink "$MASK_TMP"
@@ -1143,10 +1147,15 @@ get_background() {
   fi
 }
 
-# Margin / extent color for renders (not clip-diff internals). Without --bg: always DEFAULT_BG_HEX.
+# Margin / extent color for renders (CSP plan or --bg or opaque corner sample / default).
 render_margin_hex() {
+  [[ -n "${SQUIRCLE_PLAN_MARGIN:-}" ]] && { echo "$SQUIRCLE_PLAN_MARGIN"; return }
   if (( ${#BG_OVERRIDE[@]} > 0 )); then
     echo "$BG_OVERRIDE[1]"
+    return
+  fi
+  if [[ "${BG_HEX:-}" == "OPAQUE" && -n "${IN_FOR_MAGICK:-}" ]]; then
+    opaque_extent_margin_hex "$IN_FOR_MAGICK" 1
     return
   fi
   echo "${DEFAULT_BG_HEX}"
@@ -1154,8 +1163,37 @@ render_margin_hex() {
 
 normalize_extent_bg() {
   local m="$1"
-  [[ -z "$m" || "$m" == "none" ]] && m="${DEFAULT_BG_HEX}"
+  [[ -z "$m" || "$m" == "none" ]] && m="$(render_margin_hex)"
   echo "$m"
+}
+
+# CSP solver (workflows/render-csp.yaml) — padding + margin + optional prep.
+apply_render_plan() {
+  (( SQUIRCLE_AUTO_PLAN )) || return 0
+  [[ -n "$PADDING_PX" ]] && return 0
+  local plan_py="$SCRIPT_DIR/squircle-render-plan.py"
+  [[ -f "$plan_py" ]] || return 0
+  local prep_out="${SQUIRCLE_TMPBASE}.plan.png"
+  local plan_json plan_args=()
+  (( ${#BG_OVERRIDE[@]} > 0 )) && plan_args=(--bg "$BG_OVERRIDE[1]")
+  plan_json="$(
+    export MAGICK="$MAGICK" SQUIRCLE_SIZE="$SIZE" SQUIRCLE_LOGO_RATIO="$LOGO_RATIO"
+    export SQUIRCLE_DEFAULT_BG="$DEFAULT_BG_HEX" SQUIRCLE_OPAQUE_MARGIN_MAX_CHROMA="$OPAQUE_MARGIN_MAX_CHROMA"
+    export SQUIRCLE_CLIP_THRESHOLD="$CLIP_THRESHOLD" SQUIRCLE_CLIP_PADDING_START="$CLIP_PADDING_START"
+    export SQUIRCLE_CLIP_PADDING_STEP="$CLIP_PADDING_STEP" SQUIRCLE_CLIP_PADDING_MAX_ITER="$CLIP_PADDING_MAX_ITER"
+    export SQUIRCLE_CLIP_CROP_DIVISOR="$CLIP_CROP_DIVISOR" SQUIRCLE_MASK="$MASK_FILE" SQUIRCLE_PREP_OUT="$prep_out"
+    python3 "$plan_py" "$IN_FOR_MAGICK" "${plan_args[@]}" 2>/dev/null
+  )" || return 0
+  [[ -n "$plan_json" ]] || return 0
+  typeset -g SQUIRCLE_PLAN_MARGIN
+  SQUIRCLE_PLAN_MARGIN="$(python3 -c 'import json,sys; print(json.load(sys.stdin)["margin_hex"])' <<<"$plan_json")" || return 0
+  typeset -g OPAQUE_PADDING=1
+  typeset -g PADDING_PX
+  PADDING_PX="$(python3 -c 'import json,sys; print(int(json.load(sys.stdin)["padding_px"]))' <<<"$plan_json")" || return 0
+  if python3 -c 'import json,sys; sys.exit(0 if json.load(sys.stdin).get("prep") else 1)' <<<"$plan_json" 2>/dev/null; then
+    [[ -f "$prep_out" ]] && IN_FOR_MAGICK="$prep_out"
+  fi
+  typeset -g SQUIRCLE_PLAN_APPLIED=1
 }
 
 # Sample average corner background color (downscale + average 4 corners).
@@ -1422,6 +1460,8 @@ main() {
   normalize_input "$INPUT" "$SIZE"
   typeset -g BG_HEX
   BG_HEX=$(get_background "$IN_FOR_MAGICK")
+  apply_render_plan
+  [[ $SQUIRCLE_PLAN_APPLIED -eq 1 ]] && BG_HEX=$(get_background "$IN_FOR_MAGICK")
   build_mask "$SIZE" >/dev/null
   local padding_bg
   padding_bg="$(render_margin_hex)"
@@ -1447,7 +1487,9 @@ main() {
   fi
 
   if [[ "$BG_HEX" == "OPAQUE" ]]; then
-    if (( CLIP_DETECT == 1 )); then
+    if (( SQUIRCLE_PLAN_APPLIED == 1 && OPAQUE_PADDING == 1 )); then
+      render_opaque_padding "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$(render_margin_hex)" "$logo_size"
+    elif (( CLIP_DETECT == 1 )); then
       if [[ $OPAQUE_PADDING -eq 1 ]]; then
         if [[ -f "${OUTPUT}${CLIP_MARKER_SUFFIX}" ]]; then
           local mit_start="$CLIP_PADDING_START"
