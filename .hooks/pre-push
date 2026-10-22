@@ -1,26 +1,22 @@
 #!/usr/bin/env zsh
-# pre-push: slug tracked basenames; auto-commit normalize tip if needed; warn repo size.
+# pre-push: kebab-slug tree; auto-commit if mutated; warn repo size.
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-SLUG_SCRIPT="${ROOT}/.hooks/scripts/sluggify-names.sh"
-if [[ -x "${SLUG_SCRIPT}" ]]; then
-  "${SLUG_SCRIPT}" --tree || true
-fi
+SLUG="$ROOT/.hooks/scripts/sluggify-paths.sh"
+[[ -x "$SLUG" ]] && "$SLUG" --tree "$ROOT" || true
 
 if ! git diff --quiet 2>/dev/null || ! git diff --cached --quiet 2>/dev/null; then
   git add -A
   if ! git diff --cached --quiet; then
-    git commit -m "chore: sluggify filenames (hook normalize)" || true
-    echo "[pre-push] sluggify committed; re-run push to include tip" >&2
+    git commit -m "chore: sluggify paths (hook)" || true
+    echo "[pre-push] sluggify committed; re-run push" >&2
     exit 1
   fi
 fi
 
 CHECK_SCRIPT="${ROOT}/bin/check-repo-size.sh"
-if [[ -x "${CHECK_SCRIPT}" ]]; then
-  "${CHECK_SCRIPT}" || true
-fi
+[[ -x "${CHECK_SCRIPT}" ]] && "${CHECK_SCRIPT}" || true
 
 exit 0

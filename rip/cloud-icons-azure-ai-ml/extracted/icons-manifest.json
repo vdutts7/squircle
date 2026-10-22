@@ -1,0 +1,218 @@
+[
+  {
+    "name": "Batch AI",
+    "slug": "batch-ai",
+    "file": "azure-batch-ai.svg",
+    "source_path": "azure/ai + machine learning/00028-icon-service-Batch-AI.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00028-icon-service-Batch-AI.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Machine Learning Studio (Classic) Web Services",
+    "slug": "machine-learning-studio-classic-web-services",
+    "file": "azure-machine-learning-studio-classic-web-services.svg",
+    "source_path": "azure/ai + machine learning/00030-icon-service-Machine-Learning-Studio-(Classic)-Web-Services.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00030-icon-service-Machine-Learning-Studio-%28Classic%29-Web-Services.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Genomics",
+    "slug": "genomics",
+    "file": "azure-genomics.svg",
+    "source_path": "azure/ai + machine learning/00031-icon-service-Genomics.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00031-icon-service-Genomics.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Computer Vision",
+    "slug": "computer-vision",
+    "file": "azure-computer-vision.svg",
+    "source_path": "azure/ai + machine learning/00792-icon-service-Computer-Vision.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00792-icon-service-Computer-Vision.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Custom Vision",
+    "slug": "custom-vision",
+    "file": "azure-custom-vision.svg",
+    "source_path": "azure/ai + machine learning/00793-icon-service-Custom-Vision.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00793-icon-service-Custom-Vision.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Face APIs",
+    "slug": "face-apis",
+    "file": "azure-face-apis.svg",
+    "source_path": "azure/ai + machine learning/00794-icon-service-Face-APIs.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00794-icon-service-Face-APIs.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Content Moderators",
+    "slug": "content-moderators",
+    "file": "azure-content-moderators.svg",
+    "source_path": "azure/ai + machine learning/00795-icon-service-Content-Moderators.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00795-icon-service-Content-Moderators.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Personalizers",
+    "slug": "personalizers",
+    "file": "azure-personalizers.svg",
+    "source_path": "azure/ai + machine learning/00796-icon-service-Personalizers.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00796-icon-service-Personalizers.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Speech Services",
+    "slug": "speech-services",
+    "file": "azure-speech-services.svg",
+    "source_path": "azure/ai + machine learning/00797-icon-service-Speech-Services.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00797-icon-service-Speech-Services.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "QnA Makers",
+    "slug": "qna-makers",
+    "file": "azure-qna-makers.svg",
+    "source_path": "azure/ai + machine learning/00799-icon-service-QnA-Makers.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00799-icon-service-QnA-Makers.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Translator Text",
+    "slug": "translator-text",
+    "file": "azure-translator-text.svg",
+    "source_path": "azure/ai + machine learning/00800-icon-service-Translator-Text.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00800-icon-service-Translator-Text.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Language Understanding",
+    "slug": "language-understanding",
+    "file": "azure-language-understanding.svg",
+    "source_path": "azure/ai + machine learning/00801-icon-service-Language-Understanding.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00801-icon-service-Language-Understanding.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Immersive Readers",
+    "slug": "immersive-readers",
+    "file": "azure-immersive-readers.svg",
+    "source_path": "azure/ai + machine learning/00812-icon-service-Immersive-Readers.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00812-icon-service-Immersive-Readers.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Anomaly Detector",
+    "slug": "anomaly-detector",
+    "file": "azure-anomaly-detector.svg",
+    "source_path": "azure/ai + machine learning/00814-icon-service-Anomaly-Detector.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00814-icon-service-Anomaly-Detector.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Form Recognizers",
+    "slug": "form-recognizers",
+    "file": "azure-form-recognizers.svg",
+    "source_path": "azure/ai + machine learning/00819-icon-service-Form-Recognizers.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/00819-icon-service-Form-Recognizers.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Azure Experimentation Studio",
+    "slug": "azure-experimentation-studio",
+    "file": "azure-azure-experimentation-studio.svg",
+    "source_path": "azure/ai + machine learning/01239-icon-service-Azure-Experimentation-Studio.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/01239-icon-service-Azure-Experimentation-Studio.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Azure Object Understanding",
+    "slug": "azure-object-understanding",
+    "file": "azure-azure-object-understanding.svg",
+    "source_path": "azure/ai + machine learning/01688-icon-service-Azure-Object-Understanding.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/01688-icon-service-Azure-Object-Understanding.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Metrics Advisor",
+    "slug": "metrics-advisor",
+    "file": "azure-metrics-advisor.svg",
+    "source_path": "azure/ai + machine learning/02409-icon-service-Metrics-Advisor.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/02409-icon-service-Metrics-Advisor.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Azure Applied AI Services",
+    "slug": "azure-applied-ai-services",
+    "file": "azure-azure-applied-ai-services.svg",
+    "source_path": "azure/ai + machine learning/02749-icon-service-Azure-Applied-AI-Services.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/02749-icon-service-Azure-Applied-AI-Services.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Bonsai",
+    "slug": "bonsai",
+    "file": "azure-bonsai.svg",
+    "source_path": "azure/ai + machine learning/03337-icon-service-Bonsai.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/03337-icon-service-Bonsai.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Cognitive Search",
+    "slug": "cognitive-search",
+    "file": "azure-cognitive-search.svg",
+    "source_path": "azure/ai + machine learning/10044-icon-service-Cognitive-Search.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/10044-icon-service-Cognitive-Search.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Cognitive Services",
+    "slug": "cognitive-services",
+    "file": "azure-cognitive-services.svg",
+    "source_path": "azure/ai + machine learning/10162-icon-service-Cognitive-Services.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/10162-icon-service-Cognitive-Services.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Genomics Accounts",
+    "slug": "genomics-accounts",
+    "file": "azure-genomics-accounts.svg",
+    "source_path": "azure/ai + machine learning/10164-icon-service-Genomics-Accounts.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/10164-icon-service-Genomics-Accounts.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Bot Services",
+    "slug": "bot-services",
+    "file": "azure-bot-services.svg",
+    "source_path": "azure/ai + machine learning/10165-icon-service-Bot-Services.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/10165-icon-service-Bot-Services.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Machine Learning",
+    "slug": "machine-learning",
+    "file": "azure-machine-learning.svg",
+    "source_path": "azure/ai + machine learning/10166-icon-service-Machine-Learning.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/10166-icon-service-Machine-Learning.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Machine Learning Studio Workspaces",
+    "slug": "machine-learning-studio-workspaces",
+    "file": "azure-machine-learning-studio-workspaces.svg",
+    "source_path": "azure/ai + machine learning/10167-icon-service-Machine-Learning-Studio-Workspaces.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/10167-icon-service-Machine-Learning-Studio-Workspaces.svg",
+    "category": "Azure / Ai + Machine Learning"
+  },
+  {
+    "name": "Machine Learning Studio Web Service Plans",
+    "slug": "machine-learning-studio-web-service-plans",
+    "file": "azure-machine-learning-studio-web-service-plans.svg",
+    "source_path": "azure/ai + machine learning/10168-icon-service-Machine-Learning-Studio-Web-Service-Plans.svg",
+    "source_url": "https://cloud-icons.onemodel.app/azure/ai%20%2B%20machine%20learning/10168-icon-service-Machine-Learning-Studio-Web-Service-Plans.svg",
+    "category": "Azure / Ai + Machine Learning"
+  }
+]

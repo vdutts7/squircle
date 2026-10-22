@@ -1,0 +1,8 @@
+name: Explore cloud-icons.onemodel.app
+generated: 2026-07-05T02:38:37.291Z
+source: glider explore
+steps:
+  - goto: https://cloud-icons.onemodel.app/azure/ai_+_machine_learning
+  - wait: 2
+  - screenshot: /Users/vdog/Documents/a/squircle/rip/cloud-icons-azure-ai-ml/task-result.png
+  - log: LOOP_COMPLETE

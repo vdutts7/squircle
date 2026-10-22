@@ -1,0 +1,3064 @@
+{
+  "url": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+  "title": "",
+  "timestamp": "2026-07-05T02:38:37.266Z",
+  "structure": {
+    "tabs": 0,
+    "buttons": 2,
+    "links": 30,
+    "forms": 1,
+    "tables": 0,
+    "dropdowns": 0,
+    "checkboxes": 0,
+    "pagination": null,
+    "infiniteScroll": false
+  },
+  "network": {
+    "totalRequests": 57,
+    "byType": {
+      "Document": 1,
+      "Script": 12,
+      "Manifest": 1,
+      "XHR": 4,
+      "Stylesheet": 2,
+      "Other": 3,
+      "Image": 32,
+      "Font": 2
+    },
+    "apis": [
+      {
+        "method": "GET",
+        "url": "https://cloud-icons.onemodel.app/page-data/app-data.json",
+        "hasBody": false
+      },
+      {
+        "method": "GET",
+        "url": "https://cloud-icons.onemodel.app/page-data/azure/ai_+_machine_learning/page-data.json",
+        "hasBody": false
+      },
+      {
+        "method": "GET",
+        "url": "https://cloud-icons.onemodel.app/page-data/sq/d/3913577872.json",
+        "hasBody": false
+      },
+      {
+        "method": "GET",
+        "url": "https://cloud-icons.onemodel.app/page-data/sq/d/4179324420.json",
+        "hasBody": false
+      }
+    ],
+    "websockets": []
+  },
+  "resources": {
+    "scripts": 13,
+    "stylesheets": 4,
+    "scriptUrls": [
+      "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js",
+      "https://cloud-icons.onemodel.app/framework-b442d7d0dac421d2848d.js",
+      "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js",
+      "https://cloud-icons.onemodel.app/component---src-templates-category-js-4adad7f1b4a7fdaafcd8.js",
+      "https://cloud-icons.onemodel.app/1ba2ea45dddd6d4120fe8d8f9148d4b2a0ddb16f-b4219f82ba9863635119.js",
+      "https://cloud-icons.onemodel.app/component---src-templates-icon-js-87a4aa1906f7735e38c2.js",
+      "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+      "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+      "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js",
+      "https://cloud-icons.onemodel.app/framework-b442d7d0dac421d2848d.js",
+      "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js",
+      "https://cloud-icons.onemodel.app/component---src-templates-category-js-4adad7f1b4a7fdaafcd8.js",
+      "https://cloud-icons.onemodel.app/1ba2ea45dddd6d4120fe8d8f9148d4b2a0ddb16f-b4219f82ba9863635119.js"
+    ]
+  },
+  "console": {
+    "messages": 0,
+    "errors": 0
+  },
+  "screenshots": [
+    {
+      "name": "initial",
+      "path": "/Users/vdog/Documents/a/squircle/rip/cloud-icons-azure-ai-ml/initial-1783219115046.png",
+      "timestamp": 1783219115048
+    },
+    {
+      "name": "scrolled",
+      "path": "/Users/vdog/Documents/a/squircle/rip/cloud-icons-azure-ai-ml/scrolled-1783219117198.png",
+      "timestamp": 1783219117200
+    },
+    {
+      "name": "final",
+      "path": "/Users/vdog/Documents/a/squircle/rip/cloud-icons-azure-ai-ml/final-1783219117265.png",
+      "timestamp": 1783219117266
+    }
+  ],
+  "raw": {
+    "tabs": [],
+    "buttons": [
+      {
+        "label": null,
+        "qa": null,
+        "selector": "div:nth-child(1) > div:nth-child(1) > header:nth-child(1) > form:nth-child(1) > button:nth-child(2)",
+        "text": "Show Search Form",
+        "type": "submit"
+      },
+      {
+        "label": null,
+        "qa": null,
+        "selector": "div:nth-child(1) > div:nth-child(1) > header:nth-child(1) > form:nth-child(1) > button:nth-child(3)",
+        "text": "Search",
+        "type": "submit"
+      }
+    ],
+    "links": [
+      {
+        "href": "https://cloud-icons.onemodel.app/",
+        "selector": "div:nth-child(1) > div:nth-child(1) > header:nth-child(1) > a:nth-child(2)",
+        "text": "Cloud Icons"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/",
+        "selector": "main:nth-child(2) > div:nth-child(2) > ol:nth-child(1) > li:nth-child(1) > a:nth-child(1)",
+        "text": "Cloud Icons"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/",
+        "selector": "main:nth-child(2) > div:nth-child(2) > ol:nth-child(1) > li:nth-child(2) > a:nth-child(1)",
+        "text": "Microsoft Azure"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_batch_ai",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(1) > a:nth-child(1)",
+        "text": "Batch AI"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_machine_learning_studio_(classic)_web_services",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(2) > a:nth-child(1)",
+        "text": "Machine Learning Studio (Classic) Web Services"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_genomics",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(3) > a:nth-child(1)",
+        "text": "Genomics"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_computer_vision",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(4) > a:nth-child(1)",
+        "text": "Computer Vision"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_custom_vision",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(5) > a:nth-child(1)",
+        "text": "Custom Vision"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_face_apis",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(6) > a:nth-child(1)",
+        "text": "Face APIs"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_content_moderators",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(7) > a:nth-child(1)",
+        "text": "Content Moderators"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_personalizers",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(8) > a:nth-child(1)",
+        "text": "Personalizers"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_speech_services",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(9) > a:nth-child(1)",
+        "text": "Speech Services"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_qna_makers",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(10) > a:nth-child(1)",
+        "text": "QnA Makers"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_translator_text",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(11) > a:nth-child(1)",
+        "text": "Translator Text"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_language_understanding",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(12) > a:nth-child(1)",
+        "text": "Language Understanding"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_immersive_readers",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(13) > a:nth-child(1)",
+        "text": "Immersive Readers"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_anomaly_detector",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(14) > a:nth-child(1)",
+        "text": "Anomaly Detector"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_form_recognizers",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(15) > a:nth-child(1)",
+        "text": "Form Recognizers"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_azure_experimentation_studio",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(16) > a:nth-child(1)",
+        "text": "Azure Experimentation Studio"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_azure_object_understanding",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(17) > a:nth-child(1)",
+        "text": "Azure Object Understanding"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_metrics_advisor",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(18) > a:nth-child(1)",
+        "text": "Metrics Advisor"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_azure_applied_ai_services",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(19) > a:nth-child(1)",
+        "text": "Azure Applied AI Services"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_bonsai",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(20) > a:nth-child(1)",
+        "text": "Bonsai"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_cognitive_search",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(21) > a:nth-child(1)",
+        "text": "Cognitive Search"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_cognitive_services",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(22) > a:nth-child(1)",
+        "text": "Cognitive Services"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_genomics_accounts",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(23) > a:nth-child(1)",
+        "text": "Genomics Accounts"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_bot_services",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(24) > a:nth-child(1)",
+        "text": "Bot Services"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_machine_learning",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(25) > a:nth-child(1)",
+        "text": "Machine Learning"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_machine_learning_studio_workspaces",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(26) > a:nth-child(1)",
+        "text": "Machine Learning Studio Workspaces"
+      },
+      {
+        "href": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning/icon_service_machine_learning_studio_web_service_plans",
+        "selector": "div:nth-child(1) > main:nth-child(2) > ul:nth-child(4) > li:nth-child(27) > a:nth-child(1)",
+        "text": "Machine Learning Studio Web Service Plans"
+      }
+    ],
+    "forms": [
+      {
+        "action": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+        "inputs": [
+          {
+            "name": "",
+            "placeholder": "Search For Icons…",
+            "type": "search"
+          }
+        ],
+        "method": "get"
+      }
+    ],
+    "tables": [],
+    "requests": [
+      {
+        "id": "82FAAAA72C881E5F921B21EAF5605965",
+        "url": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Upgrade-Insecure-Requests": "1",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Document",
+        "timestamp": 691579.601211,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1733",
+        "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Script",
+        "timestamp": 691579.631975,
+        "initiator": {
+          "columnNumber": 2856,
+          "lineNumber": 0,
+          "type": "parser",
+          "url": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning"
+        }
+      },
+      {
+        "id": "90474.1734",
+        "url": "https://cloud-icons.onemodel.app/framework-b442d7d0dac421d2848d.js",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Script",
+        "timestamp": 691579.632112,
+        "initiator": {
+          "columnNumber": 2923,
+          "lineNumber": 0,
+          "type": "parser",
+          "url": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning"
+        }
+      },
+      {
+        "id": "90474.1735",
+        "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Script",
+        "timestamp": 691579.632143,
+        "initiator": {
+          "columnNumber": 2996,
+          "lineNumber": 0,
+          "type": "parser",
+          "url": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning"
+        }
+      },
+      {
+        "id": "90474.1739",
+        "url": "https://cloud-icons.onemodel.app/manifest.webmanifest",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Manifest",
+        "timestamp": 691579.652634,
+        "initiator": {
+          "columnNumber": 3020,
+          "lineNumber": 0,
+          "type": "parser",
+          "url": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning"
+        }
+      },
+      {
+        "id": "90474.1740",
+        "url": "https://cloud-icons.onemodel.app/page-data/app-data.json",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "XHR",
+        "timestamp": 691579.656372,
+        "initiator": {
+          "stack": {
+            "callFrames": [
+              {
+                "columnNumber": 28940,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 28818,
+                "functionName": "h",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 29698,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 35162,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 31287,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 36522,
+                "functionName": "loadPage",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 44447,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              }
+            ]
+          },
+          "type": "script"
+        }
+      },
+      {
+        "id": "90474.1741",
+        "url": "https://cloud-icons.onemodel.app/page-data/azure/ai_+_machine_learning/page-data.json",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "XHR",
+        "timestamp": 691579.656445,
+        "initiator": {
+          "stack": {
+            "callFrames": [
+              {
+                "columnNumber": 28940,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 28818,
+                "functionName": "h",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 29698,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 30112,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 30905,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 36214,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 31306,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 36522,
+                "functionName": "loadPage",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 44447,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              }
+            ]
+          },
+          "type": "script"
+        }
+      },
+      {
+        "id": "90474.1744",
+        "url": "chrome-extension://ndgknbhllloeanmdgalcnmlhmkogngca/assets/index.ts-CD8TrfkM.js",
+        "method": "GET",
+        "headers": {
+          "Origin": "https://cloud-icons.onemodel.app",
+          "Referer": "",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+        },
+        "type": "Script",
+        "timestamp": 691579.660552,
+        "initiator": {
+          "stack": {
+            "callFrames": [
+              {
+                "columnNumber": 21,
+                "functionName": "",
+                "lineNumber": 7,
+                "scriptId": "71",
+                "url": "chrome-extension://ndgknbhllloeanmdgalcnmlhmkogngca/assets/index.ts-loader-OA8iLFk6.js"
+              },
+              {
+                "columnNumber": 4,
+                "functionName": "",
+                "lineNumber": 10,
+                "scriptId": "71",
+                "url": "chrome-extension://ndgknbhllloeanmdgalcnmlhmkogngca/assets/index.ts-loader-OA8iLFk6.js"
+              },
+              {
+                "columnNumber": 2,
+                "functionName": "",
+                "lineNumber": 12,
+                "scriptId": "71",
+                "url": "chrome-extension://ndgknbhllloeanmdgalcnmlhmkogngca/assets/index.ts-loader-OA8iLFk6.js"
+              }
+            ]
+          },
+          "type": "script"
+        }
+      },
+      {
+        "id": "90474.1745",
+        "url": "https://cloud-icons.onemodel.app/styles.41e907d60753f8ff2d54.css",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Stylesheet",
+        "timestamp": 691579.661001,
+        "initiator": {
+          "stack": {
+            "callFrames": [
+              {
+                "columnNumber": 3607,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "68",
+                "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js"
+              },
+              {
+                "columnNumber": 3622,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "68",
+                "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js"
+              },
+              {
+                "columnNumber": 2780,
+                "functionName": "r",
+                "lineNumber": 0,
+                "scriptId": "68",
+                "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js"
+              },
+              {
+                "columnNumber": 3724,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "68",
+                "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js"
+              },
+              {
+                "columnNumber": 854,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "68",
+                "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js"
+              },
+              {
+                "columnNumber": 819,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "68",
+                "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js"
+              },
+              {
+                "columnNumber": 22357,
+                "functionName": "component---src-templates-category-js",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 35728,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 31494,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              }
+            ]
+          },
+          "type": "script"
+        }
+      },
+      {
+        "id": "90474.1746",
+        "url": "https://cloud-icons.onemodel.app/1ba2ea45dddd6d4120fe8d8f9148d4b2a0ddb16f-b4219f82ba9863635119.js",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Script",
+        "timestamp": 691579.661141,
+        "initiator": {
+          "stack": {
+            "callFrames": [
+              {
+                "columnNumber": 2559,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "68",
+                "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js"
+              },
+              {
+                "columnNumber": 4029,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "68",
+                "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js"
+              },
+              {
+                "columnNumber": 854,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "68",
+                "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js"
+              },
+              {
+                "columnNumber": 819,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "68",
+                "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js"
+              },
+              {
+                "columnNumber": 22366,
+                "functionName": "component---src-templates-category-js",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 35728,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 31494,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              }
+            ]
+          },
+          "type": "script"
+        }
+      },
+      {
+        "id": "90474.1747",
+        "url": "https://cloud-icons.onemodel.app/component---src-templates-category-js-4adad7f1b4a7fdaafcd8.js",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Script",
+        "timestamp": 691579.661198,
+        "initiator": {
+          "stack": {
+            "callFrames": [
+              {
+                "columnNumber": 2559,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "68",
+                "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js"
+              },
+              {
+                "columnNumber": 4029,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "68",
+                "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js"
+              },
+              {
+                "columnNumber": 854,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "68",
+                "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js"
+              },
+              {
+                "columnNumber": 819,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "68",
+                "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js"
+              },
+              {
+                "columnNumber": 22374,
+                "functionName": "component---src-templates-category-js",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 35728,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 31494,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              }
+            ]
+          },
+          "type": "script"
+        }
+      },
+      {
+        "id": "90474.1748",
+        "url": "https://cloud-icons.onemodel.app/page-data/sq/d/3913577872.json",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "XHR",
+        "timestamp": 691579.661244,
+        "initiator": {
+          "stack": {
+            "callFrames": [
+              {
+                "columnNumber": 28940,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 28818,
+                "functionName": "h",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 29698,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 31893,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 31779,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              }
+            ]
+          },
+          "type": "script"
+        }
+      },
+      {
+        "id": "90474.1749",
+        "url": "https://cloud-icons.onemodel.app/page-data/sq/d/4179324420.json",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "XHR",
+        "timestamp": 691579.66128,
+        "initiator": {
+          "stack": {
+            "callFrames": [
+              {
+                "columnNumber": 28940,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 28818,
+                "functionName": "h",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 29698,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 31893,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              },
+              {
+                "columnNumber": 31779,
+                "functionName": "",
+                "lineNumber": 0,
+                "scriptId": "63",
+                "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js"
+              }
+            ]
+          },
+          "type": "script"
+        }
+      },
+      {
+        "id": "90474.1752",
+        "url": "https://cloud-icons.onemodel.app/favicon.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Other",
+        "timestamp": 691579.662376,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1753",
+        "url": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Stylesheet",
+        "timestamp": 691579.662905,
+        "initiator": {
+          "columnNumber": 0,
+          "lineNumber": 0,
+          "type": "parser",
+          "url": "https://cloud-icons.onemodel.app/styles.41e907d60753f8ff2d54.css"
+        }
+      },
+      {
+        "id": "90474.1754",
+        "url": "https://cloud-icons.onemodel.app/icons/icon-144x144.png",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Other",
+        "timestamp": 691579.663072,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1758",
+        "url": "chrome-extension://ndgknbhllloeanmdgalcnmlhmkogngca/assets/settings-CQySv-nS.js",
+        "method": "GET",
+        "headers": {
+          "Origin": "https://cloud-icons.onemodel.app",
+          "Referer": "",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+        },
+        "type": "Script",
+        "timestamp": 691579.667879,
+        "initiator": {
+          "columnNumber": 27,
+          "lineNumber": 0,
+          "type": "script",
+          "url": "chrome-extension://ndgknbhllloeanmdgalcnmlhmkogngca/assets/index.ts-CD8TrfkM.js"
+        }
+      },
+      {
+        "id": "90474.1759",
+        "url": "chrome-extension://ndgknbhllloeanmdgalcnmlhmkogngca/assets/ignoreRules-CJDJPRnq.js",
+        "method": "GET",
+        "headers": {
+          "Origin": "https://cloud-icons.onemodel.app",
+          "Referer": "",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+        },
+        "type": "Script",
+        "timestamp": 691579.667937,
+        "initiator": {
+          "columnNumber": 87,
+          "lineNumber": 0,
+          "type": "script",
+          "url": "chrome-extension://ndgknbhllloeanmdgalcnmlhmkogngca/assets/index.ts-CD8TrfkM.js"
+        }
+      },
+      {
+        "id": "90474.1760",
+        "url": "https://cloud-icons.onemodel.app/favicon-32x32.png",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Other",
+        "timestamp": 691579.669036,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1771",
+        "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNMTAuODc1IDE4Ljc1YTcuODc1IDcuODc1IDAgMSAwIDAtMTUuNzUgNy44NzUgNy44NzUgMCAwIDAgMCAxNS43NVpNMTYuNDQ0IDE2LjQ0NCAyMSAyMSIvPjwvc3ZnPg==",
+        "method": "GET",
+        "headers": {
+          "Referer": "",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+        },
+        "type": "Image",
+        "timestamp": 691579.676046,
+        "initiator": {
+          "type": "parser",
+          "url": "https://cloud-icons.onemodel.app/styles.41e907d60753f8ff2d54.css"
+        }
+      },
+      {
+        "id": "90474.1772",
+        "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIyMiIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDMwIDIyIj48cGF0aCBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNOSAxMWExMCAxMCAwIDEgMSAxMCAxMEg4QTcgNyAwIDAgMSA4IDdjLjU4NiAwIDEuMTcuMDcxIDEuNzM4LjIxMyIvPjwvc3ZnPg==",
+        "method": "GET",
+        "headers": {
+          "Referer": "",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+        },
+        "type": "Image",
+        "timestamp": 691579.676279,
+        "initiator": {
+          "type": "parser",
+          "url": "https://cloud-icons.onemodel.app/styles.41e907d60753f8ff2d54.css"
+        }
+      },
+      {
+        "id": "90474.1773",
+        "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCI+PHBhdGggZD0ibTE1LjIgNDMuOS0yLjgtMi44NUwyOS41NSAyMy45IDEyLjQgNi43NWwyLjgtMi44NSAyMCAyMFoiLz48L3N2Zz4=",
+        "method": "GET",
+        "headers": {
+          "Referer": "",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+        },
+        "type": "Image",
+        "timestamp": 691579.676544,
+        "initiator": {
+          "type": "parser",
+          "url": "https://cloud-icons.onemodel.app/styles.41e907d60753f8ff2d54.css"
+        }
+      },
+      {
+        "id": "90474.1764",
+        "url": "https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Origin": "https://cloud-icons.onemodel.app",
+          "Referer": "https://fonts.googleapis.com/",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Font",
+        "timestamp": 691579.676773,
+        "initiator": {
+          "type": "parser",
+          "url": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+        }
+      },
+      {
+        "id": "90474.1770",
+        "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Origin": "https://cloud-icons.onemodel.app",
+          "Referer": "https://fonts.googleapis.com/",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Font",
+        "timestamp": 691579.676811,
+        "initiator": {
+          "type": "parser",
+          "url": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+        }
+      },
+      {
+        "id": "90474.1805",
+        "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/js.js",
+        "method": "GET",
+        "headers": {
+          "Referer": "",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+        },
+        "type": "Script",
+        "timestamp": 691581.115864,
+        "initiator": {
+          "stack": {
+            "callFrames": [
+              {
+                "columnNumber": 18,
+                "functionName": "",
+                "lineNumber": 325,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              },
+              {
+                "columnNumber": 9,
+                "functionName": "inject",
+                "lineNumber": 299,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              },
+              {
+                "columnNumber": 9,
+                "functionName": "getJs",
+                "lineNumber": 330,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              },
+              {
+                "columnNumber": 21,
+                "functionName": "onGetTechnologies",
+                "lineNumber": 876,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              },
+              {
+                "columnNumber": 20,
+                "functionName": "init",
+                "lineNumber": 697,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              }
+            ]
+          },
+          "type": "script"
+        }
+      },
+      {
+        "id": "90474.1806",
+        "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/dom.js",
+        "method": "GET",
+        "headers": {
+          "Referer": "",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+        },
+        "type": "Script",
+        "timestamp": 691581.175683,
+        "initiator": {
+          "stack": {
+            "callFrames": [
+              {
+                "columnNumber": 18,
+                "functionName": "",
+                "lineNumber": 325,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              },
+              {
+                "columnNumber": 9,
+                "functionName": "inject",
+                "lineNumber": 299,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              },
+              {
+                "columnNumber": 14,
+                "functionName": "getDom",
+                "lineNumber": 346,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              }
+            ]
+          },
+          "type": "script"
+        }
+      },
+      {
+        "id": "90474.1807",
+        "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/js.js",
+        "method": "GET",
+        "headers": {
+          "Referer": "",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+        },
+        "type": "Script",
+        "timestamp": 691581.219901,
+        "initiator": {
+          "stack": {
+            "callFrames": [
+              {
+                "columnNumber": 18,
+                "functionName": "",
+                "lineNumber": 325,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              },
+              {
+                "columnNumber": 9,
+                "functionName": "inject",
+                "lineNumber": 299,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              },
+              {
+                "columnNumber": 9,
+                "functionName": "getJs",
+                "lineNumber": 330,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              },
+              {
+                "columnNumber": 21,
+                "functionName": "onGetTechnologies",
+                "lineNumber": 876,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              },
+              {
+                "columnNumber": 22,
+                "functionName": "",
+                "lineNumber": 818,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              },
+              {
+                "columnNumber": 9,
+                "functionName": "analyzeRequires",
+                "lineNumber": 804,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              },
+              {
+                "columnNumber": 34,
+                "functionName": "onMessage",
+                "lineNumber": 749,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              }
+            ]
+          },
+          "type": "script"
+        }
+      },
+      {
+        "id": "90474.1809",
+        "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/dom.js",
+        "method": "GET",
+        "headers": {
+          "Referer": "",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+        },
+        "type": "Script",
+        "timestamp": 691581.22273,
+        "initiator": {
+          "stack": {
+            "callFrames": [
+              {
+                "columnNumber": 18,
+                "functionName": "",
+                "lineNumber": 325,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              },
+              {
+                "columnNumber": 9,
+                "functionName": "inject",
+                "lineNumber": 299,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              },
+              {
+                "columnNumber": 14,
+                "functionName": "getDom",
+                "lineNumber": 346,
+                "scriptId": "69",
+                "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/content.js"
+              }
+            ]
+          },
+          "type": "script"
+        }
+      },
+      {
+        "id": "90474.1776",
+        "url": "https://cloud-icons.onemodel.app/onemodel.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.623649,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1777",
+        "url": "https://cloud-icons.onemodel.app/ad.png",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.623868,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1778",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00028-icon-service-Batch-AI.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.623979,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1779",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00030-icon-service-Machine-Learning-Studio-(Classic)-Web-Services.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624054,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1780",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00031-icon-service-Genomics.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624133,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1781",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00792-icon-service-Computer-Vision.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624177,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1782",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00793-icon-service-Custom-Vision.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.62423,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1783",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00794-icon-service-Face-APIs.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624288,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1784",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00795-icon-service-Content-Moderators.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624373,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1785",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00796-icon-service-Personalizers.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624451,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1786",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00797-icon-service-Speech-Services.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624523,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1787",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00799-icon-service-QnA-Makers.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624603,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1788",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00800-icon-service-Translator-Text.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624659,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1789",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00801-icon-service-Language-Understanding.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624711,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1790",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00812-icon-service-Immersive-Readers.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624755,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1791",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00814-icon-service-Anomaly-Detector.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624805,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1792",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00819-icon-service-Form-Recognizers.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624861,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1793",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/01239-icon-service-Azure-Experimentation-Studio.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624906,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1794",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/01688-icon-service-Azure-Object-Understanding.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624951,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1795",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/02409-icon-service-Metrics-Advisor.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.624992,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1796",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/02749-icon-service-Azure-Applied-AI-Services.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.625036,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1797",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/03337-icon-service-Bonsai.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.625087,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1798",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/10044-icon-service-Cognitive-Search.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.625146,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1799",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/10162-icon-service-Cognitive-Services.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.625236,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1800",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/10164-icon-service-Genomics-Accounts.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.62531,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1801",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/10165-icon-service-Bot-Services.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.625359,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1802",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/10166-icon-service-Machine-Learning.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.625411,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1803",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/10167-icon-service-Machine-Learning-Studio-Workspaces.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.625465,
+        "initiator": {
+          "type": "other"
+        }
+      },
+      {
+        "id": "90474.1804",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/10168-icon-service-Machine-Learning-Studio-Web-Service-Plans.svg",
+        "method": "GET",
+        "headers": {
+          "Accept-Language": "en-US,en;q=0.9",
+          "Referer": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36",
+          "sec-ch-ua": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"macOS\""
+        },
+        "type": "Image",
+        "timestamp": 691582.625514,
+        "initiator": {
+          "type": "other"
+        }
+      }
+    ],
+    "responses": [
+      {
+        "id": "90474.1729",
+        "url": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "cache-control": "private, max-age=86400, stale-while-revalidate=604800",
+          "content-encoding": "gzip",
+          "content-type": "text/css; charset=utf-8",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "cross-origin-resource-policy": "cross-origin",
+          "date": "Sat, 04 Jul 2026 23:25:39 GMT",
+          "expires": "Sat, 04 Jul 2026 23:25:39 GMT",
+          "last-modified": "Sat, 04 Jul 2026 23:18:22 GMT",
+          "link": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+          "server": "ESF",
+          "timing-allow-origin": "*",
+          "vary": "Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-xss-protection": "0"
+        },
+        "mimeType": "text/css",
+        "timestamp": 691579.590676
+      },
+      {
+        "id": "90474.1728",
+        "url": "https://cloud-icons.onemodel.app/styles.41e907d60753f8ff2d54.css",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "1",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; fwd=miss",
+          "content-encoding": "br",
+          "content-type": "text/css; charset=UTF-8",
+          "date": "Sat, 04 Jul 2026 05:48:36 GMT",
+          "etag": "\"615a95a857278be5e108666f266a8908-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWNTQVQ9XPFBY4PR078YB9K7"
+        },
+        "mimeType": "text/css",
+        "timestamp": 691579.590781
+      },
+      {
+        "id": "90474.1730",
+        "url": "https://cloud-icons.onemodel.app/manifest.webmanifest",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "2",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-length": "699",
+          "content-type": "application/octet-stream",
+          "date": "Sat, 04 Jul 2026 05:48:35 GMT",
+          "etag": "\"d4f6ba6b7a478979220f27fd1380f474-ssl\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "x-nf-request-id": "01KWNTQVFWCY54C59YN5S55EB6"
+        },
+        "mimeType": "application/octet-stream",
+        "timestamp": 691579.591856
+      },
+      {
+        "id": "82FAAAA72C881E5F921B21EAF5605965",
+        "url": "https://cloud-icons.onemodel.app/azure/ai_+_machine_learning",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; fwd=miss",
+          "content-encoding": "br",
+          "content-length": "1012",
+          "content-type": "text/html; charset=UTF-8",
+          "date": "Sat, 04 Jul 2026 05:48:35 GMT",
+          "etag": "\"d6d36087d67745712b88658af6c6096f-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWNTQVFNKV8F4MPE429VKQGV"
+        },
+        "mimeType": "text/html",
+        "timestamp": 691579.628327
+      },
+      {
+        "id": "90474.1733",
+        "url": "https://cloud-icons.onemodel.app/app-99fe091d89dec1e3ab87.js",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-type": "application/javascript; charset=UTF-8",
+          "date": "Sat, 04 Jul 2026 05:48:35 GMT",
+          "etag": "\"f1be5428e93edb6e31fa1fb6f62b8073-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWNTQV96BYG4WX8SRH956M6Z"
+        },
+        "mimeType": "application/javascript",
+        "timestamp": 691579.636854
+      },
+      {
+        "id": "90474.1734",
+        "url": "https://cloud-icons.onemodel.app/framework-b442d7d0dac421d2848d.js",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "1",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-type": "application/javascript; charset=UTF-8",
+          "date": "Sat, 04 Jul 2026 05:48:35 GMT",
+          "etag": "\"4bb0ea5853c800a9f51f429a5331e887-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWNTQV9DSJTR9DYWDF2M0J67"
+        },
+        "mimeType": "application/javascript",
+        "timestamp": 691579.636926
+      },
+      {
+        "id": "90474.1735",
+        "url": "https://cloud-icons.onemodel.app/webpack-runtime-cba5bfe6673394cafa65.js",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-type": "application/javascript; charset=UTF-8",
+          "date": "Sat, 04 Jul 2026 05:48:35 GMT",
+          "etag": "\"77eb46a78f2445402f73a6279112f8f6-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWNTQV96PNGFFZ0C7CZF7TGY"
+        },
+        "mimeType": "application/javascript",
+        "timestamp": 691579.653732
+      },
+      {
+        "id": "90474.1739",
+        "url": "https://cloud-icons.onemodel.app/manifest.webmanifest",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "2",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-length": "699",
+          "content-type": "application/octet-stream",
+          "date": "Sat, 04 Jul 2026 05:48:35 GMT",
+          "etag": "\"d4f6ba6b7a478979220f27fd1380f474-ssl\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "x-nf-request-id": "01KWNTQVFWCY54C59YN5S55EB6"
+        },
+        "mimeType": "application/octet-stream",
+        "timestamp": 691579.654362
+      },
+      {
+        "id": "90474.1740",
+        "url": "https://cloud-icons.onemodel.app/page-data/app-data.json",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-length": "50",
+          "content-type": "application/json",
+          "date": "Sun, 05 Jul 2026 02:37:32 GMT",
+          "etag": "\"f02f55c09e953260fbce3fcad1097bef-ssl\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "x-nf-request-id": "01KWR26QYJPP407GAMMSB9W73T"
+        },
+        "mimeType": "application/json",
+        "timestamp": 691579.660658
+      },
+      {
+        "id": "90474.1741",
+        "url": "https://cloud-icons.onemodel.app/page-data/azure/ai_+_machine_learning/page-data.json",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-type": "application/json",
+          "date": "Sun, 05 Jul 2026 02:22:50 GMT",
+          "etag": "\"6fb115301a9a99881a2c333ee5e1c15f-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1BTNNW6B82YQ242BRWEZ9"
+        },
+        "mimeType": "application/json",
+        "timestamp": 691579.660843
+      },
+      {
+        "id": "90474.1745",
+        "url": "https://cloud-icons.onemodel.app/styles.41e907d60753f8ff2d54.css",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "1",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; fwd=miss",
+          "content-encoding": "br",
+          "content-type": "text/css; charset=UTF-8",
+          "date": "Sat, 04 Jul 2026 05:48:36 GMT",
+          "etag": "\"615a95a857278be5e108666f266a8908-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWNTQVQ9XPFBY4PR078YB9K7"
+        },
+        "mimeType": "text/css",
+        "timestamp": 691579.66262
+      },
+      {
+        "id": "90474.1744",
+        "url": "chrome-extension://ndgknbhllloeanmdgalcnmlhmkogngca/assets/index.ts-CD8TrfkM.js",
+        "status": 200,
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Security-Policy": "script-src 'self';",
+          "Content-Type": "text/javascript",
+          "Cross-Origin-Resource-Policy": "cross-origin",
+          "ETag": "\"r9xl08SHo+uOrcg9RMKzEiSm5U8=\"",
+          "Last-Modified": "Fri, 19 Jun 2026 20:45:32 GMT",
+          "cache-control": "no-cache"
+        },
+        "mimeType": "text/javascript",
+        "timestamp": 691579.662761
+      },
+      {
+        "id": "90474.1748",
+        "url": "https://cloud-icons.onemodel.app/page-data/sq/d/3913577872.json",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-length": "325",
+          "content-type": "application/json",
+          "date": "Sun, 05 Jul 2026 02:22:50 GMT",
+          "etag": "\"c81d6b9221cba186f71a648430fb5ec1-ssl\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "x-nf-request-id": "01KWR1BTNVCTGR7AFTPZZF7ZWF"
+        },
+        "mimeType": "application/json",
+        "timestamp": 691579.666244
+      },
+      {
+        "id": "90474.1747",
+        "url": "https://cloud-icons.onemodel.app/component---src-templates-category-js-4adad7f1b4a7fdaafcd8.js",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; fwd=miss",
+          "content-encoding": "br",
+          "content-length": "555",
+          "content-type": "application/javascript; charset=UTF-8",
+          "date": "Sat, 04 Jul 2026 05:48:38 GMT",
+          "etag": "\"70fb50000b734709412a8872aed23722-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWNTQXXGSTG1F3MB9FYR8HYS"
+        },
+        "mimeType": "application/javascript",
+        "timestamp": 691579.666392
+      },
+      {
+        "id": "90474.1746",
+        "url": "https://cloud-icons.onemodel.app/1ba2ea45dddd6d4120fe8d8f9148d4b2a0ddb16f-b4219f82ba9863635119.js",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-type": "application/javascript; charset=UTF-8",
+          "date": "Sat, 04 Jul 2026 23:25:40 GMT",
+          "etag": "\"39ae1fba5022c0036506617567744ee8-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWQQ7DQVS2XVJPNAFKQXRM6G"
+        },
+        "mimeType": "application/javascript",
+        "timestamp": 691579.666654
+      },
+      {
+        "id": "90474.1749",
+        "url": "https://cloud-icons.onemodel.app/page-data/sq/d/4179324420.json",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-length": "58",
+          "content-type": "application/json",
+          "date": "Sun, 05 Jul 2026 02:22:50 GMT",
+          "etag": "\"7c6a31b1d44c6e81d063510a7dc2a08f-ssl\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "x-nf-request-id": "01KWR1BTNVPR3XPPZ3SD9TY2NF"
+        },
+        "mimeType": "application/json",
+        "timestamp": 691579.666727
+      },
+      {
+        "id": "90474.1752",
+        "url": "https://cloud-icons.onemodel.app/favicon.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-length": "748",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:22:50 GMT",
+          "etag": "\"40d5a99251001758f3c37b1f78ea9ef7-ssl\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "x-nf-request-id": "01KWR1BTNVW20JD3DQ8DGQ8T65"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691579.666841
+      },
+      {
+        "id": "90474.1753",
+        "url": "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap",
+        "status": 200,
+        "headers": {
+          "access-control-allow-origin": "*",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "cache-control": "private, max-age=86400, stale-while-revalidate=604800",
+          "content-encoding": "gzip",
+          "content-type": "text/css; charset=utf-8",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "cross-origin-resource-policy": "cross-origin",
+          "date": "Sat, 04 Jul 2026 23:25:39 GMT",
+          "expires": "Sat, 04 Jul 2026 23:25:39 GMT",
+          "last-modified": "Sat, 04 Jul 2026 23:18:22 GMT",
+          "link": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+          "server": "ESF",
+          "timing-allow-origin": "*",
+          "vary": "Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-xss-protection": "0"
+        },
+        "mimeType": "text/css",
+        "timestamp": 691579.66913
+      },
+      {
+        "id": "90474.1754",
+        "url": "https://cloud-icons.onemodel.app/icons/icon-144x144.png",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-length": "2751",
+          "content-type": "image/png",
+          "date": "Sun, 05 Jul 2026 02:22:50 GMT",
+          "etag": "\"05c0c4710d6c3af9578b6ec78654430e-ssl\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "x-nf-request-id": "01KWR1BTNVVSG3JXJ6K95J30S2"
+        },
+        "mimeType": "image/png",
+        "timestamp": 691579.669247
+      },
+      {
+        "id": "90474.1758",
+        "url": "chrome-extension://ndgknbhllloeanmdgalcnmlhmkogngca/assets/settings-CQySv-nS.js",
+        "status": 200,
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Security-Policy": "script-src 'self';",
+          "Content-Type": "text/javascript",
+          "Cross-Origin-Resource-Policy": "cross-origin",
+          "ETag": "\"s+qLHpjekU9SRDNX9RiEB2rSObU=\"",
+          "Last-Modified": "Fri, 19 Jun 2026 20:45:32 GMT",
+          "cache-control": "no-cache"
+        },
+        "mimeType": "text/javascript",
+        "timestamp": 691579.669406
+      },
+      {
+        "id": "90474.1759",
+        "url": "chrome-extension://ndgknbhllloeanmdgalcnmlhmkogngca/assets/ignoreRules-CJDJPRnq.js",
+        "status": 200,
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Security-Policy": "script-src 'self';",
+          "Content-Type": "text/javascript",
+          "Cross-Origin-Resource-Policy": "cross-origin",
+          "ETag": "\"6TwsTv1taJCH+EnfVK9Xkd0PcSE=\"",
+          "Last-Modified": "Fri, 19 Jun 2026 20:45:32 GMT",
+          "cache-control": "no-cache"
+        },
+        "mimeType": "text/javascript",
+        "timestamp": 691579.670273
+      },
+      {
+        "id": "90474.1771",
+        "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNMTAuODc1IDE4Ljc1YTcuODc1IDcuODc1IDAgMSAwIDAtMTUuNzUgNy44NzUgNy44NzUgMCAwIDAgMCAxNS43NVpNMTYuNDQ0IDE2LjQ0NCAyMSAyMSIvPjwvc3ZnPg==",
+        "status": 200,
+        "headers": {
+          "Content-Type": "image/svg+xml"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691579.676064
+      },
+      {
+        "id": "90474.1772",
+        "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIyMiIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDMwIDIyIj48cGF0aCBzdHJva2U9IiMwMDAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNOSAxMWExMCAxMCAwIDEgMSAxMCAxMEg4QTcgNyAwIDAgMSA4IDdjLjU4NiAwIDEuMTcuMDcxIDEuNzM4LjIxMyIvPjwvc3ZnPg==",
+        "status": 200,
+        "headers": {
+          "Content-Type": "image/svg+xml"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691579.676287
+      },
+      {
+        "id": "90474.1773",
+        "url": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCI+PHBhdGggZD0ibTE1LjIgNDMuOS0yLjgtMi44NUwyOS41NSAyMy45IDEyLjQgNi43NWwyLjgtMi44NSAyMCAyMFoiLz48L3N2Zz4=",
+        "status": 200,
+        "headers": {
+          "Content-Type": "image/svg+xml"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691579.676551
+      },
+      {
+        "id": "90474.1760",
+        "url": "https://cloud-icons.onemodel.app/favicon-32x32.png",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-length": "707",
+          "content-type": "image/png",
+          "date": "Sun, 05 Jul 2026 02:22:50 GMT",
+          "etag": "\"0ba4b56c615912e1effe59868c6145c3-ssl\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "x-nf-request-id": "01KWR1BTNVVWZZ0HHZQCXCP3YT"
+        },
+        "mimeType": "image/png",
+        "timestamp": 691579.679026
+      },
+      {
+        "id": "90474.1770",
+        "url": "https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "access-control-allow-origin": "*",
+          "age": "513608",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "cache-control": "public, max-age=31536000",
+          "content-length": "7992",
+          "content-security-policy-report-only": "require-trusted-types-for 'script'; report-uri https://csp.withgoogle.com/csp/apps-themes",
+          "content-type": "font/woff2",
+          "cross-origin-opener-policy": "same-origin; report-to=\"apps-themes\"",
+          "cross-origin-resource-policy": "cross-origin",
+          "date": "Sun, 28 Jun 2026 07:08:26 GMT",
+          "expires": "Mon, 28 Jun 2027 07:08:26 GMT",
+          "last-modified": "Mon, 15 Sep 2025 16:35:49 GMT",
+          "report-to": "{\"group\":\"apps-themes\",\"max_age\":2592000,\"endpoints\":[{\"url\":\"https://csp.withgoogle.com/csp/report-to/apps-themes\"}]}",
+          "server": "sffe",
+          "timing-allow-origin": "*",
+          "x-content-type-options": "nosniff",
+          "x-xss-protection": "0"
+        },
+        "mimeType": "font/woff2",
+        "timestamp": 691579.679386
+      },
+      {
+        "id": "90474.1764",
+        "url": "https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "access-control-allow-origin": "*",
+          "age": "174115",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "cache-control": "public, max-age=31536000",
+          "content-length": "7900",
+          "content-security-policy-report-only": "require-trusted-types-for 'script'; report-uri https://csp.withgoogle.com/csp/apps-themes",
+          "content-type": "font/woff2",
+          "cross-origin-opener-policy": "same-origin; report-to=\"apps-themes\"",
+          "cross-origin-resource-policy": "cross-origin",
+          "date": "Thu, 02 Jul 2026 05:26:39 GMT",
+          "expires": "Fri, 02 Jul 2027 05:26:39 GMT",
+          "last-modified": "Mon, 15 Sep 2025 16:34:43 GMT",
+          "report-to": "{\"group\":\"apps-themes\",\"max_age\":2592000,\"endpoints\":[{\"url\":\"https://csp.withgoogle.com/csp/report-to/apps-themes\"}]}",
+          "server": "sffe",
+          "timing-allow-origin": "*",
+          "x-content-type-options": "nosniff",
+          "x-xss-protection": "0"
+        },
+        "mimeType": "font/woff2",
+        "timestamp": 691579.679525
+      },
+      {
+        "id": "90474.1805",
+        "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/js.js",
+        "status": 200,
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Security-Policy": "script-src 'self'; object-src 'self'",
+          "Content-Type": "text/javascript",
+          "Cross-Origin-Resource-Policy": "cross-origin",
+          "ETag": "\"AdtuKZlvXeGxeWRx2vtGxC1W1m8=\"",
+          "Last-Modified": "Fri, 19 Jun 2026 20:45:34 GMT",
+          "cache-control": "no-cache"
+        },
+        "mimeType": "text/javascript",
+        "timestamp": 691581.119755
+      },
+      {
+        "id": "90474.1806",
+        "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/dom.js",
+        "status": 200,
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Security-Policy": "script-src 'self'; object-src 'self'",
+          "Content-Type": "text/javascript",
+          "Cross-Origin-Resource-Policy": "cross-origin",
+          "ETag": "\"ci2Q0Tll229XWRFEkzWCHNLUhJU=\"",
+          "Last-Modified": "Fri, 19 Jun 2026 20:45:34 GMT",
+          "cache-control": "no-cache"
+        },
+        "mimeType": "text/javascript",
+        "timestamp": 691581.177508
+      },
+      {
+        "id": "90474.1807",
+        "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/js.js",
+        "status": 200,
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Security-Policy": "script-src 'self'; object-src 'self'",
+          "Content-Type": "text/javascript",
+          "Cross-Origin-Resource-Policy": "cross-origin",
+          "ETag": "\"AdtuKZlvXeGxeWRx2vtGxC1W1m8=\"",
+          "Last-Modified": "Fri, 19 Jun 2026 20:45:34 GMT",
+          "cache-control": "no-cache"
+        },
+        "mimeType": "text/javascript",
+        "timestamp": 691581.220927
+      },
+      {
+        "id": "90474.1809",
+        "url": "chrome-extension://gppongmhjkpfnbhagpmjfkannfbllamg/js/dom.js",
+        "status": 200,
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Security-Policy": "script-src 'self'; object-src 'self'",
+          "Content-Type": "text/javascript",
+          "Cross-Origin-Resource-Policy": "cross-origin",
+          "ETag": "\"ci2Q0Tll229XWRFEkzWCHNLUhJU=\"",
+          "Last-Modified": "Fri, 19 Jun 2026 20:45:34 GMT",
+          "cache-control": "no-cache"
+        },
+        "mimeType": "text/javascript",
+        "timestamp": 691581.223354
+      },
+      {
+        "id": "90474.1776",
+        "url": "https://cloud-icons.onemodel.app/onemodel.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:14 GMT",
+          "etag": "\"98604eff69027da585eb8eaa9efde049-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1ED0VKJE4MRDQ33FPFHX7"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.6388
+      },
+      {
+        "id": "90474.1777",
+        "url": "https://cloud-icons.onemodel.app/ad.png",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-length": "44528",
+          "content-type": "image/png",
+          "date": "Sun, 05 Jul 2026 02:24:14 GMT",
+          "etag": "\"8d4192c971e27fd7bdc8b508c93a7558-ssl\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "x-nf-request-id": "01KWR1ED1SZFNMM79RJEX1F5H9"
+        },
+        "mimeType": "image/png",
+        "timestamp": 691582.639593
+      },
+      {
+        "id": "90474.1778",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00028-icon-service-Batch-AI.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:15 GMT",
+          "etag": "\"ab5664f6ad41360493c8de2128184769-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EDX1995K3D24WC1NX5YD"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.639909
+      },
+      {
+        "id": "90474.1779",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00030-icon-service-Machine-Learning-Studio-(Classic)-Web-Services.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "1038",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:15 GMT",
+          "etag": "\"4eb543eb749bada5c2b4f1ca21695583-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EDX9C6WMGW5RSE45Y3TS"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.640781
+      },
+      {
+        "id": "90474.1780",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00031-icon-service-Genomics.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "1078",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:15 GMT",
+          "etag": "\"3c2f46ba2eb122c3aac9be5f002e59a7-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EDX9T0KMJZCXXR2E66K3"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.64099
+      },
+      {
+        "id": "90474.1781",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00792-icon-service-Computer-Vision.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "1",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "520",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:15 GMT",
+          "etag": "\"dad9b793436dcd7e323da9fcc25c80ca-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EDX9ABNM33NAR826BMRY"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.641038
+      },
+      {
+        "id": "90474.1782",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00793-icon-service-Custom-Vision.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:15 GMT",
+          "etag": "\"1a39e685268cb23feb34af37c20cb06d-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EDX9WKVV8F0SXCFK9S2S"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.641079
+      },
+      {
+        "id": "90474.1783",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00794-icon-service-Face-APIs.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "648",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:15 GMT",
+          "etag": "\"fb08622349b680bcf50eb19b501c6ac7-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EDX9QFT9ZDFRST04YMPC"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.641123
+      },
+      {
+        "id": "90474.1784",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00795-icon-service-Content-Moderators.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "826",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:15 GMT",
+          "etag": "\"40294d0331b14fef5ffd8c8978f5cd0e-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EDX9JW6E6AJ5SYZ6W04Z"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.641468
+      },
+      {
+        "id": "90474.1785",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00796-icon-service-Personalizers.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "857",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:15 GMT",
+          "etag": "\"e4466e198dc5fca51d88712f49f93ac1-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EDX97FT7SXPK3FJHDSD3"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.644064
+      },
+      {
+        "id": "90474.1786",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00797-icon-service-Speech-Services.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "1007",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"acbaa5100c9c71bebcdd2ce5738adeb1-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EE4C70K78BZX6FEKV23H"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.64441
+      },
+      {
+        "id": "90474.1787",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00799-icon-service-QnA-Makers.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "1",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "916",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"511bc5528054782f21d5ccfd0b7197da-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EE4M05AFQJMJATZJPJTW"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.644728
+      },
+      {
+        "id": "90474.1788",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00800-icon-service-Translator-Text.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "1311",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"2ff19ad07afdae83e4e930e48b484a58-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EE4MP8X9Y1728P784RWC"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.645051
+      },
+      {
+        "id": "90474.1789",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00801-icon-service-Language-Understanding.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "594",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"2aa806a1fdd18e5aa63ea8f56552b0d5-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EE4MRY4AADAKEX8VMWD7"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.645394
+      },
+      {
+        "id": "90474.1790",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00812-icon-service-Immersive-Readers.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"132559d034dd41e2c340193972117cfa-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EE4M94QFHM95E6BQ8145"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.64568
+      },
+      {
+        "id": "90474.1791",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00814-icon-service-Anomaly-Detector.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "662",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"7f396300a9c532ce6d0222b5da6de78a-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EE4M465YH48BH1M09H14"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.645981
+      },
+      {
+        "id": "90474.1792",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/00819-icon-service-Form-Recognizers.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "915",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"fe0254a4c9c860eae3a462b24532eb57-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EE4MB2XKY4K8BEB7MXXK"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.646248
+      },
+      {
+        "id": "90474.1793",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/01239-icon-service-Azure-Experimentation-Studio.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "958",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"da2e33c19cb0750e27afbf19c4320d80-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EE4MD6X571WB3KABN8YB"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.646541
+      },
+      {
+        "id": "90474.1794",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/01688-icon-service-Azure-Object-Understanding.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "892",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"abb8af84d5ce44f733f298333573b5f0-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EEBMC9YXE3DF9FZR1RME"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.646961
+      },
+      {
+        "id": "90474.1795",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/02409-icon-service-Metrics-Advisor.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "1043",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"0226f5550d98590107019da3a90d40af-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EEBVT7W08DV1DVDBGBGP"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.647331
+      },
+      {
+        "id": "90474.1796",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/02749-icon-service-Azure-Applied-AI-Services.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "951",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"891d79f17b54b8f1d05bb1e50c8c8712-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EEBWEWNDFCWHHRV5RK83"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.647687
+      },
+      {
+        "id": "90474.1797",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/03337-icon-service-Bonsai.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"311f6ef05e5b9fc3e43a884a06b08bf7-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EEBWAAJAJ5SY44HA7VEZ"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.648018
+      },
+      {
+        "id": "90474.1798",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/10044-icon-service-Cognitive-Search.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "589",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:14 GMT",
+          "etag": "\"f4bdb083b30a215cf38285cc58983d8c-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1ED1S0CBSTCDX99XBE5PP"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.648367
+      },
+      {
+        "id": "90474.1799",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/10162-icon-service-Cognitive-Services.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "693",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"fa6fd945a2dd9af2ddc58607d69a5c9f-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EEBW4KFNR4EZH828VRXG"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.648641
+      },
+      {
+        "id": "90474.1800",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/10164-icon-service-Genomics-Accounts.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "1078",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"3c2f46ba2eb122c3aac9be5f002e59a7-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EEBWTMV90Y4JAWRXSC9R"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.649216
+      },
+      {
+        "id": "90474.1801",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/10165-icon-service-Bot-Services.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "556",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"ad91df3608710ef0ed352b0a1fc560f0-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EEBW2XSFRQ4YP4MTNR7V"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.649495
+      },
+      {
+        "id": "90474.1802",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/10166-icon-service-Machine-Learning.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-length": "901",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"6436e8c5bbeb5a22784e08e383475df3-ssl\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "x-nf-request-id": "01KWR1EEBW9EQRBBA9PGWFA7YT"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.649748
+      },
+      {
+        "id": "90474.1803",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/10167-icon-service-Machine-Learning-Studio-Workspaces.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "772",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"6abd5f856a0fff179c7c0f24f47dc752-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EEKC5M8SY38YH1KKXG25"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.649985
+      },
+      {
+        "id": "90474.1804",
+        "url": "https://cloud-icons.onemodel.app/azure/ai%20+%20machine%20learning/10168-icon-service-Machine-Learning-Studio-Web-Service-Plans.svg",
+        "status": 200,
+        "headers": {
+          "accept-ranges": "bytes",
+          "age": "0",
+          "cache-control": "public,max-age=0,must-revalidate",
+          "cache-status": "\"Netlify Edge\"; hit",
+          "content-encoding": "br",
+          "content-length": "936",
+          "content-type": "image/svg+xml",
+          "date": "Sun, 05 Jul 2026 02:24:16 GMT",
+          "etag": "\"0b5bbcfca170844cb0a7f9e6506cfaad-ssl-df\"",
+          "server": "Netlify",
+          "strict-transport-security": "max-age=31536000",
+          "vary": "Accept-Encoding",
+          "x-nf-request-id": "01KWR1EEKCT328NZH88WDBKDEM"
+        },
+        "mimeType": "image/svg+xml",
+        "timestamp": 691582.650253
+      }
+    ]
+  }
+}
