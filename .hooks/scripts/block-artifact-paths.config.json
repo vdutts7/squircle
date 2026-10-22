@@ -1,0 +1,10 @@
+{
+  "path_prefixes": ["webp/"],
+  "block_clipped_suffixes": [".CLIPPED"],
+  "block_spaces_in_path": true,
+  "block_incumbent_timestamps": true,
+  "block_basename_regexes": [
+    "^clip-queue-unfixed\\.txt$",
+    "^\\.clip_queue_unfixed\\.txt$"
+  ]
+}
