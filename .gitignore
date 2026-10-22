@@ -1,0 +1,12 @@
+# webp/ — only *.webp deliverables; no batch sidecars or dot litter
+webp/**
+!webp/**/
+webp/**/*
+!webp/**/*.webp
+webp/.clip_queue_unfixed.txt
+webp/**/.clip_queue_unfixed.txt
+webp/**/*.txt
+webp/**/*.CLIPPED
+
+# squircle runtime (clip-queue report when unfixed remain)
+.squircle/

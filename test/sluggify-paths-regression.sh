@@ -2,9 +2,10 @@
 # PARITY: squircle vendored sluggify-paths (--staged|--tree) + pre-commit/pre-push wire.
 set -euo pipefail
 
-HOOK_SRC="$(cd "$(dirname "$0")" && pwd)"
-ROOT_SRC="$(cd "$HOOK_SRC/../.." && pwd)"
-TARGET="$HOOK_SRC/sluggify-paths.sh"
+TEST_DIR="$(cd "$(dirname "$0")" && pwd)"
+ROOT="$(cd "$TEST_DIR/.." && pwd)"
+HOOK_SCRIPTS="$ROOT/.hooks/scripts"
+TARGET="$HOOK_SCRIPTS/sluggify-paths.sh"
 
 pass=0
 fail=0
@@ -25,10 +26,10 @@ cleanup() { rm -rf "$WORK"; }
 trap cleanup EXIT
 
 mkdir -p "$WORK/.hooks/scripts"
-cp "$HOOK_SRC/sluggify-paths.sh" "$HOOK_SRC/sluggify-paths.excludes.json" "$WORK/.hooks/scripts/"
+cp "$HOOK_SCRIPTS/sluggify-paths.sh" "$HOOK_SCRIPTS/sluggify-paths.excludes.json" "$WORK/.hooks/scripts/"
 chmod +x "$WORK/.hooks/scripts/sluggify-paths.sh"
-cp "$ROOT_SRC/image-formats.txt" "$WORK/" 2>/dev/null || echo 'webp	webp' > "$WORK/image-formats.txt"
-cp "$ROOT_SRC/.hooks/pre-commit" "$ROOT_SRC/.hooks/pre-push" "$WORK/.hooks/"
+cp "$ROOT/image-formats.txt" "$WORK/" 2>/dev/null || echo 'webp	webp' > "$WORK/image-formats.txt"
+cp "$ROOT/.hooks/pre-commit" "$ROOT/.hooks/pre-push" "$WORK/.hooks/"
 chmod +x "$WORK/.hooks/pre-commit" "$WORK/.hooks/pre-push"
 mkdir -p "$WORK/bin"
 printf '#!/bin/sh\nexit 0\n' > "$WORK/bin/check-repo-size.sh"

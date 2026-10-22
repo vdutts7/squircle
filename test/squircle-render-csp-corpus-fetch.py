@@ -153,7 +153,7 @@ def main() -> int:
 
     if not args.tranco.is_file():
         print(f"missing tranco list: {args.tranco}", file=sys.stderr)
-        print("curl -fsSL -o /tmp/tranco-domains.csv https://tranco-list.eu/download/$(curl -fsSL https://tranco-list.eu/api/lists/date/latest | python3 -c 'import json,sys;print(json.load(sys.stdin)[\"list_id\"])')/1000000", file=sys.stderr)
+        print("python3 $SQUIRCLE/test/squircle-render-csp-corpus-fetch.py", file=sys.stderr)
         return 2
 
     sources_dir = args.out_dir / "sources"

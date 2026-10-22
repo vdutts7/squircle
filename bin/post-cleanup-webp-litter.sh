@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# Sweep webp/ litter: .CLIPPED, clip-queue sidecars, spaced paths, incumbent dupes.
+# Sweep webp/ litter: anything that is not a .webp deliverable.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -18,7 +18,7 @@ trash_path() {
 typeset -A seen
 while IFS= read -r f; do
   [[ -n "$f" ]] && seen[$f]=1
-done < <(find webp -type f \( -name '*.CLIPPED' -o -name 'clip-queue-unfixed.txt' -o -name '.clip_queue_unfixed.txt' -o -name '* *' \) 2>/dev/null)
+done < <(find webp -type f ! -name '*.webp' 2>/dev/null)
 
 while IFS= read -r f; do
   [[ -n "$f" ]] && seen[$f]=1
@@ -31,7 +31,7 @@ for rel in map(str.strip, sys.stdin):
         continue
     if rx.search(rel) or rel.endswith(".CLIPPED") or " " in rel:
         print(rel)
-    if rel.endswith("clip-queue-unfixed.txt") or rel.endswith(".clip_queue_unfixed.txt"):
+    if not rel.endswith(".webp"):
         print(rel)
 '
 )

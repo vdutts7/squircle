@@ -1,16 +1,32 @@
 {
   "_description": "webp icon CDN: normalized squircle icons 1024×1024, .webp only, under webp/",
+  "_ontology": {
+    "command": "$CURCMDS/squircle.md",
+    "registry": "$CURREGISTRY/squircle/manifest.json",
+    "render_csp": "$CURREGISTRY/squircle/render-csp/manifest.json",
+    "binary": "$CURTOOLS/squircle/squircle.sh",
+    "verify_smoke": "$CURTOOLS/test/squircle.smoke.sh",
+    "flow": "LLM -> $CURCMDS/squircle.md -> $CURTOOLS/squircle/squircle.sh -> $CURREGISTRY/squircle/"
+  },
   "_workflow": "workflow.yaml",
   "_see": "https://github.com/vdutts7/gh-template",
   "_template_local": "$GHT ($HOME/Documents/a/gh-template)",
   "_manifest": {
     "file_tree": {
       ".": "single point of entry: this file",
-      "repo.config.json": "this file; full tree + cross-refs here only",
+      "repo.spine.json": "this file; repository map + ontology cross-refs",
       "webp-naming.config.json": "webp/ flat layout + prefix tiers (microsoft-, azure-, vendor suites); _ref naming",
       "workflow.yaml": "canonical baseline workflow: flow, normalized spec, hook allow/block; _workflow",
       "workflows": "organized supplemental workflow docs/runbooks",
-      "workflows/render-csp.yaml": "render CSP SSOT (padding, margin, clip); solver bin/squircle-render-plan.py",
+      "workflows/render-csp.yaml": "render CSP SSOT; registry $CURREGISTRY/squircle/render-csp/",
+      "test": "ontology verify plane — smoke + regression only (never bin/)",
+      "test/squircle-render-csp.regression.sh": "7 fixture CSP gate",
+      "test/squircle-render-csp-corpus-regression.sh": "1000-image corpus sample/full",
+      "test/squircle-render-csp-corpus-fetch.py": "internet corpus builder → $CURREGISTRY/.../corpus/",
+      "test/squircle-render-csp-verify.py": "fixture expect assertions",
+      "test/squircle-bg-default.smoke.sh": "default #FFFFFF margin smoke",
+      "test/sluggify-paths.regression.sh": "hook sluggify parity",
+      ".squircle": "runtime: clip_queue_unfixed.txt when batch leaves unfixed (gitignored)",
       "workflows/clip-queue.yaml": "operation runbook for --clip-queue rerender tuning loop",
       "workflows/logo-fetch-phash-pipeline.yaml": "planned domain-logo fetch + pHash clustering pipeline design",
       ".gitconfig": "core.hooksPath=.hooks",
@@ -18,7 +34,12 @@
       "image-formats.txt": "extensions allowed for normalization; consumed by .hooks/pre-commit",
       "bin": "all paths below; directed graph in top-level key \"bin\"",
       "bin/squircle.sh": "entrypoint only: file → WebP; dir → batch (GNU Parallel); --domain HOST → fetch (Google s2, site icons, Bing HTML) → phash-pick / prep / same render pipeline. CONFIG at top. See key \"bin\" for subprocess list.",
-      "bin/get-bg-color.sh": "subprocess: squircle.sh (get_background) — edge/corner sampling → #HEX or OPAQUE",
+      "bin/get-bg-color.sh": "subprocess: squircle.sh (get_background) — OPAQUE vs composited",
+      "bin/detect-field-color.sh": "SSOT margin matte hex (corner plate + colorpick)",
+      "bin/squircle-render-plan.py": "CSP solver → JSON plan for squircle.sh",
+      "bin/squircle-render-postcheck.sh": "post-render constraints ($CURREGISTRY/squircle/render-csp/constraints.json)",
+      "bin/post-cleanup-webp-litter.sh": "trash non-.webp under webp/",
+      "bin/fixtures/render-csp": "local CSP fixture rasters",
       "bin/mask.png": "data: squircle.sh CONFIG MASK_FILE — squircle alpha (else round-rect fallback)",
       "bin/squircle-prep-logo.zsh": "sourced: squircle.sh --domain — fuzz-trim / content bounds before main (--no-domain-prep skips)",
       "bin/phash-pick.zsh": "subprocess: squircle.sh --domain — uses SCRIPT_DIR/.venv/bin/python3 or auto venv.zsh + bin/requirements.txt",
@@ -42,7 +63,7 @@
       "webp": "output dir: icons 1024×1024 .webp; flat CDN at webp/*.webp",
       "webp/material-icons": "bulk icon pack namespace only; see webp-naming.config.json"
     },
-    "config_files": ["repo.config.json", "webp-naming.config.json", "workflow.yaml", ".gitconfig", ".gitignore", "workflows/clip-queue.yaml", "workflows/logo-fetch-phash-pipeline.yaml"],
+    "config_files": ["repo.spine.json", "webp-naming.config.json", "workflow.yaml", ".gitconfig", ".gitignore", "workflows/render-csp.yaml", "workflows/clip-queue.yaml", "workflows/logo-fetch-phash-pipeline.yaml"],
     "docs": "optional: docs/*.config.json for large tangents only; else self-document in scripts (inline) or workflow",
     "_digest_manifest": {
       "flow_and_hook": "workflow.yaml",
@@ -50,7 +71,9 @@
       "format_list": "image-formats.txt",
       "hook_impl": ".hooks/pre-commit",
       "install_steps": "workflow.yaml#flow",
-      "bin_entrypoint_and_edges": "repo.config.json → key \"bin\"",
+      "bin_entrypoint_and_edges": "repo.spine.json → key \"bin\"",
+      "ontology_registry": "$CURREGISTRY/squircle/manifest.json",
+      "tests": "test/ → $CURREGISTRY/regression-tests/manifest.json squircle_*",
       "webp_naming_rules": "webp-naming.config.json"
     }
   },

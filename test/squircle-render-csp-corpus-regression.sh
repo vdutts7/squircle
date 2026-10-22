@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-BIN="$(cd "$(dirname "$0")" && pwd)"
-ROOT="$(cd "$BIN/.." && pwd)"
+TEST_DIR="$(cd "$(dirname "$0")" && pwd)"
+ROOT="$(cd "$TEST_DIR/.." && pwd)"
+BIN="$ROOT/bin"
 CURREGISTRY="${CURREGISTRY:-$HOME/.cursor/registry}"
 CORPUS="${SQUIRCLE_RENDER_CSP_CORPUS:-$CURREGISTRY/squircle/render-csp/corpus/corpus.json}"
 PLAN_PY="$BIN/squircle-render-plan.py"
@@ -14,7 +15,7 @@ fail=0
 ran=0
 bad() { echo "  FAIL $1" >&2; fail=$((fail + 1)); }
 
-[[ -f "$CORPUS" ]] || { echo "missing corpus — run: python3 $BIN/squircle-render-csp-corpus-fetch.py" >&2; exit 2; }
+[[ -f "$CORPUS" ]] || { echo "missing corpus — run: python3 $TEST_DIR/squircle-render-csp-corpus-fetch.py" >&2; exit 2; }
 
 export SQUIRCLE="$ROOT"
 export CURREGISTRY

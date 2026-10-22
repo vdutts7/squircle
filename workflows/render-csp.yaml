@@ -5,7 +5,7 @@
 version: 1
 
 fixtures_registry: "$CURREGISTRY/squircle/render-csp/fixtures.json"
-regression: "bin/squircle-render-csp.regression.sh"
+regression: "test/squircle-render-csp.regression.sh"
 field_color: "bin/detect-field-color.sh"
 colorpick: "bin/colorpick.sh"
 

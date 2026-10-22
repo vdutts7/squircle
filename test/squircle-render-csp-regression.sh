@@ -2,12 +2,13 @@
 # render CSP regression — registry fixtures + postcheck ($CURREGISTRY/squircle/render-csp/)
 set -euo pipefail
 
-BIN="$(cd "$(dirname "$0")" && pwd)"
-ROOT="$(cd "$BIN/.." && pwd)"
+TEST_DIR="$(cd "$(dirname "$0")" && pwd)"
+ROOT="$(cd "$TEST_DIR/.." && pwd)"
+BIN="$ROOT/bin"
 CURREGISTRY="${CURREGISTRY:-$HOME/.cursor/registry}"
 FIXTURES="${SQUIRCLE_RENDER_CSP_FIXTURES:-$CURREGISTRY/squircle/render-csp/fixtures.json}"
 PLAN_PY="$BIN/squircle-render-plan.py"
-VERIFY_PY="$BIN/squircle-render-csp-verify.py"
+VERIFY_PY="$TEST_DIR/squircle-render-csp-verify.py"
 POSTCHECK="$BIN/squircle-render-postcheck.sh"
 SQUIRCLE_SH="$BIN/squircle.sh"
 

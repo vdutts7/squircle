@@ -977,15 +977,29 @@ if [[ -z "$DOMAIN_ARG" ]]; then
     fi
 
     if (( clip_queue == 1 && clip_keep_markers == 0 && batch_clip_inject == 1 )); then
-      report="${out_dir}/.clip_queue_unfixed.txt"
-      : > "$report"
+      typeset -a unfixed=()
       for ((i=1; i<=${#all_outputs[@]}; i++)); do
         marker="${all_outputs[$i]}${CLIP_MARKER_SUFFIX}"
         if [[ -f "$marker" ]]; then
-          printf '%s\n' "${all_outputs[$i]}" >> "$report"
+          unfixed+=("${all_outputs[$i]}")
           /bin/unlink "$marker"
         fi
       done
+      report_dir="${REPO_ROOT}/.squircle"
+      mkdir -p "$report_dir"
+      report="${report_dir}/clip_queue_unfixed.txt"
+      if (( ${#unfixed[@]} )); then
+        printf '%s\n' "${unfixed[@]}" >"$report"
+      else
+        [[ -f "$report" ]] && /bin/unlink "$report"
+      fi
+      # Legacy path in output tree — never leave batch sidecars in webp/.
+      legacy="${out_dir}/.clip_queue_unfixed.txt"
+      [[ -f "$legacy" ]] && /bin/unlink "$legacy"
+    fi
+
+    if [[ -x "$SCRIPT_DIR/post-cleanup-webp-litter.sh" ]]; then
+      "$SCRIPT_DIR/post-cleanup-webp-litter.sh" >/dev/null 2>&1 || true
     fi
 
     echo "Done."
