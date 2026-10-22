@@ -1,8 +1,9 @@
 # webp icon workflow — machine-parseable
 flow:
   - install: |
-      Namespace tools under $CURTOOLS/squircle/ (same layout as repo bin/): rsync -a --delete bin/ "$CURTOOLS/squircle/"
-      Venv: $CURTOOLS/squircle/.venv (venv.zsh or auto on --domain). Python deps only beside squircle.sh + system python3.
+      Symlink $CURTOOLS/squircle → <repo>/bin (same pattern as $CURTOOLS/git/gitty.sh → Documents/a/gitty/bin/gitty.sh). No rsync copy — avoids drift.
+      Example: ln -sfn "$HOME/Documents/a/squircle/bin" "$CURTOOLS/squircle"
+      Venv: <repo>/bin/.venv (venv.zsh or auto on --domain). Python deps only beside squircle.sh + system python3.
       From a project checkout that has webp/, export SQUIRCLE="$PWD" so outputs go there (your shell can set this when webp/ exists).
       Example: squircle () { [[ -d "$PWD/webp" ]] && export SQUIRCLE="$PWD"; "$CURTOOLS/squircle/squircle.sh" "$@" }
   - copy: "<repo>/webp/"

@@ -1006,8 +1006,8 @@ parse_args() {
   typeset -a args=()
   next=""
   for a in "${save_args[@]}"; do
-    if [[ "$next" == "bg" ]]; then BG_OVERRIDE="$a"; next=""; continue; fi
-    if [[ "$next" == "icon-color" ]]; then ICON_COLOR="$a"; next=""; continue; fi
+    if [[ "$next" == "bg" ]]; then BG_OVERRIDE=("$a"); next=""; continue; fi
+    if [[ "$next" == "icon-color" ]]; then ICON_COLOR=("$a"); next=""; continue; fi
     if [[ "$next" == "size" ]]; then SIZE="$a"; next=""; continue; fi
     if [[ "$next" == "out" ]]; then OUTPUT="$a"; next=""; continue; fi
     if [[ "$next" == "out-dir" ]]; then
