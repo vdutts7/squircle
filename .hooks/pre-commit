@@ -1,9 +1,11 @@
 #!/bin/zsh
-# pre-commit: block commits that contain unnormalized images.
-# Normalized = 1024×1024 WebP under webp/ (any depth: webp/, webp/aws/, webp/macos/, etc.), metadata stripped.
+# pre-commit: slug staged basenames; block unnormalized images under webp/.
 
 ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT"
+
+SLUG_SCRIPT="$ROOT/.hooks/scripts/sluggify-names.sh"
+[[ -x "$SLUG_SCRIPT" ]] && "$SLUG_SCRIPT" --staged
 
 MAGICK=/opt/homebrew/bin/magick
 [[ -x "$MAGICK" ]] || MAGICK=/usr/local/bin/magick
