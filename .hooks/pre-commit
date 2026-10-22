@@ -1,11 +1,11 @@
 #!/bin/zsh
-# pre-commit: slug staged basenames; block unnormalized images under webp/.
+# pre-commit: kebab-slug staged paths; block unnormalized images under webp/.
 
 ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT"
 
-SLUG_SCRIPT="$ROOT/.hooks/scripts/sluggify-names.sh"
-[[ -x "$SLUG_SCRIPT" ]] && "$SLUG_SCRIPT" --staged
+SLUG="$ROOT/.hooks/scripts/sluggify-paths.sh"
+[[ -x "$SLUG" ]] && "$SLUG" --staged "$ROOT"
 
 MAGICK=/opt/homebrew/bin/magick
 [[ -x "$MAGICK" ]] || MAGICK=/usr/local/bin/magick
@@ -16,12 +16,10 @@ FORMATS_FILE="$ROOT/image-formats.txt"
 exts=( ${(f)"$(awk -F'\t' '!/^#/ && $1 != "" {print $1}' "$FORMATS_FILE")"} )
 ext_pattern='\.('"${(j:|:)exts}"')$'
 
-# Staged image files only under webp/ (any depth)
 staged=(${(f)"$(git diff --cached --name-only --diff-filter=ACM | grep -iE "$ext_pattern" | grep -E '^webp/')"})
 
 [[ ${#staged[@]} -eq 0 ]] && exit 0
 
-# Under webp/: only .webp allowed
 unnormalized=()
 for f in "${staged[@]}"; do
   ext="${f##*.}"
@@ -36,7 +34,6 @@ if [[ ${#unnormalized[@]} -gt 0 ]]; then
   exit 1
 fi
 
-# For staged webp/**/*.webp: require 1024×1024, then strip metadata
 for f in "${staged[@]}"; do
   [[ ! -f "$f" ]] && continue
   [[ "${f#webp/}" == "$f" ]] && continue
