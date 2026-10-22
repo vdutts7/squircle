@@ -695,6 +695,7 @@ Options:
   --logo-rip-keep  With --domain: keep download temp dir on disk (otherwise removed on exit); tmpdir path is printed.
   --no-domain-prep With --domain: skip squircle-prep-logo.zsh (fuzz-trim / margin crop before main).
   --no-domain-dump With --domain: ephemeral mktemp fetch dir only (deleted on exit); no durable inspect_dir or _last symlink.
+  -q, --quiet      No TUI; stdout is output .webp path only.
   -h, --help       Show this help.
 
   Batch interrupt: Use Ctrl+C once and wait. Do not Ctrl+Z (suspends). Hammering Ctrl+C can hit GNU Parallel's signal limit.
@@ -1009,7 +1010,9 @@ parse_args() {
   typeset -g BG_OVERRIDE ICON_COLOR SIZE OUTPUT INPUT OPAQUE_PADDING PADDING_PX
   typeset -g CLIP_DETECT CLIP_DETECT_ONLY CLIP_THRESHOLD CLIP_CROP_DIVISOR CLIP_MARKER_SUFFIX
   typeset -g CLIP_PADDING_START CLIP_PADDING_STEP CLIP_PADDING_MAX_ITER
+  typeset -g SQUIRCLE_QUIET
   BG_OVERRIDE=(); ICON_COLOR=(); SIZE=(); OUTPUT=(); INPUT=""
+  SQUIRCLE_QUIET=0
   OPAQUE_PADDING=0; PADDING_PX=""
   CLIP_DETECT=$(( DEFAULT_CLIP_DETECT ? 1 : 0 ))
   CLIP_DETECT_ONLY=0
@@ -1065,6 +1068,7 @@ parse_args() {
       --clip-padding-step=*) CLIP_PADDING_STEP="${a#--clip-padding-step=}" ;;
       --clip-padding-max-iter) next="clip-padding-max-iter" ;;
       --clip-padding-max-iter=*) CLIP_PADDING_MAX_ITER="${a#--clip-padding-max-iter=}" ;;
+      -q|--quiet) SQUIRCLE_QUIET=1; SHOW_TUI=0 ;;
       *) args+=("$a") ;;
     esac
   done
@@ -1565,20 +1569,16 @@ main() {
   apply_plate_fx "$OUTPUT" "$SIZE"
   strip_metadata "$OUTPUT"
   if (( ${SQUIRCLE_POSTCHECK:-1} )) && [[ -x "$SCRIPT_DIR/squircle-render-postcheck.sh" && -f "${SQUIRCLE_PLAN_JSON:-}" ]]; then
-    "$SCRIPT_DIR/squircle-render-postcheck.sh" "$INPUT" "$SQUIRCLE_PLAN_JSON" "$OUTPUT" || exit 1
+    "$SCRIPT_DIR/squircle-render-postcheck.sh" "$INPUT" "$SQUIRCLE_PLAN_JSON" "$OUTPUT" >/dev/null || exit 1
   fi
-  if [[ "$BG_HEX" == "OPAQUE" ]]; then
-    if [[ $OPAQUE_PADDING -eq 1 ]]; then
-      if [[ -n "$PADDING_PX" ]]; then
-        echo "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: padding ${PADDING_PX}px — transparent outside squircle)"
-      else
-        echo "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: padding (inset) — transparent outside squircle)"
-      fi
-    else
-    echo "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: fill — transparent outside squircle)"
-    fi
+  typeset -g SQUIRCLE_TUI_INPUT="${INPUT:A}"
+  typeset -g SQUIRCLE_TUI_OUTPUT="${OUTPUT:A}"
+  if (( SQUIRCLE_QUIET )); then
+    :
+  elif (( SHOW_TUI )) && typeset -f squircle_emit_tui >/dev/null 2>&1; then
+    squircle_emit_tui
   else
-    echo "🟢 $OUTPUT (${SIZE}×${SIZE}, bg ${BG_HEX})"
+    print -r -- "${OUTPUT:A}"
   fi
 }
 

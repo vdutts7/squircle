@@ -49,5 +49,3 @@ if [[ "$TW" -gt 0 && "$TH" -gt 0 ]]; then
   ASPECT=$(python3 -c 'import sys; w,h=map(int,sys.argv[1:3]); print(max(w,h)/max(min(w,h),1))' "$TW" "$TH")
   awk -v a="$ASPECT" -v p="$P" 'BEGIN{ if(a>3 && p<120) exit 1 }' || fail "wide_wordmark_padding" "aspect=$ASPECT padding=$P"
 fi
-
-echo "postcheck pass"
