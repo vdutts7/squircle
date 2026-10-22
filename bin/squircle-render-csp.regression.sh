@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# render CSP regression — fetch public fixtures ($CURREGISTRY), plan, render, verify constraints.
+# render CSP regression — registry fixtures + postcheck ($CURREGISTRY/squircle/render-csp/)
 set -euo pipefail
 
 BIN="$(cd "$(dirname "$0")" && pwd)"
@@ -8,6 +8,7 @@ CURREGISTRY="${CURREGISTRY:-$HOME/.cursor/registry}"
 FIXTURES="${SQUIRCLE_RENDER_CSP_FIXTURES:-$CURREGISTRY/squircle/render-csp/fixtures.json}"
 PLAN_PY="$BIN/squircle-render-plan.py"
 VERIFY_PY="$BIN/squircle-render-csp-verify.py"
+POSTCHECK="$BIN/squircle-render-postcheck.sh"
 SQUIRCLE_SH="$BIN/squircle.sh"
 
 pass=0
@@ -17,7 +18,7 @@ bad() { echo "  FAIL $1" >&2; fail=$((fail + 1)); }
 
 [[ -f "$FIXTURES" ]] || { bad "missing fixtures registry $FIXTURES"; exit 2; }
 [[ -x "$SQUIRCLE_SH" ]] || { bad "missing squircle.sh"; exit 2; }
-[[ -f "$PLAN_PY" ]] || { bad "missing squircle-render-plan.py"; exit 2; }
+[[ -x "$POSTCHECK" ]] || { bad "missing squircle-render-postcheck.sh"; exit 2; }
 
 WORK="$(mktemp -d "${TMPDIR:-/tmp}/squircle-csp-regr.XXXXXX")"
 cleanup() { rm -rf "$WORK"; }
@@ -31,16 +32,27 @@ case_count=$(python3 -c 'import json,sys; print(len(json.load(open(sys.argv[1]))
 
 while IFS= read -r case_json; do
   cid=$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["id"])' "$case_json")
-  url=$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["url"])' "$case_json")
   inp="$WORK/${cid}.in.png"
   out="$WORK/${cid}.webp"
   plan_out="$WORK/${cid}.plan.json"
 
-  if ! curl -fsSL --max-time 60 -o "$inp" "$url"; then
-    bad "$cid fetch"
+  local_path=$(python3 -c 'import json,sys; print(json.loads(sys.argv[1]).get("local",""))' "$case_json")
+  url=$(python3 -c 'import json,sys; print(json.loads(sys.argv[1]).get("url",""))' "$case_json")
+
+  if [[ -n "$local_path" ]]; then
+    inp=$(python3 -c 'import json,os,sys; c=json.loads(sys.argv[1]); print(os.path.expandvars(c["local"].replace("$SQUIRCLE", os.environ.get("SQUIRCLE",""))))' "$case_json")
+    [[ -f "$inp" ]] || { bad "$cid local"; continue; }
+    ok "$cid local"
+  elif [[ -n "$url" ]]; then
+    if ! curl -fsSL --max-time 60 -o "$inp" "$url"; then
+      bad "$cid fetch"
+      continue
+    fi
+    ok "$cid fetch"
+  else
+    bad "$cid no source"
     continue
   fi
-  ok "$cid fetch"
 
   if ! python3 "$PLAN_PY" "$inp" >"$plan_out"; then
     bad "$cid plan"
@@ -53,6 +65,12 @@ while IFS= read -r case_json; do
     continue
   fi
   ok "$cid render"
+
+  if "$POSTCHECK" "$inp" "$plan_out" "$out"; then
+    ok "$cid postcheck"
+  else
+    bad "$cid postcheck"
+  fi
 
   expect_json=$(python3 -c 'import json,sys; print(json.dumps(json.loads(sys.argv[1])["expect"]))' "$case_json")
   if python3 "$VERIFY_PY" "$expect_json" "$plan_out" "$out"; then

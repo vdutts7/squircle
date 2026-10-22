@@ -204,8 +204,8 @@ typeset -g MASK_TMP TMP_PNG TMP_SVG_PNG TMP_QL_DIR
 MASK_TMP=""; TMP_PNG=""; TMP_SVG_PNG=""; TMP_QL_DIR=""
 typeset -g CLIP_FRAME_TMP CLIP_MASKED_TMP CLIP_DIFF_TMP CLIP_FRAME_FLAT_TMP CLIP_MASKED_FLAT_TMP
 CLIP_FRAME_TMP=""; CLIP_MASKED_TMP=""; CLIP_DIFF_TMP=""; CLIP_FRAME_FLAT_TMP=""; CLIP_MASKED_FLAT_TMP=""
-typeset -g SQUIRCLE_PLAN_MARGIN SQUIRCLE_PLAN_APPLIED
-SQUIRCLE_PLAN_MARGIN=""; SQUIRCLE_PLAN_APPLIED=0
+typeset -g SQUIRCLE_PLAN_MARGIN SQUIRCLE_PLAN_APPLIED SQUIRCLE_PLAN_JSON
+SQUIRCLE_PLAN_MARGIN=""; SQUIRCLE_PLAN_APPLIED=0; SQUIRCLE_PLAN_JSON=""
 
 cleanup() {
   [[ -n "$MASK_TMP" && -f "$MASK_TMP" ]] && /bin/unlink "$MASK_TMP"
@@ -1204,6 +1204,9 @@ apply_render_plan() {
   if python3 -c 'import json,sys; sys.exit(0 if json.load(sys.stdin).get("prep") else 1)' <<<"$plan_json" 2>/dev/null; then
     [[ -f "$prep_out" ]] && IN_FOR_MAGICK="$prep_out"
   fi
+  typeset -g SQUIRCLE_PLAN_JSON
+  SQUIRCLE_PLAN_JSON="${SQUIRCLE_TMPBASE}.plan.json"
+  print -r -- "$plan_json" >"$SQUIRCLE_PLAN_JSON"
   typeset -g SQUIRCLE_PLAN_APPLIED=1
 }
 
@@ -1548,6 +1551,9 @@ main() {
 
   apply_plate_fx "$OUTPUT" "$SIZE"
   strip_metadata "$OUTPUT"
+  if (( ${SQUIRCLE_POSTCHECK:-1} )) && [[ -x "$SCRIPT_DIR/squircle-render-postcheck.sh" && -f "${SQUIRCLE_PLAN_JSON:-}" ]]; then
+    "$SCRIPT_DIR/squircle-render-postcheck.sh" "$INPUT" "$SQUIRCLE_PLAN_JSON" "$OUTPUT" || exit 1
+  fi
   if [[ "$BG_HEX" == "OPAQUE" ]]; then
     if [[ $OPAQUE_PADDING -eq 1 ]]; then
       if [[ -n "$PADDING_PX" ]]; then

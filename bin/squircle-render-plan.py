@@ -170,10 +170,7 @@ def detect_field_color(img: Path) -> str:
 
 
 def margin_for_opaque(img: Path, pad_mode: int = 1) -> str:
-    hx = detect_field_color(img)
-    if chroma(hx) > OPAQUE_MARGIN_MAX_CHROMA:
-        return DEFAULT_BG
-    return hx
+    return detect_field_color(img)
 
 
 def identify_wh(img: Path) -> tuple[int, int]:
@@ -220,10 +217,18 @@ def p_content_from_trim(nw: int, nh: int, size: int) -> int:
     content_max = max(nw, nh, 1)
     # Full-bleed small sources (e.g. 256² favicon): use ratio target inset.
     if content_max <= l_target:
-        return p_target
+        p = p_target
+        aspect = max(nw, nh) / max(min(nw, nh), 1)
+        if aspect > 3.0:
+            p = max(p, int(size * 0.12))
+        return p
     # Large trim bbox: shrink logo box so scaled art keeps ~8% inset from squircle curve.
     need_l = min(size - 16, int(content_max / 0.88) + 1)
-    return max(p_target, (size - need_l) // 2)
+    p = max(p_target, (size - need_l) // 2)
+    aspect = max(nw, nh) / max(min(nw, nh), 1)
+    if aspect > 3.0:
+        p = max(p, int(size * 0.12))
+    return p
 
 
 def build_mask(size: int, tmp: Path) -> Path:
@@ -340,8 +345,12 @@ def solve(raster: Path, user_bg: str | None, user_padding: int | None) -> dict:
             margin_hex = DEFAULT_BG
 
         nw, nh = identify_wh(work_raster)
+        try:
+            tw, th = map(int, run_magick([str(work_raster), "-fuzz", "4%", "-trim", "+repage", "-format", "%w %h", "info:"]).split())
+        except Exception:
+            tw, th = nw, nh
         p_target = (SIZE - SIZE * LOGO_RATIO // 1024) // 2
-        p_content = p_content_from_trim(nw, nh, SIZE)
+        p_content = p_content_from_trim(tw, th, SIZE)
         p_min = max(CLIP_PADDING_FLOOR, p_content, p_target // 2)
         p_max = (SIZE - 8) // 2
 

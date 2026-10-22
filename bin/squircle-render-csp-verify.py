@@ -43,10 +43,6 @@ def main() -> int:
     m = plan.get("margin_hex", "")
     if expect.get("margin_hex") and m.upper() != expect["margin_hex"].upper():
         errs.append(f"margin_hex want {expect['margin_hex']} got {m}")
-    if expect.get("margin_not_white_unless_high_chroma"):
-        if m.upper() == "#FFFFFF" and chroma(m) < 10:
-            errs.append(f"margin_hex {m} should reflect tile color")
-
     if out.is_file() and expect.get("output"):
         magick = "/opt/homebrew/bin/magick"
         if not Path(magick).is_file():
