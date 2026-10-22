@@ -10,6 +10,7 @@ export MAGICK_THREAD_LIMIT=1
 INPUT="$1"
 IN="$INPUT"
 [[ "$INPUT" == *".icns" ]] && IN="${INPUT}[0]"
+DETECT_FIELD="${0:h}/detect-field-color.sh"
 
 MEAN_ALPHA=$($MAGICK "$IN" -limit thread 1 -resize 64x64 -alpha extract -format "%[fx:mean]" info: 2>/dev/null || echo "0")
 [[ -z "$MEAN_ALPHA" ]] && { echo "#FFFFFF"; exit 0; }
@@ -39,6 +40,7 @@ C4=$(get_corner 48 48)
 
 corners_avg_a=$(printf '%s\n' "$C1" "$C2" "$C3" "$C4" | awk '{sum+=$4} END{print sum/4}')
 if $(echo "$corners_avg_a" | awk '{ exit !($1 < 0.35) }'); then
+  [[ -x "$DETECT_FIELD" ]] && { "$DETECT_FIELD" -q "$INPUT"; exit 0; }
   echo "#FFFFFF"
   exit 0
 fi
@@ -53,7 +55,13 @@ for line in "$C1" "$C2" "$C3" "$C4"; do
   sum_r=$(( sum_r + r )); sum_g=$(( sum_g + g )); sum_b=$(( sum_b + b )); count=$(( count + 1 ))
 done
 
-[[ $count -eq 0 ]] && { echo "#FFFFFF"; exit 0; }
+[[ $count -eq 0 ]] && {
+  [[ -x "$DETECT_FIELD" ]] && { "$DETECT_FIELD" -q "$INPUT"; exit 0; }
+  echo "#FFFFFF"
+  exit 0
+}
+
+[[ -x "$DETECT_FIELD" ]] && { "$DETECT_FIELD" -q "$INPUT"; exit 0; }
 
 R=$(( sum_r / count )); G=$(( sum_g / count )); B=$(( sum_b / count ))
 R=$(( R < 0 ? 0 : (R > 255 ? 255 : R) ))

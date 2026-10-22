@@ -1155,6 +1155,11 @@ render_margin_hex() {
     return
   fi
   if [[ "${BG_HEX:-}" == "OPAQUE" && -n "${IN_FOR_MAGICK:-}" ]]; then
+    local det="$SCRIPT_DIR/detect-field-color.sh"
+    if [[ -x "$det" ]]; then
+      "$det" -q "$IN_FOR_MAGICK"
+      return
+    fi
     opaque_extent_margin_hex "$IN_FOR_MAGICK" 1
     return
   fi
@@ -1187,9 +1192,15 @@ apply_render_plan() {
   [[ -n "$plan_json" ]] || return 0
   typeset -g SQUIRCLE_PLAN_MARGIN
   SQUIRCLE_PLAN_MARGIN="$(python3 -c 'import json,sys; print(json.load(sys.stdin)["margin_hex"])' <<<"$plan_json")" || return 0
-  typeset -g OPAQUE_PADDING=1
   typeset -g PADDING_PX
+  local plan_mode
+  plan_mode="$(python3 -c 'import json,sys; print(json.load(sys.stdin).get("render_mode","padding"))' <<<"$plan_json")" || plan_mode=padding
   PADDING_PX="$(python3 -c 'import json,sys; print(int(json.load(sys.stdin)["padding_px"]))' <<<"$plan_json")" || return 0
+  if [[ "$plan_mode" == "composited" ]]; then
+    typeset -g OPAQUE_PADDING=0
+  else
+    typeset -g OPAQUE_PADDING=1
+  fi
   if python3 -c 'import json,sys; sys.exit(0 if json.load(sys.stdin).get("prep") else 1)' <<<"$plan_json" 2>/dev/null; then
     [[ -f "$prep_out" ]] && IN_FOR_MAGICK="$prep_out"
   fi
@@ -1461,7 +1472,13 @@ main() {
   typeset -g BG_HEX
   BG_HEX=$(get_background "$IN_FOR_MAGICK")
   apply_render_plan
-  [[ $SQUIRCLE_PLAN_APPLIED -eq 1 ]] && BG_HEX=$(get_background "$IN_FOR_MAGICK")
+  if [[ $SQUIRCLE_PLAN_APPLIED -eq 1 ]]; then
+    if (( OPAQUE_PADDING == 0 )); then
+      BG_HEX="${SQUIRCLE_PLAN_MARGIN:-$DEFAULT_BG_HEX}"
+    else
+      BG_HEX=$(get_background "$IN_FOR_MAGICK")
+    fi
+  fi
   build_mask "$SIZE" >/dev/null
   local padding_bg
   padding_bg="$(render_margin_hex)"
@@ -1486,7 +1503,9 @@ main() {
     fi
   fi
 
-  if [[ "$BG_HEX" == "OPAQUE" ]]; then
+  if (( SQUIRCLE_PLAN_APPLIED == 1 && OPAQUE_PADDING == 0 )); then
+    render_with_base "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$BG_HEX" "$ICON_COLOR" "$logo_size"
+  elif [[ "$BG_HEX" == "OPAQUE" ]]; then
     if (( SQUIRCLE_PLAN_APPLIED == 1 && OPAQUE_PADDING == 1 )); then
       render_opaque_padding "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$(render_margin_hex)" "$logo_size"
     elif (( CLIP_DETECT == 1 )); then

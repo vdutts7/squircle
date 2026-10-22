@@ -70,7 +70,38 @@ def alpha_stats(img: Path) -> tuple[float, float]:
     return mean, center
 
 
+def transparent_corner_count(raster: Path) -> int:
+    w, h = identify_wh(raster)
+    n = 0
+    for x, y in ((0, 0), (w - 1, 0), (0, h - 1), (w - 1, h - 1)):
+        a = float(
+            run_magick(
+                [
+                    str(raster),
+                    "-alpha",
+                    "extract",
+                    "-crop",
+                    f"1x1+{x}+{y}",
+                    "+repage",
+                    "-format",
+                    "%[fx:mean]",
+                    "info:",
+                ]
+            )
+            or 0
+        )
+        if a < 0.25:
+            n += 1
+    return n
+
+
 def get_bg_class(raster: Path) -> str:
+    w, h = identify_wh(raster)
+    if (
+        max(w, h) / max(min(w, h), 1) > 2.2
+        and transparent_corner_count(raster) >= 2
+    ):
+        return "transparent_logo"
     if GET_BG.is_file():
         p = subprocess.run([str(GET_BG), str(raster)], capture_output=True, text=True)
         v = (p.stdout or "").strip()
@@ -128,10 +159,20 @@ def chroma(hex_s: str) -> int:
     return max(r, g, b) - min(r, g, b)
 
 
+def detect_field_color(img: Path) -> str:
+    detect = SCRIPT_DIR / "detect-field-color.sh"
+    if detect.is_file():
+        p = subprocess.run([str(detect), "-q", str(img)], capture_output=True, text=True)
+        hx = (p.stdout or "").strip()
+        if re.fullmatch(r"#[0-9A-Fa-f]{6}", hx):
+            return hx.upper()
+    return sample_corner_bg_hex(img).upper()
+
+
 def margin_for_opaque(img: Path, pad_mode: int = 1) -> str:
-    hx = sample_corner_bg_hex(img)
+    hx = detect_field_color(img)
     if chroma(hx) > OPAQUE_MARGIN_MAX_CHROMA:
-        return DEFAULT_BG if pad_mode == 0 else DEFAULT_BG
+        return DEFAULT_BG
     return hx
 
 
@@ -159,7 +200,9 @@ def prep_trim(src: Path, dst: Path) -> bool:
         return False
     nw, nh = identify_wh(dst)
     na = nw * nh
-    if oa > 0 and na * 100 < oa * 8:
+    aspect = max(ow, oh) / max(min(ow, oh), 1)
+    min_area_pct = 4 if aspect > 2.4 else 8
+    if oa > 0 and na * 100 < oa * min_area_pct:
         return False
     if nw < 2 or nh < 2:
         return False
@@ -267,10 +310,11 @@ def solve(raster: Path, user_bg: str | None, user_padding: int | None) -> dict:
         prep_path = tmp / "prep.png"
         ow, oh = identify_wh(raster)
         prep_out = os.environ.get("SQUIRCLE_PREP_OUT")
-        if (
+        trim_worthy = max(ow, oh) / max(min(ow, oh), 1) > 2.4
+        if trim_worthy or (
             bg_class == "opaque_tile"
             and max(ow, oh) >= SCREENSHOT_MIN_PX
-            and chroma(sample_corner_bg_hex(raster)) <= OPAQUE_MARGIN_MAX_CHROMA
+            and chroma(detect_field_color(raster)) <= OPAQUE_MARGIN_MAX_CHROMA
         ):
             if prep_trim(raster, prep_path):
                 prep_used = True
@@ -279,6 +323,14 @@ def solve(raster: Path, user_bg: str | None, user_padding: int | None) -> dict:
                     work_raster = Path(prep_out)
                 else:
                     work_raster = prep_path
+                bg_class = get_bg_class(work_raster)
+                nw_p, nh_p = identify_wh(work_raster)
+                if (
+                    trim_worthy
+                    and ow * oh > 0
+                    and nw_p * nh_p * 100 < ow * oh * 15
+                ):
+                    bg_class = "transparent_logo"
 
         if user_bg:
             margin_hex = user_bg
@@ -322,6 +374,16 @@ def solve(raster: Path, user_bg: str | None, user_padding: int | None) -> dict:
         if chosen_p is None:
             chosen_p = min(pad, p_max)
             chosen_s = clip_score(work_raster, mask, SIZE, chosen_p, margin_hex, tmp)
+
+        if bg_class == "transparent_logo":
+            return {
+                "source_class": bg_class,
+                "prep": prep_used,
+                "work_raster": str(work_raster) if prep_used else None,
+                "margin_hex": margin_hex,
+                "padding_px": p_target,
+                "render_mode": "composited",
+            }
 
         return {
             "source_class": bg_class,
