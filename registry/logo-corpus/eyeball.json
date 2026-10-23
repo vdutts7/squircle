@@ -1,0 +1,5 @@
+{
+  "$schema": "v1",
+  "doc": "per-slug human verdicts. only logo-corpus-review.py writes here. publish.py refuses to write webp/<slug>.webp without an approved entry.",
+  "slugs": {}
+}

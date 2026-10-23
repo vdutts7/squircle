@@ -73,7 +73,6 @@ cs = [parse(x) for x in sys.argv[1:5]]
 if any(c is None for c in cs):
     sys.exit(1)
 tol = 4
-lo_chroma = 48
 for i in range(4):
     for j in range(i + 1, 4):
         if any(abs(cs[i][k] - cs[j][k]) > tol for k in range(3)):
@@ -81,8 +80,7 @@ for i in range(4):
 r = sum(c[0] for c in cs) // 4
 g = sum(c[1] for c in cs) // 4
 b = sum(c[2] for c in cs) // 4
-if max(r, g, b) - min(r, g, b) > lo_chroma:
-    sys.exit(1)
+# Four agreeing corners = plate matte (navy tiles, white wordmarks, brand pinks).
 print(f"#{r:02X}{g:02X}{b:02X}")
 PY
 }

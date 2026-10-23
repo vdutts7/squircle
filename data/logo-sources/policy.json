@@ -1,0 +1,44 @@
+{
+  "schema": "squircle.logo-sources.policy/v1",
+  "variant_markers": [
+    "coding-plan",
+    "token-plan",
+    "step-plan",
+    "tokenhub",
+    "scnet-token-plan",
+    "kimi-code-plan",
+    "google-vertex"
+  ],
+  "variant_slugs": [
+    "moonshotai-cn",
+    "alibaba-cn",
+    "alibaba-token-plan-cn",
+    "siliconflow-cn",
+    "minimax-cn",
+    "minimax-cn-coding-plan"
+  ],
+  "source_order": ["models_dev_provider_svg", "github_api_avatar", "models_dev_lab_svg"],
+  "sparkle_svg_md5": "f14bc05bbdcf56f04949d1df83e67300",
+  "github": {
+    "user_agent": "squircle-logo-sources/1.0",
+    "avatar_size": 512
+  },
+  "phash_max_hamming": 12,
+  "squircle_monochrome_svg": { "bg": "#0B1220", "icon_color": "#FFFFFF" },
+  "squircle_light_svg": { "bg": "#FFFFFF", "icon_color": "#000000" },
+  "lab_to_provider": {
+    "abacusai": "abacus",
+    "arcee-ai": "arcee",
+    "fireworks": "fireworks-ai"
+  },
+  "github_login_overrides": {
+    "abacus": "abacusai",
+    "abacusai": "abacusai",
+    "arcee": "arcee-ai"
+  },
+  "defaults": {
+    "models_dev_repo": "/private/tmp/models.dev-dev",
+    "labs_md": ".cursor/projects/Users-vdog-wire/uploads/labs-0.md",
+    "artifact_root": "/tmp/squircle-logo-sources"
+  }
+}

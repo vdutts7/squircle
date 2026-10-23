@@ -1,0 +1,2744 @@
+{
+  "$schema": "v1",
+  "variant_regex": "-(coding-plan|token-plan|code-plan)(-|$)|-vertex(-|$)|-cn$",
+  "slugs": [
+    {
+      "slug": "302ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/302ai/logo.svg"
+    },
+    {
+      "slug": "abacus",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/abacus/logo.svg"
+    },
+    {
+      "slug": "abacusai",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "abliteration-ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/abliteration-ai/logo.svg"
+    },
+    {
+      "slug": "above",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/above/logo.svg"
+    },
+    {
+      "slug": "agentrouter",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/agentrouter/logo.svg"
+    },
+    {
+      "slug": "agnes",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/agnes/logo.svg"
+    },
+    {
+      "slug": "ai-router",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/ai-router/logo.svg"
+    },
+    {
+      "slug": "ai21",
+      "sources": [
+        "providers",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/ai21/logo.svg"
+    },
+    {
+      "slug": "aiand",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/aiand/logo.svg"
+    },
+    {
+      "slug": "aihubmix",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/aihubmix/logo.svg"
+    },
+    {
+      "slug": "aimlapi",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/aimlapi/logo.svg"
+    },
+    {
+      "slug": "ainetcafe",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/ainetcafe/logo.svg"
+    },
+    {
+      "slug": "aion-labs",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "aisingapore",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "aixy",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/aixy/logo.svg"
+    },
+    {
+      "slug": "aki-io",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/aki-io/logo.svg"
+    },
+    {
+      "slug": "alibaba",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/alibaba/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/alibaba/logo.svg"
+    },
+    {
+      "slug": "alibaba-cn",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/alibaba-cn/logo.svg"
+    },
+    {
+      "slug": "alibaba-coding-plan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/alibaba-coding-plan/logo.svg"
+    },
+    {
+      "slug": "alibaba-coding-plan-cn",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/alibaba-coding-plan-cn/logo.svg"
+    },
+    {
+      "slug": "alibaba-token-plan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/alibaba-token-plan/logo.svg"
+    },
+    {
+      "slug": "alibaba-token-plan-cn",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant"
+    },
+    {
+      "slug": "amazon",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "amazon-bedrock",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/amazon-bedrock/logo.svg"
+    },
+    {
+      "slug": "ambient",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/ambient/logo.svg"
+    },
+    {
+      "slug": "amd",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/amd/logo.svg"
+    },
+    {
+      "slug": "anthracite-org",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "anthropic",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/anthropic/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/anthropic/logo.svg"
+    },
+    {
+      "slug": "anyapi",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/anyapi/logo.svg"
+    },
+    {
+      "slug": "apodex",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "arcee",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/arcee/logo.svg"
+    },
+    {
+      "slug": "arcee-ai",
+      "sources": [
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "labs_svg": "/private/tmp/models.dev-dev/labs/arcee-ai/logo.svg"
+    },
+    {
+      "slug": "assemblyai",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "atomic-chat",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/atomic-chat/logo.svg"
+    },
+    {
+      "slug": "auriko",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/auriko/logo.svg"
+    },
+    {
+      "slug": "azure",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/azure/logo.svg"
+    },
+    {
+      "slug": "azure-cognitive-services",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/azure-cognitive-services/logo.svg"
+    },
+    {
+      "slug": "baai",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "baichuan",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "baidu",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "bailing",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/bailing/logo.svg"
+    },
+    {
+      "slug": "baseten",
+      "sources": [
+        "providers",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/baseten/logo.svg"
+    },
+    {
+      "slug": "bee",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/bee/logo.svg"
+    },
+    {
+      "slug": "berget",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/berget/logo.svg"
+    },
+    {
+      "slug": "black-forest-labs",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "blueclaw",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/blueclaw/logo.svg"
+    },
+    {
+      "slug": "bothub",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/bothub/logo.svg"
+    },
+    {
+      "slug": "boundless",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/boundless/logo.svg"
+    },
+    {
+      "slug": "bria",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "bytedance-seed",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "canopylabs",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "cerebras",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/cerebras/logo.svg"
+    },
+    {
+      "slug": "chutes",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "clarifai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/clarifai/logo.svg"
+    },
+    {
+      "slug": "claudinio",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/claudinio/logo.svg"
+    },
+    {
+      "slug": "cline-pass",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "cloudferro-sherlock",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/cloudferro-sherlock/logo.svg"
+    },
+    {
+      "slug": "cloudflare",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "cloudflare-ai-gateway",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/cloudflare-ai-gateway/logo.svg"
+    },
+    {
+      "slug": "cloudflare-workers-ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/cloudflare-workers-ai/logo.svg"
+    },
+    {
+      "slug": "cognitivecomputations",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "cohere",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/cohere/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/cohere/logo.svg"
+    },
+    {
+      "slug": "commandcode",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/commandcode/logo.svg"
+    },
+    {
+      "slug": "coralbricks",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/coralbricks/logo.svg"
+    },
+    {
+      "slug": "cortecs",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "crossmodel",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/crossmodel/logo.svg"
+    },
+    {
+      "slug": "crusoe",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/crusoe/logo.svg"
+    },
+    {
+      "slug": "daoxe",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/daoxe/logo.svg"
+    },
+    {
+      "slug": "databricks",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/databricks/logo.svg"
+    },
+    {
+      "slug": "deepgram",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "deepinfra",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/deepinfra/logo.svg"
+    },
+    {
+      "slug": "deepreinforce",
+      "sources": [
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "deepseek",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/deepseek/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/deepseek/logo.svg"
+    },
+    {
+      "slug": "digitalocean",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/digitalocean/logo.svg"
+    },
+    {
+      "slug": "dinference",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/dinference/logo.svg"
+    },
+    {
+      "slug": "drun",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/drun/logo.svg"
+    },
+    {
+      "slug": "ebcloud",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/ebcloud/logo.svg"
+    },
+    {
+      "slug": "echo",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/echo/logo.svg"
+    },
+    {
+      "slug": "edenai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/edenai/logo.svg"
+    },
+    {
+      "slug": "elevenlabs",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "empiriolabs",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/empiriolabs/logo.svg"
+    },
+    {
+      "slug": "engy",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/engy/logo.svg"
+    },
+    {
+      "slug": "essentialai",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "evroc",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/evroc/logo.svg"
+    },
+    {
+      "slug": "fastrouter",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/fastrouter/logo.svg"
+    },
+    {
+      "slug": "fireworks",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "fireworks-ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/fireworks-ai/logo.svg"
+    },
+    {
+      "slug": "fish-audio",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "fluence",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/fluence/logo.svg"
+    },
+    {
+      "slug": "freemodel",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/freemodel/logo.svg"
+    },
+    {
+      "slug": "friendli",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/friendli/logo.svg"
+    },
+    {
+      "slug": "frogbot",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/frogbot/logo.svg"
+    },
+    {
+      "slug": "github-copilot",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/github-copilot/logo.svg"
+    },
+    {
+      "slug": "gitlab",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/gitlab/logo.svg"
+    },
+    {
+      "slug": "gmicloud",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "google",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/google/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/google/logo.svg"
+    },
+    {
+      "slug": "google-vertex",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/google-vertex/logo.svg"
+    },
+    {
+      "slug": "google-vertex-anthropic",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/google-vertex-anthropic/logo.svg"
+    },
+    {
+      "slug": "greenpt",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/greenpt/logo.svg"
+    },
+    {
+      "slug": "groq",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/groq/logo.svg"
+    },
+    {
+      "slug": "gryphe",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "helicone",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/helicone/logo.svg"
+    },
+    {
+      "slug": "hetzner",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/hetzner/logo.svg"
+    },
+    {
+      "slug": "hexgrad",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "heygen",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "hpc-ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/hpc-ai/logo.svg"
+    },
+    {
+      "slug": "huggingface",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/huggingface/logo.svg"
+    },
+    {
+      "slug": "hyper",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/hyper/logo.svg"
+    },
+    {
+      "slug": "ibm",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "iflowcn",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/iflowcn/logo.svg"
+    },
+    {
+      "slug": "impossibl",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/impossibl/logo.svg"
+    },
+    {
+      "slug": "inception",
+      "sources": [
+        "providers",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/inception/logo.svg"
+    },
+    {
+      "slug": "inceptron",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/inceptron/logo.svg"
+    },
+    {
+      "slug": "inclusionai",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "inco",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/inco/logo.svg"
+    },
+    {
+      "slug": "infer",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/infer/logo.svg"
+    },
+    {
+      "slug": "inference",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/inference/logo.svg"
+    },
+    {
+      "slug": "inference-net",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "inferx",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/inferx/logo.svg"
+    },
+    {
+      "slug": "infomaniak",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/infomaniak/logo.svg"
+    },
+    {
+      "slug": "intfloat",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "inworld",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "io-net",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/io-net/logo.svg"
+    },
+    {
+      "slug": "iteracompute",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/iteracompute/logo.svg"
+    },
+    {
+      "slug": "jalapeno",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/jalapeno/logo.svg"
+    },
+    {
+      "slug": "jiekou",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/jiekou/logo.svg"
+    },
+    {
+      "slug": "k2-fsa",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "kenari",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/kenari/logo.svg"
+    },
+    {
+      "slug": "kilo",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/kilo/logo.svg"
+    },
+    {
+      "slug": "kimi-code-plan-cn",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/kimi-code-plan-cn/logo.svg"
+    },
+    {
+      "slug": "kimi-code-plan-global",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/kimi-code-plan-global/logo.svg"
+    },
+    {
+      "slug": "klokintegration",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/klokintegration/logo.svg"
+    },
+    {
+      "slug": "kosmik",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/kosmik/logo.svg"
+    },
+    {
+      "slug": "krea",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "kuae-cloud-coding-plan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/kuae-cloud-coding-plan/logo.svg"
+    },
+    {
+      "slug": "kuaishou",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "lightonai",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "lilac",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/lilac/logo.svg"
+    },
+    {
+      "slug": "liquid",
+      "sources": [
+        "providers",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/liquid/logo.svg"
+    },
+    {
+      "slug": "llama",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/llama/logo.svg"
+    },
+    {
+      "slug": "llmgateway",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/llmgateway/logo.svg"
+    },
+    {
+      "slug": "llmgateway-providers",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/llmgateway-providers/logo.svg"
+    },
+    {
+      "slug": "llmtech",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/llmtech/logo.svg"
+    },
+    {
+      "slug": "llmtr",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/llmtr/logo.svg"
+    },
+    {
+      "slug": "lmstudio",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/lmstudio/logo.svg"
+    },
+    {
+      "slug": "longcat",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/longcat/logo.svg"
+    },
+    {
+      "slug": "lowrouter",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/lowrouter/logo.svg"
+    },
+    {
+      "slug": "lucidquery",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/lucidquery/logo.svg"
+    },
+    {
+      "slug": "lynkr",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/lynkr/logo.svg"
+    },
+    {
+      "slug": "mancer",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "meganova",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/meganova/logo.svg"
+    },
+    {
+      "slug": "meituan",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "melious",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/melious/logo.svg"
+    },
+    {
+      "slug": "merge-gateway",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/merge-gateway/logo.svg"
+    },
+    {
+      "slug": "meta",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/meta/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/meta/logo.svg"
+    },
+    {
+      "slug": "microsoft",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "mindlab",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "minimax",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/minimax/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/minimax/logo.svg"
+    },
+    {
+      "slug": "minimax-cn",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/minimax-cn/logo.svg"
+    },
+    {
+      "slug": "minimax-cn-coding-plan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/minimax-cn-coding-plan/logo.svg"
+    },
+    {
+      "slug": "minimax-coding-plan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/minimax-coding-plan/logo.svg"
+    },
+    {
+      "slug": "mistral",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/mistral/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/mistral/logo.svg"
+    },
+    {
+      "slug": "mixedbread",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "mixlayer",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/mixlayer/logo.svg"
+    },
+    {
+      "slug": "moark",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/moark/logo.svg"
+    },
+    {
+      "slug": "modal",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/modal/logo.svg"
+    },
+    {
+      "slug": "model-oracle-ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/model-oracle-ai/logo.svg"
+    },
+    {
+      "slug": "modelis",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/modelis/logo.svg"
+    },
+    {
+      "slug": "modelscope",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/modelscope/logo.svg"
+    },
+    {
+      "slug": "moonshotai",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/moonshotai/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/moonshotai/logo.svg"
+    },
+    {
+      "slug": "moonshotai-cn",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/moonshotai-cn/logo.svg"
+    },
+    {
+      "slug": "morph",
+      "sources": [
+        "providers",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "motif-technologies",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "nace-ai",
+      "sources": [
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "nan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/nan/logo.svg"
+    },
+    {
+      "slug": "nano-gpt",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/nano-gpt/logo.svg"
+    },
+    {
+      "slug": "nearai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/nearai/logo.svg"
+    },
+    {
+      "slug": "nebius",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/nebius/logo.svg"
+    },
+    {
+      "slug": "neon",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/neon/logo.svg"
+    },
+    {
+      "slug": "neosmith",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/neosmith/logo.svg"
+    },
+    {
+      "slug": "neuralwatt",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/neuralwatt/logo.svg"
+    },
+    {
+      "slug": "nex-agi",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "nousresearch",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "nova",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/nova/logo.svg"
+    },
+    {
+      "slug": "novita-ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/novita-ai/logo.svg"
+    },
+    {
+      "slug": "nvidia",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/nvidia/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/nvidia/logo.svg"
+    },
+    {
+      "slug": "oci",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/oci/logo.svg"
+    },
+    {
+      "slug": "ofox",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/ofox/logo.svg"
+    },
+    {
+      "slug": "ollama-cloud",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/ollama-cloud/logo.svg"
+    },
+    {
+      "slug": "openai",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/openai/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/openai/logo.svg"
+    },
+    {
+      "slug": "openbmb",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "opencode",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/opencode/logo.svg"
+    },
+    {
+      "slug": "opencode-go",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/opencode-go/logo.svg"
+    },
+    {
+      "slug": "openreason",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/openreason/logo.svg"
+    },
+    {
+      "slug": "openrouter",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/openrouter/logo.svg"
+    },
+    {
+      "slug": "opper",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/opper/logo.svg"
+    },
+    {
+      "slug": "orcarouter",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/orcarouter/logo.svg"
+    },
+    {
+      "slug": "ovhcloud",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/ovhcloud/logo.svg"
+    },
+    {
+      "slug": "paddlepaddle",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "pareto",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/pareto/logo.svg"
+    },
+    {
+      "slug": "pendra",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/pendra/logo.svg"
+    },
+    {
+      "slug": "perceptron",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "perplexity",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/perplexity/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/perplexity/logo.svg"
+    },
+    {
+      "slug": "perplexity-agent",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/perplexity-agent/logo.svg"
+    },
+    {
+      "slug": "phocinae",
+      "sources": [
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "pioneer",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/pioneer/logo.svg"
+    },
+    {
+      "slug": "poe",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/poe/logo.svg"
+    },
+    {
+      "slug": "poolside",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/poolside/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/poolside/logo.svg"
+    },
+    {
+      "slug": "prime",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/prime/logo.svg"
+    },
+    {
+      "slug": "privatemode-ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/privatemode-ai/logo.svg"
+    },
+    {
+      "slug": "qihang-ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/qihang-ai/logo.svg"
+    },
+    {
+      "slug": "qiniu-ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/qiniu-ai/logo.svg"
+    },
+    {
+      "slug": "quiverai",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "qvac",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/qvac/logo.svg"
+    },
+    {
+      "slug": "recraft",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "recursive",
+      "sources": [
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "reflection",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/reflection/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/reflection/logo.svg"
+    },
+    {
+      "slug": "regolo-ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/regolo-ai/logo.svg"
+    },
+    {
+      "slug": "rekaai",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "relace",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "requesty",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "routing-run",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/routing-run/logo.svg"
+    },
+    {
+      "slug": "runinfra",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/runinfra/logo.svg"
+    },
+    {
+      "slug": "runway",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "runwayml",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "sakana",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "salad-cloud",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/salad-cloud/logo.svg"
+    },
+    {
+      "slug": "sambanova",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/sambanova/logo.svg"
+    },
+    {
+      "slug": "sao10k",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "sap-ai-core",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "sarvam",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "scaleway",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/scaleway/logo.svg"
+    },
+    {
+      "slug": "scnet-token-plan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/scnet-token-plan/logo.svg"
+    },
+    {
+      "slug": "scx-ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/scx-ai/logo.svg"
+    },
+    {
+      "slug": "sdaia",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "sensenova",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/sensenova/logo.svg"
+    },
+    {
+      "slug": "sentence-transformers",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "sesame",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "siliconflow",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/siliconflow/logo.svg"
+    },
+    {
+      "slug": "siliconflow-cn",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/siliconflow-cn/logo.svg"
+    },
+    {
+      "slug": "snowflake-cortex",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/snowflake-cortex/logo.svg"
+    },
+    {
+      "slug": "sourceful",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "stackit",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/stackit/logo.svg"
+    },
+    {
+      "slug": "standardcompute",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/standardcompute/logo.svg"
+    },
+    {
+      "slug": "stepfun",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/stepfun/logo.svg"
+    },
+    {
+      "slug": "stepfun-ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/stepfun-ai/logo.svg"
+    },
+    {
+      "slug": "stepfun-ai-step-plan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/stepfun-ai-step-plan/logo.svg"
+    },
+    {
+      "slug": "stepfun-step-plan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/stepfun-step-plan/logo.svg"
+    },
+    {
+      "slug": "subconscious",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/subconscious/logo.svg"
+    },
+    {
+      "slug": "submodel",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/submodel/logo.svg"
+    },
+    {
+      "slug": "swiss-ai",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "synthetic",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "teamorouter",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/teamorouter/logo.svg"
+    },
+    {
+      "slug": "tempr",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/tempr/logo.svg"
+    },
+    {
+      "slug": "tencent",
+      "sources": [
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "labs_svg": "/private/tmp/models.dev-dev/labs/tencent/logo.svg"
+    },
+    {
+      "slug": "tencent-coding-plan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/tencent-coding-plan/logo.svg"
+    },
+    {
+      "slug": "tencent-token-plan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/tencent-token-plan/logo.svg"
+    },
+    {
+      "slug": "tencent-tokenhub",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/tencent-tokenhub/logo.svg"
+    },
+    {
+      "slug": "tensorx",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/tensorx/logo.svg"
+    },
+    {
+      "slug": "the-grid-ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/the-grid-ai/logo.svg"
+    },
+    {
+      "slug": "thedrummer",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "thenlper",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "thinkingmachines",
+      "sources": [
+        "providers",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/thinkingmachines/logo.svg"
+    },
+    {
+      "slug": "tinfoil",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/tinfoil/logo.svg"
+    },
+    {
+      "slug": "togetherai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/togetherai/logo.svg"
+    },
+    {
+      "slug": "tokengo",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/tokengo/logo.svg"
+    },
+    {
+      "slug": "tokenrouter",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/tokenrouter/logo.svg"
+    },
+    {
+      "slug": "trendyol",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "trustedrouter",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/trustedrouter/logo.svg"
+    },
+    {
+      "slug": "typesafe",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "umans-ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/umans-ai/logo.svg"
+    },
+    {
+      "slug": "umans-ai-coding-plan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/umans-ai-coding-plan/logo.svg"
+    },
+    {
+      "slug": "unbiased",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "undi95",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "unorouter",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/unorouter/logo.svg"
+    },
+    {
+      "slug": "upstage",
+      "sources": [
+        "providers",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "vancine",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/vancine/logo.svg"
+    },
+    {
+      "slug": "venice",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/venice/logo.svg"
+    },
+    {
+      "slug": "vercel",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/vercel/logo.svg"
+    },
+    {
+      "slug": "vispark",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/vispark/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/vispark/logo.svg"
+    },
+    {
+      "slug": "vivgrid",
+      "sources": [
+        "providers",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/vivgrid/logo.svg"
+    },
+    {
+      "slug": "vllm-sr",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "volcengine",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/volcengine/logo.svg"
+    },
+    {
+      "slug": "volcengine-coding-plan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/volcengine-coding-plan/logo.svg"
+    },
+    {
+      "slug": "voyageai",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "vultr",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/vultr/logo.svg"
+    },
+    {
+      "slug": "wafer.ai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/wafer.ai/logo.svg"
+    },
+    {
+      "slug": "wallaby",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/wallaby/logo.svg"
+    },
+    {
+      "slug": "wandb",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/wandb/logo.svg"
+    },
+    {
+      "slug": "watsonx",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/watsonx/logo.svg"
+    },
+    {
+      "slug": "writer",
+      "sources": [
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null
+    },
+    {
+      "slug": "xai",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/xai/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/xai/logo.svg"
+    },
+    {
+      "slug": "xiaomi",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/xiaomi/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/xiaomi/logo.svg"
+    },
+    {
+      "slug": "xiaomi-token-plan-ams",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/xiaomi-token-plan-ams/logo.svg"
+    },
+    {
+      "slug": "xiaomi-token-plan-cn",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/xiaomi-token-plan-cn/logo.svg"
+    },
+    {
+      "slug": "xiaomi-token-plan-sgp",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/xiaomi-token-plan-sgp/logo.svg"
+    },
+    {
+      "slug": "xpersona",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/xpersona/logo.svg"
+    },
+    {
+      "slug": "zai",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/zai/logo.svg"
+    },
+    {
+      "slug": "zai-coding-plan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/zai-coding-plan/logo.svg"
+    },
+    {
+      "slug": "zeldoc",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/zeldoc/logo.svg"
+    },
+    {
+      "slug": "zenifra",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/zenifra/logo.svg"
+    },
+    {
+      "slug": "zenmux",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/zenmux/logo.svg"
+    },
+    {
+      "slug": "zhipuai",
+      "sources": [
+        "providers",
+        "labs",
+        "models"
+      ],
+      "in_scope": true,
+      "reason_if_excluded": null,
+      "providers_svg": "/private/tmp/models.dev-dev/providers/zhipuai/logo.svg",
+      "labs_svg": "/private/tmp/models.dev-dev/labs/zhipuai/logo.svg"
+    },
+    {
+      "slug": "zhipuai-coding-plan",
+      "sources": [
+        "providers"
+      ],
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
+      "providers_svg": "/private/tmp/models.dev-dev/providers/zhipuai-coding-plan/logo.svg"
+    }
+  ]
+}

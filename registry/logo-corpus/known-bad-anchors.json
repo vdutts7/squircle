@@ -1,0 +1,7 @@
+{
+  "$schema": "v1",
+  "doc": "pinned sha256 + phash of assets that must never be a winner. append only.",
+  "sha256": [],
+  "phash_hamming_threshold": 6,
+  "phash": []
+}

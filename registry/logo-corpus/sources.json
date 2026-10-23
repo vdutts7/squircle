@@ -1,0 +1,23 @@
+{
+  "$schema": "v1",
+  "doc": "ordered source kinds per slug. agent never adds a kind outside the enum. per-slug ordering override lives in overrides.json.",
+  "kinds_enum": [
+    "models_dev_provider_svg",
+    "models_dev_lab_svg",
+    "declared_github",
+    "declared_twitter",
+    "declared_homepage_favicon"
+  ],
+  "default_order": [
+    "models_dev_provider_svg",
+    "models_dev_lab_svg",
+    "declared_github",
+    "declared_twitter",
+    "declared_homepage_favicon"
+  ],
+  "paths": {
+    "models_dev_clone": "/private/tmp/models.dev-dev",
+    "provider_svg_glob": "providers/<id>/logo.svg",
+    "lab_svg_glob": "labs/<id>/logo.svg"
+  }
+}

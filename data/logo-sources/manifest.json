@@ -1,0 +1,10 @@
+{
+  "schema": "squircle.logo-sources/v1",
+  "policy": "data/logo-sources/policy.json",
+  "workflow": "workflows/logo-fetch-phash-pipeline.yaml",
+  "fetch": "test/models-dev-logo-fetch.py",
+  "verify": "test/models-dev-logo-verify.py",
+  "regression": "test/models-dev-logo-regression.sh",
+  "webp_out": "webp",
+  "ledger": "{artifact_root}/ledger.jsonl"
+}

@@ -1,0 +1,5 @@
+{
+  "$schema": "v1",
+  "doc": "per-slug source overrides. operator-declared, not agent-guessed. every entry needs verified_at (ISO-8601) proving a human eyeballed the login.",
+  "slugs": {}
+}
