@@ -1,0 +1,12 @@
+{
+  "slug": "pendra",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/pendra/logo.svg",
+  "fetched_at": 1792766268,
+  "sha256": "34117abd8377a5761a4be7d75b5bb3a225c30859cb7d96b243dc10325782d290",
+  "bytes": 548,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/pendra/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/pendra/logo.svg"
+}

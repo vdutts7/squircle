@@ -1,0 +1,12 @@
+{
+  "slug": "alibaba",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/alibaba/logo.svg",
+  "fetched_at": 1792765624,
+  "sha256": "5f4c48b021079424f030d9e960440ee8741fb8113ec63464ee8c22c099671b92",
+  "bytes": 2057,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/alibaba/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/alibaba/logo.svg"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "hyper",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767026,
+  "winner_source": "models_dev",
+  "winner_sha256": "0a42f390aff21712cf329361ed7224eede65e2094eb5f9c0707a8ce6569ad43c",
+  "output_phash": "fa90856b7a94916b",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/hyper.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

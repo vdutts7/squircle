@@ -1,0 +1,14 @@
+{
+  "slug": "elevenlabs",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/elevenlabs.png?size=512",
+  "fetched_at": 1792765846,
+  "sha256": "19ffd605eb5d064cb71496fe83b2ad6097bb1747f1435e63448ede61594ec193",
+  "bytes": 1725,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/elevenlabs/03-github.png",
+  "login": "elevenlabs",
+  "verified": [
+    "elevenlabs"
+  ]
+}

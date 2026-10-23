@@ -1,0 +1,12 @@
+{
+  "slug": "mixlayer",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=mixlayer.com&sz=256",
+  "fetched_at": 1792766124,
+  "sha256": "252a1fbc446f29f9634ea542b1c5f5c1a82db3756b614632418bff265b7c04cd",
+  "bytes": 6223,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/mixlayer/05-favicon.ico",
+  "host": "mixlayer.com",
+  "kind": "google_s2_256"
+}

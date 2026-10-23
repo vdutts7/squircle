@@ -1,0 +1,13 @@
+{
+  "slug": "perplexity-agent",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767353,
+  "winner_source": "models_dev",
+  "winner_sha256": "fa566a280042742ce6b88d6151f0912290a90d653912b97289eea6275fe584ca",
+  "output_phash": "e8329289ce6767c9",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/perplexity-agent.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

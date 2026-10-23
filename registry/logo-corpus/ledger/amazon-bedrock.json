@@ -1,0 +1,13 @@
+{
+  "slug": "amazon-bedrock",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766676,
+  "winner_source": "models_dev",
+  "winner_sha256": "e92fb2106e4a14c3e87ec0a8cf3333bdd4422b9fd98af315d32c6903636ac108",
+  "output_phash": "f45993664e9224ed",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/amazon-bedrock.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

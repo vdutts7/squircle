@@ -1,0 +1,12 @@
+{
+  "slug": "zenmux",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/zenmux/logo.svg",
+  "fetched_at": 1792766566,
+  "sha256": "0c0af88d670c5a2c15c864efb620739377b249c40208693ec493c804b0a756ea",
+  "bytes": 2528,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/zenmux/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/zenmux/logo.svg"
+}

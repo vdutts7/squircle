@@ -1,0 +1,14 @@
+{
+  "slug": "databricks",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/databricks.png?size=512",
+  "fetched_at": 1792765792,
+  "sha256": "96094b2e660f89eb2144157031e2aba0d0a330236e0d6bfb8df2b3178e0e73ff",
+  "bytes": 24845,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/databricks/03-github.png",
+  "login": "databricks",
+  "verified": [
+    "databricks"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "mistral",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Mistral_AI_logo_%282025%E2%80%93%29.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766089,
+  "sha256": "99203d031376460942f69ca9059c15a671aebdd3c6f2c688480e5f5969ff46f2",
+  "bytes": 1434,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/mistral/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Mistral_AI",
+  "article_title": "Mistral AI"
+}

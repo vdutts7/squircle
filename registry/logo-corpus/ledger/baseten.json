@@ -1,0 +1,13 @@
+{
+  "slug": "baseten",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766758,
+  "winner_source": "wikipedia",
+  "winner_sha256": "07ea303cc59915039fc891de0e8b55a11b29fd931c7102e26cc5d208a95bc8b4",
+  "output_phash": "e5939a2c65639a9c",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/baseten.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

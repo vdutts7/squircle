@@ -1,0 +1,12 @@
+{
+  "slug": "cohere",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/0/0c/Cohere_logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765757,
+  "sha256": "1e34b1b88fa285d74c4021c76c1c6b77e1cbbe90e8ede385981447ebfcb93b93",
+  "bytes": 5410,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/cohere/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Cohere",
+  "article_title": "Cohere"
+}

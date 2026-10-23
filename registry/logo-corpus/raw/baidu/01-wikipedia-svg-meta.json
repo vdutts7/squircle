@@ -1,0 +1,12 @@
+{
+  "slug": "baidu",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/f/f4/Baidu.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765684,
+  "sha256": "6ebed5d0a7aa790394a14a9cb207dcfa6c70adac59ecf31c817098b6bb5e0b49",
+  "bytes": 5363,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/baidu/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Baidu",
+  "article_title": "Baidu"
+}

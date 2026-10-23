@@ -1,0 +1,13 @@
+{
+  "slug": "evroc",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766923,
+  "winner_source": "models_dev",
+  "winner_sha256": "03f71b6ed743789aa981d2fe8b05f3e922edd2c962cc89977d7160367b8fbb3e",
+  "output_phash": "eb69b0d6a43c9293",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/evroc.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

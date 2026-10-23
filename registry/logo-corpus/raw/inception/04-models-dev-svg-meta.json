@@ -1,0 +1,12 @@
+{
+  "slug": "inception",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/inception/logo.svg",
+  "fetched_at": 1792765957,
+  "sha256": "fa52be7a7c27050a37671ec537ceb65a2c9e8a2141379a296a6827ed40f03f21",
+  "bytes": 2731,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/inception/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/inception/logo.svg"
+}

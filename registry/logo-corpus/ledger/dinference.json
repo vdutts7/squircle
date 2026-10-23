@@ -1,0 +1,13 @@
+{
+  "slug": "dinference",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766881,
+  "winner_source": "models_dev",
+  "winner_sha256": "0cd5f8e4621ed54e5830633e59a42111093eab88cdee51b6d138bf8b5f311d4d",
+  "output_phash": "b899c76e91631c9c",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/dinference.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

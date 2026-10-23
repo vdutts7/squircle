@@ -1,0 +1,12 @@
+{
+  "slug": "neosmith",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/neosmith/logo.svg",
+  "fetched_at": 1792766181,
+  "sha256": "5643f99338476b9cf641653669136d2c34ed4d735fc64b0803f656bac034496c",
+  "bytes": 5914,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/neosmith/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/neosmith/logo.svg"
+}

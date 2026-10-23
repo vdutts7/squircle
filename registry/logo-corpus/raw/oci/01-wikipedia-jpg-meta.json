@@ -1,0 +1,12 @@
+{
+  "slug": "oci",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Topspot_La_Colombina_%28Liina%29_OCI_c_24_female_kitten_EX1.JPG?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766187,
+  "sha256": "8dcd0a51b0bf5bad38d0a2f1bf72fc0f8b13c6dc65bcae942bd7594f79d7c8bb",
+  "bytes": 211176,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/oci/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Ocicat",
+  "article_title": "Ocicat"
+}

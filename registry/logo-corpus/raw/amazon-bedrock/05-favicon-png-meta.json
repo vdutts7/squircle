@@ -1,0 +1,12 @@
+{
+  "slug": "amazon-bedrock",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=aws.amazon.com&sz=256",
+  "fetched_at": 1792765641,
+  "sha256": "78292e1d054a59e7642cd73bbf2a3ad78455d1a1169e3023b3c23fc6263329c1",
+  "bytes": 1189,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/amazon-bedrock/05-favicon.png",
+  "host": "aws.amazon.com",
+  "kind": "google_s2_256"
+}

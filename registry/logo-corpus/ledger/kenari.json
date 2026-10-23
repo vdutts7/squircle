@@ -1,0 +1,14 @@
+{
+  "slug": "kenari",
+  "verify_status": "pass_cluster",
+  "timestamp": 1792767083,
+  "winner_source": "models_dev",
+  "winner_sha256": "b802e67960fb48903d34c87077950325cb339de4f31ff2c0691f4f6d5aa7a600",
+  "output_phash": "b391cc6633996933",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/kenari.webp",
+  "cluster_sources": [
+    "favicon",
+    "models_dev"
+  ],
+  "cluster_size": 2
+}

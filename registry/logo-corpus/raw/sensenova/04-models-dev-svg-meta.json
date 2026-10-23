@@ -1,0 +1,12 @@
+{
+  "slug": "sensenova",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/sensenova/logo.svg",
+  "fetched_at": 1792766368,
+  "sha256": "9e88b1c1eb0c669f0a0649f1bcaf1c90f3c042f58833a7ffab11c25c34fe63b6",
+  "bytes": 3367,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/sensenova/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/sensenova/logo.svg"
+}

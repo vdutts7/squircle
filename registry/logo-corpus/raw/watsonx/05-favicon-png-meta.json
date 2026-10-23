@@ -1,0 +1,12 @@
+{
+  "slug": "watsonx",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=ibm.com&sz=256",
+  "fetched_at": 1792766546,
+  "sha256": "9a3b2e74facebf37b2af657dccfee7e0b2bd34fe3657d6bc37c3a7de4ab6d323",
+  "bytes": 2379,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/watsonx/05-favicon.png",
+  "host": "ibm.com",
+  "kind": "google_s2_256"
+}

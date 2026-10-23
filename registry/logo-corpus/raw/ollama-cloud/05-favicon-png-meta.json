@@ -1,0 +1,12 @@
+{
+  "slug": "ollama-cloud",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=ollama.com&sz=256",
+  "fetched_at": 1792766221,
+  "sha256": "d746b46ba460614ffbf45e839141e4f889ca4edba46a94ab351725795f4b6ca2",
+  "bytes": 5842,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/ollama-cloud/05-favicon.png",
+  "host": "ollama.com",
+  "kind": "google_s2_256"
+}

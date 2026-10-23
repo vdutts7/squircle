@@ -1,0 +1,12 @@
+{
+  "slug": "bee",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/bee/logo.svg",
+  "fetched_at": 1792765706,
+  "sha256": "5e7cbc0359a0637f6319414e095922e6f168740a9d245e3bf5613ed2718f0d64",
+  "bytes": 9942,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/bee/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/bee/logo.svg"
+}

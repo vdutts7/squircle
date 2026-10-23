@@ -1,0 +1,12 @@
+{
+  "slug": "openbmb",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/8/83/OpenBSD_Logo_-_Cartoon_Puffy_with_textual_logo_below.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766197,
+  "sha256": "454411168067f2a4f1e99b020774ff819c363c7458245b8939a71ffa1c04f7af",
+  "bytes": 124281,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/openbmb/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/OpenBSD",
+  "article_title": "OpenBSD"
+}

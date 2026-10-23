@@ -1,0 +1,13 @@
+{
+  "slug": "elevenlabs",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766899,
+  "winner_source": "wikipedia",
+  "winner_sha256": "bf17912d398bef3816e5d661d685ed454dd42f0d2b933f2f19dec5084e4ee2a3",
+  "output_phash": "ff8ec470b071a271",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/elevenlabs.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

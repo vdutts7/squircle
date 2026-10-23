@@ -1,0 +1,12 @@
+{
+  "slug": "prime",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Prime_Inc._logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766268,
+  "sha256": "14552ca89da412474cc669fc4e8c247a848628ed8a8122de58fd405fda8d5f68",
+  "bytes": 10200,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/prime/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Prime_Inc.",
+  "article_title": "Prime Inc."
+}

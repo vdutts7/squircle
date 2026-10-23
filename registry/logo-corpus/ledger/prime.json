@@ -1,0 +1,13 @@
+{
+  "slug": "prime",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767380,
+  "winner_source": "wikipedia",
+  "winner_sha256": "078dc056c3c8127f32b7d3dffbbe5315b6026d911bdc32a80d5ea0f0aef1d535",
+  "output_phash": "8f3f32d0c4c9c93a",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/prime.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

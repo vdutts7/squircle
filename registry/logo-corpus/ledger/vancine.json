@@ -1,0 +1,13 @@
+{
+  "slug": "vancine",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767590,
+  "winner_source": "models_dev",
+  "winner_sha256": "97fa0ee7013aaad3c16dcfc0141b77ac2f79364a05716ecf22deeeb20bcc2eb9",
+  "output_phash": "eb33909cc66699b1",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/vancine.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

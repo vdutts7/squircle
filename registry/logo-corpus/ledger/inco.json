@@ -1,0 +1,13 @@
+{
+  "slug": "inco",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767045,
+  "winner_source": "wikipedia",
+  "winner_sha256": "ce0244822eb569637eb6aca40520078e7b6b5df49b509f08fd3e31bde99049ed",
+  "output_phash": "992cc69339ccc63b",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/inco.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

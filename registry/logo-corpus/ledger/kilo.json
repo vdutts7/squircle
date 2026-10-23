@@ -1,0 +1,13 @@
+{
+  "slug": "kilo",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767086,
+  "winner_source": "models_dev",
+  "winner_sha256": "3f5d6e18b92e8a5a2e292c41958042e71bf231e262210c8205f243ad11cde884",
+  "output_phash": "bc00c900b3006400",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/kilo.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

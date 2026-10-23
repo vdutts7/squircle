@@ -1,0 +1,13 @@
+{
+  "slug": "alibaba",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766669,
+  "winner_source": "models_dev",
+  "winner_sha256": "a771ea972685f07967ec0267526d5006829809cd36440870f5fa1a4925ac865c",
+  "output_phash": "bce1c30e3cf16706",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/alibaba.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

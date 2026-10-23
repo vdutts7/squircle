@@ -1,0 +1,13 @@
+{
+  "slug": "digitalocean",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766875,
+  "winner_source": "wikipedia",
+  "winner_sha256": "2d1beae6c5dee15ad4df2541221977b9e0b412075134019165865fac6632a256",
+  "output_phash": "e5e19b1ec45d19b0",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/digitalocean.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

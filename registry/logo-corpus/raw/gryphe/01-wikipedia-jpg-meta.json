@@ -1,0 +1,12 @@
+{
+  "slug": "gryphe",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Knossos_fresco_in_throne_palace.JPG?utm_source=en.wikipedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail_unscaled",
+  "fetched_at": 1792765894,
+  "sha256": "a7edce9e4c704015194d8c99e1f5d2f774c988d592981dd55172021c16176952",
+  "bytes": 572549,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/gryphe/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Gryphen",
+  "article_title": "Gryphen"
+}

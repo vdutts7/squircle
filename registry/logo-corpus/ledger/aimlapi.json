@@ -1,0 +1,13 @@
+{
+  "slug": "aimlapi",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766642,
+  "winner_source": "wikipedia",
+  "winner_sha256": "e58a8ffcf9be18b55b1ec30e819243b310a528dd129fc3f1a1f4aae5109e4ae1",
+  "output_phash": "b7864929b4d23ba5",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/aimlapi.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

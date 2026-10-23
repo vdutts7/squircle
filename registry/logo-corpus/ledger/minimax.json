@@ -1,0 +1,13 @@
+{
+  "slug": "minimax",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767180,
+  "winner_source": "models_dev",
+  "winner_sha256": "5337a7014050e2e433a285b6fc3c896d309f62bed5c5cf6f1e37037b6af5dfac",
+  "output_phash": "a566d2990dda7067",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/minimax.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

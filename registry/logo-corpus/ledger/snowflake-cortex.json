@@ -1,0 +1,13 @@
+{
+  "slug": "snowflake-cortex",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767486,
+  "winner_source": "models_dev",
+  "winner_sha256": "a77e4ec8b6a2551e5f7082299626d5d265532f775a5a37152325c0267c6f7974",
+  "output_phash": "ad1ed0c9cb70ccc6",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/snowflake-cortex.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

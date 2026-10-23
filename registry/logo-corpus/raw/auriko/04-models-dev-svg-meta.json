@@ -1,0 +1,12 @@
+{
+  "slug": "auriko",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/auriko/logo.svg",
+  "fetched_at": 1792765693,
+  "sha256": "f2ec3b627b7566e33a2e8b859decedff17604a93e88da298045f09fce43e2a75",
+  "bytes": 1361,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/auriko/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/auriko/logo.svg"
+}

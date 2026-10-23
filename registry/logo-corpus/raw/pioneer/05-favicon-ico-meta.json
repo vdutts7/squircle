@@ -1,0 +1,12 @@
+{
+  "slug": "pioneer",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://agent.pioneer.ai/apple-touch-icon.png",
+  "fetched_at": 1792766281,
+  "sha256": "146b1bfeed3a89dee74b21a2e7d1c81f4c627df190cae397c35da29c40b5598e",
+  "bytes": 10706,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/pioneer/05-favicon.ico",
+  "host": "agent.pioneer.ai",
+  "kind": "apple_touch"
+}

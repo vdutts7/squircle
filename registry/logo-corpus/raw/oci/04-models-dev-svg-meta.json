@@ -1,0 +1,12 @@
+{
+  "slug": "oci",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/oci/logo.svg",
+  "fetched_at": 1792766214,
+  "sha256": "2870a4f9bc6b6390feecb5e846ce282f0740d3aa7ae9d41cd457499e3b48aafc",
+  "bytes": 197,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/oci/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/oci/logo.svg"
+}

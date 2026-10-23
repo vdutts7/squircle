@@ -1,0 +1,12 @@
+{
+  "slug": "aki-io",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Emperor_Akihito_%282016%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765615,
+  "sha256": "f8a892fc4fef696a2c1bc9986e2f1f1a5b4b97cbcfa8021d92c75a1688f6c56e",
+  "bytes": 49223,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/aki-io/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Akihito",
+  "article_title": "Akihito"
+}

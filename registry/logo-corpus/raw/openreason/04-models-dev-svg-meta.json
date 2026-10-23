@@ -1,0 +1,12 @@
+{
+  "slug": "openreason",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/openreason/logo.svg",
+  "fetched_at": 1792766230,
+  "sha256": "1391b646a282ae91ca4b82b3e7b217f072ec3b690c609a67968f5b5658f47fca",
+  "bytes": 617,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/openreason/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/openreason/logo.svg"
+}

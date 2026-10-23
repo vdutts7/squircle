@@ -1,0 +1,12 @@
+{
+  "slug": "tinfoil",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=tinfoil.sh&sz=256",
+  "fetched_at": 1792766460,
+  "sha256": "01d9afdedc6c8ac7bb34e75830f18ee8e33a1a3ae5424c1b1d83109f7f6230b4",
+  "bytes": 1668,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/tinfoil/05-favicon.png",
+  "host": "tinfoil.sh",
+  "kind": "google_s2_256"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "kuaishou",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Kuaishou_logo.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766005,
+  "sha256": "59295d2009edabfb7e99a9971b51fcc19692ab83bde8c8fdcda892ee1879315c",
+  "bytes": 173813,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/kuaishou/01-wikipedia.png",
+  "article_url": "https://en.wikipedia.org/wiki/Kuaishou",
+  "article_title": "Kuaishou"
+}

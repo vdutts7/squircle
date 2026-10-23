@@ -1,0 +1,13 @@
+{
+  "slug": "lucidquery",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767145,
+  "winner_source": "models_dev",
+  "winner_sha256": "be615d46c732e453a1c9bc08be4e110d5f0703af7497b0b9acfe1be7ba9f0be3",
+  "output_phash": "e99b94708ea4da4b",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/lucidquery.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

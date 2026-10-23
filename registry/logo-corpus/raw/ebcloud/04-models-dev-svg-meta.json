@@ -1,0 +1,12 @@
+{
+  "slug": "ebcloud",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/ebcloud/logo.svg",
+  "fetched_at": 1792765832,
+  "sha256": "766402f641a3611aa0c3b7dd2b47850136fbfc60fdfcc8a2db7d67ba6e2e2554",
+  "bytes": 517,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/ebcloud/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/ebcloud/logo.svg"
+}

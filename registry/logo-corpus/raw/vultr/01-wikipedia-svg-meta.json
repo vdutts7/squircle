@@ -1,0 +1,12 @@
+{
+  "slug": "vultr",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/b/b6/Vultr_Logo_2026.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766519,
+  "sha256": "4b6d4a81152ed58a74567a95dbbae979bccd324cb47967f2bf0d5af071c23e31",
+  "bytes": 1925,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/vultr/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Vultr",
+  "article_title": "Vultr"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "mistral",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767184,
+  "winner_source": "wikipedia",
+  "winner_sha256": "9e9bee00bb285f16ef78450c7f0be2426216650bd158bf851020bb541cec256b",
+  "output_phash": "d6837c2d815d835d",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/mistral.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

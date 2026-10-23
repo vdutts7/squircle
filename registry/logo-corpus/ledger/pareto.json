@@ -1,0 +1,13 @@
+{
+  "slug": "pareto",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767329,
+  "winner_source": "models_dev",
+  "winner_sha256": "f8854e14b712482bea84d9b8a33f0594fa230e8a06e22ab08df288dbc425ae33",
+  "output_phash": "bf94d04bc466b239",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/pareto.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

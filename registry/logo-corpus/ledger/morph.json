@@ -1,0 +1,13 @@
+{
+  "slug": "morph",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767224,
+  "winner_source": "wikipedia",
+  "winner_sha256": "45516cc7e4208c05fa1835beebc2dfc9557bf221632c109378cf891e754cbb63",
+  "output_phash": "a6989b67c99ce093",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/morph.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

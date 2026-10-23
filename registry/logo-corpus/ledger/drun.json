@@ -1,0 +1,13 @@
+{
+  "slug": "drun",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766885,
+  "winner_source": "models_dev",
+  "winner_sha256": "7e93be389f6e4c5646a1d1fed029273e1e5a62f3f4802d0558c67b283114068a",
+  "output_phash": "ec93936c6bd01c93",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/drun.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

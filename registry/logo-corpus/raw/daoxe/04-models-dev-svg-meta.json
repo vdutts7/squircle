@@ -1,0 +1,12 @@
+{
+  "slug": "daoxe",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/daoxe/logo.svg",
+  "fetched_at": 1792765791,
+  "sha256": "c5bbdb71cc325c95dba27ce4bf2675a9ad484d7377c95015308d311c450f414e",
+  "bytes": 1634,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/daoxe/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/daoxe/logo.svg"
+}

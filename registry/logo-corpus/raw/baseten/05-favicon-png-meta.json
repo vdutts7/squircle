@@ -1,0 +1,12 @@
+{
+  "slug": "baseten",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=baseten.co&sz=256",
+  "fetched_at": 1792765704,
+  "sha256": "4e00b0228b1fe6a843cf53a6e570828183407af04272d44e708bd7772a036dc8",
+  "bytes": 618,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/baseten/05-favicon.png",
+  "host": "baseten.co",
+  "kind": "google_s2_256"
+}

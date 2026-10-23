@@ -1,0 +1,14 @@
+{
+  "slug": "ambient",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/ambient.png?size=512",
+  "fetched_at": 1792765654,
+  "sha256": "0efa47f31ac945088313c9570358719399740bc07a68a8459541261346be1eeb",
+  "bytes": 13536,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/ambient/03-github.png",
+  "login": "ambient",
+  "verified": [
+    "ambient"
+  ]
+}

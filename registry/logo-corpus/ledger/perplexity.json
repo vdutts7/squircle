@@ -1,0 +1,13 @@
+{
+  "slug": "perplexity",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767347,
+  "winner_source": "wikipedia",
+  "winner_sha256": "a884b6b6491f1705147dbfc59f4b66bcdc5fa83123badf4fa639a79663a0cae3",
+  "output_phash": "eb6f949461637268",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/perplexity.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

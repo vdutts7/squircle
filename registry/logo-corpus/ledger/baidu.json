@@ -1,0 +1,13 @@
+{
+  "slug": "baidu",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766751,
+  "winner_source": "wikipedia",
+  "winner_sha256": "a674b94a279d3815d56d64dd1f0aa500ef84aa82233439ce8d19f151d6af82ee",
+  "output_phash": "e781944ec5799867",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/baidu.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

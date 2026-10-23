@@ -1,0 +1,12 @@
+{
+  "slug": "arcee",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/arcee/logo.svg",
+  "fetched_at": 1792765662,
+  "sha256": "6326d6cecb8a6014208aa5f5d41fd1ec9ef8a2e11eedcda10dcf227058c95bb6",
+  "bytes": 322,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/arcee/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/arcee/logo.svg"
+}

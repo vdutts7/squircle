@@ -1,0 +1,13 @@
+{
+  "slug": "claudinio",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766800,
+  "winner_source": "models_dev",
+  "winner_sha256": "97b9c585bad06e9c07f0d3ce9f05e8ce05ef46a5bd3a6f368ee343c45109d8c7",
+  "output_phash": "afc8fc24f283c338",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/claudinio.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

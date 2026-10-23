@@ -1,0 +1,13 @@
+{
+  "slug": "rekaai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767413,
+  "winner_source": "wikipedia",
+  "winner_sha256": "e966a15bac24b94b248e3c53e28280d306b556959b2aa6612a2aeb5d4dc36d94",
+  "output_phash": "9a34e76b618ec94c",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/rekaai.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

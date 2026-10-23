@@ -1,6 +1,6 @@
 {
   "$schema": "v1",
-  "variant_regex": "-(coding-plan|token-plan|code-plan)(-|$)|-vertex(-|$)|-cn$",
+  "variant_regex": "-(coding-plan|token-plan|code-plan|step-plan)(-|$)|-vertex(-|$)|-cn$",
   "slugs": [
     {
       "slug": "302ai",
@@ -981,15 +981,6 @@
       "reason_if_excluded": null
     },
     {
-      "slug": "iflowcn",
-      "sources": [
-        "providers"
-      ],
-      "in_scope": true,
-      "reason_if_excluded": null,
-      "providers_svg": "/private/tmp/models.dev-dev/providers/iflowcn/logo.svg"
-    },
-    {
       "slug": "impossibl",
       "sources": [
         "providers"
@@ -1243,15 +1234,6 @@
       "in_scope": true,
       "reason_if_excluded": null,
       "providers_svg": "/private/tmp/models.dev-dev/providers/liquid/logo.svg"
-    },
-    {
-      "slug": "llama",
-      "sources": [
-        "providers"
-      ],
-      "in_scope": true,
-      "reason_if_excluded": null,
-      "providers_svg": "/private/tmp/models.dev-dev/providers/llama/logo.svg"
     },
     {
       "slug": "llmgateway",
@@ -2219,8 +2201,8 @@
       "sources": [
         "providers"
       ],
-      "in_scope": true,
-      "reason_if_excluded": null,
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
       "providers_svg": "/private/tmp/models.dev-dev/providers/stepfun-ai-step-plan/logo.svg"
     },
     {
@@ -2228,8 +2210,8 @@
       "sources": [
         "providers"
       ],
-      "in_scope": true,
-      "reason_if_excluded": null,
+      "in_scope": false,
+      "reason_if_excluded": "routing_variant",
       "providers_svg": "/private/tmp/models.dev-dev/providers/stepfun-step-plan/logo.svg"
     },
     {

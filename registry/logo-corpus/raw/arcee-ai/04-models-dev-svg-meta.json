@@ -1,0 +1,12 @@
+{
+  "slug": "arcee-ai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/labs/arcee-ai/logo.svg",
+  "fetched_at": 1792765667,
+  "sha256": "a68cc4c356fd96be79d0068fbd47da2bba764d06b4aecfe6092589c8515b5cf2",
+  "bytes": 318,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/arcee-ai/04-models_dev.svg",
+  "clone_subdir": "labs",
+  "clone_path": "/private/tmp/models.dev-dev/labs/arcee-ai/logo.svg"
+}

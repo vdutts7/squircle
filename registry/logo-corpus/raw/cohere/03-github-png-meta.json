@@ -1,0 +1,14 @@
+{
+  "slug": "cohere",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/Cohere.png?size=512",
+  "fetched_at": 1792765769,
+  "sha256": "3f4b5f7854bfa3b9e1c91de46a0866c6f2aac6c859530f4419672012bfb3182a",
+  "bytes": 1549,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/cohere/03-github.png",
+  "login": "Cohere",
+  "verified": [
+    "Cohere"
+  ]
+}

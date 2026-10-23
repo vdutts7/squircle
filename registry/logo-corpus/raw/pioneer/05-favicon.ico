@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Paint the saved theme before the module bundle. SettingsProvider
+       applies the same `app-theme` rules after React mounts; until that
+       effect runs, the browser canvas is white. Colours match --background
+       in src/styles/theme.css (light oklch(1 0 0), dark oklch(0.145 0 0)). -->
+  <script id="theme-boot">
+    (function () {
+      var theme;
+      try {
+        theme = localStorage.getItem('app-theme');
+      } catch (e) {
+        return;
+      }
+      var dark = theme === 'dark';
+      if (!dark && theme === 'system') {
+        try {
+          dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        } catch (e) {
+          dark = false;
+        }
+      }
+      if (dark) document.documentElement.classList.add('dark');
+    })();
+  </script>
+  <style id="theme-canvas">
+    html { background-color: #fff; background-color: oklch(1 0 0); color-scheme: light; }
+    html.dark { background-color: #0a0a0a; background-color: oklch(0.145 0 0); color-scheme: dark; }
+  </style>
+
+  <!-- Build provenance (ENG-7096). `stampCommitShaPlugin` in vite.config.ts
+       rewrites this content at build time with the commit Vercel built from
+       (VERCEL_GIT_COMMIT_SHA). A local `bun run dev`/`bun run build` has no
+       such variable, so it keeps the literal "dev" below — never a broken
+       placeholder. The deployed-dev nightly curls this document and reports
+       the value, so every run names the frontend that produced it. Renaming
+       or reformatting this tag fails the build and the nightly's preflight. -->
+  <meta name="pioneer-commit-sha" content="a32c94b8678aecb81bbfe3b003619880bed45b86" />
+
+  <!-- Google Tag Manager, GA4 and Google Ads are loaded by
+       src/lib/marketing-tags.ts on production hosts only, so previews, dev,
+       staging and localhost never reach the production ad accounts. Do not
+       add them back here. The GTM <noscript> iframe stays omitted: it points
+       at googletagmanager.com, which is not in the frame-src CSP. -->
+
+  <title>Fastino Labs</title>
+  <meta name="description" content="Fastino AI — Fine-tune, evaluate, and deploy small language models and LLMs. OpenAI and Anthropic-compatible API. Full docs at https://docs.fastino.ai/llms.txt" />
+  <meta name="author" content="Fastino" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable documentation index" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM-readable full documentation" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://agent.fastino.ai/" />
+  <meta property="og:title" content="Fastino Labs" />
+  <meta property="og:description" content="Inference and Post-Train Open Source Models" />
+  <meta property="og:image" content="https://agent.fastino.ai/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Fastino" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://agent.fastino.ai/" />
+  <meta name="twitter:title" content="Fastino Labs" />
+  <meta name="twitter:description" content="Inference and Post-Train Open Source Models" />
+  <meta name="twitter:image" content="https://agent.fastino.ai/og.png" />
+  <meta name="twitter:site" content="@fastinoAI" />
+  <meta name="twitter:creator" content="@fastinoAI" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Fastino AI",
+        "legalName": "Fastino Labs",
+        "url": "https://agent.fastino.ai",
+        "logo": "https://agent.fastino.ai/fastino-logo.svg",
+        "description": "Fastino Labs builds open language and decision models for agentic AI, including GLiNER, GLiDE and the Fastino fine-tuning agent.",
+        "sameAs": [
+          "https://x.com/fastinoAI",
+          "https://www.linkedin.com/company/fastinoai/",
+          "https://www.youtube.com/@Fastino-Labs"
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Fastino AI",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "url": "https://agent.fastino.ai",
+        "description": "Decision and extraction models through one API. GLiDE returns classification, routing, and scoring decisions as calibrated probabilities, and the GLiNER family handles structured extraction. Fine-tune GLiNER on your own data with the Training API or the fine-tuning agent, evaluate it, and call it through OpenAI and Anthropic-compatible endpoints.",
+        "featureList": [
+          "GLiDE decision model for classification, routing, and scoring with calibrated probabilities (POST /v1/systemone)",
+          "Named Entity Recognition (NER), relation, and structured extraction with GLiNER 2.5 and GLiNER2 models",
+          "Text classification (single-label and multi-label), including GLiNER-2.5-Decide for fast English classification",
+          "GLiGuard models for LLM guardrails and multilingual PII detection",
+          "Fine-tune GLiNER models with LoRA or full fine-tuning",
+          "Fine-tuning agent that plans and runs fine-tunes, including synthetic datasets generated from a text prompt",
+          "OpenAI-compatible API (POST /v1/chat/completions)",
+          "Anthropic-compatible API (POST /v1/messages)",
+          "Model evaluation with F1, precision, and recall",
+          "Dataset upload (JSON, JSONL, CSV up to 50 MB)"
+        ],
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "GLiDE inference",
+            "price": "0.15",
+            "priceCurrency": "USD",
+            "url": "https://docs.fastino.ai/pricing",
+            "description": "Per 1M input tokens, output tokens free. Pay as you go from prepaid credits."
+          },
+          {
+            "@type": "Offer",
+            "name": "GLiNER inference",
+            "price": "0.03",
+            "priceCurrency": "USD",
+            "url": "https://docs.fastino.ai/pricing",
+            "description": "Per 1M input tokens on GLiNER 2.5, GLiNER-2.5-Decide and GLiNER2, output tokens free. Pay as you go from prepaid credits."
+          },
+          {
+            "@type": "Offer",
+            "name": "GLiNER fine-tuning",
+            "price": "0.07",
+            "priceCurrency": "USD",
+            "url": "https://docs.fastino.ai/pricing",
+            "description": "Per training minute ($4.20 per hour). Pay as you go from prepaid credits."
+          }
+        ],
+        "publisher": {
+          "@type": "Organization",
+          "name": "Fastino Labs"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do you charge for storage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We currently do not charge for storage of any of the datasets created."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does pricing work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pay as you go. Inference and training spend prepaid credits that you buy from Billing, with optional auto-reload and a monthly spend limit. Inference is billed per input token and GLiNER fine-tuning per training minute; current rates are at https://docs.fastino.ai/pricing. For enterprise terms, contact support@fastino.ai."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer special pricing for students, non-profits, and open source projects?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Open source projects, 501c3 organizations, and students working on research projects can contact support@fastino.ai for discounted credits."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you train on our data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "By default, we may use the inputs and outputs you send through the API to improve our models. Enterprise customers can opt out of platform training in Settings, and eligible requests can set store: false so the input and output are never stored."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I share models with my teammates using Teams?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Everyone on a team works in the same workspace, on the same projects, datasets, training runs and evaluations, and spends the team's credits. You choose what each teammate can do when you invite them."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <script type="module" crossorigin src="/assets/index-S8GliFcG.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BIAhtV7X.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <noscript>
+    <h1>Fastino Labs</h1>
+    <p>Fastino Labs builds open language and decision models for agentic AI, including GLiNER, GLiDE and the Fastino fine-tuning agent.</p>
+    <p>Base URL: https://api.fastino.ai</p>
+    <h2>Documentation</h2>
+    <p>For the full machine-readable documentation, visit: <a href="https://docs.fastino.ai/llms.txt">https://docs.fastino.ai/llms.txt</a></p>
+    <h2>Quick Start</h2>
+    <ol>
+      <li>Get an API key from Settings → API Keys</li>
+      <li>Upload or generate a dataset (JSON, JSONL, or CSV)</li>
+      <li>Start a training job with POST /v1/training/jobs</li>
+      <li>Evaluate with project-scoped Evaluation Suites</li>
+      <li>Run inference with POST /v1/chat/completions, or get a GLiDE decision with POST /v1/systemone</li>
+    </ol>
+    <h2>API Formats</h2>
+    <ul>
+      <li>GLiDE decisions: POST /v1/systemone with model fastino/GLiDE</li>
+      <li>OpenAI-compatible: POST /v1/chat/completions (set base_url to https://api.fastino.ai/v1)</li>
+      <li>Anthropic-compatible: POST /v1/messages (set base_url to https://api.fastino.ai)</li>
+    </ul>
+    <p>Auth: Include your API key in the X-API-Key header. Keys start with fast_sk_ (pio_sk_ keys are retired).</p>
+    <p>Full documentation: <a href="https://docs.fastino.ai/llms.txt">https://docs.fastino.ai/llms.txt</a></p>
+  </noscript>
+</body>
+
+</html>

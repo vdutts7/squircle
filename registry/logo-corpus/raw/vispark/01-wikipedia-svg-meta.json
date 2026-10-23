@@ -1,0 +1,12 @@
+{
+  "slug": "vispark",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/b/bd/Vistara_Logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766501,
+  "sha256": "190d79d7b653566a269a561f93ff6b038cd3201e097296eda5f9d51f6ba899f1",
+  "bytes": 12884,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/vispark/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Vistara",
+  "article_title": "Vistara"
+}

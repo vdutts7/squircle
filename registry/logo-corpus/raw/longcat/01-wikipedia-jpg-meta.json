@@ -1,0 +1,12 @@
+{
+  "slug": "longcat",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/3/3d/Longcat_is_loooooooooong.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766043,
+  "sha256": "0ff91f4a0378c029de56749e186a4114c279e1ec0b953fc7e86691b3287c9d31",
+  "bytes": 26538,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/longcat/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Longcat",
+  "article_title": "Longcat"
+}

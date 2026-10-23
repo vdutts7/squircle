@@ -1,0 +1,12 @@
+{
+  "slug": "aiand",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/aiand/logo.svg",
+  "fetched_at": 1792765620,
+  "sha256": "a516d5ebc194f286ef62426b68d27937b482ff4995bbb2d9e5b7985820a72d04",
+  "bytes": 634,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/aiand/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/aiand/logo.svg"
+}

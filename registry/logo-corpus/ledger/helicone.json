@@ -1,0 +1,13 @@
+{
+  "slug": "helicone",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766997,
+  "winner_source": "models_dev",
+  "winner_sha256": "a1c56dc2affd0d93d63ebb4245dd3507e0293c368f98559b8e1d0936de1cd020",
+  "output_phash": "ae39c3869b696c92",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/helicone.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

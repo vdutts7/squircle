@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vispark Lab - AI Playground & API Platform</title>
+    <meta name="description" content="Access 14 state-of-the-art AI models including Vision, Text-to-Image, Voice Generation, Video Creation, and more. Professional API platform for developers with real-time playground." />
+    <meta name="author" content="Vispark Lab" />
+    <meta name="keywords" content="AI API, Vision AI, Text to Image, Voice Generation, Video AI, Speech Recognition, Audio Processing, AI Playground, Developer Platform, Machine Learning API" />
+    <link rel="icon" href="/logo.png" type="image/png">
+    <link rel="canonical" href="https://lab.vispark.in" />
+
+    <meta property="og:title" content="Vispark Lab - AI Playground & API Platform" />
+    <meta property="og:description" content="Professional AI platform with 14 cutting-edge models for Vision, Image, Audio, and Video processing. Interactive playground and developer-friendly APIs." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/banner.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@vispark_" />
+    <meta name="twitter:image" content="/banner.png" />
+    <script type="module" crossorigin src="/assets/index-g5phCnAo.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BKvVcvdG.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

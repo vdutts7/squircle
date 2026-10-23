@@ -1,0 +1,12 @@
+{
+  "slug": "lightonai",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://thumb.wikimedia.org/wikipedia/commons/c/ca/Gold_Line_train_on_East_1st_Street%2C_July_2017.JPG",
+  "fetched_at": 1792766008,
+  "sha256": "ed5b4ac56c9c44008484fbb177fc9072812c242c77c3ca9fc5137a9370413af3",
+  "bytes": 255532,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/lightonai/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Light_rail",
+  "article_title": "Light rail"
+}

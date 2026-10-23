@@ -1,0 +1,14 @@
+{
+  "slug": "assemblyai",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/AssemblyAI.png?size=512",
+  "fetched_at": 1792765683,
+  "sha256": "c1e986fcf2dc0bcb696e37e3649c9239f4dc37e56f927ea2b733c97ccf783bf1",
+  "bytes": 27037,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/assemblyai/03-github.png",
+  "login": "AssemblyAI",
+  "verified": [
+    "AssemblyAI"
+  ]
+}

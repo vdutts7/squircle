@@ -1,0 +1,12 @@
+{
+  "slug": "merge-gateway",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=merge.dev&sz=256",
+  "fetched_at": 1792766088,
+  "sha256": "5629c9e468ad27bb6a8bb04e605f357f432b4fa7f883b688cade7eca330e07c7",
+  "bytes": 6396,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/merge-gateway/05-favicon.png",
+  "host": "merge.dev",
+  "kind": "google_s2_256"
+}

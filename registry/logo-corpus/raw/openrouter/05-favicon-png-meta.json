@@ -1,0 +1,12 @@
+{
+  "slug": "openrouter",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=openrouter.ai&sz=256",
+  "fetched_at": 1792766231,
+  "sha256": "11bda3de1005776450d6968eb59fda723104b7858aee0921b3001dab80e014f1",
+  "bytes": 2106,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/openrouter/05-favicon.png",
+  "host": "openrouter.ai",
+  "kind": "google_s2_256"
+}

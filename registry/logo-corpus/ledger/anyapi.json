@@ -1,0 +1,13 @@
+{
+  "slug": "anyapi",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766700,
+  "winner_source": "wikipedia",
+  "winner_sha256": "ba33f1ec86e9e06c42fb99835c1773e56bdd0277930ab2d35e5bfc3c1ce49b68",
+  "output_phash": "b98dc63399cc8633",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/anyapi.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

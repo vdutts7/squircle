@@ -1,0 +1,13 @@
+{
+  "slug": "zenmux",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767695,
+  "winner_source": "wikipedia",
+  "winner_sha256": "d6eae3d35d9ba088714a4a8be2a8f018dbaeb360fa2a62bb870649a9460f732b",
+  "output_phash": "e57996cc699394a4",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/zenmux.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

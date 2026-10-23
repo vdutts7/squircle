@@ -1,0 +1,13 @@
+{
+  "slug": "requesty",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767415,
+  "winner_source": "wikipedia",
+  "winner_sha256": "1b08ffcf85a1fb1f5abc86d2e31a6c11cebc5b7d83b1976aa03cffe64228b479",
+  "output_phash": "999236c1c736cc6d",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/requesty.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

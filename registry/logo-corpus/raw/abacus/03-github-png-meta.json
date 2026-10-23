@@ -1,0 +1,14 @@
+{
+  "slug": "abacus",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/Abacus.png?size=512",
+  "fetched_at": 1792765585,
+  "sha256": "febf03f967ac75a201dd475713a0911226270ed4bbb95b1eb3fb4568edeab910",
+  "bytes": 141028,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/abacus/03-github.png",
+  "login": "Abacus",
+  "verified": [
+    "Abacus"
+  ]
+}

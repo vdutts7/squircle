@@ -1,0 +1,13 @@
+{
+  "slug": "azure",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766731,
+  "winner_source": "wikipedia",
+  "winner_sha256": "5ab5655caed9405a2b4b90db212108b06ce9c9e53b0a26b8826a0b9e6fd298bf",
+  "output_phash": "bccbc3349cca6127",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/azure.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

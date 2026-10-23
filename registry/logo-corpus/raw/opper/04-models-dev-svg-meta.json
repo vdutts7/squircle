@@ -1,0 +1,12 @@
+{
+  "slug": "opper",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/opper/logo.svg",
+  "fetched_at": 1792766259,
+  "sha256": "d0d68501145febd9334891476c6106766036d7a422c61fca5c4ff2bb1bd991ee",
+  "bytes": 478,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/opper/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/opper/logo.svg"
+}

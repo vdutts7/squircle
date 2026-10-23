@@ -1,0 +1,12 @@
+{
+  "slug": "zeldoc",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/zeldoc/logo.svg",
+  "fetched_at": 1792766558,
+  "sha256": "c8beb79fb22b6562585bbce7ef14716b36142e7eb49e049d71d2c2f1e9be524a",
+  "bytes": 915,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/zeldoc/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/zeldoc/logo.svg"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "venice",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/venice/logo.svg",
+  "fetched_at": 1792766515,
+  "sha256": "cc81fc540f89be47cf7da53f208ef0ac728b7f54d708282c6de11f3ffec6e596",
+  "bytes": 4339,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/venice/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/venice/logo.svg"
+}

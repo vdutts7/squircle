@@ -1,0 +1,13 @@
+{
+  "slug": "ai-router",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766626,
+  "winner_source": "models_dev",
+  "winner_sha256": "347054278b1de971e7cffcd62972ee650b76acedc14c28901f14d20f85bbefb8",
+  "output_phash": "ed829269cf92386d",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/ai-router.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

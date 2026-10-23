@@ -1,0 +1,12 @@
+{
+  "slug": "tempr",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=temprhq.io&sz=256",
+  "fetched_at": 1792766435,
+  "sha256": "973ee28a74b351ab7b3cd04f0a0b9808b90a2c5ad2b62e6ad463d283bdd1fe6b",
+  "bytes": 9446,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/tempr/05-favicon.png",
+  "host": "temprhq.io",
+  "kind": "google_s2_256"
+}

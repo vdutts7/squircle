@@ -1,0 +1,13 @@
+{
+  "slug": "boundless",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766782,
+  "winner_source": "models_dev",
+  "winner_sha256": "3b1cfa21e93a2ff8674552bdf32e8df9d5cb4784e7742dde51cbb06c57767244",
+  "output_phash": "af95e0d0cc6d8c66",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/boundless.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

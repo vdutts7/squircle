@@ -1,0 +1,12 @@
+{
+  "slug": "xiaomi",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/xiaomi/logo.svg",
+  "fetched_at": 1792766569,
+  "sha256": "079225d086f52e3e6377c937ae3c6e50298bf7b69efcf9e78742a66696ad42ed",
+  "bytes": 1734,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/xiaomi/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/xiaomi/logo.svg"
+}

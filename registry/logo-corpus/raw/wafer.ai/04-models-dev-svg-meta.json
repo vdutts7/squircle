@@ -1,0 +1,12 @@
+{
+  "slug": "wafer.ai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/wafer.ai/logo.svg",
+  "fetched_at": 1792766531,
+  "sha256": "0d67e28cbf4b2f3f8d961125e40d716606ab0720504417fb6b4f20b275a1d1ef",
+  "bytes": 2873,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/wafer.ai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/wafer.ai/logo.svg"
+}

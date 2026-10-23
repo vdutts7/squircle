@@ -1,0 +1,12 @@
+{
+  "slug": "venice",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=venice.ai&sz=256",
+  "fetched_at": 1792766516,
+  "sha256": "07141a3c83dd3641d45f83348db88acb691b08a019a704953ed08729824943cc",
+  "bytes": 6149,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/venice/05-favicon.png",
+  "host": "venice.ai",
+  "kind": "google_s2_256"
+}

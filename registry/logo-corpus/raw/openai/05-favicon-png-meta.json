@@ -1,0 +1,12 @@
+{
+  "slug": "openai",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=openai.com&sz=256",
+  "fetched_at": 1792766222,
+  "sha256": "7e2a0116642ea3c9c3200dc50b4f8d5f66caf3e96e4fc6614192490cd9396cfa",
+  "bytes": 2556,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/openai/05-favicon.png",
+  "host": "openai.com",
+  "kind": "google_s2_256"
+}

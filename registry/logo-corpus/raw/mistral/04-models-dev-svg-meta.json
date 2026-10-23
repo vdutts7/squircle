@@ -1,0 +1,12 @@
+{
+  "slug": "mistral",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/mistral/logo.svg",
+  "fetched_at": 1792766115,
+  "sha256": "4d2b60e6e7397b2c6a30954e5ad8d8738c4916760c9dc15ccd779a53cae701f6",
+  "bytes": 397,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/mistral/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/mistral/logo.svg"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "engy",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766907,
+  "winner_source": "wikipedia",
+  "winner_sha256": "10337e2bf2fd883892c32e9035a0d74a7361bed94c4ac45f6ba2addc77ad6716",
+  "output_phash": "8ec1f13e386367c4",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/engy.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

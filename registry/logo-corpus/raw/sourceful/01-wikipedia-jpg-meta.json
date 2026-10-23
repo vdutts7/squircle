@@ -1,0 +1,12 @@
+{
+  "slug": "sourceful",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/SourceFed_logo_2013-08-25_00-26.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766375,
+  "sha256": "9f4f791dd40f574abfec3f3440c9fabde176416b2d60051513dbd17f6771c866",
+  "bytes": 91616,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/sourceful/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/SourceFed",
+  "article_title": "SourceFed"
+}

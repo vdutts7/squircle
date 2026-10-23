@@ -1,0 +1,12 @@
+{
+  "slug": "gitlab",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=gitlab.com&sz=256",
+  "fetched_at": 1792765902,
+  "sha256": "5ff0dd12dfa935de6187852748dc4847eb5264cff2703996d28720fe7f9f2288",
+  "bytes": 6863,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/gitlab/05-favicon.png",
+  "host": "gitlab.com",
+  "kind": "google_s2_256"
+}

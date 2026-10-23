@@ -1,0 +1,13 @@
+{
+  "slug": "nova",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767262,
+  "winner_source": "wikipedia",
+  "winner_sha256": "9ef657226315e281f66a1db4b5eb6f174fc9c605ab8e5c725e6cdfac67c9d9b3",
+  "output_phash": "c3393cc2c2396ddc",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/nova.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

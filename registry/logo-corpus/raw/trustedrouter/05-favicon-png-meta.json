@@ -1,0 +1,12 @@
+{
+  "slug": "trustedrouter",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=trustedrouter.com&sz=256",
+  "fetched_at": 1792766488,
+  "sha256": "4d677a4eac7524086e97c5a60d62aa5abb1ac4f29d21b1970fa929f9bf32448c",
+  "bytes": 2249,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/trustedrouter/05-favicon.png",
+  "host": "trustedrouter.com",
+  "kind": "google_s2_256"
+}

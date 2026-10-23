@@ -1,0 +1,12 @@
+{
+  "slug": "unorouter",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/unorouter/logo.svg",
+  "fetched_at": 1792766505,
+  "sha256": "8f4586bba3d8dd42991c75a9fb98411a93bcbc840ea24a58edd3123b6433394f",
+  "bytes": 661,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/unorouter/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/unorouter/logo.svg"
+}

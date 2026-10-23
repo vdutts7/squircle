@@ -1,0 +1,12 @@
+{
+  "slug": "kilo",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=kilo.ai&sz=256",
+  "fetched_at": 1792765999,
+  "sha256": "40d79ff701fc1605a5829f15c43878ca6e113854dacb4d4b04455ca9bebf3601",
+  "bytes": 3767,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/kilo/05-favicon.png",
+  "host": "kilo.ai",
+  "kind": "google_s2_256"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "sarvam",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767456,
+  "winner_source": "wikipedia",
+  "winner_sha256": "037c7a20844716f409167901657ede30caa87e249c9d0ee7c8f4049834bf1908",
+  "output_phash": "983863c3966fc9c9",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/sarvam.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

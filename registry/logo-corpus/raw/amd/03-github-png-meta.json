@@ -1,0 +1,14 @@
+{
+  "slug": "amd",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/amd.png?size=512",
+  "fetched_at": 1792765656,
+  "sha256": "05d1458fcbde0914740d12e1b98bd19c0aa1a912f14c0257f42167d904b75dba",
+  "bytes": 5473,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/amd/03-github.png",
+  "login": "amd",
+  "verified": [
+    "amd"
+  ]
+}

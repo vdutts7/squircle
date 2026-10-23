@@ -1,0 +1,12 @@
+{
+  "slug": "echo",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=echo.tracerml.ai&sz=256",
+  "fetched_at": 1792765840,
+  "sha256": "e3ccdfb7576f76ed83aa75d3136520aff4a6f04a69c821110d15b667bf640a84",
+  "bytes": 1546,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/echo/05-favicon.png",
+  "host": "echo.tracerml.ai",
+  "kind": "google_s2_256"
+}

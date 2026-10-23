@@ -1,0 +1,13 @@
+{
+  "slug": "above",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766606,
+  "winner_source": "models_dev",
+  "winner_sha256": "0cdf71366f405c6b77b96e0a90fdef12be75e5f71d17271784be88ebf69b4f36",
+  "output_phash": "e6cc99672433c6cc",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/above.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

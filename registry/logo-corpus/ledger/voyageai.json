@@ -1,0 +1,13 @@
+{
+  "slug": "voyageai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767623,
+  "winner_source": "wikipedia",
+  "winner_sha256": "8a58100c9d4d93e8b47da3b36cb1f4c4226359ff276ab56b73fa02bf46b8b865",
+  "output_phash": "b83cc7c730383cc7",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/voyageai.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

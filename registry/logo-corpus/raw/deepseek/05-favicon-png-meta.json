@@ -1,0 +1,12 @@
+{
+  "slug": "deepseek",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=api-docs.deepseek.com&sz=256",
+  "fetched_at": 1792765809,
+  "sha256": "854024a7f2c84a8f1bc45008ce23d342563d80f1c6c363677dd72255bab99d3a",
+  "bytes": 827,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/deepseek/05-favicon.png",
+  "host": "api-docs.deepseek.com",
+  "kind": "google_s2_256"
+}

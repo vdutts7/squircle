@@ -1,0 +1,12 @@
+{
+  "slug": "subconscious",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/subconscious/logo.svg",
+  "fetched_at": 1792766432,
+  "sha256": "a275aa9f7ad5a425daa360cc8065d6011bf5298149988f08900c2c8a4512f854",
+  "bytes": 5023,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/subconscious/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/subconscious/logo.svg"
+}

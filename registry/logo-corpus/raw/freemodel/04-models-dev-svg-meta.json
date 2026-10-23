@@ -1,0 +1,12 @@
+{
+  "slug": "freemodel",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/freemodel/logo.svg",
+  "fetched_at": 1792765869,
+  "sha256": "428305a95af79b4b3a91f6f188fa7f37ade512ba63069f752e5161b11606559d",
+  "bytes": 334,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/freemodel/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/freemodel/logo.svg"
+}

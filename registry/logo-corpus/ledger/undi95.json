@@ -1,0 +1,13 @@
+{
+  "slug": "undi95",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767583,
+  "winner_source": "wikipedia",
+  "winner_sha256": "9b6a8fd0f22f5172c82feebd01c33b3aaedf4d08094b413d007f4f6213f99084",
+  "output_phash": "bb68c481656e3af1",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/undi95.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

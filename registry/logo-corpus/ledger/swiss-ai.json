@@ -1,0 +1,13 @@
+{
+  "slug": "swiss-ai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767522,
+  "winner_source": "wikipedia",
+  "winner_sha256": "0f94414ac96f05c3bae03fdd3c3af8913ef3c2b7d7cd9baea1dc62bb2ae57ea7",
+  "output_phash": "fad2c135b4c9b2a8",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/swiss-ai.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

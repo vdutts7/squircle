@@ -1,0 +1,13 @@
+{
+  "slug": "deepseek",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766870,
+  "winner_source": "wikipedia",
+  "winner_sha256": "d1e0ac7a25c94e80594bb5e3f6a8cd4d86cb0016dfb5ccefb80b042b35e961fc",
+  "output_phash": "bf9c9160609f709d",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/deepseek.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

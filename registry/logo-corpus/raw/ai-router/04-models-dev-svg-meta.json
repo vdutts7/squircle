@@ -1,0 +1,12 @@
+{
+  "slug": "ai-router",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/ai-router/logo.svg",
+  "fetched_at": 1792765584,
+  "sha256": "d5d1a28e4e95d36ebe865f0bd06d7854c98008389dc88a2d40470c7b22185fda",
+  "bytes": 749,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/ai-router/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/ai-router/logo.svg"
+}

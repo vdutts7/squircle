@@ -1,0 +1,12 @@
+{
+  "slug": "zhipuai",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=bigmodel.cn&sz=256",
+  "fetched_at": 1792766573,
+  "sha256": "8e68f203c9c7cd5e3ec56b66a4d0692871a3b7e9416f8e41472d0c20ea864344",
+  "bytes": 1437,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/zhipuai/05-favicon.png",
+  "host": "bigmodel.cn",
+  "kind": "google_s2_256"
+}

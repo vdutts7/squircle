@@ -1,0 +1,12 @@
+{
+  "slug": "runinfra",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/runinfra/logo.svg",
+  "fetched_at": 1792766340,
+  "sha256": "727c332e0f9114e36293e623113d867fa6c899f4a4dcb512dc06c15ee9905a68",
+  "bytes": 480,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/runinfra/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/runinfra/logo.svg"
+}

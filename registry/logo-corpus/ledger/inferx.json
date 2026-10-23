@@ -1,0 +1,13 @@
+{
+  "slug": "inferx",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767054,
+  "winner_source": "models_dev",
+  "winner_sha256": "4348ef99f303dad1fd4a2ed4f4716d3177fd18a1067a8bce61657abca4be8d6c",
+  "output_phash": "b199ce6632d93932",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/inferx.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

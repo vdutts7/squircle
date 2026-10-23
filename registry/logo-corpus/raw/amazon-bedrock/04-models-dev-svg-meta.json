@@ -1,0 +1,12 @@
+{
+  "slug": "amazon-bedrock",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/amazon-bedrock/logo.svg",
+  "fetched_at": 1792765640,
+  "sha256": "28a6d29994e72042e71efb4d31b2ed90861237ce57407e5fe7771622c02a3eac",
+  "bytes": 5535,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/amazon-bedrock/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/amazon-bedrock/logo.svg"
+}

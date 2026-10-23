@@ -1,0 +1,13 @@
+{
+  "slug": "freemodel",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766940,
+  "winner_source": "wikipedia",
+  "winner_sha256": "da1380a2613b67f2cccb06c1282615ff58c8e84232d4c1ee64f4e29dde9a3eec",
+  "output_phash": "ef9d916062926f91",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/freemodel.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

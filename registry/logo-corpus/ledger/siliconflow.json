@@ -1,0 +1,13 @@
+{
+  "slug": "siliconflow",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767482,
+  "winner_source": "models_dev",
+  "winner_sha256": "c5ea080f9c37b9988abb23b52c298dfc7844277cff7f27f3eb52e6692c47ba56",
+  "output_phash": "bde4c21b2de4921b",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/siliconflow.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

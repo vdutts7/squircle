@@ -1,0 +1,14 @@
+{
+  "slug": "302ai",
+  "verify_status": "pass_cluster",
+  "timestamp": 1792766589,
+  "winner_source": "models_dev",
+  "winner_sha256": "c6bd496f50e83fed89e51467c8183bd2e6c943edd430e26cfbd268611b8fd02f",
+  "output_phash": "ca9635689263cf8d",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/302ai.webp",
+  "cluster_sources": [
+    "favicon",
+    "models_dev"
+  ],
+  "cluster_size": 2
+}

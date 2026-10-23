@@ -1,0 +1,13 @@
+{
+  "slug": "greenpt",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766975,
+  "winner_source": "wikipedia",
+  "winner_sha256": "973488b19b88fe27841fa2fd9cff2cfaef29122da3e5801db8a7cf0556326deb",
+  "output_phash": "b558caa71f48a13e",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/greenpt.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

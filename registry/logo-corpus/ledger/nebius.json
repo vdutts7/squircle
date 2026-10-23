@@ -1,0 +1,13 @@
+{
+  "slug": "nebius",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767240,
+  "winner_source": "models_dev",
+  "winner_sha256": "8b11c8b4fae7a863c9b8fa4e486e9595523f8b83e1dc75e647c4e88577b79ce1",
+  "output_phash": "ebd1842e133969d3",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/nebius.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

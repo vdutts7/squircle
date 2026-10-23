@@ -1,0 +1,12 @@
+{
+  "slug": "agentrouter",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/agentrouter/logo.svg",
+  "fetched_at": 1792765584,
+  "sha256": "76478bd98302d4b0ea6bbd3851371e61ab81563a1be44d0fff21d80fdcc5ab07",
+  "bytes": 370,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/agentrouter/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/agentrouter/logo.svg"
+}

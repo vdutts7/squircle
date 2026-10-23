@@ -1,0 +1,12 @@
+{
+  "slug": "deepinfra",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/deepinfra/logo.svg",
+  "fetched_at": 1792765821,
+  "sha256": "92a894969e86e850b4dc274ae4f99bacadf16313945b8280f8194c443019c179",
+  "bytes": 14898,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/deepinfra/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/deepinfra/logo.svg"
+}

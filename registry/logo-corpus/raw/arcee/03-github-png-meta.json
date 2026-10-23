@@ -1,0 +1,14 @@
+{
+  "slug": "arcee",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/arcee.png?size=512",
+  "fetched_at": 1792765662,
+  "sha256": "315290a2ec7fa3c0d5678dec6eae9b502f1067a0195270eba06777385b13f79e",
+  "bytes": 1576,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/arcee/03-github.png",
+  "login": "arcee",
+  "verified": [
+    "arcee"
+  ]
+}

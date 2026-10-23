@@ -1,0 +1,12 @@
+{
+  "slug": "vercel",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/vercel/logo.svg",
+  "fetched_at": 1792766511,
+  "sha256": "3b911debccdc0c8f305d2dc4ee11f6241dbf85495aaa3f366456198c36ea21d2",
+  "bytes": 166,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/vercel/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/vercel/logo.svg"
+}

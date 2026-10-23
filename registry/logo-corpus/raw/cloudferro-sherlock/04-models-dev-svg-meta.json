@@ -1,0 +1,12 @@
+{
+  "slug": "cloudferro-sherlock",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/cloudferro-sherlock/logo.svg",
+  "fetched_at": 1792765765,
+  "sha256": "d53caf3e9603e8a3be9e1a53a4471244836809f3b3e817c1a788d2d53e3d502b",
+  "bytes": 408,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/cloudferro-sherlock/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/cloudferro-sherlock/logo.svg"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "routing-run",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=routing.run&sz=256",
+  "fetched_at": 1792766335,
+  "sha256": "a78ae2f8232142e72afde24dff2057a3d0f4d4d2995b8bfb66a8d832a4b94eb9",
+  "bytes": 2014,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/routing-run/05-favicon.png",
+  "host": "routing.run",
+  "kind": "google_s2_256"
+}

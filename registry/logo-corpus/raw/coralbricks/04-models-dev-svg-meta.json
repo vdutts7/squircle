@@ -1,0 +1,12 @@
+{
+  "slug": "coralbricks",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/coralbricks/logo.svg",
+  "fetched_at": 1792765780,
+  "sha256": "d002650244491aca5a5334b9f9ceddb6a3675784358578123cbc65ddf693c31e",
+  "bytes": 4442,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/coralbricks/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/coralbricks/logo.svg"
+}

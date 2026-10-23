@@ -1,0 +1,14 @@
+{
+  "slug": "canopylabs",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/canopylabs.png?size=512",
+  "fetched_at": 1792765744,
+  "sha256": "a9939e5e1f74ed3e64a67a92cf475a3069ee5bb4a5ee994d2653962a8e482ba1",
+  "bytes": 43473,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/canopylabs/03-github.jpg",
+  "login": "canopylabs",
+  "verified": [
+    "canopylabs"
+  ]
+}

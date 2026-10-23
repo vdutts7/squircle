@@ -1,0 +1,12 @@
+{
+  "slug": "fastrouter",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/fastrouter/logo.svg",
+  "fetched_at": 1792765862,
+  "sha256": "435360e241e963c3f12289abe7d2632d4cb4512ac289b705c2c7ab1bc4340f0b",
+  "bytes": 488,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/fastrouter/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/fastrouter/logo.svg"
+}

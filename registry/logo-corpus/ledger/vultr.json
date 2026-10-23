@@ -1,0 +1,13 @@
+{
+  "slug": "vultr",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767626,
+  "winner_source": "wikipedia",
+  "winner_sha256": "31cf9019ab05b9ebfbbe1de6f317e4e2ec97ab3e23c004e4240ee23b25890e06",
+  "output_phash": "be1890e4e3c36b4b",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/vultr.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

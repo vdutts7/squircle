@@ -1,0 +1,13 @@
+{
+  "slug": "abliteration-ai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766601,
+  "winner_source": "models_dev",
+  "winner_sha256": "a122eff4be991c3425308b6b56f260b89bd4f3220ae5dd185873c976092b3e1b",
+  "output_phash": "bfc4c0323bcc0fc3",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/abliteration-ai.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

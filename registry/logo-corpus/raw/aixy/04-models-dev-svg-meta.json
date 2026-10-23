@@ -1,0 +1,12 @@
+{
+  "slug": "aixy",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/aixy/logo.svg",
+  "fetched_at": 1792765623,
+  "sha256": "469e07982f676b12465618df68b03eb24efc4ab503a76ce92bb3e3a05e8bf916",
+  "bytes": 224,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/aixy/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/aixy/logo.svg"
+}

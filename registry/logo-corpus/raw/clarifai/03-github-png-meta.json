@@ -1,0 +1,14 @@
+{
+  "slug": "clarifai",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/Clarifai.png?size=512",
+  "fetched_at": 1792765742,
+  "sha256": "1a7036770e5878ae9c4878df8b40ca93f2f5507ba9b45cd80cc3bc845bac3e38",
+  "bytes": 11907,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/clarifai/03-github.png",
+  "login": "Clarifai",
+  "verified": [
+    "Clarifai"
+  ]
+}

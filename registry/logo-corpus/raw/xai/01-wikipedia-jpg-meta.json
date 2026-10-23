@@ -1,0 +1,12 @@
+{
+  "slug": "xai",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Conselho_Municipal_Xai-Xai_%289496291468%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766543,
+  "sha256": "cbf71e539da1d241e209650b3a68686edfc78f531271483ddd6823826730d203",
+  "bytes": 3605617,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/xai/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Xai-Xai",
+  "article_title": "Xai-Xai"
+}

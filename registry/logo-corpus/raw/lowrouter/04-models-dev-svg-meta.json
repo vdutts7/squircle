@@ -1,0 +1,12 @@
+{
+  "slug": "lowrouter",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/lowrouter/logo.svg",
+  "fetched_at": 1792766059,
+  "sha256": "1ba5ee1642ae0c7b832e792de72e7cee1a2ba4d9d08e445c7c94e935c510c0cb",
+  "bytes": 494,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/lowrouter/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/lowrouter/logo.svg"
+}

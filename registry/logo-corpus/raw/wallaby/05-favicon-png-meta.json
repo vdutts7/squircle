@@ -1,0 +1,12 @@
+{
+  "slug": "wallaby",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=wallabytoken.com&sz=256",
+  "fetched_at": 1792766538,
+  "sha256": "a3918a7fced7163af2a628fb7fc2477f6a91cb52ad20bce2e31535542bceecd0",
+  "bytes": 10819,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/wallaby/05-favicon.png",
+  "host": "wallabytoken.com",
+  "kind": "google_s2_256"
+}

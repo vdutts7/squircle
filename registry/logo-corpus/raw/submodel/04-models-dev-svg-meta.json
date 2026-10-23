@@ -1,0 +1,12 @@
+{
+  "slug": "submodel",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/submodel/logo.svg",
+  "fetched_at": 1792766419,
+  "sha256": "3d33d13a78826e8884b4e1898a8e6ba120ce45a6a11ffb4c06d8c873b05967bb",
+  "bytes": 839,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/submodel/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/submodel/logo.svg"
+}

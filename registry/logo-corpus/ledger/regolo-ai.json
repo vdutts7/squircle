@@ -1,0 +1,13 @@
+{
+  "slug": "regolo-ai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767410,
+  "winner_source": "models_dev",
+  "winner_sha256": "81599ab82d4752f9ffedcbfad8746abed0232ed68e93bb08ace3f694563d73a4",
+  "output_phash": "b74caa9748aa55b2",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/regolo-ai.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "scaleway",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/scaleway/logo.svg",
+  "fetched_at": 1792766360,
+  "sha256": "6773ed399ec8f9ef420a44008a181d1378ae0e80becded9896eedd1087d3a91f",
+  "bytes": 1561,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/scaleway/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/scaleway/logo.svg"
+}

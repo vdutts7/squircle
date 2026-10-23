@@ -1,0 +1,13 @@
+{
+  "slug": "heygen",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767011,
+  "winner_source": "wikipedia",
+  "winner_sha256": "360f5d333ddf0564a7906236bd9833c101c7b92327f996f5a0abd09db5aed177",
+  "output_phash": "bb9fc5e192322631",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/heygen.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

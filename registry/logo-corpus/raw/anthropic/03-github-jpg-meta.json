@@ -1,0 +1,14 @@
+{
+  "slug": "anthropic",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/Anthropic.png?size=512",
+  "fetched_at": 1792765645,
+  "sha256": "20bcb54dfb5ebc6ddeb4ace35cd98b78694f18f4d1359ce7e285b85954bf2725",
+  "bytes": 31336,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/anthropic/03-github.jpg",
+  "login": "Anthropic",
+  "verified": [
+    "Anthropic"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "agentrouter",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/agentrouter.png?size=512",
+  "fetched_at": 1792765584,
+  "sha256": "08922fb0696c75ac5f7f21ab6a10d5e60841770d4a5e22dd22774dbc7704f5a8",
+  "bytes": 1560,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/agentrouter/03-github.png",
+  "login": "agentrouter",
+  "verified": [
+    "agentrouter"
+  ]
+}

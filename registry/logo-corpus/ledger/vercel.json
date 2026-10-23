@@ -1,0 +1,13 @@
+{
+  "slug": "vercel",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767599,
+  "winner_source": "wikipedia",
+  "winner_sha256": "7e248f58b19bc4a105b6e66405e6425f41e1b0e0d6495b9697aca61bc7e0df40",
+  "output_phash": "ffd0940fe06fa812",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/vercel.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

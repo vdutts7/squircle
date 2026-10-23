@@ -1,0 +1,13 @@
+{
+  "slug": "llmtech",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767119,
+  "winner_source": "models_dev",
+  "winner_sha256": "94cbfe31c78e32eb9aefa908dda7f2015385829d1526c600f6fe0fd8536c873d",
+  "output_phash": "bc6cc393cc313e4c",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/llmtech.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

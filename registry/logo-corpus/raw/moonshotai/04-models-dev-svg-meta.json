@@ -1,0 +1,12 @@
+{
+  "slug": "moonshotai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/moonshotai/logo.svg",
+  "fetched_at": 1792766148,
+  "sha256": "fb10fd4231a3b3785f866d3c78ff521a79d614a8cf87c369575cf916078d5141",
+  "bytes": 6823,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/moonshotai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/moonshotai/logo.svg"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "ollama-cloud",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767287,
+  "winner_source": "models_dev",
+  "winner_sha256": "34227abd190f9b208cc5d675139b4d30aea8bccec48d90264fba3d4b47271bfe",
+  "output_phash": "bd79c286879e6461",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/ollama-cloud.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

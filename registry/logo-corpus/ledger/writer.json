@@ -1,0 +1,13 @@
+{
+  "slug": "writer",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767646,
+  "winner_source": "wikipedia",
+  "winner_sha256": "63fd702cb619e84f97f5676eae86d0a24fa57f5f44d7a6dd236679c70945cac2",
+  "output_phash": "bb60c49b3b60c49f",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/writer.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

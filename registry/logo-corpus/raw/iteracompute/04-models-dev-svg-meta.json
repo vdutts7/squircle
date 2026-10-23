@@ -1,0 +1,12 @@
+{
+  "slug": "iteracompute",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/iteracompute/logo.svg",
+  "fetched_at": 1792765979,
+  "sha256": "1b2d8679dbc5d3c0f86970e066b70f5a171717a6f5a77a15d7bb8a40010b3fe8",
+  "bytes": 6350,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/iteracompute/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/iteracompute/logo.svg"
+}

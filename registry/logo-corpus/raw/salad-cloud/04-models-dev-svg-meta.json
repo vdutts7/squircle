@@ -1,0 +1,12 @@
+{
+  "slug": "salad-cloud",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/salad-cloud/logo.svg",
+  "fetched_at": 1792766339,
+  "sha256": "0de817810a40e45d3f5bbe0fbc011b83063fee3487b1d235184ac6a8710fc83b",
+  "bytes": 1550,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/salad-cloud/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/salad-cloud/logo.svg"
+}

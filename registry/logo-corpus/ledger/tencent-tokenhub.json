@@ -1,0 +1,13 @@
+{
+  "slug": "tencent-tokenhub",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767538,
+  "winner_source": "models_dev",
+  "winner_sha256": "9d6861ec11fc45ef85c8467cddec1ca2336cea936820a929b55a2a0bff96acd4",
+  "output_phash": "b8f19152ca2ce7cc",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/tencent-tokenhub.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "routing-run",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767433,
+  "winner_source": "models_dev",
+  "winner_sha256": "7b4007e2411feea51ec5c66918ae0f99ba9d538f1ff179c65e8544c820e6424c",
+  "output_phash": "eb499185c6369973",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/routing-run.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

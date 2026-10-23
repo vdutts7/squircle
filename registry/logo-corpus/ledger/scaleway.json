@@ -1,0 +1,13 @@
+{
+  "slug": "scaleway",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767459,
+  "winner_source": "wikipedia",
+  "winner_sha256": "ee8304008a73905b1efdaf563f482c190ed4809ba99c27ac657a648046eb8082",
+  "output_phash": "bfc8c0253fc83e23",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/scaleway.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "reflection",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767404,
+  "winner_source": "wikipedia",
+  "winner_sha256": "bf24ae40b1bbb01669559ebfef7e6c848243eb96614ef013bf5f89e2ab51eb4c",
+  "output_phash": "fe998554824fc2b5",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/reflection.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

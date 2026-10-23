@@ -1,0 +1,15 @@
+{
+  "slug": "302ai",
+  "source": "twitter",
+  "tier": 2,
+  "url": "https://unavatar.io/twitter/hashtag",
+  "fetched_at": 1792765577,
+  "sha256": "057f351eec416b7b2b6cb90e0892b52599b2100e3ca42b5a8759866d50e249e8",
+  "bytes": 569,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/302ai/02-twitter.svg",
+  "handle": "hashtag",
+  "handles_considered": [
+    "hashtag",
+    "302aiofficial"
+  ]
+}

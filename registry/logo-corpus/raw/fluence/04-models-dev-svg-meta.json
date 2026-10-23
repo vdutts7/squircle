@@ -1,0 +1,12 @@
+{
+  "slug": "fluence",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/fluence/logo.svg",
+  "fetched_at": 1792765885,
+  "sha256": "83c03ad0e5ef3f0f8c93a174bbd480d98086d8f75d58ef69ab5e9d9a697f0b3e",
+  "bytes": 662,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/fluence/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/fluence/logo.svg"
+}

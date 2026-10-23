@@ -6,7 +6,7 @@ set -u
 ROOT="${SQUIRCLE:-$(cd "$(dirname "$0")/.." && pwd)}"
 REG="$ROOT/registry/logo-corpus"
 SLUGS="$REG/slugs.json"
-VARIANT_RE='(-(coding-plan|token-plan|code-plan)(-|$))|(-vertex(-|$))|(-cn$)'
+VARIANT_RE='(-(coding-plan|token-plan|code-plan|step-plan)(-|$))|(-vertex(-|$))|(-cn$)'
 
 shim() { # tool violation exit redirect
   >&2 printf '🔴 %s: %s (exit %s)\n  run: %s\n' "$1" "$2" "$3" "$4"

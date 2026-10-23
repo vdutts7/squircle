@@ -1,0 +1,13 @@
+{
+  "slug": "microsoft",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767177,
+  "winner_source": "wikipedia",
+  "winner_sha256": "95cb5eb85521d6f65d7e643f7a6d58e27bf993308acf49fbc02e8a25de92d8af",
+  "output_phash": "bf9e9461e0467391",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/microsoft.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

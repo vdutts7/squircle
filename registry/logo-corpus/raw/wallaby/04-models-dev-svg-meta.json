@@ -1,0 +1,12 @@
+{
+  "slug": "wallaby",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/wallaby/logo.svg",
+  "fetched_at": 1792766536,
+  "sha256": "a95aba11bd7864ea753022d54161d6309312754ab80e94b0cce9d4a2ff630155",
+  "bytes": 7973,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/wallaby/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/wallaby/logo.svg"
+}

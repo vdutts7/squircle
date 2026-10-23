@@ -1,0 +1,14 @@
+{
+  "slug": "edenai",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/edenai.png?size=512",
+  "fetched_at": 1792765847,
+  "sha256": "af088661db44e1ae373b19c9ba085f178e7213e3322df67478bd21c5ab8e7ef4",
+  "bytes": 12005,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/edenai/03-github.png",
+  "login": "edenai",
+  "verified": [
+    "edenai"
+  ]
+}

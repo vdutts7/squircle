@@ -1,0 +1,12 @@
+{
+  "slug": "tinfoil",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/tinfoil/logo.svg",
+  "fetched_at": 1792766458,
+  "sha256": "731d1fbb296c68342587036dcc6c52ca45a44f14aa3a172c841d936f61c53802",
+  "bytes": 242,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/tinfoil/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/tinfoil/logo.svg"
+}

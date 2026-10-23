@@ -1,0 +1,12 @@
+{
+  "slug": "zenifra",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/zenifra/logo.svg",
+  "fetched_at": 1792766565,
+  "sha256": "fb5bcf026fcb10991f800fe67bfef5f77714f81e7e314f93aa41a4ac303801f1",
+  "bytes": 472,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/zenifra/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/zenifra/logo.svg"
+}

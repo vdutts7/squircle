@@ -1,0 +1,13 @@
+{
+  "slug": "aihubmix",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766638,
+  "winner_source": "models_dev",
+  "winner_sha256": "e3790a656b5ca8c90cef58cb6bfa1bfc5b3a8a0cb25e5c0d18ec35f094b841c4",
+  "output_phash": "ac8bd3383fc66059",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/aihubmix.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "berget",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766769,
+  "winner_source": "models_dev",
+  "winner_sha256": "5bd1b30bb5976b8f73c1e946b7152a202677c407a0443e8ffd7de610047e4a28",
+  "output_phash": "eca79398ec463263",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/berget.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

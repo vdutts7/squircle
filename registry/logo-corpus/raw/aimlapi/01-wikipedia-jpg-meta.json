@@ -1,0 +1,12 @@
+{
+  "slug": "aimlapi",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/a/a9/Aimlabs_Steam.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765592,
+  "sha256": "a8e035f6b04ae4acfb0c7c848680b8172e557b708bf65d87df7fdde4e8c8094b",
+  "bytes": 24437,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/aimlapi/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Aimlabs",
+  "article_title": "Aimlabs"
+}

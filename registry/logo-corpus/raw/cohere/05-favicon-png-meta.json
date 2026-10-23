@@ -1,0 +1,12 @@
+{
+  "slug": "cohere",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=cohere.com&sz=256",
+  "fetched_at": 1792765770,
+  "sha256": "77bc522c7ed64e21b3c56fbd04a38d985b2aeb5ae4950b719022f83fc4ee0d1b",
+  "bytes": 6809,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/cohere/05-favicon.png",
+  "host": "cohere.com",
+  "kind": "google_s2_256"
+}

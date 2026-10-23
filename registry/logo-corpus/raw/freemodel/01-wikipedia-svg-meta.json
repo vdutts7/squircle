@@ -1,0 +1,12 @@
+{
+  "slug": "freemodel",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Freenode_logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765856,
+  "sha256": "48dd407c54d35958f6ab71088f95d5b4926179661253ec3dfebbe862381214d6",
+  "bytes": 12429,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/freemodel/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Freenode",
+  "article_title": "Freenode"
+}

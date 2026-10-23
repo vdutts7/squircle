@@ -1,0 +1,13 @@
+{
+  "slug": "liquid",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767106,
+  "winner_source": "models_dev",
+  "winner_sha256": "fce30e73c4389db47198f2ea8041be7bd26343fac47a72fbd61ea65fa977225d",
+  "output_phash": "b892c66cb3e36c98",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/liquid.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

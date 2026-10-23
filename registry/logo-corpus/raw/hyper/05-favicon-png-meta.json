@@ -1,0 +1,12 @@
+{
+  "slug": "hyper",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=hyper.charm.land&sz=256",
+  "fetched_at": 1792765938,
+  "sha256": "3fe3040d128307ce943215173e9953d3bdbe0ee3f2b6c02b4d8482bc89389d59",
+  "bytes": 40193,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/hyper/05-favicon.png",
+  "host": "hyper.charm.land",
+  "kind": "google_s2_256"
+}

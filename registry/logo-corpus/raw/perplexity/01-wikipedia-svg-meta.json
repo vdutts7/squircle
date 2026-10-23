@@ -1,0 +1,12 @@
+{
+  "slug": "perplexity",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Perplexity_AI_logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766248,
+  "sha256": "481c8fca3ccaabd079fa61d69301c574cb3287193a4d5bcb8f8083834f6fc199",
+  "bytes": 4476,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/perplexity/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Perplexity_AI",
+  "article_title": "Perplexity AI"
+}

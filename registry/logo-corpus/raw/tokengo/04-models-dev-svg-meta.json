@@ -1,0 +1,12 @@
+{
+  "slug": "tokengo",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/tokengo/logo.svg",
+  "fetched_at": 1792766477,
+  "sha256": "76a9efce6ccd97456f2628515239020b119da6c8011b520cab6745de23b69323",
+  "bytes": 196,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/tokengo/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/tokengo/logo.svg"
+}

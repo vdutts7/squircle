@@ -1,0 +1,13 @@
+{
+  "slug": "sensenova",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767478,
+  "winner_source": "models_dev",
+  "winner_sha256": "e433de30f5e1127408866ecc3c7d04aea91d663b443a769a914b677ede938621",
+  "output_phash": "d3cefc91aa68aa90",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/sensenova.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

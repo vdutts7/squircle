@@ -1,0 +1,12 @@
+{
+  "slug": "orcarouter",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/orcarouter/logo.svg",
+  "fetched_at": 1792766250,
+  "sha256": "b2df96a88208f03c5e507ba0d6b2dfb84211d2376e69020498eedf4f0a7ee030",
+  "bytes": 3027,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/orcarouter/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/orcarouter/logo.svg"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "frogbot",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/frogbot/logo.svg",
+  "fetched_at": 1792765885,
+  "sha256": "fe2407117358b0b01d8abb9019a5f249b27340b90cda66b913066cc3d2875751",
+  "bytes": 1697,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/frogbot/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/frogbot/logo.svg"
+}

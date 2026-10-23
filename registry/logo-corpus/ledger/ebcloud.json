@@ -1,0 +1,13 @@
+{
+  "slug": "ebcloud",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766888,
+  "winner_source": "models_dev",
+  "winner_sha256": "d339542c28818e9413156d55a5e9bdd4bdac980549eb038520fded2fd0381e38",
+  "output_phash": "ac399363c8c74d9c",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/ebcloud.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

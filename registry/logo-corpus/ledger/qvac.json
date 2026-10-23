@@ -1,0 +1,13 @@
+{
+  "slug": "qvac",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767399,
+  "winner_source": "wikipedia",
+  "winner_sha256": "0a921bba112b6319739b10cc992f24f54a92bb152d49e6cae9225750c4f15892",
+  "output_phash": "be9b912c29426e9d",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/qvac.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

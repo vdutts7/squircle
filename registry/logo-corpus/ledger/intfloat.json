@@ -1,0 +1,13 @@
+{
+  "slug": "intfloat",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767063,
+  "winner_source": "wikipedia",
+  "winner_sha256": "3837f3f3e53b5f6ea3b5b6acbfd2e6298aa7b8963bdb5953fa5e9b97413c794d",
+  "output_phash": "bee0c10f3ee0c11f",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/intfloat.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

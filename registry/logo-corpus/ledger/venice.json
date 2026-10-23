@@ -1,0 +1,13 @@
+{
+  "slug": "venice",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767594,
+  "winner_source": "models_dev",
+  "winner_sha256": "11ad5d2865783ff68606067aa558bafec9235ba55f74e7d310e5bca16086430d",
+  "output_phash": "b1b38ecec6383932",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/venice.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

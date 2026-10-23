@@ -1,0 +1,14 @@
+{
+  "slug": "crusoe",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/crusoe.png?size=512",
+  "fetched_at": 1792765783,
+  "sha256": "58ed003a61748e75fea11e51d9ecc1d639d77d5bceb7a6cf436131837fbd6320",
+  "bytes": 1562,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/crusoe/03-github.png",
+  "login": "crusoe",
+  "verified": [
+    "crusoe"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "infomaniak",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Infomaniak_logo_-_blue.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765964,
+  "sha256": "846a1f08108cd6c96c83493c42d29741bc07e01752d0b78f09889e6804dae029",
+  "bytes": 3279,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/infomaniak/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Infomaniak",
+  "article_title": "Infomaniak"
+}

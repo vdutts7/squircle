@@ -1,0 +1,14 @@
+{
+  "slug": "engy",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/engy.png?size=512",
+  "fetched_at": 1792765862,
+  "sha256": "16c25074dd16560a94596acca3316e593c689aec04f6349f5ff2b8d05ab13c54",
+  "bytes": 1542,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/engy/03-github.png",
+  "login": "engy",
+  "verified": [
+    "engy"
+  ]
+}

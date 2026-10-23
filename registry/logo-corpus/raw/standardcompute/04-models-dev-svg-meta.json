@@ -1,0 +1,12 @@
+{
+  "slug": "standardcompute",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/standardcompute/logo.svg",
+  "fetched_at": 1792766411,
+  "sha256": "bfd45022be508be22c2590957aaec7a6c768c9591b33265469cbe3ce8af9ae08",
+  "bytes": 310,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/standardcompute/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/standardcompute/logo.svg"
+}

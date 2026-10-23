@@ -1,0 +1,13 @@
+{
+  "slug": "poe",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767371,
+  "winner_source": "models_dev",
+  "winner_sha256": "da7f6f5afd054576df7e59226cef45811f19d2ede27e0be1bb00ee0980d60b6d",
+  "output_phash": "bc3ec2d04fcf3430",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/poe.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

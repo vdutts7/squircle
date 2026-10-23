@@ -1,0 +1,13 @@
+{
+  "slug": "github-copilot",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766953,
+  "winner_source": "wikipedia",
+  "winner_sha256": "3cf9be17b53d66c816f42a1063bda814ef82848901f6932806d16eb6c11dbada",
+  "output_phash": "bb94856fd3c36094",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/github-copilot.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "moark",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/moark/logo.svg",
+  "fetched_at": 1792766109,
+  "sha256": "1e1829edf1cc7cbdc03c05c6e37657a7024abc36fdc535edbb046137d56d50f4",
+  "bytes": 2307,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/moark/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/moark/logo.svg"
+}

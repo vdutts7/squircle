@@ -1,0 +1,14 @@
+{
+  "slug": "agnes",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/agnes.png?size=512",
+  "fetched_at": 1792765587,
+  "sha256": "d5733da3caade405caf54a623d73ef48b33bd484059e80e9aec5ab148b43fd33",
+  "bytes": 55886,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/agnes/03-github.png",
+  "login": "agnes",
+  "verified": [
+    "agnes"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "nan",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767228,
+  "winner_source": "models_dev",
+  "winner_sha256": "7816e3c239e80c5374370592c28a770ba181c5a0af00fb4db7f1d701af0586d2",
+  "output_phash": "bc31c5cecbc69831",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/nan.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

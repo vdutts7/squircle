@@ -1,0 +1,12 @@
+{
+  "slug": "llmtech",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/llmtech/logo.svg",
+  "fetched_at": 1792766055,
+  "sha256": "b7f12d6b3b78f0c84cc3bf406356a93f4a93961db39b5ff536fce15b3727389c",
+  "bytes": 300,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/llmtech/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/llmtech/logo.svg"
+}

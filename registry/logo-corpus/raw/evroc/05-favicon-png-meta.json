@@ -1,0 +1,12 @@
+{
+  "slug": "evroc",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=evroc.com&sz=256",
+  "fetched_at": 1792765858,
+  "sha256": "77183d7563801bc67f55514ae16519b1861a0e29d3ed5b57dc6f2b52a125a2e8",
+  "bytes": 12669,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/evroc/05-favicon.png",
+  "host": "evroc.com",
+  "kind": "google_s2_256"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "engy",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=engy.ai&sz=256",
+  "fetched_at": 1792765864,
+  "sha256": "9ca97dd4215ab28510f61c8dc745c94de98e07e8d31202c32fdd14a7c0481772",
+  "bytes": 624,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/engy/05-favicon.png",
+  "host": "engy.ai",
+  "kind": "google_s2_256"
+}

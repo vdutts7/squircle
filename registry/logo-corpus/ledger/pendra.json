@@ -1,0 +1,13 @@
+{
+  "slug": "pendra",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767335,
+  "winner_source": "wikipedia",
+  "winner_sha256": "91e090a2be04afdc05d1f45a6c4daf716fd8c890d63fb7a049c711577b47c865",
+  "output_phash": "cecd309861734dce",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/pendra.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

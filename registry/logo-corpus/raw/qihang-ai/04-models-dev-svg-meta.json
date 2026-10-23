@@ -1,0 +1,12 @@
+{
+  "slug": "qihang-ai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/qihang-ai/logo.svg",
+  "fetched_at": 1792766288,
+  "sha256": "c2f882718214495dc83a7185ebb8e0f6f9f0e0f1a5720418bb8653bb989b3801",
+  "bytes": 346,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/qihang-ai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/qihang-ai/logo.svg"
+}

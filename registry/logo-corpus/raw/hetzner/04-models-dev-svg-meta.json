@@ -1,0 +1,12 @@
+{
+  "slug": "hetzner",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/hetzner/logo.svg",
+  "fetched_at": 1792765917,
+  "sha256": "a1bd9d33107a0c69980d394a134377fba1150c2427c9eb1c606ca3fec2ea166f",
+  "bytes": 5223,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/hetzner/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/hetzner/logo.svg"
+}

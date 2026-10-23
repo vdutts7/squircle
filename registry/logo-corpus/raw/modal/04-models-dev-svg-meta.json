@@ -1,0 +1,12 @@
+{
+  "slug": "modal",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/modal/logo.svg",
+  "fetched_at": 1792766113,
+  "sha256": "588bff09b055b896c63babc6a6ec68ce93978ef1289aac92b04cb950541f7133",
+  "bytes": 403,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/modal/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/modal/logo.svg"
+}

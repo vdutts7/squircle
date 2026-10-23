@@ -1,0 +1,12 @@
+{
+  "slug": "nova",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/nova/logo.svg",
+  "fetched_at": 1792766185,
+  "sha256": "a1ade6bb7c77c87d21bad588876170134b6e552e0e21f4ddc1d7f67cf9c861e7",
+  "bytes": 1614,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/nova/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/nova/logo.svg"
+}

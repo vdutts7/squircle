@@ -1,0 +1,13 @@
+{
+  "slug": "abacus",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766595,
+  "winner_source": "models_dev",
+  "winner_sha256": "b4cd619271018fba2ceba202e47fcc2f4702f6906d8a808599aded49449c85ac",
+  "output_phash": "ac6686d9cc3c3966",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/abacus.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

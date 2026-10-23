@@ -1,0 +1,13 @@
+{
+  "slug": "clarifai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766794,
+  "winner_source": "wikipedia",
+  "winner_sha256": "93cc926b938a33b5367995c13492a3dda164640a7712c88f55665bdbc6154584",
+  "output_phash": "ebc994166bc99436",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/clarifai.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

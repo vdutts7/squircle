@@ -1,0 +1,12 @@
+{
+  "slug": "llmgateway",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=llmgateway.io&sz=256",
+  "fetched_at": 1792766039,
+  "sha256": "f7ad20d5254f4e91a99c1360a2a394d7eb68518e0b315973bba97b0cfed5317a",
+  "bytes": 4586,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/llmgateway/05-favicon.png",
+  "host": "llmgateway.io",
+  "kind": "google_s2_256"
+}

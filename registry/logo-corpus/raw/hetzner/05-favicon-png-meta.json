@@ -1,0 +1,12 @@
+{
+  "slug": "hetzner",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=experiments.hetzner.com&sz=256",
+  "fetched_at": 1792765918,
+  "sha256": "3de6fb0d83f0c7a6dac504060399d07997ec6fe3bb066ea278c4850fc8ceba0d",
+  "bytes": 594,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/hetzner/05-favicon.png",
+  "host": "experiments.hetzner.com",
+  "kind": "google_s2_256"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "nano-gpt",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767233,
+  "winner_source": "models_dev",
+  "winner_sha256": "5f07f861f99f52e38ff7e4b37eb305eac1a69a7d48e1a9da9269fe02ef41b7f4",
+  "output_phash": "e949c6b49e43d998",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/nano-gpt.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

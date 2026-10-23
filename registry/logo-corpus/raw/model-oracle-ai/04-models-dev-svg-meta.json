@@ -1,0 +1,12 @@
+{
+  "slug": "model-oracle-ai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/model-oracle-ai/logo.svg",
+  "fetched_at": 1792766139,
+  "sha256": "49b82672ca31b1919b06d6a8a37d58536da16aca585d8afc3e71b3d4594b0274",
+  "bytes": 808,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/model-oracle-ai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/model-oracle-ai/logo.svg"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "qvac",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/qvac/logo.svg",
+  "fetched_at": 1792766320,
+  "sha256": "1879461e27731865d73fdb6af1a539a5cb0bc6453bb1e5a2ea403c1a89037d3e",
+  "bytes": 1034,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/qvac/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/qvac/logo.svg"
+}

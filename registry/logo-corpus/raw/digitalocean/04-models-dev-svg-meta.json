@@ -1,0 +1,12 @@
+{
+  "slug": "digitalocean",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/digitalocean/logo.svg",
+  "fetched_at": 1792765808,
+  "sha256": "556ab6fd0900757348019d72a7ee9ea1abdb1ea59a10c666a1c0a71a2e5dddbf",
+  "bytes": 613,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/digitalocean/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/digitalocean/logo.svg"
+}

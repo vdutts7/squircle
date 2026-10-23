@@ -1,0 +1,12 @@
+{
+  "slug": "crusoe",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/crusoe/logo.svg",
+  "fetched_at": 1792765783,
+  "sha256": "4b00a4b1aad1f56531f59fa7aeefe932ae8c0dcd5fd0c210912f46415d92af91",
+  "bytes": 17285,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/crusoe/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/crusoe/logo.svg"
+}

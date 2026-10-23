@@ -1,0 +1,12 @@
+{
+  "slug": "engy",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/engy/logo.svg",
+  "fetched_at": 1792765862,
+  "sha256": "dfbd93d610ef0fcc79fa6bfb3effead7fd03a3203ab091f700623a9a5f3a5da9",
+  "bytes": 259,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/engy/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/engy/logo.svg"
+}

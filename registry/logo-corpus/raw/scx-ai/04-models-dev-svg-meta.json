@@ -1,0 +1,12 @@
+{
+  "slug": "scx-ai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/scx-ai/logo.svg",
+  "fetched_at": 1792766381,
+  "sha256": "390557d548745e6e571d36162700541a4e75882c5cf6e55852f2df48a6e21891",
+  "bytes": 4935,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/scx-ai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/scx-ai/logo.svg"
+}

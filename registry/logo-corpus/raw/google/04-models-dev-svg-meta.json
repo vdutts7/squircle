@@ -1,0 +1,12 @@
+{
+  "slug": "google",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/google/logo.svg",
+  "fetched_at": 1792765906,
+  "sha256": "32768e91724a46b8f06c3999b491984ef7974194057cc617658635df4ea65240",
+  "bytes": 333,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/google/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/google/logo.svg"
+}

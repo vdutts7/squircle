@@ -1,0 +1,12 @@
+{
+  "slug": "huggingface",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=huggingface.co&sz=256",
+  "fetched_at": 1792765931,
+  "sha256": "6a2bb5ea38fe7fe6630c91fd80561f261e32936934f89904b1f8156d68c89109",
+  "bytes": 43889,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/huggingface/05-favicon.png",
+  "host": "huggingface.co",
+  "kind": "google_s2_256"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "openrouter",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/a/a9/OpenRouter_logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766218,
+  "sha256": "dca84ec7d4897a70f8d6136ecfef648872a7876437c0e6e1041769a2b9a038db",
+  "bytes": 4502,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/openrouter/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/OpenRouter",
+  "article_title": "OpenRouter"
+}

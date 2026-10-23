@@ -1,0 +1,13 @@
+{
+  "slug": "aki-io",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766663,
+  "winner_source": "wikipedia",
+  "winner_sha256": "471fe18d5d622ce633c009337bc118855db47c0c7158d05fbde4302bd5df0b31",
+  "output_phash": "998c666363b29736",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/aki-io.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

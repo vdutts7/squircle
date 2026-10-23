@@ -1,0 +1,13 @@
+{
+  "slug": "infomaniak",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767058,
+  "winner_source": "wikipedia",
+  "winner_sha256": "82d305adb14e897c8f2fa0609ca993a8bcceb4338cc7731c4c8470e8c8d171e1",
+  "output_phash": "d06b3b944cc13d3d",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/infomaniak.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

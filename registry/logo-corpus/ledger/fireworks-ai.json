@@ -1,0 +1,13 @@
+{
+  "slug": "fireworks-ai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766933,
+  "winner_source": "wikipedia",
+  "winner_sha256": "4cbe517f8b95d052101d7bcaadfea171604e3979c7f03bf00ba764cbf129715c",
+  "output_phash": "fca3dc288b5ea05c",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/fireworks-ai.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "pioneer",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Pioneer_10_%2818427352949%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766266,
+  "sha256": "869bb173f35f818a3d2681798f4173960ad5e11bebc1a66563fd8e5551e1c7f6",
+  "bytes": 593581,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/pioneer/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Pioneer_10",
+  "article_title": "Pioneer 10"
+}

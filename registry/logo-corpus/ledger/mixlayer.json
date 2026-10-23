@@ -1,0 +1,13 @@
+{
+  "slug": "mixlayer",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767189,
+  "winner_source": "wikipedia",
+  "winner_sha256": "94c29f1398f5384d8df87ff3d5295a189874f73ba063831225ad334fb926d0e7",
+  "output_phash": "e0c09f3979474ed2",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/mixlayer.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "heygen",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/44/HeyGen_logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765909,
+  "sha256": "0de41ffa2aec13a27dd38845c4da3d10d76c246ee339e606dada19b5d80fe7e7",
+  "bytes": 5452,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/heygen/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/HeyGen",
+  "article_title": "HeyGen"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "microsoft",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766077,
+  "sha256": "34ec1619e4a62515d67c5240fe5762ef5a1838fe67d2fb1fb0b001099cebf1db",
+  "bytes": 3163,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/microsoft/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Microsoft",
+  "article_title": "Microsoft"
+}

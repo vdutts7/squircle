@@ -1,0 +1,13 @@
+{
+  "slug": "cloudflare",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766811,
+  "winner_source": "wikipedia",
+  "winner_sha256": "7b2715cda092ce69611394a0eaa655ca3e7892372bd79b27a9e87c8d38c3f324",
+  "output_phash": "edcd9312c43a966c",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/cloudflare.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

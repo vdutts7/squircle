@@ -1,0 +1,13 @@
+{
+  "slug": "meta",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767169,
+  "winner_source": "wikipedia",
+  "winner_sha256": "2f03f7a58a24002c4b6c96f21780faf1e7c2b3b66420c77da76ce7a3efedb163",
+  "output_phash": "e9829336daa12d5b",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/meta.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

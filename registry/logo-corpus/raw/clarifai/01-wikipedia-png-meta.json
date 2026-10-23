@@ -1,0 +1,12 @@
+{
+  "slug": "clarifai",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Clarifai_Logo_FC_Web.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765729,
+  "sha256": "5cdb026e172a4cb701a4664e2ad41bfefeee27ad5ff1678e8316c106ed827fc8",
+  "bytes": 8166,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/clarifai/01-wikipedia.png",
+  "article_url": "https://en.wikipedia.org/wiki/Clarifai",
+  "article_title": "Clarifai"
+}

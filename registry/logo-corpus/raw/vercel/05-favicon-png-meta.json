@@ -1,0 +1,12 @@
+{
+  "slug": "vercel",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=github.com&sz=256",
+  "fetched_at": 1792766513,
+  "sha256": "1a81fbfbf0a8efe0a8a9a16f0951e679dbbda131fe014a150176056199968e06",
+  "bytes": 519,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/vercel/05-favicon.png",
+  "host": "github.com",
+  "kind": "google_s2_256"
+}

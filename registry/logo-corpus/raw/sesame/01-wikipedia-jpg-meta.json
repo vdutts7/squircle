@@ -1,0 +1,12 @@
+{
+  "slug": "sesame",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Sesamum_indicum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-129.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766370,
+  "sha256": "1862f73c31923d60882af2eef73b2c23b96bb9463a06317ba185c7efbc50cdd3",
+  "bytes": 172662,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/sesame/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Sesame",
+  "article_title": "Sesame"
+}

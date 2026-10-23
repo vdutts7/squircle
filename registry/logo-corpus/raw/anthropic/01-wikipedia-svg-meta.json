@@ -1,0 +1,12 @@
+{
+  "slug": "anthropic",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Anthropic_logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765632,
+  "sha256": "c89653a9edd5cb712368cde82196cd50914fb9e28a77cb5723a7f71a60ac5fc0",
+  "bytes": 1969,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/anthropic/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Anthropic",
+  "article_title": "Anthropic"
+}

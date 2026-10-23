@@ -1,0 +1,8 @@
+{
+  "slug": "synthetic",
+  "verify_status": "fail_low_confidence",
+  "timestamp": 1792767525,
+  "candidate_sources": [
+    "favicon"
+  ]
+}

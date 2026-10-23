@@ -1,0 +1,12 @@
+{
+  "slug": "togetherai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/togetherai/logo.svg",
+  "fetched_at": 1792766486,
+  "sha256": "7d492f4a110f6d5dad07782c0abc4b01ea9c68490f3e29120ba1a487f1138919",
+  "bytes": 1396,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/togetherai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/togetherai/logo.svg"
+}

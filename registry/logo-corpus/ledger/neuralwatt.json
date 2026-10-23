@@ -1,0 +1,13 @@
+{
+  "slug": "neuralwatt",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767251,
+  "winner_source": "models_dev",
+  "winner_sha256": "5dade93b3eb752dac281553d02f0a6128649011d34b2069b8c8ddcbc993f7a02",
+  "output_phash": "dfbad4eda052a811",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/neuralwatt.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "anthropic",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/anthropic/logo.svg",
+  "fetched_at": 1792765645,
+  "sha256": "7dbf450ab558c459b9a0f86d265ae6063560cb164189f78ce705d330f8d1426c",
+  "bytes": 355,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/anthropic/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/anthropic/logo.svg"
+}

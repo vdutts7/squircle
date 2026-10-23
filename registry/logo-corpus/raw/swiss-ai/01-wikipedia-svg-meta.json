@@ -1,0 +1,12 @@
+{
+  "slug": "swiss-ai",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Swissair_logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766409,
+  "sha256": "6b15d9830b68ac6cdfeed5315436ffd346eb07ac5ac9045efaa435201ce85c4b",
+  "bytes": 3452,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/swiss-ai/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Swissair",
+  "article_title": "Swissair"
+}

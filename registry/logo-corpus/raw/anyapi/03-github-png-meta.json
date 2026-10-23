@@ -1,0 +1,14 @@
+{
+  "slug": "anyapi",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/AnyApi.png?size=512",
+  "fetched_at": 1792765660,
+  "sha256": "230c0aa8915d2872c2f37e5848f17bc22f0350899dd2430405bcbbd5701cccc2",
+  "bytes": 1561,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/anyapi/03-github.png",
+  "login": "AnyApi",
+  "verified": [
+    "AnyApi"
+  ]
+}

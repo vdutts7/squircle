@@ -1,0 +1,12 @@
+{
+  "slug": "opencode-go",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/OpenCode_logo.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766213,
+  "sha256": "7846e89dd949672e74bf616065e3ad9b601a1ddcb3ce5053e60150c679c6de91",
+  "bytes": 3117,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/opencode-go/01-wikipedia.png",
+  "article_url": "https://en.wikipedia.org/wiki/OpenCode",
+  "article_title": "OpenCode"
+}

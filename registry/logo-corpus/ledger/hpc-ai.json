@@ -1,0 +1,13 @@
+{
+  "slug": "hpc-ai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767013,
+  "winner_source": "wikipedia",
+  "winner_sha256": "ffde0b80178702771a5e820687156423ed94f7ff1819cb3c462faed00ec29772",
+  "output_phash": "ae26e059939c9b66",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/hpc-ai.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

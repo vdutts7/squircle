@@ -1,23 +1,12 @@
 {
-  "$schema": "v1",
-  "doc": "ordered source kinds per slug. agent never adds a kind outside the enum. per-slug ordering override lives in overrides.json.",
+  "$schema": "v2",
+  "doc": "legal source kinds — must match registry/logo-corpus/cascade.json tier IDs. Agent never writes a raw file whose basename lies outside this enum.",
   "kinds_enum": [
-    "models_dev_provider_svg",
-    "models_dev_lab_svg",
-    "declared_github",
-    "declared_twitter",
-    "declared_homepage_favicon"
-  ],
-  "default_order": [
-    "models_dev_provider_svg",
-    "models_dev_lab_svg",
-    "declared_github",
-    "declared_twitter",
-    "declared_homepage_favicon"
-  ],
-  "paths": {
-    "models_dev_clone": "/private/tmp/models.dev-dev",
-    "provider_svg_glob": "providers/<id>/logo.svg",
-    "lab_svg_glob": "labs/<id>/logo.svg"
-  }
+    "wikipedia",
+    "twitter",
+    "github",
+    "models_dev",
+    "favicon",
+    "bing_image"
+  ]
 }

@@ -1,0 +1,13 @@
+{
+  "slug": "databricks",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766856,
+  "winner_source": "wikipedia",
+  "winner_sha256": "3f9314f4b24154ee1debdb20f7f79c82fde497488d0654a74ed15817d6f4fe09",
+  "output_phash": "ea85857acd727285",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/databricks.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "snowflake-cortex",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/snowflake-cortex/logo.svg",
+  "fetched_at": 1792766400,
+  "sha256": "e69ccf15c9afeddf9c6f081a291bd60bbee80ea6130bffc0211705992ff8ecca",
+  "bytes": 2266,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/snowflake-cortex/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/snowflake-cortex/logo.svg"
+}

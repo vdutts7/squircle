@@ -1,0 +1,13 @@
+{
+  "slug": "gryphe",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766996,
+  "winner_source": "wikipedia",
+  "winner_sha256": "a467a5182a954f4e0a6e99a678d424ebc7d4ee33a1a6ad12381dff9b40c7fb3e",
+  "output_phash": "d86027db85b43a6b",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/gryphe.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

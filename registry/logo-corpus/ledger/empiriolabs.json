@@ -1,0 +1,14 @@
+{
+  "slug": "empiriolabs",
+  "verify_status": "pass_cluster",
+  "timestamp": 1792766902,
+  "winner_source": "models_dev",
+  "winner_sha256": "518063e5d4d2b328ea29bf56af7356df41880af9bbb40890213b93725f7c5c86",
+  "output_phash": "bf4cc0b397658c98",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/empiriolabs.webp",
+  "cluster_sources": [
+    "favicon",
+    "models_dev"
+  ],
+  "cluster_size": 2
+}

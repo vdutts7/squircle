@@ -1,0 +1,12 @@
+{
+  "slug": "ambient",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=ambient.xyz&sz=256",
+  "fetched_at": 1792765655,
+  "sha256": "a0bfe7b80c59d83d9e6aaedd0727f1699e93ecf7ffe464d740f2cfe9ee47987e",
+  "bytes": 36859,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/ambient/05-favicon.png",
+  "host": "ambient.xyz",
+  "kind": "google_s2_256"
+}

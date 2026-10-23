@@ -1,0 +1,13 @@
+{
+  "slug": "novita-ai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767268,
+  "winner_source": "wikipedia",
+  "winner_sha256": "d9a5214ac13ff5276365220cb80a37449c3fc4f47ec1a0988358f7bfdac408ba",
+  "output_phash": "b4839e6a6d5cc278",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/novita-ai.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

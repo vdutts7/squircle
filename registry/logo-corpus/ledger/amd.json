@@ -1,0 +1,13 @@
+{
+  "slug": "amd",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766685,
+  "winner_source": "wikipedia",
+  "winner_sha256": "cc59021f2d2a7bebd7d0578afde71594e4aed8c91a1001f6f8106a41eda652bb",
+  "output_phash": "fe52c04db1b1aea8",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/amd.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

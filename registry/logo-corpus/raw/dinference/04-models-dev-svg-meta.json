@@ -1,0 +1,12 @@
+{
+  "slug": "dinference",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/dinference/logo.svg",
+  "fetched_at": 1792765815,
+  "sha256": "08eef0681dea8abce9fac49dd1a694e8107ca8cf321011d2d5e4f5731692fff1",
+  "bytes": 253,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/dinference/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/dinference/logo.svg"
+}

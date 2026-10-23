@@ -1,0 +1,12 @@
+{
+  "slug": "scaleway",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=scaleway.com&sz=256",
+  "fetched_at": 1792766362,
+  "sha256": "b8f6af777a33df860fb3629e6247044b9de981f63a85ce1b0a340310f5d3332d",
+  "bytes": 7189,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/scaleway/05-favicon.png",
+  "host": "scaleway.com",
+  "kind": "google_s2_256"
+}

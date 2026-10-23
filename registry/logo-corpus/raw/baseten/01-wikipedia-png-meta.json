@@ -1,0 +1,12 @@
+{
+  "slug": "baseten",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Decimal_digit.png?utm_source=en.wikipedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail_unscaled",
+  "fetched_at": 1792765691,
+  "sha256": "98b0582ef2ef831a0f74ce681bad42d328942c08998830712232ff111056fa67",
+  "bytes": 18757,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/baseten/01-wikipedia.png",
+  "article_url": "https://en.wikipedia.org/wiki/Base_ten",
+  "article_title": "Base ten"
+}

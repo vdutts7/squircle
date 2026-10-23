@@ -1,0 +1,14 @@
+{
+  "slug": "cortecs",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/cortecs.png?size=512",
+  "fetched_at": 1792765785,
+  "sha256": "eb42f4bfbe8fa28acc54a0157e1bffcc1dd26e9a101ba6007ef5943a6f2ed8b4",
+  "bytes": 1572,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/cortecs/03-github.png",
+  "login": "cortecs",
+  "verified": [
+    "cortecs"
+  ]
+}

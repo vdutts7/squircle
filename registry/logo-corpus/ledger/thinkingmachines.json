@@ -1,0 +1,13 @@
+{
+  "slug": "thinkingmachines",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767552,
+  "winner_source": "wikipedia",
+  "winner_sha256": "f4323873f05d5ddb82ed98c4ae1aca7ba43299c1cc6ced64b2f9c064c2160d68",
+  "output_phash": "bff0c00f80f03f0f",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/thinkingmachines.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

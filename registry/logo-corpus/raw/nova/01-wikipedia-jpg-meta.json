@@ -1,0 +1,12 @@
+{
+  "slug": "nova",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Making_a_Nova.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail_unscaled",
+  "fetched_at": 1792766173,
+  "sha256": "9af433af679340200033c2cc9844c42f2539e197f6f944c9f47feae10154c4e8",
+  "bytes": 20036,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/nova/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Nova",
+  "article_title": "Nova"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "deepgram",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766864,
+  "winner_source": "wikipedia",
+  "winner_sha256": "b7fc3b550a8ba13889a13d1367be539a62db97eaa8f44e93cf90fb39ab1ea2ed",
+  "output_phash": "cc92b369393c6671",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/deepgram.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

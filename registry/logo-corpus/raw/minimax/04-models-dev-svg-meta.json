@@ -1,0 +1,12 @@
+{
+  "slug": "minimax",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/minimax/logo.svg",
+  "fetched_at": 1792766125,
+  "sha256": "f3200b68c5d7d6a0b25f6c097e6a818808fe8b5aa17b7190ef702ac8a17988de",
+  "bytes": 2214,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/minimax/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/minimax/logo.svg"
+}

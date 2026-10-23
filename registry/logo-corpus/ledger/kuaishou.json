@@ -1,0 +1,13 @@
+{
+  "slug": "kuaishou",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767096,
+  "winner_source": "wikipedia",
+  "winner_sha256": "79257997c1866d1486d298b073a5969f06657d9d8cd649a33e7f710dc67a421b",
+  "output_phash": "af95d06a2f95906a",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/kuaishou.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

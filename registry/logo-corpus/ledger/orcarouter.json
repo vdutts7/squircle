@@ -1,0 +1,13 @@
+{
+  "slug": "orcarouter",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767319,
+  "winner_source": "models_dev",
+  "winner_sha256": "741496d660c2a0014fef59f82fe46006f9895cdb2d0f383b53a4d8cac5ed1f82",
+  "output_phash": "e4c99a66c939996c",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/orcarouter.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

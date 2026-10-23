@@ -1,0 +1,13 @@
+{
+  "slug": "bothub",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766778,
+  "winner_source": "models_dev",
+  "winner_sha256": "fbdad8ce9b00774181c4fbdcae71ab83f1a86ef80fef749b50ab7ce7546a1ea2",
+  "output_phash": "e1339a4c3c9c6733",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/bothub.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

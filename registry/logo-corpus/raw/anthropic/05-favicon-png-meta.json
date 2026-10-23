@@ -1,0 +1,12 @@
+{
+  "slug": "anthropic",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=anthropic.com&sz=256",
+  "fetched_at": 1792765646,
+  "sha256": "b1f8535fdf5a3a34d0e0e66566541c05bc284691d1f41f6151a835de1fdcc748",
+  "bytes": 1389,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/anthropic/05-favicon.png",
+  "host": "anthropic.com",
+  "kind": "google_s2_256"
+}

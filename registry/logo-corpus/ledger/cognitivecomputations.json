@@ -1,0 +1,8 @@
+{
+  "slug": "cognitivecomputations",
+  "verify_status": "fail_low_confidence",
+  "timestamp": 1792766822,
+  "candidate_sources": [
+    "github"
+  ]
+}

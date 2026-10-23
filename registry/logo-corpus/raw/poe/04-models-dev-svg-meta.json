@@ -1,0 +1,12 @@
+{
+  "slug": "poe",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/poe/logo.svg",
+  "fetched_at": 1792766275,
+  "sha256": "1e669470a01e3616f35bae8278b1aa289ee9abd1df44cb4d22756460148058e3",
+  "bytes": 3694,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/poe/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/poe/logo.svg"
+}

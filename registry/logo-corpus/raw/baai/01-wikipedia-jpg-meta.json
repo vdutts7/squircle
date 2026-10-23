@@ -1,0 +1,12 @@
+{
+  "slug": "baai",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/Baaium%2C_Terp_21_-_Ned._Hervormde_Kerk-2015-001.JPG?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765673,
+  "sha256": "f5588aab4b9645888a0abdd4662562d116b033eab55908c7556f8f03300a45a1",
+  "bytes": 4500626,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/baai/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Baaium",
+  "article_title": "Baaium"
+}

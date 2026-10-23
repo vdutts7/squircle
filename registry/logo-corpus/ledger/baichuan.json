@@ -1,0 +1,13 @@
+{
+  "slug": "baichuan",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766750,
+  "winner_source": "wikipedia",
+  "winner_sha256": "794c13768d359761f178775a0ea478d3e32fdc214c1654177659bf62b87cc585",
+  "output_phash": "bf63c0943f6bc094",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/baichuan.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

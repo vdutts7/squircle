@@ -1,0 +1,13 @@
+{
+  "slug": "meituan",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767161,
+  "winner_source": "wikipedia",
+  "winner_sha256": "1d663ba28d46d78860be3332e9cd3d21138afc5e37915a9dcda47170dec0cd34",
+  "output_phash": "bf94c04b3fb4c04b",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/meituan.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "pareto",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/pareto/logo.svg",
+  "fetched_at": 1792766259,
+  "sha256": "ae829ee1dc51fa27ba31435bf293cd7e9754e04548458096cdaae4eade227302",
+  "bytes": 412,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/pareto/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/pareto/logo.svg"
+}

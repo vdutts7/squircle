@@ -1,0 +1,13 @@
+{
+  "slug": "daoxe",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766852,
+  "winner_source": "models_dev",
+  "winner_sha256": "c51f6dbd3bc32c1c43968d9d08bf9436b602472c4393f50a69beb79f4164f1e1",
+  "output_phash": "bc6cc3930dce7438",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/daoxe.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

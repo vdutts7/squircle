@@ -1,0 +1,12 @@
+{
+  "slug": "ovhcloud",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/ovhcloud/logo.svg",
+  "fetched_at": 1792766240,
+  "sha256": "d96983d0ed42a95455e9ff68a728b7f4c3ea7d491242b2105d8f797c9542d977",
+  "bytes": 429,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/ovhcloud/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/ovhcloud/logo.svg"
+}

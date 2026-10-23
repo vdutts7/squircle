@@ -1,0 +1,12 @@
+{
+  "slug": "empiriolabs",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/empiriolabs/logo.svg",
+  "fetched_at": 1792765840,
+  "sha256": "03c448304a957e715aefe025ab31c03197387fc5e2c8cbe3f74b54a8985e8d1d",
+  "bytes": 351,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/empiriolabs/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/empiriolabs/logo.svg"
+}

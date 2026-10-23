@@ -1,0 +1,12 @@
+{
+  "slug": "cohere",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/cohere/logo.svg",
+  "fetched_at": 1792765769,
+  "sha256": "b3894996912078b267595793a2acf3e73bea6b14cc499405f33c151097a0381c",
+  "bytes": 913,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/cohere/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/cohere/logo.svg"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "prime",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/prime/logo.svg",
+  "fetched_at": 1792766280,
+  "sha256": "179ee822486c6b52176950d1154a513dcf8cff7f93a6cf71aa6304e050307d6b",
+  "bytes": 4189,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/prime/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/prime/logo.svg"
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "abacusai",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/abacusai.png?size=512",
+  "fetched_at": 1792765584,
+  "sha256": "3acd724ba5da9ff1f537c97995e92ce78b88aceea21afa86a40a969e0a2c6201",
+  "bytes": 8154,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/abacusai/03-github.png",
+  "login": "abacusai",
+  "verified": [
+    "abacusai"
+  ]
+}

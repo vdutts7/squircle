@@ -1,0 +1,12 @@
+{
+  "slug": "inference",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/inference/logo.svg",
+  "fetched_at": 1792765970,
+  "sha256": "dfc3c01df8beb21190bddafc23ff6d39e92c887d3a4a140d8fccb9dbfe9afbf3",
+  "bytes": 314,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/inference/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/inference/logo.svg"
+}

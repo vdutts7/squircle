@@ -1,0 +1,13 @@
+{
+  "slug": "baai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766742,
+  "winner_source": "wikipedia",
+  "winner_sha256": "07c272b1dd2b50e3c36a52e0645dc21bffb9285160f7cdcc06fcf7ba08e4ccb0",
+  "output_phash": "9fc1e03c97874a78",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/baai.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

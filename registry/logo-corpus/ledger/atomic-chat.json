@@ -1,0 +1,13 @@
+{
+  "slug": "atomic-chat",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766720,
+  "winner_source": "wikipedia",
+  "winner_sha256": "6a74b8ed7843fb1c0e35460413199a53d031a5a1b767104559e2ff6708fe177a",
+  "output_phash": "9b3e36c58cb4c1c3",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/atomic-chat.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

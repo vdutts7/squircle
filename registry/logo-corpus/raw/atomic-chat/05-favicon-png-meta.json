@@ -1,0 +1,12 @@
+{
+  "slug": "atomic-chat",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=atomic.chat&sz=256",
+  "fetched_at": 1792765677,
+  "sha256": "a60e95499f1d6fb75d4a15e30f432e659466a13b1650852fd03631ad51cec423",
+  "bytes": 34027,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/atomic-chat/05-favicon.png",
+  "host": "atomic.chat",
+  "kind": "google_s2_256"
+}

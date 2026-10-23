@@ -1,0 +1,12 @@
+{
+  "slug": "llmgateway",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/llmgateway/logo.svg",
+  "fetched_at": 1792766037,
+  "sha256": "366cb44ed3b3d6df9bdb8b9093b0c5295ea0a632525a36a01789c53369cc8de3",
+  "bytes": 1496,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/llmgateway/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/llmgateway/logo.svg"
+}

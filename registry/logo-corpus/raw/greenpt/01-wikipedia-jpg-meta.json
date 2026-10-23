@@ -1,0 +1,12 @@
+{
+  "slug": "greenpt",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/GreenDay_Isle_of_Wight_Montage.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765896,
+  "sha256": "ff50f10ed01f56b43f99637ec47e7fcd53af8c2eff7cecda9c45ac163f6325d5",
+  "bytes": 3154951,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/greenpt/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Green_Day",
+  "article_title": "Green Day"
+}

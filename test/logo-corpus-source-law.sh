@@ -32,7 +32,9 @@ while IFS= read -r slug; do
     [[ -e "$f" ]] || continue
     bn="$(basename "$f")"
     [[ "$bn" == FAIL.json ]] && { arts=1; continue; }
-    kind="$(printf '%s' "$bn" | sed -E 's/^[0-9]+-//; s/\.[^.]+$//')"
+    [[ "$bn" == *.meta.json ]] && continue
+    # Expect <NN>-<kind>.<ext>  →  strip NN- prefix and .<ext> suffix (first dot)
+    kind="$(printf '%s' "$bn" | sed -E 's/^[0-9]+-//; s/\..*$//')"
     if ! grep -qxF "$kind" <<<"$enum"; then
       >&2 printf '    illegal source kind: %s in %s\n' "$kind" "$f"
       bad_kind=$((bad_kind+1))

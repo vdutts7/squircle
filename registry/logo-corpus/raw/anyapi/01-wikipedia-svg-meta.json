@@ -1,0 +1,12 @@
+{
+  "slug": "anyapi",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Flag_of_the_Anyanya.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765633,
+  "sha256": "8f1e47eff90b189e5159b2790fb46405c8a60a276c5b6d171df43a9a7a8645bc",
+  "bytes": 113879,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/anyapi/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Anyanya",
+  "article_title": "Anyanya"
+}

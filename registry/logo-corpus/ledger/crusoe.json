@@ -1,0 +1,13 @@
+{
+  "slug": "crusoe",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766848,
+  "winner_source": "models_dev",
+  "winner_sha256": "23efedf7c262cc97e93909d881d84619ca78c4e12bdfcb27c66542119e89ee48",
+  "output_phash": "be0fc16034e03f8f",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/crusoe.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

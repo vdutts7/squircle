@@ -1,0 +1,13 @@
+{
+  "slug": "trendyol",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767574,
+  "winner_source": "wikipedia",
+  "winner_sha256": "50e7e92107b152c3fb6e170dcaa4c5b54383969a8d5d94cf1a728afc152e4ddf",
+  "output_phash": "ee1681e93a3786c6",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/trendyol.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

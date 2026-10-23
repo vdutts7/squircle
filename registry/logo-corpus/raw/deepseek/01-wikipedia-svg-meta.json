@@ -1,0 +1,12 @@
+{
+  "slug": "deepseek",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/DeepSeek_logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765795,
+  "sha256": "f355e3e5d095ca4fdf4b2e30da9f202e87b48a01082f682f208071c942892e14",
+  "bytes": 7649,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/deepseek/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/DeepSeek",
+  "article_title": "DeepSeek"
+}

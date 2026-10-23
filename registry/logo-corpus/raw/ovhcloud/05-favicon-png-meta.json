@@ -1,0 +1,12 @@
+{
+  "slug": "ovhcloud",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=ovhcloud.com&sz=256",
+  "fetched_at": 1792766241,
+  "sha256": "e953d38451ebc386259c7a22615251398624463dd00cf40fd37c3c3c93eccf07",
+  "bytes": 2637,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/ovhcloud/05-favicon.png",
+  "host": "ovhcloud.com",
+  "kind": "google_s2_256"
+}

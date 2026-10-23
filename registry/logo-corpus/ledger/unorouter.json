@@ -1,0 +1,13 @@
+{
+  "slug": "unorouter",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767585,
+  "winner_source": "models_dev",
+  "winner_sha256": "76fd84299f6bcd982635b0cacc37a526e22050d2e860ea62c85cb022ef2f38ee",
+  "output_phash": "bd19c3662c1ad3e1",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/unorouter.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

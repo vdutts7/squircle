@@ -1,0 +1,12 @@
+{
+  "slug": "blueclaw",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/blueclaw/logo.svg",
+  "fetched_at": 1792765729,
+  "sha256": "78e32dec37abd2e710198605d59982c3693c271f40e3f41fd51ad7b791dcacbb",
+  "bytes": 309,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/blueclaw/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/blueclaw/logo.svg"
+}

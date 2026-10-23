@@ -1,0 +1,13 @@
+{
+  "slug": "jalapeno",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767072,
+  "winner_source": "wikipedia",
+  "winner_sha256": "69be1d778936e28141e458c935a7cb2ddda36c6db6c702fce6aa2f53c493a36b",
+  "output_phash": "e1581eb77888c76a",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/jalapeno.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

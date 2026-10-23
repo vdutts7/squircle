@@ -1,0 +1,13 @@
+{
+  "slug": "longcat",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767131,
+  "winner_source": "wikipedia",
+  "winner_sha256": "e4ba290fa51cfcba6f20d1f16d8643f7011454b03bcc7ef89ce3826dbbdbfc91",
+  "output_phash": "b29265cb9b693466",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/longcat.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

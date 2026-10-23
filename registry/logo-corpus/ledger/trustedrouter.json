@@ -1,0 +1,13 @@
+{
+  "slug": "trustedrouter",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767576,
+  "winner_source": "models_dev",
+  "winner_sha256": "8a500a8b5f3dc9921236b6640d01b8abe3226d160b600fde466116b8652230b5",
+  "output_phash": "eb3c9cc2d0e5921e",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/trustedrouter.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

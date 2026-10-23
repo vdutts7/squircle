@@ -1,0 +1,12 @@
+{
+  "slug": "atomic-chat",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Atomic_capture.gif?utm_source=en.wikipedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail_unscaled",
+  "fetched_at": 1792765663,
+  "sha256": "312e9b0246d0b5ac6c706642f0483fffad62712899a921e91f5ed4d3f6d11e69",
+  "bytes": 31117,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/atomic-chat/01-wikipedia.gif",
+  "article_url": "https://en.wikipedia.org/wiki/Atomic_chess",
+  "article_title": "Atomic chess"
+}

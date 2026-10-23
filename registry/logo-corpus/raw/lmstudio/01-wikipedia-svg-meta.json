@@ -1,0 +1,12 @@
+{
+  "slug": "lmstudio",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/5/55/LM_Studio_logo_icon.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766041,
+  "sha256": "16f5ee25333b0137ccbe750111e73196b36e563b9b5c600b0e784b81e1f49246",
+  "bytes": 825,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/lmstudio/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/LM_Studio",
+  "article_title": "LM Studio"
+}

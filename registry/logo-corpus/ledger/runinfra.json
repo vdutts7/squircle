@@ -1,0 +1,13 @@
+{
+  "slug": "runinfra",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767437,
+  "winner_source": "wikipedia",
+  "winner_sha256": "cd83c12776566763d093027e095b16750fd685989fb9cac6371b2fb379122ecd",
+  "output_phash": "eec890358b72da3a",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/runinfra.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

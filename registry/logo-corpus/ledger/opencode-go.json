@@ -1,0 +1,13 @@
+{
+  "slug": "opencode-go",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767302,
+  "winner_source": "wikipedia",
+  "winner_sha256": "08b697d542183b05a766bc2e41ec0d6f8707f8bae90bba8084ff120a058b2f7e",
+  "output_phash": "eac1952e6ad1952e",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/opencode-go.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

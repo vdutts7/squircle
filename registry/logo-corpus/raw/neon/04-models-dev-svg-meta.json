@@ -1,0 +1,12 @@
+{
+  "slug": "neon",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/neon/logo.svg",
+  "fetched_at": 1792766165,
+  "sha256": "9a5231bbf42fc0eef479e7020bf3e80c067cf3b526431e1278c5f953795565b0",
+  "bytes": 271,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/neon/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/neon/logo.svg"
+}

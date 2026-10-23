@@ -1,0 +1,13 @@
+{
+  "slug": "pioneer",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767359,
+  "winner_source": "wikipedia",
+  "winner_sha256": "63e87aebf8625ca198e9fc0fa81bde6ffa84a6c8d39ea5779bb38fca03c456f7",
+  "output_phash": "9b994866b6db4989",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/pioneer.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

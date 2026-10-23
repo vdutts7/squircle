@@ -1,0 +1,12 @@
+{
+  "slug": "bothub",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/bothub/logo.svg",
+  "fetched_at": 1792765720,
+  "sha256": "5454ca4599275989103699c9aaea3cb7105f0c51558e2dee62923cf4b9745507",
+  "bytes": 819,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/bothub/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/bothub/logo.svg"
+}

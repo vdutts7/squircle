@@ -1,0 +1,12 @@
+{
+  "slug": "klokintegration",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/klokintegration/logo.svg",
+  "fetched_at": 1792766042,
+  "sha256": "f35103831c6fdece4593f1ebb212f8ed02557947465af136e19980ac439d1255",
+  "bytes": 5395,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/klokintegration/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/klokintegration/logo.svg"
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "chutes",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/chutes.png?size=512",
+  "fetched_at": 1792765758,
+  "sha256": "d346129959f5a1dc5c9bc7a2f7d9e59417344b429e869100865e20e0e8a149b6",
+  "bytes": 1556,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/chutes/03-github.png",
+  "login": "chutes",
+  "verified": [
+    "chutes"
+  ]
+}

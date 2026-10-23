@@ -1,0 +1,12 @@
+{
+  "slug": "abacus",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=abacus.ai&sz=256",
+  "fetched_at": 1792765586,
+  "sha256": "766519077d59a9d03c2038b57292e66cf62cd4ff6841204e7a23875875878cf4",
+  "bytes": 8843,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/abacus/05-favicon.png",
+  "host": "abacus.ai",
+  "kind": "google_s2_256"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "arcee-ai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766714,
+  "winner_source": "models_dev",
+  "winner_sha256": "193a0fec4c395604bdc9f78cdd80a9efe08dac2efa43bb92f3ceb19980783d0e",
+  "output_phash": "b3f1c32ecc482dc9",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/arcee-ai.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

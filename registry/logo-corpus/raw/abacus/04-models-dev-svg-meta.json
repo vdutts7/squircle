@@ -1,0 +1,12 @@
+{
+  "slug": "abacus",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/abacus/logo.svg",
+  "fetched_at": 1792765585,
+  "sha256": "ff15f2b5aecf31d45b23a877484879a3d6a86b1f6523135a222656e896ba4882",
+  "bytes": 2878,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/abacus/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/abacus/logo.svg"
+}

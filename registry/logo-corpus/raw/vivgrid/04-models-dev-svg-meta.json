@@ -1,0 +1,12 @@
+{
+  "slug": "vivgrid",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/vivgrid/logo.svg",
+  "fetched_at": 1792766534,
+  "sha256": "7277b8df8aaef1787f9f5803641cda40a6cf0843a1cb812f2de3c6c47a805c94",
+  "bytes": 1359,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/vivgrid/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/vivgrid/logo.svg"
+}

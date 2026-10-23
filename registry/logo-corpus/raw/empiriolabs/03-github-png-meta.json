@@ -1,0 +1,14 @@
+{
+  "slug": "empiriolabs",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/empiriolabs.png?size=512",
+  "fetched_at": 1792765839,
+  "sha256": "df41e03dcaf20a1b929f284d67862508c0ee3d6a10986b2e12aed37dcfb2c384",
+  "bytes": 36821,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/empiriolabs/03-github.png",
+  "login": "empiriolabs",
+  "verified": [
+    "empiriolabs"
+  ]
+}

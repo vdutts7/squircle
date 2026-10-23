@@ -1,0 +1,13 @@
+{
+  "slug": "llama",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767109,
+  "winner_source": "wikipedia",
+  "winner_sha256": "bdc37a6621389ab68a7bef703e9a8ff4a0d289c00318c3a30c6894a2747f8e2f",
+  "output_phash": "cccca333bec8c9c1",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/llama.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

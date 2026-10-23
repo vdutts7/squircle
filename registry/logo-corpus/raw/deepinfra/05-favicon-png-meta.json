@@ -1,0 +1,12 @@
+{
+  "slug": "deepinfra",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=deepinfra.com&sz=256",
+  "fetched_at": 1792765822,
+  "sha256": "b0fce8799b96ea46e57c8c277565177cb62f1a4ad788d0c4374082b5cea93414",
+  "bytes": 7721,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/deepinfra/05-favicon.png",
+  "host": "deepinfra.com",
+  "kind": "google_s2_256"
+}

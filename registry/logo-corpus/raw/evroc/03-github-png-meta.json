@@ -1,0 +1,14 @@
+{
+  "slug": "evroc",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/Evroc.png?size=512",
+  "fetched_at": 1792765856,
+  "sha256": "37d4ee29cb6c947397c61d608247971029ed5a6466ae3812eb4aaedea2968265",
+  "bytes": 1517,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/evroc/03-github.png",
+  "login": "Evroc",
+  "verified": [
+    "Evroc"
+  ]
+}

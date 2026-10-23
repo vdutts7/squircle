@@ -1,0 +1,13 @@
+{
+  "slug": "the-grid-ai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767549,
+  "winner_source": "models_dev",
+  "winner_sha256": "175841f34d5198105df6ad0c4cb4242c971383d47729d038ff56439f8a990438",
+  "output_phash": "bc64939bc46c6996",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/the-grid-ai.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

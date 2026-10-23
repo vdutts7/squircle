@@ -1,0 +1,12 @@
+{
+  "slug": "kenari",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=kenari.id&sz=256",
+  "fetched_at": 1792765997,
+  "sha256": "b0f41ec91b912f4451a693fb061599c03d668fcc52d70b184c3346752c6a4f41",
+  "bytes": 1912,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/kenari/05-favicon.png",
+  "host": "kenari.id",
+  "kind": "google_s2_256"
+}

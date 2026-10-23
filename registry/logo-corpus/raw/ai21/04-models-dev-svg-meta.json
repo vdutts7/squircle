@@ -1,0 +1,12 @@
+{
+  "slug": "ai21",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/ai21/logo.svg",
+  "fetched_at": 1792765619,
+  "sha256": "a2239e127be092089c00cf439f710ec588f73b22c6a7797134b33ed65eb6a6fc",
+  "bytes": 249,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/ai21/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/ai21/logo.svg"
+}

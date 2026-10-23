@@ -1,0 +1,13 @@
+{
+  "slug": "openreason",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767306,
+  "winner_source": "models_dev",
+  "winner_sha256": "bb15f2674df9ce63442d3825378326ba839ab4c2b6f3f9e347b70f5b73855218",
+  "output_phash": "b9998266ce663999",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/openreason.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

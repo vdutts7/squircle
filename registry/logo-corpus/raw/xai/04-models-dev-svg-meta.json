@@ -1,0 +1,12 @@
+{
+  "slug": "xai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/xai/logo.svg",
+  "fetched_at": 1792766555,
+  "sha256": "ba49a4f1fa9a013612a184fb0a7c19857cf75eab051e7c03573cb05f02fe5924",
+  "bytes": 364,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/xai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/xai/logo.svg"
+}

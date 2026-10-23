@@ -1,0 +1,12 @@
+{
+  "slug": "modelscope",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/modelscope/logo.svg",
+  "fetched_at": 1792766145,
+  "sha256": "1a5ada767aa3316c457f5a4b44ba98c545848cab4ebf172f5c4bdd70ec4dc3c7",
+  "bytes": 726,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/modelscope/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/modelscope/logo.svg"
+}

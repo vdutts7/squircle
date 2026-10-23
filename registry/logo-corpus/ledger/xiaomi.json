@@ -1,0 +1,13 @@
+{
+  "slug": "xiaomi",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767660,
+  "winner_source": "wikipedia",
+  "winner_sha256": "07da4b96a81b9db4721c1f5245f528da71a2e34635cfd9af9340bd9286f1e843",
+  "output_phash": "b58fc8e04a33b5cc",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/xiaomi.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

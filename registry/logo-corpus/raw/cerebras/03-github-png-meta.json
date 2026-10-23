@@ -1,0 +1,14 @@
+{
+  "slug": "cerebras",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/Cerebras.png?size=512",
+  "fetched_at": 1792765741,
+  "sha256": "e7ea34d4541587fdb7843c62c13d9044f9320bce4f57846a618fa94b5707ad19",
+  "bytes": 10909,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/cerebras/03-github.png",
+  "login": "Cerebras",
+  "verified": [
+    "Cerebras"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "modelscope",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767214,
+  "winner_source": "models_dev",
+  "winner_sha256": "e8e4836022ed0be1dd0ee012e7c4bc3fffb8d596f4babcf5746315a08c4f0453",
+  "output_phash": "e81d97e26a9d6862",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/modelscope.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

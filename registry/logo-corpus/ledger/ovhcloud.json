@@ -1,0 +1,13 @@
+{
+  "slug": "ovhcloud",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767323,
+  "winner_source": "wikipedia",
+  "winner_sha256": "b769cd62dc921562052c42b9e55202ba36ad68cc3794b0dfd41737b9bb2615f7",
+  "output_phash": "9fb4c00fa259a375",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/ovhcloud.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

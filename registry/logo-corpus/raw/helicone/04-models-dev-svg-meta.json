@@ -1,0 +1,12 @@
+{
+  "slug": "helicone",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/helicone/logo.svg",
+  "fetched_at": 1792765917,
+  "sha256": "135eff3440255e07e3c9d873997bf6d2beae9d98dd9e43224f443a8666beea9c",
+  "bytes": 1267,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/helicone/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/helicone/logo.svg"
+}

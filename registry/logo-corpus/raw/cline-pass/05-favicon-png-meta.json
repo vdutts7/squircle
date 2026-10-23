@@ -1,0 +1,12 @@
+{
+  "slug": "cline-pass",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=cline.bot&sz=256",
+  "fetched_at": 1792765765,
+  "sha256": "ab95beca9d662a4554327f21d48152b3b88935462fee0322d3bf0b7c7204316c",
+  "bytes": 5344,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/cline-pass/05-favicon.png",
+  "host": "cline.bot",
+  "kind": "google_s2_256"
+}

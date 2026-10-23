@@ -1,0 +1,13 @@
+{
+  "slug": "bailing",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766753,
+  "winner_source": "models_dev",
+  "winner_sha256": "31316a20b59e8adc1c3434fec337e87e43c2ebe22e1fd49725b65ebd035d8c2b",
+  "output_phash": "bc18d3c7cf323489",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/bailing.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

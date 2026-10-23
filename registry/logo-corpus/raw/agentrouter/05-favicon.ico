@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="Agent Router - 内部大模型 API 网关管理控制台"
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Agent Router</title>
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PY29DXE5ZT"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="0db7eb38-8ba6-4c94-81be-974df460037a"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PY29DXE5ZT');
+</script>
+-->
+    <script type="module" crossorigin src="/assets/index-CSgceqDE.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-core-DtMAePju.js">
+    <link rel="modulepreload" crossorigin href="/assets/semi-ui-CDToITTb.js">
+    <link rel="modulepreload" crossorigin href="/assets/tools-FjaJWRtg.js">
+    <link rel="modulepreload" crossorigin href="/assets/react-components-XvIrFW7f.js">
+    <link rel="modulepreload" crossorigin href="/assets/i18n-BirIkWQ4.js">
+    <link rel="stylesheet" crossorigin href="/assets/semi-ui-yRXI6evF.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-CfWKwp1J.css">
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "slug": "friendli",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766946,
+  "winner_source": "models_dev",
+  "winner_sha256": "47e1c21a91124cc0db90315f1b39cee92f39591fbfc4b4e3ad1a9fc6d47a8a61",
+  "output_phash": "b867c79892616967",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/friendli.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

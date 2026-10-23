@@ -1,0 +1,12 @@
+{
+  "slug": "amazon",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Prime_Air.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765618,
+  "sha256": "b606c1d853d6eb17a1f142489ca13f5d27fd499d065c989bda4cd99aef6212ac",
+  "bytes": 82005,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/amazon/01-wikipedia.png",
+  "article_url": "https://en.wikipedia.org/wiki/Amazon_Air",
+  "article_title": "Amazon Air"
+}

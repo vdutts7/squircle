@@ -1,0 +1,13 @@
+{
+  "slug": "agnes",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766616,
+  "winner_source": "wikipedia",
+  "winner_sha256": "ae77bf1bbd706133cf2e2a3ce7ea1fe6282202b406091b3c8879decf170c0bb0",
+  "output_phash": "996166c6cb9c95c9",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/agnes.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

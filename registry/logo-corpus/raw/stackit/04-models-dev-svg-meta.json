@@ -1,0 +1,12 @@
+{
+  "slug": "stackit",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/stackit/logo.svg",
+  "fetched_at": 1792766392,
+  "sha256": "9b5bc259cbc80f763c55995b5dc2ce4485a0712de5ca682de94435e1833a80b9",
+  "bytes": 420,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/stackit/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/stackit/logo.svg"
+}

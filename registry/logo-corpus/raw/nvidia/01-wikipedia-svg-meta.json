@@ -1,0 +1,12 @@
+{
+  "slug": "nvidia",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/NVIDIA_logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766185,
+  "sha256": "bb0f6d477d9acbc982070ac20332cd774015062ebd049c0814f7371c63d12a81",
+  "bytes": 3613,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/nvidia/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Nvidia",
+  "article_title": "Nvidia"
+}

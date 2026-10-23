@@ -1,0 +1,13 @@
+{
+  "slug": "ibm",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767031,
+  "winner_source": "wikipedia",
+  "winner_sha256": "66be31d07e119423bf1bab8538491e037c8b4ec95b7874435679756721deee4e",
+  "output_phash": "fb2dd692c15485d2",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/ibm.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

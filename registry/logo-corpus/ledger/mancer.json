@@ -1,0 +1,13 @@
+{
+  "slug": "mancer",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767154,
+  "winner_source": "wikipedia",
+  "winner_sha256": "c1f9ec4252de8c44ca3f9708d4f6a0b32152037d8d875c99aa806b0ee3e49341",
+  "output_phash": "cbc934339b9a3632",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/mancer.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

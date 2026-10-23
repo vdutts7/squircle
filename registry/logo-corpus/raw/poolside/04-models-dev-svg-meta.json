@@ -1,0 +1,12 @@
+{
+  "slug": "poolside",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/poolside/logo.svg",
+  "fetched_at": 1792766280,
+  "sha256": "132bbf92ec6359757642a81e972388bc83e2fe0d9a42a93ad46d94f418099d09",
+  "bytes": 1863,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/poolside/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/poolside/logo.svg"
+}

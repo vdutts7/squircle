@@ -1,0 +1,13 @@
+{
+  "slug": "tinfoil",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767557,
+  "winner_source": "wikipedia",
+  "winner_sha256": "fb714dab5425b40381adc1cd0aaeae29e9b1bc443b99dc0fdccf316569a843f4",
+  "output_phash": "e0cf1f700f369c25",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/tinfoil.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "qihang-ai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767391,
+  "winner_source": "wikipedia",
+  "winner_sha256": "19806365c80c37dcf49580b68fd3c6186d127fc4d8a93cc472944fb15b5929b1",
+  "output_phash": "b53f4ac4353fc4c0",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/qihang-ai.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

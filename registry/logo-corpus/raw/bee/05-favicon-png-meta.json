@@ -1,0 +1,12 @@
+{
+  "slug": "bee",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=bee.heossi.com&sz=256",
+  "fetched_at": 1792765709,
+  "sha256": "5fe64555f602d6823a6c61afd00c2da1abf557a7b95cfb8a3de8d79db5ae2036",
+  "bytes": 10425,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/bee/05-favicon.png",
+  "host": "bee.heossi.com",
+  "kind": "google_s2_256"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "tempr",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767528,
+  "winner_source": "models_dev",
+  "winner_sha256": "edd4ec7c7d95363ac4a3906337321487b82c6197a4ae4ea285777bc3b837c055",
+  "output_phash": "e6999964cc3323ce",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/tempr.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

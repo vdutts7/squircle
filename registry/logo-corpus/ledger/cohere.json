@@ -1,0 +1,13 @@
+{
+  "slug": "cohere",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766823,
+  "winner_source": "wikipedia",
+  "winner_sha256": "ab3bd30054bf3a05f563e6d11f8edd4966d3892d856d778d8fd867542858c33f",
+  "output_phash": "af8fd0f0e079a254",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/cohere.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

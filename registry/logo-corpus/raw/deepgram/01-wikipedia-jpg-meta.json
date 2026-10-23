@@ -1,0 +1,12 @@
+{
+  "slug": "deepgram",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/%22Mona_Lisa%22_with_DeepDream_effect_using_VGG16_network_trained_on_ImageNet.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail_unscaled",
+  "fetched_at": 1792765791,
+  "sha256": "b82932f7ba7ef08e0146b92e6eb0cbf785325e62a37eedbeb55af261cbf601c5",
+  "bytes": 405629,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/deepgram/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/DeepDream",
+  "article_title": "DeepDream"
+}

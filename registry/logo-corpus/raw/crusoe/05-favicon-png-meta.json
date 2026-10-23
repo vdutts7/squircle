@@ -1,0 +1,12 @@
+{
+  "slug": "crusoe",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=crusoecloud.com&sz=256",
+  "fetched_at": 1792765785,
+  "sha256": "382e68de612d74f50af9512529ceb725785c3d3ce4f8e65bbdf31d47e2f6d57f",
+  "bytes": 11103,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/crusoe/05-favicon.png",
+  "host": "crusoecloud.com",
+  "kind": "google_s2_256"
+}

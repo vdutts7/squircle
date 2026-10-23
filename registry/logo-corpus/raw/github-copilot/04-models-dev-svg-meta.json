@@ -1,0 +1,12 @@
+{
+  "slug": "github-copilot",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/github-copilot/logo.svg",
+  "fetched_at": 1792765898,
+  "sha256": "982c4004ab12c3cc3af34851848754c28bd52f70494330f2f8e0d39d89ad3723",
+  "bytes": 2870,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/github-copilot/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/github-copilot/logo.svg"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "clarifai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/clarifai/logo.svg",
+  "fetched_at": 1792765742,
+  "sha256": "6ad900551b3ef49434203e663c94e56515457ab56ef37628502a5b42a7e5fb4f",
+  "bytes": 964,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/clarifai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/clarifai/logo.svg"
+}

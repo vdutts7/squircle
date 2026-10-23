@@ -1,0 +1,12 @@
+{
+  "slug": "impossibl",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/impossibl/logo.svg",
+  "fetched_at": 1792765957,
+  "sha256": "ad766a52b72e710e99650cb4c33e4e3adf5ba319fd87fce7a4d8666cdbd902fd",
+  "bytes": 138,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/impossibl/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/impossibl/logo.svg"
+}

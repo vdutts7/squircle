@@ -1,0 +1,12 @@
+{
+  "slug": "hpc-ai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/hpc-ai/logo.svg",
+  "fetched_at": 1792765928,
+  "sha256": "fc04f6a1ec0aa5ed63c6cda02d6e54b6be67d35c2ecd521f0f4bc333c9a98dee",
+  "bytes": 34469,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/hpc-ai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/hpc-ai/logo.svg"
+}

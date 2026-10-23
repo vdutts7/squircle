@@ -1,0 +1,12 @@
+{
+  "slug": "inceptron",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=inceptron.io&sz=256",
+  "fetched_at": 1792765952,
+  "sha256": "791f4f78c7253a1b99cc9f459b5f2fa7ca5552feca2f4a8ac3007be74f70fe24",
+  "bytes": 373,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/inceptron/05-favicon.png",
+  "host": "inceptron.io",
+  "kind": "google_s2_256"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "edenai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/edenai/logo.svg",
+  "fetched_at": 1792765847,
+  "sha256": "73f5b4ee2ac370448fc147b3df03839019bfb4ef5f5201e25c32b5b561250648",
+  "bytes": 4201,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/edenai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/edenai/logo.svg"
+}

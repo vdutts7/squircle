@@ -1,0 +1,13 @@
+{
+  "slug": "teamorouter",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767526,
+  "winner_source": "models_dev",
+  "winner_sha256": "ab214114ff91115fdd04e2bb1591270607546526ad8269ebc28c9c430f6c69e6",
+  "output_phash": "ae78c4a69b0bcc9c",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/teamorouter.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

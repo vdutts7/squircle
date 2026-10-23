@@ -1,0 +1,12 @@
+{
+  "slug": "ofox",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/ofox/logo.svg",
+  "fetched_at": 1792766238,
+  "sha256": "99115b2c244c2b1577cc93a8cc0a115540635faf5bdcd3deff555e475c5f616a",
+  "bytes": 1947,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/ofox/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/ofox/logo.svg"
+}

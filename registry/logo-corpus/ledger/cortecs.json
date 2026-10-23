@@ -1,0 +1,9 @@
+{
+  "slug": "cortecs",
+  "verify_status": "fail_low_confidence",
+  "timestamp": 1792766839,
+  "candidate_sources": [
+    "favicon",
+    "github"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "amazon",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766673,
+  "winner_source": "wikipedia",
+  "winner_sha256": "dc09afd3a6bef24f370f8073073f1c209e61949c3c35497cf680814ded877596",
+  "output_phash": "af9dd0603f9fc060",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/amazon.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

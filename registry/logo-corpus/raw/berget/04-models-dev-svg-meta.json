@@ -1,0 +1,12 @@
+{
+  "slug": "berget",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/berget/logo.svg",
+  "fetched_at": 1792765707,
+  "sha256": "c206dbcac2e84c8b2fb131e297a6adccac1a5723ed88eeaa9796dfa66d3dbf84",
+  "bytes": 287,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/berget/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/berget/logo.svg"
+}

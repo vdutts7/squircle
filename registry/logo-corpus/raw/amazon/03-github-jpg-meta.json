@@ -1,0 +1,14 @@
+{
+  "slug": "amazon",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/amazon.png?size=512",
+  "fetched_at": 1792765646,
+  "sha256": "8a99fd24a5fbf416d83d5fec1639d03c7b008269caa23ed88c4e08233929c10c",
+  "bytes": 30945,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/amazon/03-github.jpg",
+  "login": "amazon",
+  "verified": [
+    "amazon"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "openrouter",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767309,
+  "winner_source": "wikipedia",
+  "winner_sha256": "74fafdf16182752bbef5e312237b431c0beef8699e8c7059c4024ca67ce5f411",
+  "output_phash": "bf8c9563603ce19c",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/openrouter.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

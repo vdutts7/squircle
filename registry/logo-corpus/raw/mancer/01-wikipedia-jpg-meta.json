@@ -1,0 +1,12 @@
+{
+  "slug": "mancer",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Rhumsiki_crab_sorceror.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail_unscaled",
+  "fetched_at": 1792766062,
+  "sha256": "4ff84fb517392afcd62174b79f2ca9df3cc54229c293973c2ab7d24eab761f99",
+  "bytes": 731753,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/mancer/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Mancer",
+  "article_title": "Mancer"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "tencent",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Tencent_logo_2017.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766430,
+  "sha256": "48941a2e573ee1b09450337dd2c6f9475264018ed4b10c66c2b6e352bbf9c37f",
+  "bytes": 84801,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/tencent/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Tencent",
+  "article_title": "Tencent"
+}

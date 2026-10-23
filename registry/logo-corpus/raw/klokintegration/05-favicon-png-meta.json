@@ -1,0 +1,12 @@
+{
+  "slug": "klokintegration",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=klokintegration.se&sz=256",
+  "fetched_at": 1792766044,
+  "sha256": "1d6424bdb4afa414363adaaf6179edecc5f576ee0e70d25dfa42232953aa53d3",
+  "bytes": 5516,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/klokintegration/05-favicon.png",
+  "host": "klokintegration.se",
+  "kind": "google_s2_256"
+}

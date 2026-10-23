@@ -1,0 +1,13 @@
+{
+  "slug": "tencent",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767532,
+  "winner_source": "wikipedia",
+  "winner_sha256": "9fe1aecfb130e57d18a28e762c8bfd57cc287104466a89fcaffbed29913e6786",
+  "output_phash": "ffc5d53aa038a8a1",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/tencent.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

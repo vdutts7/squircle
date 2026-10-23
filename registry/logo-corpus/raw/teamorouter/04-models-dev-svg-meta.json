@@ -1,0 +1,12 @@
+{
+  "slug": "teamorouter",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/teamorouter/logo.svg",
+  "fetched_at": 1792766433,
+  "sha256": "ca749780ae019ec8853cf58258d6a3ddc04dd41e6e99dfc4ac62292012dfb067",
+  "bytes": 1281,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/teamorouter/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/teamorouter/logo.svg"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "infomaniak",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=infomaniak.com&sz=256",
+  "fetched_at": 1792765992,
+  "sha256": "0b0b44f46de6f6b8357f2af610f9382e7f857cc628d33ca49c8646256f3504e1",
+  "bytes": 431,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/infomaniak/05-favicon.png",
+  "host": "infomaniak.com",
+  "kind": "google_s2_256"
+}

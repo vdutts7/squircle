@@ -1,0 +1,12 @@
+{
+  "slug": "sao10k",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/c/ce/Rosal%C3%ADa_-_Saoko.png?utm_source=en.wikipedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail_unscaled",
+  "fetched_at": 1792766338,
+  "sha256": "9b083bb5daf3c27d72a8480bd727de66c0780904a359790fe17f8ee7e3e5ec79",
+  "bytes": 211900,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/sao10k/01-wikipedia.png",
+  "article_url": "https://en.wikipedia.org/wiki/Saoko",
+  "article_title": "Saoko"
+}

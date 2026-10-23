@@ -1,0 +1,12 @@
+{
+  "slug": "synthetic",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=synthetic.new&sz=256",
+  "fetched_at": 1792766437,
+  "sha256": "438570b88f0626b21acf2bfb12b0dbcea46daf8f49e70e1ad38db02548c39979",
+  "bytes": 5011,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/synthetic/05-favicon.png",
+  "host": "synthetic.new",
+  "kind": "google_s2_256"
+}

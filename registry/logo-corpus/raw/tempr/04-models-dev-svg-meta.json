@@ -1,0 +1,12 @@
+{
+  "slug": "tempr",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/tempr/logo.svg",
+  "fetched_at": 1792766434,
+  "sha256": "560bf2f86833f22bdce2a6467066f0633e9d4c3adc5bd0a06ebf0c3a4afd0936",
+  "bytes": 174,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/tempr/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/tempr/logo.svg"
+}

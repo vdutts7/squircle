@@ -1,0 +1,12 @@
+{
+  "slug": "greenpt",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/greenpt/logo.svg",
+  "fetched_at": 1792765908,
+  "sha256": "81218b359e1ed14c655734103bb56a351629ba9a45ce38a6f1661f515aade47f",
+  "bytes": 1235,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/greenpt/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/greenpt/logo.svg"
+}

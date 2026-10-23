@@ -1,0 +1,8 @@
+{
+  "slug": "assemblyai",
+  "verify_status": "fail_low_confidence",
+  "timestamp": 1792766717,
+  "candidate_sources": [
+    "github"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "llmtr",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/llmtr/logo.svg",
+  "fetched_at": 1792766067,
+  "sha256": "e7c1659086028825fa356ace8041bb340b0a5f847de4943476935f7d372be37a",
+  "bytes": 451,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/llmtr/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/llmtr/logo.svg"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "nano-gpt",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/nano-gpt/logo.svg",
+  "fetched_at": 1792766176,
+  "sha256": "caba65fad36ec927388715ab27bcd92e3a486190e6868baaa772411af0e3ee3b",
+  "bytes": 597,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/nano-gpt/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/nano-gpt/logo.svg"
+}

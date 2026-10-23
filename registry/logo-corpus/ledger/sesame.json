@@ -1,0 +1,13 @@
+{
+  "slug": "sesame",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767481,
+  "winner_source": "wikipedia",
+  "winner_sha256": "c63432dde168a3d8d4720785e1428aa3165940913af0882da9bf7487bd21aee7",
+  "output_phash": "e467cb3c8b913893",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/sesame.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

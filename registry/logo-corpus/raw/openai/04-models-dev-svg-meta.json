@@ -1,0 +1,12 @@
+{
+  "slug": "openai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/openai/logo.svg",
+  "fetched_at": 1792766221,
+  "sha256": "a495ae1dee53ebf3eab642acb0c6e564ea23ceb7c1565c826f480cb2bf32beda",
+  "bytes": 3695,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/openai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/openai/logo.svg"
+}

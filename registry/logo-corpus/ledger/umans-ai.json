@@ -1,0 +1,13 @@
+{
+  "slug": "umans-ai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767580,
+  "winner_source": "models_dev",
+  "winner_sha256": "4551fce03c9dcd48a85470c4cd90c25e045f1c3f45f32f805ec60e59bdf4e511",
+  "output_phash": "e91996e626993966",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/umans-ai.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

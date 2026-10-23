@@ -1,0 +1,14 @@
+{
+  "slug": "wallaby",
+  "verify_status": "pass_cluster",
+  "timestamp": 1792767635,
+  "winner_source": "models_dev",
+  "winner_sha256": "db75ce14741e4044d99b99ce49a3652ea631c97e31048ebdc8d16cafb4ba0aaf",
+  "output_phash": "e9c996b4654f1893",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/wallaby.webp",
+  "cluster_sources": [
+    "favicon",
+    "models_dev"
+  ],
+  "cluster_size": 2
+}

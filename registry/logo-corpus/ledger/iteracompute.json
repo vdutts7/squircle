@@ -1,0 +1,14 @@
+{
+  "slug": "iteracompute",
+  "verify_status": "pass_cluster",
+  "timestamp": 1792767067,
+  "winner_source": "models_dev",
+  "winner_sha256": "a28a77b30f8e37d1023f26e3a8a70a7607fa22f2a180d4212e5d65cae0419e10",
+  "output_phash": "be19c16696cc5999",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/iteracompute.webp",
+  "cluster_sources": [
+    "favicon",
+    "models_dev"
+  ],
+  "cluster_size": 2
+}

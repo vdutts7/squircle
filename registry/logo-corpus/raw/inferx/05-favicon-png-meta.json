@@ -1,0 +1,12 @@
+{
+  "slug": "inferx",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=model.inferx.net&sz=256",
+  "fetched_at": 1792765977,
+  "sha256": "d1cb95f5e4fbe20c91c792afb2d53dfe4ab15881088cfc5afe95f480a4169381",
+  "bytes": 2956,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/inferx/05-favicon.png",
+  "host": "model.inferx.net",
+  "kind": "google_s2_256"
+}

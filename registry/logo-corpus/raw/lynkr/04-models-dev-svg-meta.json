@@ -1,0 +1,12 @@
+{
+  "slug": "lynkr",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/lynkr/logo.svg",
+  "fetched_at": 1792766065,
+  "sha256": "ba07600d7c6bb63c5901f28081858f3f33e3d69578f53649f68096a368dabe7d",
+  "bytes": 173,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/lynkr/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/lynkr/logo.svg"
+}

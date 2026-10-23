@@ -1,0 +1,12 @@
+{
+  "slug": "ibm",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765927,
+  "sha256": "e8cf75280cbf46bf015f59859182ecec0c83c1b3d3d03323e151c6e91d4c339c",
+  "bytes": 3735,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/ibm/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/IBM",
+  "article_title": "IBM"
+}

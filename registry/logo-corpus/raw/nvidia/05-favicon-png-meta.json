@@ -1,0 +1,12 @@
+{
+  "slug": "nvidia",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=nvidia.com&sz=256",
+  "fetched_at": 1792766213,
+  "sha256": "24c21375cca347d2f3e86b9bd27d7fdf4774ca7bd5d59482251723cb6dea82b0",
+  "bytes": 1607,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/nvidia/05-favicon.png",
+  "host": "nvidia.com",
+  "kind": "google_s2_256"
+}

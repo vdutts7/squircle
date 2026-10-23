@@ -1,0 +1,13 @@
+{
+  "slug": "subconscious",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767515,
+  "winner_source": "wikipedia",
+  "winner_sha256": "581566476e1fcf18fa35e66cea5b24dd3f7ed7c70ccbe89a70b6f806eb2ce435",
+  "output_phash": "c76933963995c968",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/subconscious.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

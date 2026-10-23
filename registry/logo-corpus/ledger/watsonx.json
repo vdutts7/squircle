@@ -1,0 +1,13 @@
+{
+  "slug": "watsonx",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767642,
+  "winner_source": "models_dev",
+  "winner_sha256": "83bd2bbefe2072ec4aa02ab422e7465689f6dff9f3d104d1e43b98b67f292df6",
+  "output_phash": "ae61e43c83599ec6",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/watsonx.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "gitlab",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/gitlab/logo.svg",
+  "fetched_at": 1792765900,
+  "sha256": "9696454235f3559a7f1af762e939c55100318db53dac7f3adebc99b3fab54084",
+  "bytes": 959,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/gitlab/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/gitlab/logo.svg"
+}

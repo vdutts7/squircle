@@ -1,0 +1,12 @@
+{
+  "slug": "jiekou",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/jiekou/logo.svg",
+  "fetched_at": 1792765993,
+  "sha256": "17f808d7f1814a06ca4314cb2e98f5496a4f580855bfcae5d386796738bfdd92",
+  "bytes": 285,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/jiekou/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/jiekou/logo.svg"
+}

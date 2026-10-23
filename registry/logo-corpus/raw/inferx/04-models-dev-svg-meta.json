@@ -1,0 +1,12 @@
+{
+  "slug": "inferx",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/inferx/logo.svg",
+  "fetched_at": 1792765975,
+  "sha256": "2d9cafcc7ddb47d1c1e066ea53dd2cb419dbad1bda021083405972645c1a2bef",
+  "bytes": 2966,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/inferx/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/inferx/logo.svg"
+}

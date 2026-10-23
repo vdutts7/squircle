@@ -1,0 +1,13 @@
+{
+  "slug": "io-net",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767064,
+  "winner_source": "models_dev",
+  "winner_sha256": "20d7ee9d5317b30ad4215706799f712609a2bca1499c3ea8e77d412f22b78c18",
+  "output_phash": "ad34d24b3db46613",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/io-net.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

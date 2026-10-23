@@ -1,0 +1,13 @@
+{
+  "slug": "aixy",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766659,
+  "winner_source": "models_dev",
+  "winner_sha256": "a7eb22496bb7f093410d1cf273bef175a03a99565312ba3eecd6f0867da68719",
+  "output_phash": "e747983836866d65",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/aixy.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

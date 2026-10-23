@@ -1,0 +1,12 @@
+{
+  "slug": "hyper",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/hyper/logo.svg",
+  "fetched_at": 1792765936,
+  "sha256": "e4c4bdd616ecff3cf94f8ff1f1b0a2bc452c8fab234a4f71274ba9060b8f5d90",
+  "bytes": 6905,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/hyper/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/hyper/logo.svg"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "inceptron",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767039,
+  "winner_source": "wikipedia",
+  "winner_sha256": "535a22aaab6575e9aecac10acd6819e3d4ba9b0b0f812ad11f22e461121562bc",
+  "output_phash": "ccc6632d9c1a93cd",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/inceptron.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

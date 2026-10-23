@@ -1,0 +1,12 @@
+{
+  "slug": "agnes",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=agnes-ai.com&sz=256",
+  "fetched_at": 1792765588,
+  "sha256": "e24ff4da5ebf448aa67e431b3ddf9821d80f3caa3ee2629003b7c180e804a263",
+  "bytes": 2948,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/agnes/05-favicon.png",
+  "host": "agnes-ai.com",
+  "kind": "google_s2_256"
+}

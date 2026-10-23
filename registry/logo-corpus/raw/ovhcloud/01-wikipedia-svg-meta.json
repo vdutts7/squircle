@@ -1,0 +1,12 @@
+{
+  "slug": "ovhcloud",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_OVH.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766228,
+  "sha256": "1d8cfed986a95a4ee8b850609b9cdc715f4638abd81b346bafb9bc65c69bff80",
+  "bytes": 2729,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/ovhcloud/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/OVHcloud",
+  "article_title": "OVHcloud"
+}

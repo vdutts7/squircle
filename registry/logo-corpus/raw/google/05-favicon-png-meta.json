@@ -1,0 +1,12 @@
+{
+  "slug": "google",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=google.dev&sz=256",
+  "fetched_at": 1792765908,
+  "sha256": "776bce541cbb185ca9ee2792c3f345e0ddf1059e6c56c56de7893af22c2d4950",
+  "bytes": 9073,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/google/05-favicon.png",
+  "host": "google.dev",
+  "kind": "google_s2_256"
+}

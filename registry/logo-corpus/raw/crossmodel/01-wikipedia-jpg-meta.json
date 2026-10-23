@@ -1,0 +1,12 @@
+{
+  "slug": "crossmodel",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/d/d4/CrossCode%2C_cover_art%2C_Feb_2017.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765772,
+  "sha256": "80c5eb28d32dae241e240d609ccc6cd1096a43ef9efd291ecfcbe5145b27da85",
+  "bytes": 44478,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/crossmodel/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/CrossCode",
+  "article_title": "CrossCode"
+}

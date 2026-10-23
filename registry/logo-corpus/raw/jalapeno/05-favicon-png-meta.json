@@ -1,0 +1,12 @@
+{
+  "slug": "jalapeno",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=jalapeno-cloud.ai&sz=256",
+  "fetched_at": 1792766009,
+  "sha256": "026c0ac03fe7b1a21a5ff897bc35d75e88fa8d2e28e227b9f61cf1552ffbbc36",
+  "bytes": 4168,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/jalapeno/05-favicon.png",
+  "host": "jalapeno-cloud.ai",
+  "kind": "google_s2_256"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "databricks",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/databricks/logo.svg",
+  "fetched_at": 1792765792,
+  "sha256": "7caafae42afc2ef2f149d3ddec059880aee762e1d526563806d7f069efbd7ab2",
+  "bytes": 412,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/databricks/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/databricks/logo.svg"
+}

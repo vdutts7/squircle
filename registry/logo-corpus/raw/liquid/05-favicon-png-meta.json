@@ -1,0 +1,12 @@
+{
+  "slug": "liquid",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=inference.ai.exchange&sz=256",
+  "fetched_at": 1792766035,
+  "sha256": "dd443fd11a7d17899928df7ded7241f3d3ff088094e94ac55625497e2c713262",
+  "bytes": 6828,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/liquid/05-favicon.png",
+  "host": "inference.ai.exchange",
+  "kind": "google_s2_256"
+}

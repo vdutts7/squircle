@@ -1,0 +1,12 @@
+{
+  "slug": "vancine",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/vancine/logo.svg",
+  "fetched_at": 1792766506,
+  "sha256": "deb2b0cd138d004c2e751598b65661e0e709c16238ad78a9e47578d0cdedc20f",
+  "bytes": 439,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/vancine/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/vancine/logo.svg"
+}

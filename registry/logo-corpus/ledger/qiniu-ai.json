@@ -1,0 +1,13 @@
+{
+  "slug": "qiniu-ai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767395,
+  "winner_source": "models_dev",
+  "winner_sha256": "214a73979ad473b115c8f482838ae8c164aef390f86a82148c0539b9400d05a1",
+  "output_phash": "b99ac6e1393e0a9a",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/qiniu-ai.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

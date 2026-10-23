@@ -1,0 +1,12 @@
+{
+  "slug": "lilac",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/lilac/logo.svg",
+  "fetched_at": 1792766044,
+  "sha256": "95b700d53273840dcb9c18cafb4f8068a78ae8eb293335e87a07c9513e1c9642",
+  "bytes": 1575,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/lilac/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/lilac/logo.svg"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "klokintegration",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767090,
+  "winner_source": "models_dev",
+  "winner_sha256": "5db461b65e63b97aa365537478ff3719fa440c719fe28ed0e51d4d87c105de8e",
+  "output_phash": "bf66c8849299a5d3",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/klokintegration.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

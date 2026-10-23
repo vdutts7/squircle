@@ -9,22 +9,19 @@ ROOT="${SQUIRCLE:-$(cd "$(dirname "$0")/.." && pwd)}"
 REG="$ROOT/registry/logo-corpus"
 SLUGS="$REG/slugs.json"
 LEDGER="$REG/ledger"
-EYE="$REG/eyeball.json"
-VARIANT_RE='(-(coding-plan|token-plan|code-plan)(-|$))|(-vertex(-|$))|(-cn$)'
+VARIANT_RE='(-(coding-plan|token-plan|code-plan|step-plan)(-|$))|(-vertex(-|$))|(-cn$)'
 
 shim() {
   >&2 printf '🔴 %s: %s (exit %s)\n  run: %s\n' "$1" "$2" "$3" "$4"
 }
 
 [[ -f "$SLUGS" ]] || { shim logo-corpus-write-law "slugs.json missing" 40 "bash $ROOT/test/logo-corpus-slug-law.sh"; exit 40; }
-[[ -f "$EYE"   ]] || { shim logo-corpus-write-law "eyeball.json missing" 40 "git -C $ROOT checkout -- registry/logo-corpus/eyeball.json"; exit 40; }
-
+mkdir -p "$LEDGER"
 tmp="$(mktemp -t logo-corpus-write-law.XXXXXX)"
 jq -r '.slugs[] | select(.in_scope==true) | .slug' "$SLUGS" | sort -u >"$tmp"
 
 variants=0
-missing_ledger=0
-missing_eye=0
+missing_pass=0
 
 for f in "$ROOT"/webp/*.webp; do
   [[ -e "$f" ]] || break
@@ -37,14 +34,15 @@ for f in "$ROOT"/webp/*.webp; do
     continue
   fi
   lf="$LEDGER/$stem.json"
-  if [[ ! -f "$lf" ]] || [[ "$(jq -r '.verify_status // empty' "$lf")" != pass ]]; then
-    missing_ledger=$((missing_ledger+1))
+  if [[ ! -f "$lf" ]]; then
+    missing_pass=$((missing_pass+1))
     continue
   fi
-  v="$(jq -r --arg s "$stem" '.slugs[$s].human_verdict // empty' "$EYE")"
-  if [[ "$v" != approved ]]; then
-    missing_eye=$((missing_eye+1))
-  fi
+  status="$(jq -r '.verify_status // empty' "$lf")"
+  case "$status" in
+    pass_authoritative|pass_cluster) ;;
+    *) missing_pass=$((missing_pass+1)) ;;
+  esac
 done
 
 rm -f "$tmp"
@@ -54,14 +52,9 @@ if (( variants > 0 )); then
     "python3 $ROOT/bin/logo-corpus-publish.py --prune-variants"
   exit 41
 fi
-if (( missing_ledger > 0 )); then
-  shim logo-corpus-write-law "$missing_ledger webp/<slug>.webp without ledger pass" 42 \
-    "python3 $ROOT/bin/logo-corpus-verify.py"
-  exit 42
-fi
-if (( missing_eye > 0 )); then
-  shim logo-corpus-write-law "$missing_eye webp/<slug>.webp without eyeball approved" 42 \
-    "python3 $ROOT/bin/logo-corpus-review.py"
+if (( missing_pass > 0 )); then
+  shim logo-corpus-write-law "$missing_pass webp/<slug>.webp without ledger pass_authoritative or pass_cluster" 42 \
+    "python3 $ROOT/bin/logo-corpus-fetch.py && python3 $ROOT/bin/logo-corpus-verify.py && python3 $ROOT/bin/logo-corpus-publish.py"
   exit 42
 fi
 

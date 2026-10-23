@@ -1,0 +1,12 @@
+{
+  "slug": "perplexity",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/perplexity/logo.svg",
+  "fetched_at": 1792766275,
+  "sha256": "2d0eb623b3fb33885f0b02de10c4078b909c7866b70a5a7bd323b7ac1aaa4d0d",
+  "bytes": 604,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/perplexity/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/perplexity/logo.svg"
+}

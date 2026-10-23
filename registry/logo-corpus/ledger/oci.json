@@ -1,0 +1,13 @@
+{
+  "slug": "oci",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767277,
+  "winner_source": "wikipedia",
+  "winner_sha256": "ee8017e7fc8d1d713005af0c713b459058ac8dcbbae718a6a00f31217e2787d8",
+  "output_phash": "c36fb0d81fa4e01b",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/oci.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

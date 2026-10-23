@@ -1,0 +1,12 @@
+{
+  "slug": "volcengine",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/volcengine/logo.svg",
+  "fetched_at": 1792766527,
+  "sha256": "c1e06b7f395d83debe15ac8c692a68f1ea8d4cf80a49eecf8e0211ccb2fcb8d1",
+  "bytes": 279,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/volcengine/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/volcengine/logo.svg"
+}

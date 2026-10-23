@@ -1,0 +1,13 @@
+{
+  "slug": "llmtr",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767122,
+  "winner_source": "models_dev",
+  "winner_sha256": "668e95b6c90beab7babf6e144fa20629810d1cb2543032a648add24b7a1772c3",
+  "output_phash": "be08f194cf488eb3",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/llmtr.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

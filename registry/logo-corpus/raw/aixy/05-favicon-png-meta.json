@@ -1,0 +1,12 @@
+{
+  "slug": "aixy",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=aixy-gateway.com&sz=256",
+  "fetched_at": 1792765625,
+  "sha256": "1100b0d7ca5ae861f343c8e507ced94c700f1d4a6f2bf907bc1be01a6c8402cf",
+  "bytes": 3166,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/aixy/05-favicon.png",
+  "host": "aixy-gateway.com",
+  "kind": "google_s2_256"
+}

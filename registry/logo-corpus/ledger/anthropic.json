@@ -1,0 +1,13 @@
+{
+  "slug": "anthropic",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766692,
+  "winner_source": "wikipedia",
+  "winner_sha256": "dc51b8df37f19665bcf474cfb760d0fb6578c17bedb176c8a98ea4fcaf5742dc",
+  "output_phash": "ff29d086a1d68ac6",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/anthropic.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

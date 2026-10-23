@@ -1,0 +1,12 @@
+{
+  "slug": "xai",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=x.ai&sz=256",
+  "fetched_at": 1792766556,
+  "sha256": "b81cce06509844d6013c8c7d784f50f904b64448bda5155eb31025a618388871",
+  "bytes": 1885,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/xai/05-favicon.png",
+  "host": "x.ai",
+  "kind": "google_s2_256"
+}

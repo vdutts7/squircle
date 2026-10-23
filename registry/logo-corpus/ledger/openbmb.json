@@ -1,0 +1,13 @@
+{
+  "slug": "openbmb",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767295,
+  "winner_source": "wikipedia",
+  "winner_sha256": "ac9ae9668beffd4d6a66ee6f8b307605701183947ec7046dfaa42da44ea1a942",
+  "output_phash": "ee915a4e91798956",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/openbmb.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

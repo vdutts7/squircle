@@ -1,0 +1,13 @@
+{
+  "slug": "lilac",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767099,
+  "winner_source": "models_dev",
+  "winner_sha256": "8e29e56c9a0a372007c8248372a1e10d49edf277d74d70894812dedfe9f27612",
+  "output_phash": "acb1b0cdcd7643a4",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/lilac.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

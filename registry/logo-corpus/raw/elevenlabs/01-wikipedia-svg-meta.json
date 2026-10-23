@@ -1,0 +1,12 @@
+{
+  "slug": "elevenlabs",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/ElevenLabs_Logo_03.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765818,
+  "sha256": "7a41b7f26b6286f607d34c80a658ef06e5cb6c094a1b087b563c8508e15f2178",
+  "bytes": 3446,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/elevenlabs/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/ElevenLabs",
+  "article_title": "ElevenLabs"
+}

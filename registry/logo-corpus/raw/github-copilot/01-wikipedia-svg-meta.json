@@ -1,0 +1,12 @@
+{
+  "slug": "github-copilot",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/GitHub_Copilot_%282025%29.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765871,
+  "sha256": "99a5a70dd13bf74e127a09b3284c666603a010d50abaf3424f2b745f87a5e81f",
+  "bytes": 13310,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/github-copilot/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/GitHub_Copilot",
+  "article_title": "GitHub Copilot"
+}

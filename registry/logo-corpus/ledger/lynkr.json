@@ -1,0 +1,13 @@
+{
+  "slug": "lynkr",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767148,
+  "winner_source": "wikipedia",
+  "winner_sha256": "a8ce9211f20aacb1a0cf97912f53b453a07d4103e7443b981c60faf4e8488081",
+  "output_phash": "fa98cf63b40ca037",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/lynkr.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

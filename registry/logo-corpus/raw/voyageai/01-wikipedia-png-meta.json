@@ -1,0 +1,12 @@
+{
+  "slug": "voyageai",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Voyager_spacecraft_model.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766520,
+  "sha256": "b5cbe168e298b12727cc13ed66a9ed49307497e38815fbcc753b414c389eb761",
+  "bytes": 387753,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/voyageai/01-wikipedia.png",
+  "article_url": "https://en.wikipedia.org/wiki/Voyager_1",
+  "article_title": "Voyager 1"
+}

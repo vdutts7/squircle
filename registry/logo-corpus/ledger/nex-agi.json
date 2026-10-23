@@ -1,0 +1,13 @@
+{
+  "slug": "nex-agi",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767256,
+  "winner_source": "wikipedia",
+  "winner_sha256": "3c982cbfea9f9332d56973789977a3ad72ac1dca18a986cb9f33091493d92b37",
+  "output_phash": "d8261fd1e44e1937",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/nex-agi.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

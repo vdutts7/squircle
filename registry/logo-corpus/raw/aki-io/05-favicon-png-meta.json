@@ -1,0 +1,12 @@
+{
+  "slug": "aki-io",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=aki.io&sz=256",
+  "fetched_at": 1792765628,
+  "sha256": "8f8fd28c9c7cb03007d7f3db81da7f3ec59712a13b7cfbaa6762548b560783ca",
+  "bytes": 3382,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/aki-io/05-favicon.png",
+  "host": "aki.io",
+  "kind": "google_s2_256"
+}

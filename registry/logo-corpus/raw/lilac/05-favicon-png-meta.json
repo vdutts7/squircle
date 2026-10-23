@@ -1,0 +1,12 @@
+{
+  "slug": "lilac",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=getlilac.com&sz=256",
+  "fetched_at": 1792766046,
+  "sha256": "4dfad94625e30ec42fe9f874fbe88d87d9869e5382d70bfcb8adcba06e67aea0",
+  "bytes": 6494,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/lilac/05-favicon.png",
+  "host": "getlilac.com",
+  "kind": "google_s2_256"
+}

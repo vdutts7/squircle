@@ -1,0 +1,12 @@
+{
+  "slug": "io-net",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/io-net/logo.svg",
+  "fetched_at": 1792766011,
+  "sha256": "c0e762bf720b7dcca3e887cd87a2cc5bad3d99374da67912b9eb51e13dc265d1",
+  "bytes": 645,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/io-net/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/io-net/logo.svg"
+}

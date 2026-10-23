@@ -1,0 +1,14 @@
+{
+  "slug": "essentialai",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/essentialai.png?size=512",
+  "fetched_at": 1792765847,
+  "sha256": "8ad61d609f7322680abe3a4c1add6fc3d5225d9281d298c882233566c35c4e96",
+  "bytes": 17230,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/essentialai/03-github.png",
+  "login": "essentialai",
+  "verified": [
+    "essentialai"
+  ]
+}

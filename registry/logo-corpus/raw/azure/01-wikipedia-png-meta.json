@@ -1,0 +1,12 @@
+{
+  "slug": "azure",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/c/c6/Azur_Lane_English_Release_Logo.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765671,
+  "sha256": "777f2a35ef49992fd8cc67085e9f1c7cf2423bd06b090e12ea6d51cfe4492cd7",
+  "bytes": 47291,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/azure/01-wikipedia.png",
+  "article_url": "https://en.wikipedia.org/wiki/Azur_Lane",
+  "article_title": "Azur Lane"
+}

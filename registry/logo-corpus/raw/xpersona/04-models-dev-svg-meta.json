@@ -1,0 +1,12 @@
+{
+  "slug": "xpersona",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/xpersona/logo.svg",
+  "fetched_at": 1792766550,
+  "sha256": "7e6b296f922dfa799acc715e82ae62ada3d6b33d04860d5f455fd6391095daae",
+  "bytes": 2044,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/xpersona/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/xpersona/logo.svg"
+}

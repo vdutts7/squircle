@@ -1,0 +1,12 @@
+{
+  "slug": "amd",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765629,
+  "sha256": "00e845a95a362db8478969e4969b73f5cd105690011986c78ce78ca4c76c992d",
+  "bytes": 694,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/amd/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/AMD",
+  "article_title": "AMD"
+}

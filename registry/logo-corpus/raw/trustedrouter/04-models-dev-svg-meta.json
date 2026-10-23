@@ -1,0 +1,12 @@
+{
+  "slug": "trustedrouter",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/trustedrouter/logo.svg",
+  "fetched_at": 1792766486,
+  "sha256": "27ed84715f0b17ed68b553425b946b11773e0c1961c1014bf3190699d1bbdb73",
+  "bytes": 264,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/trustedrouter/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/trustedrouter/logo.svg"
+}

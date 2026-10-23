@@ -1,0 +1,13 @@
+{
+  "slug": "google",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766970,
+  "winner_source": "wikipedia",
+  "winner_sha256": "7e1327b6a2eb7be9e3c0b6b8c1099ee00f5c68b3f851dfab75edc30cb0a2bbf4",
+  "output_phash": "eb1b859f92e070e1",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/google.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "siliconflow",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/siliconflow/logo.svg",
+  "fetched_at": 1792766412,
+  "sha256": "52e21b0870e52e402c9e57a3fec66c740bf5b24c1689a9428f5769d2abe74c69",
+  "bytes": 781,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/siliconflow/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/siliconflow/logo.svg"
+}

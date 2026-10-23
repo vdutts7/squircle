@@ -1,0 +1,12 @@
+{
+  "slug": "mixlayer",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/mixlayer/logo.svg",
+  "fetched_at": 1792766122,
+  "sha256": "dc34db9c2ba140453d85795da624633f6883385d4c99abad14eb2c98d670a9b4",
+  "bytes": 2135,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/mixlayer/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/mixlayer/logo.svg"
+}

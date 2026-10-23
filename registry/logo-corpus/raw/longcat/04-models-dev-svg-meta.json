@@ -1,0 +1,12 @@
+{
+  "slug": "longcat",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/longcat/logo.svg",
+  "fetched_at": 1792766055,
+  "sha256": "d0475647b306db5576dd5487c6cd8f8d49c384abec8ce24408b88b72b4603dd4",
+  "bytes": 2865,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/longcat/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/longcat/logo.svg"
+}

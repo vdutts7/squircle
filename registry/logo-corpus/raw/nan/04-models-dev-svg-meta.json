@@ -1,0 +1,12 @@
+{
+  "slug": "nan",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/nan/logo.svg",
+  "fetched_at": 1792766150,
+  "sha256": "2e0935d9bb0ec0527f30130f851b4e405d2ba63c7023fb94122e9b690e790355",
+  "bytes": 599,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/nan/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/nan/logo.svg"
+}

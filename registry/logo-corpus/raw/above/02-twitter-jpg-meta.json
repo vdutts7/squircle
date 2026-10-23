@@ -1,0 +1,15 @@
+{
+  "slug": "above",
+  "source": "twitter",
+  "tier": 2,
+  "url": "https://unavatar.io/twitter/AboveTP",
+  "fetched_at": 1792765576,
+  "sha256": "9522ec25d4c70729ce818927b11159bee3685db1cdf7665a0e9954af5c92d8c0",
+  "bytes": 9364,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/above/02-twitter.jpg",
+  "handle": "AboveTP",
+  "handles_considered": [
+    "AboveTP",
+    "AboveAvgOdds"
+  ]
+}

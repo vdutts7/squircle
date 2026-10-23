@@ -1,0 +1,12 @@
+{
+  "slug": "opper",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=opper.ai&sz=256",
+  "fetched_at": 1792766262,
+  "sha256": "5acc1af580511800a2acdbb6015aed3769ec147652f2dccc5bb4a5fb93f46b43",
+  "bytes": 2186,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/opper/05-favicon.png",
+  "host": "opper.ai",
+  "kind": "google_s2_256"
+}

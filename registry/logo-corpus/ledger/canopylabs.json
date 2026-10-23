@@ -1,0 +1,13 @@
+{
+  "slug": "canopylabs",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766785,
+  "winner_source": "wikipedia",
+  "winner_sha256": "3d1f570ed0bad5cb72555bc7470df149992008ecde7d09599a577998a95b64f8",
+  "output_phash": "9f8de0621f9de062",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/canopylabs.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

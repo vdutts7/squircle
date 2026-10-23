@@ -1,0 +1,13 @@
+{
+  "slug": "xai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767647,
+  "winner_source": "wikipedia",
+  "winner_sha256": "1072acb88bd2752c93e9268f5b2ef63a2b764f6b984fbca5fbebef2a2e30c3d9",
+  "output_phash": "f087cc603f2fc4d1",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/xai.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

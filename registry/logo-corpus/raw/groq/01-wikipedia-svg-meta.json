@@ -1,0 +1,12 @@
+{
+  "slug": "groq",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Groq_logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765893,
+  "sha256": "6a19f28e02d3cc8ac2e1766ff729362c80798539fa92daf05e26d27154fa68d4",
+  "bytes": 2754,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/groq/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Groq",
+  "article_title": "Groq"
+}

@@ -733,6 +733,49 @@ for a in "$@"; do
   case "$a" in -h|--help) show_help ;; esac
 done
 
+# --- Router: --slug / --corpus-rebuild (logo-corpus cascade) ---
+# These short-circuit normal routing and delegate to the logo-corpus pipeline.
+# Branch B (silent-self-verify-or-omit); no eyeball queue; no user prompts.
+for a in "$@"; do
+  case "$a" in
+    --slug=*|--slug|--corpus-rebuild|--corpus-build-slugs|--corpus-prune-variants)
+      SCRIPT_DIR="${0:A:h}"
+      REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+      PY="$REPO_ROOT/bin/.venv/bin/python3"
+      [[ -x "$PY" ]] || { echo "🔴 venv missing — run: zsh $REPO_ROOT/bin/venv.zsh" >&2; exit 1 }
+      case "$a" in
+        --corpus-build-slugs)
+          exec "$PY" "$REPO_ROOT/bin/logo-corpus-build-slugs.py"
+          ;;
+        --corpus-prune-variants)
+          exec "$PY" "$REPO_ROOT/bin/logo-corpus-publish.py" --prune-variants
+          ;;
+        --corpus-rebuild)
+          "$PY" "$REPO_ROOT/bin/logo-corpus-fetch.py"   || exit $?
+          "$PY" "$REPO_ROOT/bin/logo-corpus-verify.py"  || exit $?
+          exec "$PY" "$REPO_ROOT/bin/logo-corpus-publish.py"
+          ;;
+        --slug=*|--slug)
+          typeset -a slugs=()
+          typeset -i __si=1
+          while (( __si <= $# )); do
+            local __a="${@[__si]}"
+            case "$__a" in
+              --slug=*) slugs+=("${__a#--slug=}"); ((__si++)) ;;
+              --slug) ((__si++)); slugs+=("${@[__si]}"); ((__si++)) ;;
+              *) ((__si++)) ;;
+            esac
+          done
+          (( ${#slugs[@]} > 0 )) || { echo "🔴 --slug needs a slug" >&2; exit 1 }
+          "$PY" "$REPO_ROOT/bin/logo-corpus-fetch.py"   "${slugs[@]}"   || exit $?
+          "$PY" "$REPO_ROOT/bin/logo-corpus-verify.py"  "${slugs[@]}"   || exit $?
+          exec "$PY" "$REPO_ROOT/bin/logo-corpus-publish.py"
+          ;;
+      esac
+      ;;
+  esac
+done
+
 # --- Router: --domain (logo fetch) → optional main(); takes precedence over file/dir first arg ---
 typeset DOMAIN_ARG=""
 typeset LOGO_RIP_ONLY=0

@@ -1,0 +1,12 @@
+{
+  "slug": "inco",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/inco/logo.svg",
+  "fetched_at": 1792765958,
+  "sha256": "0568c8778d715fdfcb8c75e285e7b432f63caaa763cbc4bfc1288a6904ec8f3c",
+  "bytes": 1608,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/inco/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/inco/logo.svg"
+}

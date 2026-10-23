@@ -1,0 +1,12 @@
+{
+  "slug": "aimlapi",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/aimlapi/logo.svg",
+  "fetched_at": 1792765606,
+  "sha256": "1baddb25ecf0d4fcb45917a4916bb03d2aa683ba97a3a52f9650d037d3dd9dd4",
+  "bytes": 1061,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/aimlapi/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/aimlapi/logo.svg"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "cerebras",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766789,
+  "winner_source": "models_dev",
+  "winner_sha256": "46020d3ace355ba7b14575c41e2181db27f37a4382bf92519a2281a74dc830c2",
+  "output_phash": "b066cf999c817966",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/cerebras.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

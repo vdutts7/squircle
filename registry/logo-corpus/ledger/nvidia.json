@@ -1,0 +1,13 @@
+{
+  "slug": "nvidia",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767272,
+  "winner_source": "wikipedia",
+  "winner_sha256": "b96d5ad40c07ac26e64ca879646d99b0fb9f65e4e8f4d17ef1f6dba615089d35",
+  "output_phash": "e1819f581e673cb1",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/nvidia.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,14 @@
+{
+  "slug": "lmstudio",
+  "verify_status": "pass_cluster",
+  "timestamp": 1792767125,
+  "winner_source": "wikipedia",
+  "winner_sha256": "33faf3d6ff3e17e12e6ffffab5e1d7b7341702c08fd288de479efe7d4f439c59",
+  "output_phash": "c1c63e3b6c3899e4",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/lmstudio.webp",
+  "cluster_sources": [
+    "favicon",
+    "wikipedia"
+  ],
+  "cluster_size": 2
+}

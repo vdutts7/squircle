@@ -19,7 +19,7 @@ import sys
 from pathlib import Path
 
 VARIANT_REGEX = re.compile(
-    r"-(coding-plan|token-plan|code-plan)(-|$)"
+    r"-(coding-plan|token-plan|code-plan|step-plan)(-|$)"
     r"|-vertex(-|$)"
     r"|-cn$"
 )

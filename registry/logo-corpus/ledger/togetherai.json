@@ -1,0 +1,13 @@
+{
+  "slug": "togetherai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767565,
+  "winner_source": "models_dev",
+  "winner_sha256": "1c8683d33a5541b25a748a6bc77598b6e5799b96e3a096507e912a6edfd40e0c",
+  "output_phash": "b838c7c7c7383839",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/togetherai.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

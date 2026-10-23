@@ -1,0 +1,13 @@
+{
+  "slug": "essentialai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766920,
+  "winner_source": "wikipedia",
+  "winner_sha256": "c2b2bd59868edc4f5d5d978eeec669c234aee283121541563552fbb019039c43",
+  "output_phash": "b1336333cccccccc",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/essentialai.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

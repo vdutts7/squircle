@@ -1,0 +1,13 @@
+{
+  "slug": "wafer.ai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767630,
+  "winner_source": "models_dev",
+  "winner_sha256": "8cc4474ef811edaa7469afbfa5f6331b0ba15af38e5293acda3143a01025a83a",
+  "output_phash": "daa971a787d28e50",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/wafer.ai.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

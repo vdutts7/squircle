@@ -1,0 +1,14 @@
+{
+  "slug": "neosmith",
+  "verify_status": "pass_cluster",
+  "timestamp": 1792767247,
+  "winner_source": "models_dev",
+  "winner_sha256": "2fe645b703730981902732945a5302c8a13f7cd7d56da83caea3f384a2b21b6c",
+  "output_phash": "bfccf084c330cf31",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/neosmith.webp",
+  "cluster_sources": [
+    "favicon",
+    "models_dev"
+  ],
+  "cluster_size": 2
+}

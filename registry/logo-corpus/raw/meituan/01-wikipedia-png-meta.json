@@ -1,0 +1,12 @@
+{
+  "slug": "meituan",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/6/61/Meituan_English_Logo.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766063,
+  "sha256": "64d2bdc0e3aaa18c9e68a0b31ffc991aeeccf947f0525d2bb8bb54b354eef69d",
+  "bytes": 32617,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/meituan/01-wikipedia.png",
+  "article_url": "https://en.wikipedia.org/wiki/Meituan",
+  "article_title": "Meituan"
+}

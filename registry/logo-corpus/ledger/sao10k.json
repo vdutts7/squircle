@@ -1,0 +1,13 @@
+{
+  "slug": "sao10k",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767453,
+  "winner_source": "wikipedia",
+  "winner_sha256": "e7345608caf50b335c657e33b901facc0c5858cc0d835c0f9fa98586830c3038",
+  "output_phash": "e3389e4339c6649b",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/sao10k.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

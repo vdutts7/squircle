@@ -1,0 +1,12 @@
+{
+  "slug": "clarifai",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=clarifai.com&sz=256",
+  "fetched_at": 1792765743,
+  "sha256": "9064155c480ed6ef82e3d4472cb30c23fb9ec14df69da2350304d43ca346d995",
+  "bytes": 4077,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/clarifai/05-favicon.png",
+  "host": "clarifai.com",
+  "kind": "google_s2_256"
+}

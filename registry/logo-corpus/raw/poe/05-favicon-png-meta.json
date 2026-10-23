@@ -1,0 +1,12 @@
+{
+  "slug": "poe",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=creator.poe.com&sz=256",
+  "fetched_at": 1792766277,
+  "sha256": "c7459f47d3137fad5f395b41673602d0802795bbdd02bbfb30acb4113c2ccf41",
+  "bytes": 4710,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/poe/05-favicon.png",
+  "host": "creator.poe.com",
+  "kind": "google_s2_256"
+}

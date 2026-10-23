@@ -1,0 +1,12 @@
+{
+  "slug": "tensorx",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/tensorx/logo.svg",
+  "fetched_at": 1792766449,
+  "sha256": "f5ddaa061c226ef18b0fe01621912b327e3506654d7e0f4c2a84217fb9cd47ec",
+  "bytes": 415,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/tensorx/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/tensorx/logo.svg"
+}

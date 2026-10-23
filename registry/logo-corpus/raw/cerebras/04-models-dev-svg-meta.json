@@ -1,0 +1,12 @@
+{
+  "slug": "cerebras",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/cerebras/logo.svg",
+  "fetched_at": 1792765741,
+  "sha256": "d41adb7b437895e13ee22742cf6eab98f7b5e2770aad12fb2103cdf7fa1574c9",
+  "bytes": 3355,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/cerebras/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/cerebras/logo.svg"
+}

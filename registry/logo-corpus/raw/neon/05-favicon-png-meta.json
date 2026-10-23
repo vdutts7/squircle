@@ -1,0 +1,12 @@
+{
+  "slug": "neon",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=neon.com&sz=256",
+  "fetched_at": 1792766167,
+  "sha256": "f57646c7ddd91f69ea6028c27db0bba49cce04d3c72439f999b583a1c857d82b",
+  "bytes": 816,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/neon/05-favicon.png",
+  "host": "neon.com",
+  "kind": "google_s2_256"
+}

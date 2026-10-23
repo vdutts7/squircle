@@ -1,0 +1,12 @@
+{
+  "slug": "digitalocean",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/DigitalOcean_logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765795,
+  "sha256": "48641c14f32943c23a4d4bcdd15956fc93f25749e3307f3f0ad3a72eb6f1437f",
+  "bytes": 5885,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/digitalocean/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/DigitalOcean",
+  "article_title": "DigitalOcean"
+}

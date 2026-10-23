@@ -1,0 +1,13 @@
+{
+  "slug": "arcee",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766707,
+  "winner_source": "wikipedia",
+  "winner_sha256": "23945478dd2e1b75ddf1dedc07e9f7f24f60e169630cfb4b018fa35cfabc6cc1",
+  "output_phash": "b16dcccc9a3292b3",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/arcee.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

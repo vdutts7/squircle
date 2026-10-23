@@ -1,0 +1,12 @@
+{
+  "slug": "groq",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/groq/logo.svg",
+  "fetched_at": 1792765920,
+  "sha256": "40578773086b54d5522c7d22f75664b41ccda03f8fab964882a58037de237c55",
+  "bytes": 680,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/groq/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/groq/logo.svg"
+}

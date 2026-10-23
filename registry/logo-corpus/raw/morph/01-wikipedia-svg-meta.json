@@ -1,0 +1,12 @@
+{
+  "slug": "morph",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Morphine.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766127,
+  "sha256": "cd04fa0b6a721ef08c161b9ceac0b5c26fe01f57c46e4a858a7809dd7cf4dbc4",
+  "bytes": 6853,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/morph/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Morphine",
+  "article_title": "Morphine"
+}

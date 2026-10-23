@@ -1,0 +1,13 @@
+{
+  "slug": "ai21",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766632,
+  "winner_source": "models_dev",
+  "winner_sha256": "a845b621748f1d07b25d31ae045b4d0cdd020480207943b1fc98eae4e5a31e81",
+  "output_phash": "b4c3cb1c9c3166ce",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/ai21.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

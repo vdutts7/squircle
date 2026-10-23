@@ -1,0 +1,12 @@
+{
+  "slug": "databricks",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/e/e4/Databricks_logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765778,
+  "sha256": "8c6b1fbc7609d5246f85629ca4bf729585694e030245676fa49c309f9673f42f",
+  "bytes": 3668,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/databricks/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Databricks",
+  "article_title": "Databricks"
+}

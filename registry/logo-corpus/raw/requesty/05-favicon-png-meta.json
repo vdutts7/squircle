@@ -1,0 +1,12 @@
+{
+  "slug": "requesty",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=requesty.ai&sz=256",
+  "fetched_at": 1792766331,
+  "sha256": "abcfcd2a05e5c573bad82c1150967f3f85b1de57cdb3ed8b4b439cd6013b55fd",
+  "bytes": 13271,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/requesty/05-favicon.png",
+  "host": "requesty.ai",
+  "kind": "google_s2_256"
+}

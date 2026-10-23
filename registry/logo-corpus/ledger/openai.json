@@ -1,0 +1,13 @@
+{
+  "slug": "openai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767290,
+  "winner_source": "wikipedia",
+  "winner_sha256": "cfc81eb98142057bb98b00e93157cd5c248dc36886344c996962aa3f408aa320",
+  "output_phash": "0000000000000000",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/openai.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

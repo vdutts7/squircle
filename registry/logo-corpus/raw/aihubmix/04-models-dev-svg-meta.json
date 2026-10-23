@@ -1,0 +1,12 @@
+{
+  "slug": "aihubmix",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/aihubmix/logo.svg",
+  "fetched_at": 1792765606,
+  "sha256": "e7d7efd8094a709ce2d5ee1889660aea96299b7dcb8bfc70969427d19dbd4e07",
+  "bytes": 2244,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/aihubmix/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/aihubmix/logo.svg"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "fireworks-ai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/fireworks-ai/logo.svg",
+  "fetched_at": 1792765861,
+  "sha256": "c5d275fc8142a415bd678d50d7b0948a74f829139baf79122fb9e1934e6c05ac",
+  "bytes": 992,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/fireworks-ai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/fireworks-ai/logo.svg"
+}

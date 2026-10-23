@@ -1,0 +1,12 @@
+{
+  "slug": "wandb",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/wandb/logo.svg",
+  "fetched_at": 1792766543,
+  "sha256": "f9a106164c849680e20205948bc9ab5893295014595bd9192b2d21e71a88d006",
+  "bytes": 1044,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/wandb/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/wandb/logo.svg"
+}

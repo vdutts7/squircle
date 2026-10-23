@@ -1,0 +1,12 @@
+{
+  "slug": "io-net",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=io.net&sz=256",
+  "fetched_at": 1792766012,
+  "sha256": "1197d3f2ad012333e8a5f6bbc80a9cfddb69e4381d99f6ebea85b3a14fb183e9",
+  "bytes": 1028,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/io-net/05-favicon.png",
+  "host": "io.net",
+  "kind": "google_s2_256"
+}

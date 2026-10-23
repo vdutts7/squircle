@@ -1,0 +1,12 @@
+{
+  "slug": "meta",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/meta/logo.svg",
+  "fetched_at": 1792766104,
+  "sha256": "3d4af304617cf27cbc26add3f3ab8a911b21f2366fe1325db553233e7c46dfa8",
+  "bytes": 1154,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/meta/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/meta/logo.svg"
+}

@@ -1,0 +1,8 @@
+{
+  "slug": "chutes",
+  "verify_status": "fail_low_confidence",
+  "timestamp": 1792766793,
+  "candidate_sources": [
+    "github"
+  ]
+}

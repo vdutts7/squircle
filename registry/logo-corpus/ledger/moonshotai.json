@@ -1,0 +1,13 @@
+{
+  "slug": "moonshotai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767217,
+  "winner_source": "wikipedia",
+  "winner_sha256": "ceefe64c9a13a7503081beea90eb8a5ad6a1b9739ef358e7a1f8d34f408670bc",
+  "output_phash": "af9f906360b868d6",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/moonshotai.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "neuralwatt",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/neuralwatt/logo.svg",
+  "fetched_at": 1792766187,
+  "sha256": "17c1f0f0b5d5ac3146533d497cb5246855b756eac6dc1433f81d71c9a2e16d91",
+  "bytes": 6167,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/neuralwatt/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/neuralwatt/logo.svg"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "bee",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Tetragonula_carbonaria_%2814521993792%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765694,
+  "sha256": "c6c32914a6fe95c4b956c6239baa158b8bcf7a8553ee0690396b85cc20fdc93a",
+  "bytes": 843024,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/bee/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Bee",
+  "article_title": "Bee"
+}

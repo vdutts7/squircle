@@ -1,0 +1,12 @@
+{
+  "slug": "ollama-cloud",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/ollama-cloud/logo.svg",
+  "fetched_at": 1792766220,
+  "sha256": "b2e03b786987a1a66a5144f0373d33320a256a6e4dad391593f7b16232d40c43",
+  "bytes": 5677,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/ollama-cloud/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/ollama-cloud/logo.svg"
+}

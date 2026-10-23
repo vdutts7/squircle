@@ -1,0 +1,13 @@
+{
+  "slug": "aion-labs",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766652,
+  "winner_source": "wikipedia",
+  "winner_sha256": "160c375864854ed625d50031faf97ffe2ea53b7e6fcad099363cbe32c6c86b53",
+  "output_phash": "fe6a81943a4b6a2e",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/aion-labs.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

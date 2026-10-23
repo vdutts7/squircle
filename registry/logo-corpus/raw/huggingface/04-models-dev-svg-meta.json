@@ -1,0 +1,12 @@
+{
+  "slug": "huggingface",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/huggingface/logo.svg",
+  "fetched_at": 1792765930,
+  "sha256": "678d7de1bc3b085b9fda5d0ab5067f2ef2d68b87a0a0eb728e48da26cd93892e",
+  "bytes": 8444,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/huggingface/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/huggingface/logo.svg"
+}

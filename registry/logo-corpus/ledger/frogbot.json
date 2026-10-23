@@ -1,0 +1,13 @@
+{
+  "slug": "frogbot",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766950,
+  "winner_source": "models_dev",
+  "winner_sha256": "f3d104d014b8cba9395f75d040e2f1b1c872cd21f6cde21f7fbe30154b53dfe2",
+  "output_phash": "e786587a87b15863",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/frogbot.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "gmicloud",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766967,
+  "winner_source": "wikipedia",
+  "winner_sha256": "4e6e101500e7f3aafbcef552a95c074baf334bfad595ce170cb516a3181a7594",
+  "output_phash": "cf963861c71e94e1",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/gmicloud.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

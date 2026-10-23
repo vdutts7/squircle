@@ -1,0 +1,12 @@
+{
+  "slug": "lmstudio",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=lmstudio.ai&sz=256",
+  "fetched_at": 1792766069,
+  "sha256": "06dcc5a0546f98510b2df05d027debb59b37a1471abe8dea054ea71f0700ddd8",
+  "bytes": 17403,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/lmstudio/05-favicon.png",
+  "host": "lmstudio.ai",
+  "kind": "google_s2_256"
+}

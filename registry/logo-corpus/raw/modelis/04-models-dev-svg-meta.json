@@ -1,0 +1,12 @@
+{
+  "slug": "modelis",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/modelis/logo.svg",
+  "fetched_at": 1792766141,
+  "sha256": "26b23cf96b5ef1b5c18addbd08ee74e841e28b7d68faa25e70e12c046696e366",
+  "bytes": 255,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/modelis/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/modelis/logo.svg"
+}

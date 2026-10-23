@@ -1,0 +1,12 @@
+{
+  "slug": "aki-io",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/aki-io/logo.svg",
+  "fetched_at": 1792765627,
+  "sha256": "6458afe24322cb0453cb50613daee1bedd4e19ca1bafe128167a00a2c325e837",
+  "bytes": 2505,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/aki-io/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/aki-io/logo.svg"
+}

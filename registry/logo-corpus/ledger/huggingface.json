@@ -1,0 +1,13 @@
+{
+  "slug": "huggingface",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767020,
+  "winner_source": "wikipedia",
+  "winner_sha256": "06284db279c718807cf7fb0e44b83abc4e8b7c636b3c8664756705496825f5d2",
+  "output_phash": "af9894636a9d855a",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/huggingface.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,8 @@
+{
+  "slug": "anthracite-org",
+  "verify_status": "fail_low_confidence",
+  "timestamp": 1792766691,
+  "candidate_sources": [
+    "github"
+  ]
+}

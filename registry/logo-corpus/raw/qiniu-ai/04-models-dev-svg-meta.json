@@ -1,0 +1,12 @@
+{
+  "slug": "qiniu-ai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/qiniu-ai/logo.svg",
+  "fetched_at": 1792766311,
+  "sha256": "623672390ca374052d081ac6aaf5b25e28301a5f5a2f2d526cbefea4eb636d37",
+  "bytes": 1527,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/qiniu-ai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/qiniu-ai/logo.svg"
+}

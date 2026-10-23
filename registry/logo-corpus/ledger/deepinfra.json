@@ -1,0 +1,13 @@
+{
+  "slug": "deepinfra",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766866,
+  "winner_source": "models_dev",
+  "winner_sha256": "048c40b46631c262037a2d0fd8c5b639e549b162c04a94ca981b5c926a2e3f71",
+  "output_phash": "bc8e9371cd2438cb",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/deepinfra.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

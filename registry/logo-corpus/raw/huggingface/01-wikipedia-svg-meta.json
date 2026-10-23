@@ -1,0 +1,12 @@
+{
+  "slug": "huggingface",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/4/45/Hugging_Face_logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765917,
+  "sha256": "945efc96c1b531c05a95ae74b8b69d824c5ada127f476ac0579cacfa3eb71bcb",
+  "bytes": 34504,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/huggingface/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Hugging_Face",
+  "article_title": "Hugging Face"
+}

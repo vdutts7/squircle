@@ -1,0 +1,12 @@
+{
+  "slug": "zenmux",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=zenmux.ai&sz=256",
+  "fetched_at": 1792766567,
+  "sha256": "11d44ebd39a3221ed554ce8be89cea25dc31f72a1a963c26129fe7e244ba3373",
+  "bytes": 2045,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/zenmux/05-favicon.png",
+  "host": "zenmux.ai",
+  "kind": "google_s2_256"
+}

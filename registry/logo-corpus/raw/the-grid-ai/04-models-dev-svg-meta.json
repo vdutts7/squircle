@@ -1,0 +1,12 @@
+{
+  "slug": "the-grid-ai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/the-grid-ai/logo.svg",
+  "fetched_at": 1792766466,
+  "sha256": "25a7ac3e7d97b9192286dd5b63e1a299a0adfc0f2a7579f0a42913c879774aa7",
+  "bytes": 1059,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/the-grid-ai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/the-grid-ai/logo.svg"
+}

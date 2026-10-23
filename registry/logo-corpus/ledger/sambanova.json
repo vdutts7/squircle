@@ -1,0 +1,13 @@
+{
+  "slug": "sambanova",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767447,
+  "winner_source": "wikipedia",
+  "winner_sha256": "dd995925a97a1bceb36dc6d4096d21df09273d131788ff219d9e171068da25e7",
+  "output_phash": "9d7b6c94c22e3299",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/sambanova.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

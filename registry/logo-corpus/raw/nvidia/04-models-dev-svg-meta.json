@@ -1,0 +1,12 @@
+{
+  "slug": "nvidia",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/nvidia/logo.svg",
+  "fetched_at": 1792766212,
+  "sha256": "9933406684df81e5fdd65e4ef28119c98d7b35f7b90a5ad6f387996c80ed81e6",
+  "bytes": 1439,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/nvidia/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/nvidia/logo.svg"
+}

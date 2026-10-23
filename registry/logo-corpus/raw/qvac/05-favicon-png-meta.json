@@ -1,0 +1,12 @@
+{
+  "slug": "qvac",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=npmjs.com&sz=256",
+  "fetched_at": 1792766321,
+  "sha256": "7858e38d69f13da0ab788ba600a1f33b72573e6f7850e9c097c1dc5ef57c9f2c",
+  "bytes": 332,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/qvac/05-favicon.png",
+  "host": "npmjs.com",
+  "kind": "google_s2_256"
+}

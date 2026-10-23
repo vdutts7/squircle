@@ -1,0 +1,13 @@
+{
+  "slug": "stepfun",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767502,
+  "winner_source": "wikipedia",
+  "winner_sha256": "0805f77122a66649f61501659194a9bd08a43c5af4263cc747cc6fe4b4ad8ac9",
+  "output_phash": "af9990666f999462",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/stepfun.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

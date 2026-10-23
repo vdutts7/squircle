@@ -1,0 +1,13 @@
+{
+  "slug": "poolside",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767374,
+  "winner_source": "wikipedia",
+  "winner_sha256": "33de065926cf3f8274b036be1ab1f53592f2bb7abe1142451f8e3e8511ca4844",
+  "output_phash": "ee8f9578f0387884",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/poolside.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

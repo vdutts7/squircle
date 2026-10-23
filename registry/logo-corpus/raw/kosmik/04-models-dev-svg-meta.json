@@ -1,0 +1,12 @@
+{
+  "slug": "kosmik",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/kosmik/logo.svg",
+  "fetched_at": 1792766029,
+  "sha256": "8b41d24c61b577b6c4142def1c841e903d33ca9b91169910d1593b268f4e8da2",
+  "bytes": 50952,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/kosmik/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/kosmik/logo.svg"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "ainetcafe",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766648,
+  "winner_source": "wikipedia",
+  "winner_sha256": "9a61300bb0ddfc2f537eccb45465f50e08c6f07963806da6c5b08872e99a8443",
+  "output_phash": "9e95693e96c4c992",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/ainetcafe.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

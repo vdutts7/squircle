@@ -1,0 +1,12 @@
+{
+  "slug": "hetzner",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Logo_Hetzner.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765904,
+  "sha256": "6b99956bbc728f4cca82f8590aadc46e8f9aacde6848ee07424abc356b389858",
+  "bytes": 1946,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/hetzner/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Hetzner",
+  "article_title": "Hetzner"
+}

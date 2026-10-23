@@ -1,0 +1,12 @@
+{
+  "slug": "inference",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=inference.net&sz=256",
+  "fetched_at": 1792765972,
+  "sha256": "a36f635dc4b01a9434b0ac2419fdcc927ca436cf07116adc713e7dd92b1125aa",
+  "bytes": 915,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/inference/05-favicon.png",
+  "host": "inference.net",
+  "kind": "google_s2_256"
+}

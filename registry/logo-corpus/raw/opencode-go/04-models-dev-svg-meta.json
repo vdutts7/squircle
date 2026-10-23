@@ -1,0 +1,12 @@
+{
+  "slug": "opencode-go",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/opencode-go/logo.svg",
+  "fetched_at": 1792766225,
+  "sha256": "d24c25ec9e90d6b0da823a94a64a2ca19398c794ae7e2eaf7d2699b9757d5df3",
+  "bytes": 246,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/opencode-go/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/opencode-go/logo.svg"
+}

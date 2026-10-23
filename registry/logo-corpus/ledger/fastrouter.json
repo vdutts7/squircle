@@ -1,0 +1,13 @@
+{
+  "slug": "fastrouter",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766928,
+  "winner_source": "models_dev",
+  "winner_sha256": "79e09c60bb0f3cf01f5cff9f49a9b9941d764eb646f1944aafb13d0093573368",
+  "output_phash": "b165ce9a30996766",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/fastrouter.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

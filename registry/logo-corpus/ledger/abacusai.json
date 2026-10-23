@@ -1,0 +1,8 @@
+{
+  "slug": "abacusai",
+  "verify_status": "fail_low_confidence",
+  "timestamp": 1792766600,
+  "candidate_sources": [
+    "github"
+  ]
+}

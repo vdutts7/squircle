@@ -1,0 +1,8 @@
+{
+  "slug": "apodex",
+  "verify_status": "fail_low_confidence",
+  "timestamp": 1792766706,
+  "candidate_sources": [
+    "github"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "nan",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=nan.builders&sz=256",
+  "fetched_at": 1792766152,
+  "sha256": "ebfd34683f967356596e9d16676c7d47282bc30007fe018c079e3474ed224f1e",
+  "bytes": 48596,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/nan/05-favicon.png",
+  "host": "nan.builders",
+  "kind": "google_s2_256"
+}

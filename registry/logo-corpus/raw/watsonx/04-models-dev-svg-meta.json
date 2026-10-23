@@ -1,0 +1,12 @@
+{
+  "slug": "watsonx",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/watsonx/logo.svg",
+  "fetched_at": 1792766544,
+  "sha256": "0508d13fa4e91f78102174f92bce9bc75e357a7a146898133ddffffe9da50716",
+  "bytes": 830,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/watsonx/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/watsonx/logo.svg"
+}

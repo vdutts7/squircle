@@ -1,0 +1,12 @@
+{
+  "slug": "neosmith",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=neosmith.ai&sz=256",
+  "fetched_at": 1792766183,
+  "sha256": "80430f89347f00e492d36c24c6e017e15967108ef5c0b44cceb2289f5b0ca923",
+  "bytes": 5380,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/neosmith/05-favicon.png",
+  "host": "neosmith.ai",
+  "kind": "google_s2_256"
+}

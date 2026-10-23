@@ -1,0 +1,12 @@
+{
+  "slug": "pioneer",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/pioneer/logo.svg",
+  "fetched_at": 1792766278,
+  "sha256": "9873ec640bc6fb05cc013b1cb46db7779fa1ed2037fb35e0a0aa767914556d7e",
+  "bytes": 449,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/pioneer/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/pioneer/logo.svg"
+}

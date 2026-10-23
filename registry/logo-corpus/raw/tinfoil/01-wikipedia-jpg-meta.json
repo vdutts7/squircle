@@ -1,0 +1,12 @@
+{
+  "slug": "tinfoil",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/30C3_TinFoil-Hat_%28cropped%29.jpg?utm_source=en.wikipedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail_unscaled",
+  "fetched_at": 1792766447,
+  "sha256": "dc65dab6198584f1216084871c5c678f109687f93561b03972f3c1f21084789a",
+  "bytes": 950298,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/tinfoil/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Tin_foil_hat",
+  "article_title": "Tin foil hat"
+}

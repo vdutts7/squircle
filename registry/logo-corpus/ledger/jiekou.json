@@ -1,0 +1,14 @@
+{
+  "slug": "jiekou",
+  "verify_status": "pass_cluster",
+  "timestamp": 1792767079,
+  "winner_source": "models_dev",
+  "winner_sha256": "eb690b4e64ceca646a013c3bd3ea627a9b192b813cf3b97da0a4e95d9e35edb9",
+  "output_phash": "9fd6744ac0a983ad",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/jiekou.webp",
+  "cluster_sources": [
+    "favicon",
+    "models_dev"
+  ],
+  "cluster_size": 2
+}

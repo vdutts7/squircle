@@ -1,0 +1,17 @@
+{
+  "$schema": "v1",
+  "doc": "ordered tier definitions for logo-corpus-fetch cascade. first tier producing >=1 candidate stops the cascade; cross-tier phash corroboration decides winner in verify.",
+  "tiers": [
+    { "id": "wikipedia",  "module": "bin/sources/wikipedia.py",  "tier": 1, "stop_on_success": true },
+    { "id": "twitter",    "module": "bin/sources/twitter.py",    "tier": 2, "stop_on_success": false },
+    { "id": "github",     "module": "bin/sources/github.py",     "tier": 3, "stop_on_success": false },
+    { "id": "models_dev", "module": "bin/sources/models_dev.py", "tier": 4, "stop_on_success": false },
+    { "id": "favicon",    "module": "bin/sources/favicon.py",    "tier": 5, "stop_on_success": false },
+    { "id": "bing_image", "module": "bin/sources/bing_image.py", "tier": 6, "stop_on_success": false, "experimental": true }
+  ],
+  "policy": {
+    "run_mode": "run_all_non_experimental",
+    "comment": "we run every non-experimental tier for each slug so verify has cross-tier evidence; stop_on_success is advisory to orchestrator for future short-circuiting",
+    "parallel_slugs": 8
+  }
+}

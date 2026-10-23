@@ -1,0 +1,13 @@
+{
+  "slug": "ambient",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766680,
+  "winner_source": "models_dev",
+  "winner_sha256": "ab82b65876687a4c9c00bca6bd6ad3b0ea8a80381f2fd7a96fd405177f5a0c01",
+  "output_phash": "af5be1a5961288e3",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/ambient.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

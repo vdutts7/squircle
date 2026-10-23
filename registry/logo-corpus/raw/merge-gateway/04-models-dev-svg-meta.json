@@ -1,0 +1,12 @@
+{
+  "slug": "merge-gateway",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/merge-gateway/logo.svg",
+  "fetched_at": 1792766087,
+  "sha256": "4e460c9c033d7911737f35ec8181443f0ffc6de6b1b56e65b07bff8b268e1586",
+  "bytes": 594,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/merge-gateway/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/merge-gateway/logo.svg"
+}

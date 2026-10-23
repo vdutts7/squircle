@@ -1,0 +1,13 @@
+{
+  "slug": "crossmodel",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766841,
+  "winner_source": "wikipedia",
+  "winner_sha256": "3b28099642fee977bf14370c5e5058edbd76d38d756927d3dce898b4023f5593",
+  "output_phash": "e31e3ce1867e6191",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/crossmodel.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

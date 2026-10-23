@@ -1,0 +1,13 @@
+{
+  "slug": "kosmik",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767094,
+  "winner_source": "models_dev",
+  "winner_sha256": "c576853f519e71217818354452c8816c11a266da3e753eec4845e8ab61939df9",
+  "output_phash": "e165ce9a3264ccd9",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/kosmik.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

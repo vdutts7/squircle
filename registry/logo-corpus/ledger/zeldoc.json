@@ -1,0 +1,13 @@
+{
+  "slug": "zeldoc",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767685,
+  "winner_source": "models_dev",
+  "winner_sha256": "bc08068de554a8d27a808020d634f0a919f454481cc8c0ad7b8355f7d2f91d44",
+  "output_phash": "b8c38e94c76f1a68",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/zeldoc.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

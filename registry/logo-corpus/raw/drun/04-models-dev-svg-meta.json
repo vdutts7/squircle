@@ -1,0 +1,12 @@
+{
+  "slug": "drun",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/drun/logo.svg",
+  "fetched_at": 1792765833,
+  "sha256": "43dc73a5a4506a8730c75a0d60530542cc8b9d13c95bdcf62bec3be0c17a7447",
+  "bytes": 1626,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/drun/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/drun/logo.svg"
+}

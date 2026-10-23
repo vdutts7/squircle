@@ -1,0 +1,12 @@
+{
+  "slug": "openai",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/a/af/OpenAI_logo_2025_%28wordmark%29.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766194,
+  "sha256": "6e4c87d52178f47077b698ced2fb181a8b0115e031cce42f62c6ca7c83d46b9d",
+  "bytes": 1799,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/openai/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/OpenAI",
+  "article_title": "OpenAI"
+}

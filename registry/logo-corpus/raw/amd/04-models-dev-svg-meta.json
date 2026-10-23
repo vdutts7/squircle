@@ -1,0 +1,12 @@
+{
+  "slug": "amd",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/amd/logo.svg",
+  "fetched_at": 1792765657,
+  "sha256": "72c608fcb31f3c673c841ba003c3af2da3d4533a36745211ba6a7742ed8293da",
+  "bytes": 562,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/amd/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/amd/logo.svg"
+}

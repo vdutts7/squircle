@@ -1,0 +1,16 @@
+{
+  "slug": "ai-router",
+  "source": "twitter",
+  "tier": 2,
+  "url": "https://unavatar.io/twitter/BitRouterAI",
+  "fetched_at": 1792765578,
+  "sha256": "ca292779278900819722f1fe39916dba2e6dcc762681fa33c76d0c5fb73b8916",
+  "bytes": 6776,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/ai-router/02-twitter.jpg",
+  "handle": "BitRouterAI",
+  "handles_considered": [
+    "BitRouterAI",
+    "openrouter",
+    "profiles"
+  ]
+}

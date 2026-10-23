@@ -1,0 +1,12 @@
+{
+  "slug": "lucidquery",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/lucidquery/logo.svg",
+  "fetched_at": 1792766079,
+  "sha256": "a9d26d97ca51740169c290e00e8a91f31aa4fa61ca879474c730fe38b3eef520",
+  "bytes": 80010,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/lucidquery/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/lucidquery/logo.svg"
+}

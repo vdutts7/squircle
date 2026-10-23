@@ -1,0 +1,13 @@
+{
+  "slug": "cloudflare-workers-ai",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766818,
+  "winner_source": "models_dev",
+  "winner_sha256": "50f505e198ed22ee66cdfa50cd0d2f1eea57d2c5ab1b6f159a0d11cd6e9c48ce",
+  "output_phash": "b0c6cf3970c68e39",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/cloudflare-workers-ai.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

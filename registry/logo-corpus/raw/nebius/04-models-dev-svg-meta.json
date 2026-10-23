@@ -1,0 +1,12 @@
+{
+  "slug": "nebius",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/nebius/logo.svg",
+  "fetched_at": 1792766177,
+  "sha256": "b676918909f35a9c74eafbff11fe227fc70bb62da3354aa97aca06219e66957c",
+  "bytes": 660,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/nebius/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/nebius/logo.svg"
+}

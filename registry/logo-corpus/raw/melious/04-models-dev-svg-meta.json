@@ -1,0 +1,12 @@
+{
+  "slug": "melious",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/melious/logo.svg",
+  "fetched_at": 1792766081,
+  "sha256": "f7c8c0e3cfa00a84a1587fb40f8ceb2d868ce27dae962e1f77fac77fe9343012",
+  "bytes": 507,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/melious/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/melious/logo.svg"
+}

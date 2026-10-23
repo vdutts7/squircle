@@ -1,0 +1,12 @@
+{
+  "slug": "cloudflare",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Cloudflare_Logo.svg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765742,
+  "sha256": "c530b1a42e8e554fddfe8dd0210d6d1a53772d35a9c42be3f960c7d56edc77de",
+  "bytes": 2461,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/cloudflare/01-wikipedia.svg",
+  "article_url": "https://en.wikipedia.org/wiki/Cloudflare",
+  "article_title": "Cloudflare"
+}

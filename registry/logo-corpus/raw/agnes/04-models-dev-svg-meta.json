@@ -1,0 +1,12 @@
+{
+  "slug": "agnes",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/agnes/logo.svg",
+  "fetched_at": 1792765587,
+  "sha256": "05d7a109fe6b5e113af8f52822a694d09b4f8cc460a77721e1ee459132e18a9e",
+  "bytes": 3397,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/agnes/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/agnes/logo.svg"
+}

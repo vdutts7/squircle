@@ -1,0 +1,12 @@
+{
+  "slug": "lmstudio",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/lmstudio/logo.svg",
+  "fetched_at": 1792766067,
+  "sha256": "461acdf34bf96cb90b9767b521aefdd04ca7d40b5ccda88f0a0ffc43aaf736d4",
+  "bytes": 726,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/lmstudio/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/lmstudio/logo.svg"
+}

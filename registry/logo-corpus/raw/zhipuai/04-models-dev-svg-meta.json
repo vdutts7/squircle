@@ -1,0 +1,12 @@
+{
+  "slug": "zhipuai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/zhipuai/logo.svg",
+  "fetched_at": 1792766571,
+  "sha256": "57d355dafab000caa3386066f9df7e179da577729295cb4600d42cec998bc712",
+  "bytes": 295,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/zhipuai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/zhipuai/logo.svg"
+}

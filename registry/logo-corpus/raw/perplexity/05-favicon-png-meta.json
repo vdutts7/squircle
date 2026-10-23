@@ -1,0 +1,12 @@
+{
+  "slug": "perplexity",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=perplexity.ai&sz=256",
+  "fetched_at": 1792766276,
+  "sha256": "f297b81d65751b3a1aa2529c71a44d8593077617acbfea9df2cf38cfeae2d281",
+  "bytes": 4048,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/perplexity/05-favicon.png",
+  "host": "perplexity.ai",
+  "kind": "google_s2_256"
+}

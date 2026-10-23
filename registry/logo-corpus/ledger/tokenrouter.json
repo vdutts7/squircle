@@ -1,0 +1,13 @@
+{
+  "slug": "tokenrouter",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767570,
+  "winner_source": "models_dev",
+  "winner_sha256": "48415118f51480b2cf248ad8bee2881bf4db25e06323e3b50b0551441c3773dd",
+  "output_phash": "ec4a93b54e4a31b5",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/tokenrouter.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "routing-run",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/routing-run/logo.svg",
+  "fetched_at": 1792766334,
+  "sha256": "618ffad78e1862fd1c89cb4d6ceca802b7ad450ec60e579c6d29168e7ed6364a",
+  "bytes": 292,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/routing-run/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/routing-run/logo.svg"
+}

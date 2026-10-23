@@ -1,0 +1,12 @@
+{
+  "slug": "meganova",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/meganova/logo.svg",
+  "fetched_at": 1792766076,
+  "sha256": "b99696dfe2c6e70b961d3a13e14e49ed3143240eb1b80e2015d7427cdad9fcb5",
+  "bytes": 11819,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/meganova/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/meganova/logo.svg"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "regolo-ai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/regolo-ai/logo.svg",
+  "fetched_at": 1792766324,
+  "sha256": "18d8ad4cec57bbde7fc7c28fbe64e2af1d3c5c19dd4d02bba0036eb182430431",
+  "bytes": 3301,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/regolo-ai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/regolo-ai/logo.svg"
+}

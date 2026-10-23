@@ -1,0 +1,12 @@
+{
+  "slug": "atomic-chat",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/atomic-chat/logo.svg",
+  "fetched_at": 1792765675,
+  "sha256": "9d7ce5d19e6252be9a8db37bafcb9654ff5008072fa4494d0e450926df245833",
+  "bytes": 9649,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/atomic-chat/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/atomic-chat/logo.svg"
+}

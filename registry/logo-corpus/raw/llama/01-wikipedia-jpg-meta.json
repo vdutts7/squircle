@@ -1,0 +1,12 @@
+{
+  "slug": "llama",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Llamas%2C_Vernagt-Stausee%2C_Italy.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792766021,
+  "sha256": "6278cd680fc820a592b5126a08e8578ffe2cfde777097b7639a02b720905693a",
+  "bytes": 1068656,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/llama/01-wikipedia.jpg",
+  "article_url": "https://en.wikipedia.org/wiki/Llama",
+  "article_title": "Llama"
+}

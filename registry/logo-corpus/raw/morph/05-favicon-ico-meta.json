@@ -1,0 +1,12 @@
+{
+  "slug": "morph",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=morphllm.com&sz=256",
+  "fetched_at": 1792766140,
+  "sha256": "501377081e4a9714c03a3edbc17ca07a429a10ae79f9379ea194f91cfdc4a8e6",
+  "bytes": 2081,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/morph/05-favicon.ico",
+  "host": "morphllm.com",
+  "kind": "google_s2_256"
+}

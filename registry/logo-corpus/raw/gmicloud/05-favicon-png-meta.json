@@ -1,0 +1,12 @@
+{
+  "slug": "gmicloud",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=gmicloud.ai&sz=256",
+  "fetched_at": 1792765886,
+  "sha256": "ba7272dfab89763829dea4144ae827ca7e448b646d2c7418d60dc01ecd1c132f",
+  "bytes": 755,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/gmicloud/05-favicon.png",
+  "host": "gmicloud.ai",
+  "kind": "google_s2_256"
+}

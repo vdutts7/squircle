@@ -1,0 +1,12 @@
+{
+  "slug": "commandcode",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/commandcode/logo.svg",
+  "fetched_at": 1792765794,
+  "sha256": "cb1687d141edca792ca305d174c2f68ad2129044ae977feb61c5675d86eaa987",
+  "bytes": 2268,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/commandcode/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/commandcode/logo.svg"
+}

@@ -1,0 +1,13 @@
+{
+  "slug": "modelis",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767207,
+  "winner_source": "wikipedia",
+  "winner_sha256": "987898fd624e7491e9080be14e6920df35aa23338753d55c841c556904a6bf25",
+  "output_phash": "cf2db0d03793422f",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/modelis.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

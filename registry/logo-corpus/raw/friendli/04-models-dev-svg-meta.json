@@ -1,0 +1,12 @@
+{
+  "slug": "friendli",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/friendli/logo.svg",
+  "fetched_at": 1792765894,
+  "sha256": "5bc1850aa1bb39cf310cea77d2ea5066bd2e73344cb33b3dc96bc2f3aad882c7",
+  "bytes": 2196,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/friendli/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/friendli/logo.svg"
+}

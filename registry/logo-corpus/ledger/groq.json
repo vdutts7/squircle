@@ -1,0 +1,13 @@
+{
+  "slug": "groq",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766989,
+  "winner_source": "wikipedia",
+  "winner_sha256": "2683f2f5a671f74d4a55dab2a26d3a884e0b0457c087bdfac47296dcc3b165f2",
+  "output_phash": "be61d3dee094c02e",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/groq.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

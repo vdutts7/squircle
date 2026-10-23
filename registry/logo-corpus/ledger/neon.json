@@ -1,0 +1,14 @@
+{
+  "slug": "neon",
+  "verify_status": "pass_cluster",
+  "timestamp": 1792767244,
+  "winner_source": "models_dev",
+  "winner_sha256": "07c48aa52f3591bec3a7bf4d51c26aafe70bc540a0a50684459210b4cdfe403f",
+  "output_phash": "eec99166c693cd24",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/neon.webp",
+  "cluster_sources": [
+    "favicon",
+    "models_dev"
+  ],
+  "cluster_size": 2
+}

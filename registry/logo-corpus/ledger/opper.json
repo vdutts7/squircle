@@ -1,0 +1,14 @@
+{
+  "slug": "opper",
+  "verify_status": "pass_cluster",
+  "timestamp": 1792767315,
+  "winner_source": "models_dev",
+  "winner_sha256": "efd85a88191bae1d17dfd910b88f3e36f4317f57e1d10f0f4cf80759a43152dc",
+  "output_phash": "bf1ee1e0c6c19c07",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/opper.webp",
+  "cluster_sources": [
+    "favicon",
+    "models_dev"
+  ],
+  "cluster_size": 2
+}

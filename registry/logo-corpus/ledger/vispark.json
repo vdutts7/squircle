@@ -1,0 +1,13 @@
+{
+  "slug": "vispark",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767605,
+  "winner_source": "wikipedia",
+  "winner_sha256": "60a9ed3d63fd3edc65f6d6ad4aef6b72dcedf9d5ebc7df90440ecf15b7808040",
+  "output_phash": "f3805ecb94798876",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/vispark.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

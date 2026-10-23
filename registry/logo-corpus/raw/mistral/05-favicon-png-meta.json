@@ -1,0 +1,12 @@
+{
+  "slug": "mistral",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=mistral.ai&sz=256",
+  "fetched_at": 1792766117,
+  "sha256": "c53880572313a65a001ce13b1932a174a45697df354b710f70c4ae1704d9e25f",
+  "bytes": 2002,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/mistral/05-favicon.png",
+  "host": "mistral.ai",
+  "kind": "google_s2_256"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "stackit",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=stackit.cloud&sz=256",
+  "fetched_at": 1792766394,
+  "sha256": "5ae1d2477ed6e717ecb06d2ac603779fdda0dbed122f34c746fc93ec3d28b39f",
+  "bytes": 435,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/stackit/05-favicon.png",
+  "host": "stackit.cloud",
+  "kind": "google_s2_256"
+}

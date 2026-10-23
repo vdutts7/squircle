@@ -1,0 +1,12 @@
+{
+  "slug": "claudinio",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/claudinio/logo.svg",
+  "fetched_at": 1792765749,
+  "sha256": "d33ef0d873000f1621238a092424e1bf1e1fd30e576954e19ac3a2cc02b2c51a",
+  "bytes": 17979,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/claudinio/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/claudinio/logo.svg"
+}

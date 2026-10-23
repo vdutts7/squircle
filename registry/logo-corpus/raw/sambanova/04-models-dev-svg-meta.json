@@ -1,0 +1,12 @@
+{
+  "slug": "sambanova",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/sambanova/logo.svg",
+  "fetched_at": 1792766344,
+  "sha256": "f962a30115db53c0ccd6689b975b058cee3561ad4264fd83645f9a49b987c48e",
+  "bytes": 12503,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/sambanova/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/sambanova/logo.svg"
+}

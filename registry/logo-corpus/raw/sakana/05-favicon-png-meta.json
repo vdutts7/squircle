@@ -1,0 +1,12 @@
+{
+  "slug": "sakana",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=sakana.ai&sz=256",
+  "fetched_at": 1792766341,
+  "sha256": "61b58da1765478a286903bf07f3891dc8657cd302ca27df458bdacc82b6d69ba",
+  "bytes": 1429,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/sakana/05-favicon.png",
+  "host": "sakana.ai",
+  "kind": "google_s2_256"
+}

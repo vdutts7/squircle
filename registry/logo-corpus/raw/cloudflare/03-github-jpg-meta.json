@@ -1,0 +1,14 @@
+{
+  "slug": "cloudflare",
+  "source": "github",
+  "tier": 3,
+  "url": "https://github.com/cloudflare.png?size=512",
+  "fetched_at": 1792765755,
+  "sha256": "c895b40e11223dd9173d839e702c831b02b3670e2482a28c733f3624394cc406",
+  "bytes": 6346,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/cloudflare/03-github.jpg",
+  "login": "cloudflare",
+  "verified": [
+    "cloudflare"
+  ]
+}

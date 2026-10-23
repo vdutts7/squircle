@@ -1,0 +1,12 @@
+{
+  "slug": "intfloat",
+  "source": "wikipedia",
+  "tier": 1,
+  "url": "https://upload.wikimedia.org/wikipedia/en/b/bf/Intelsat_logo.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
+  "fetched_at": 1792765966,
+  "sha256": "6203cf137709ad3c1d59652906061238c0525c9ac051dd47f95c527e48cc3369",
+  "bytes": 12496,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/intfloat/01-wikipedia.png",
+  "article_url": "https://en.wikipedia.org/wiki/Intelsat",
+  "article_title": "Intelsat"
+}

@@ -1,0 +1,12 @@
+{
+  "slug": "thinkingmachines",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/thinkingmachines/logo.svg",
+  "fetched_at": 1792766455,
+  "sha256": "3a12f14d9a3ca25b8b9df9eefcaebb9c1a5cb47604ecb1eda0d6109e2339dd85",
+  "bytes": 180,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/thinkingmachines/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/thinkingmachines/logo.svg"
+}

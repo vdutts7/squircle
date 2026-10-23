@@ -1,0 +1,13 @@
+{
+  "slug": "bee",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792766762,
+  "winner_source": "wikipedia",
+  "winner_sha256": "93373f3cfa11f95ff016b70a420720663db509424b62210b8a88400e3731e854",
+  "output_phash": "b54acab5691c1b63",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/bee.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}

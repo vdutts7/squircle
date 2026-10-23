@@ -1,0 +1,12 @@
+{
+  "slug": "nova",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=nova.amazon.com&sz=256",
+  "fetched_at": 1792766186,
+  "sha256": "5b2f7f9c8ed4931ca8f138cbecc44fceb470d1d9a5b6ccdadb88bf288b888d7d",
+  "bytes": 16130,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/nova/05-favicon.png",
+  "host": "nova.amazon.com",
+  "kind": "google_s2_256"
+}

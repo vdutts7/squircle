@@ -1,0 +1,12 @@
+{
+  "slug": "nearai",
+  "source": "models_dev",
+  "tier": 4,
+  "url": "file:///private/tmp/models.dev-dev/providers/nearai/logo.svg",
+  "fetched_at": 1792766190,
+  "sha256": "7bc6c3096f0874afe28af82d999b70de1124885b45fb9b9d0d14dc6b82ea3a0a",
+  "bytes": 889,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/nearai/04-models_dev.svg",
+  "clone_subdir": "providers",
+  "clone_path": "/private/tmp/models.dev-dev/providers/nearai/logo.svg"
+}

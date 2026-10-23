@@ -1,0 +1,13 @@
+{
+  "slug": "standardcompute",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767498,
+  "winner_source": "models_dev",
+  "winner_sha256": "6297bd25b39336452483c2bce4d6df1e5209c3ee049fc12de36671488586ee08",
+  "output_phash": "eec69139c4c69339",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/standardcompute.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

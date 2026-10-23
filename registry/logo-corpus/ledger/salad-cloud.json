@@ -1,0 +1,13 @@
+{
+  "slug": "salad-cloud",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767444,
+  "winner_source": "models_dev",
+  "winner_sha256": "1c02d1d50fa0faef9eceae4721bd1c5c0058810a36dc590665e5fb1f1a9bc224",
+  "output_phash": "e9c393399e2449cb",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/salad-cloud.webp",
+  "cluster_sources": [
+    "models_dev"
+  ],
+  "cluster_size": 1
+}

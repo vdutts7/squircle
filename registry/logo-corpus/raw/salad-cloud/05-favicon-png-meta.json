@@ -1,0 +1,12 @@
+{
+  "slug": "salad-cloud",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=salad.com&sz=256",
+  "fetched_at": 1792766340,
+  "sha256": "cc4d8b74c5175bc7be9b0194a5e823a5a6f56fc418c1900814f67bff2ee740f6",
+  "bytes": 3303,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/salad-cloud/05-favicon.png",
+  "host": "salad.com",
+  "kind": "google_s2_256"
+}

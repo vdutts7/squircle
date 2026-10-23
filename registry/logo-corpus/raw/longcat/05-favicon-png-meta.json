@@ -1,0 +1,12 @@
+{
+  "slug": "longcat",
+  "source": "favicon",
+  "tier": 5,
+  "url": "https://www.google.com/s2/favicons?domain=longcat.chat&sz=256",
+  "fetched_at": 1792766056,
+  "sha256": "056a7a8f510619c5b25eb17e9e16cf4edb05634a69f4f0a2a840f6b6f6cb4903",
+  "bytes": 494,
+  "path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/raw/longcat/05-favicon.png",
+  "host": "longcat.chat",
+  "kind": "google_s2_256"
+}

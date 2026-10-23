@@ -1,0 +1,13 @@
+{
+  "slug": "hetzner",
+  "verify_status": "pass_authoritative",
+  "timestamp": 1792767001,
+  "winner_source": "wikipedia",
+  "winner_sha256": "81a9dfae9200ef0c9ee621fe364445aa92fd7a52e21a4f5d9169fafca39dde9a",
+  "output_phash": "fe70f0db8b85818a",
+  "render_path": "/Users/vdog/Documents/a/squircle/registry/logo-corpus/renders/hetzner.webp",
+  "cluster_sources": [
+    "wikipedia"
+  ],
+  "cluster_size": 1
+}
