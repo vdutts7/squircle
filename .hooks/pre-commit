@@ -1,5 +1,5 @@
 #!/bin/zsh
-# pre-commit: kebab-slug staged paths; block unnormalized images under webp/.
+# pre-commit: kebab-slug staged paths under webp/ only; block unnormalized images under webp/.
 
 ROOT="$(git rev-parse --show-toplevel)"
 cd "$ROOT"

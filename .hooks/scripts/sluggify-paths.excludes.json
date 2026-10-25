@@ -1,8 +1,4 @@
 {
-  "dir_prefixes": [".git", ".hooks", "bin"],
-  "exact_files": [
-    "image-formats.txt",
-    "repo.spine.json",
-    "em-dash-whitelist.txt"
-  ]
+  "allow_dir_prefixes": ["webp"],
+  "exact_files": []
 }
