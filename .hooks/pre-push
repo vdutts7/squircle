@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# pre-push: kebab-slug tree; auto-commit if mutated; warn repo size.
+# pre-push: kebab-slug webp/ tree only; auto-commit if mutated; warn repo size.
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"

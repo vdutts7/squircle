@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# PARITY: squircle vendored sluggify-paths (--staged|--tree) + pre-commit/pre-push wire.
+# PARITY: squircle vendored sluggify-paths — webp/ only (+ pre-commit/pre-push wire).
 set -euo pipefail
 
 HOOK_SRC="$(cd "$(dirname "$0")" && pwd)"
@@ -21,7 +21,7 @@ set -e
 [[ "$hc" -eq 0 ]] && ok "--help exit 0" || bad "--help exit $hc"
 
 WORK="$(mktemp -d "${TMPDIR:-/tmp}/squircle-slug-regr.XXXXXX")"
-cleanup() { rm -rf "$WORK"; }
+cleanup() { /usr/bin/trash "$WORK" 2>/dev/null || true; }
 trap cleanup EXIT
 
 mkdir -p "$WORK/.hooks/scripts"
@@ -41,15 +41,20 @@ git config user.name regr
 git add image-formats.txt
 git commit -q -m init
 
-# --staged
-mkdir -p webp bin
+# --staged: webp yes, outside webp no
+mkdir -p webp bin notes
 printf x > 'webp/My Bad File.webp'
 printf y > 'bin/keep Me.sh'
-git add 'webp/My Bad File.webp'
+printf z > 'notes/My Note.txt'
+printf 'ignore-me' > .gitignore
+git add 'webp/My Bad File.webp' 'bin/keep Me.sh' 'notes/My Note.txt' .gitignore
 "$WORK/.hooks/scripts/sluggify-paths.sh" --staged "$WORK"
-[[ -f webp/my-bad-file.webp ]] && ok "--staged rename" || bad "--staged rename"
-[[ -f 'bin/keep Me.sh' ]] && ok "excludes bin/" || bad "excludes bin/"
+[[ -f webp/my-bad-file.webp ]] && ok "--staged rename webp" || bad "--staged rename webp"
+[[ -f 'bin/keep Me.sh' ]] && ok "skip bin/" || bad "skip bin/"
+[[ -f 'notes/My Note.txt' ]] && ok "skip notes/" || bad "skip notes/"
+[[ -f .gitignore ]] && ok "skip .gitignore" || bad "skip .gitignore"
 
+git add -A
 git commit -q -m staged
 
 # --tree (explicit)
@@ -70,14 +75,13 @@ git commit -q -m prep-default
 "$WORK/.hooks/scripts/sluggify-paths.sh" --tree "$WORK"
 [[ -f webp/third-file.webp ]] && ok "idempotent tree" || bad "idempotent tree"
 
-# pre-commit wire
-mkdir -p notes
-printf hi > 'notes/My Note.txt'
-git add 'notes/My Note.txt'
+# pre-commit: must not touch outside webp/
+printf hi > 'notes/Outside Note.txt'
+git add 'notes/Outside Note.txt'
 "$WORK/.hooks/pre-commit" >/dev/null
-[[ -f notes/my-note.txt ]] && ok "pre-commit" || bad "pre-commit"
+[[ -f 'notes/Outside Note.txt' ]] && ok "pre-commit skips non-webp" || bad "pre-commit skips non-webp"
 
-# pre-push wire
+# pre-push wire (webp only)
 printf z > 'webp/Needs Slug.webp'
 git add 'webp/Needs Slug.webp'
 git commit -q -m badname
