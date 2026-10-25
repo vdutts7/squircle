@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# squircle hook: kebab-slug file basenames (self-contained; ships with .hooks for ght sync).
+# squircle hook: kebab-slug basenames under webp/ only (ships with .hooks for ght sync).
 # usage: sluggify-paths.sh [--staged|--tree] [ROOT]
 set -euo pipefail
 
@@ -33,15 +33,12 @@ from pathlib import Path
 root = Path(os.environ["ROOT"]).resolve()
 ex_path = os.environ.get("EXCLUDES_JSON") or ""
 
-dir_prefixes = {".git", ".hooks", "bin"}
-exact_files = {
-    "image-formats.txt",
-    "repo.spine.json",
-    "em-dash-whitelist.txt",
-}
+# Scope lock: only webp/ (and nested namespaces). Never touch repo root / hooks / data.
+allow_dir_prefixes = {"webp"}
+exact_files: set[str] = set()
 if ex_path and Path(ex_path).is_file():
     doc = json.loads(Path(ex_path).read_text())
-    dir_prefixes = set(doc.get("dir_prefixes") or dir_prefixes)
+    allow_dir_prefixes = set(doc.get("allow_dir_prefixes") or allow_dir_prefixes)
     exact_files = set(doc.get("exact_files") or exact_files)
 
 UNSAFE = re.compile(r"[\x00-\x1f\x7f]|[/\\]")
@@ -78,20 +75,22 @@ def slug_basename(name: str) -> str:
     return slug_stem(stem) + ext
 
 
-def protected(rel: str) -> bool:
-    if rel in exact_files:
-        return True
+def in_scope(rel: str) -> bool:
     parts = Path(rel).parts
-    if not parts:
+    return bool(parts) and parts[0] in allow_dir_prefixes
+
+
+def protected(rel: str) -> bool:
+    if not in_scope(rel):
         return True
-    if parts[0] in dir_prefixes:
+    if rel in exact_files:
         return True
     return False
 
 
 def git_ls_files() -> list[str]:
     p = subprocess.run(
-        ["git", "-C", str(root), "ls-files", "-z"],
+        ["git", "-C", str(root), "ls-files", "-z", "--", "webp"],
         capture_output=True,
         check=True,
     )
@@ -111,6 +110,8 @@ def git_staged_paths() -> list[str]:
             "--name-only",
             "-z",
             "--diff-filter=ACMR",
+            "--",
+            "webp",
         ],
         capture_output=True,
         check=True,
