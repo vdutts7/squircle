@@ -1,12 +1,10 @@
 # Ignore everything
-!data/domains.txt.example
 *
 
+# Allow list (must come after *)
 !.gitignore
-!.cursor/
-!.cursor/commands/
-!.cursor/commands/venv.md
 !.gitconfig
+!.gitattributes
 !.hooks/
 !.hooks/**
 !repo.spine.json
@@ -18,8 +16,10 @@
 !image-formats.txt
 !bin/
 !bin/**
-
 !git-template
+!data/
+!data/domains.txt.example
+!TODOs.md
 
 # Icons and source images (webp/ and namespaced subdirs: webp/aws/, webp/macos/, etc.)
 !webp/
@@ -28,7 +28,3 @@
 webp/**/*.webp.CLIPPED
 webp/clip-queue-unfixed.txt
 webp/.clip_queue_unfixed.txt
-
-!TODOs.md
-!.gitattributes
-!workflows
