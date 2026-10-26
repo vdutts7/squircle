@@ -1,0 +1,140 @@
+{
+  "version": "1.1.0",
+  "description": "squircle edge catalog. Bodies: bin/test/*.sh",
+  "verify_script": "$SQUIRCLE/bin/test/run-all.sh",
+  "active_run": [
+    "$SQUIRCLE/bin/test/squircle-edge-active.sh"
+  ],
+  "status_law": {
+    "covered": "live probe",
+    "gap": "FAIL CLOSED"
+  },
+  "suites": {
+    "edge_active": "$SQUIRCLE/bin/test/squircle-edge-active.sh",
+    "bg_default": "$SQUIRCLE/bin/test/squircle-bg-default.regression.sh",
+    "aperture": "$SQUIRCLE/bin/test/squircle-padding-aperture.regression.sh",
+    "sluggify": "$SQUIRCLE/.hooks/scripts/sluggify-paths.regression.sh"
+  },
+  "cases": [
+    {
+      "id": "SQ-CLI-01",
+      "title": "no argv \u2192 non-zero exit (usage)",
+      "status": "covered",
+      "category": "inputs_cli",
+      "suite": "edge_active",
+      "probe": "SQ-CLI-01"
+    },
+    {
+      "id": "SQ-CLI-02",
+      "title": "script path as input refused",
+      "status": "covered",
+      "category": "inputs_cli",
+      "suite": "edge_active",
+      "probe": "SQ-CLI-02"
+    },
+    {
+      "id": "SQ-CLI-03",
+      "title": "--help exit 0 documents padding",
+      "status": "covered",
+      "category": "inputs_cli",
+      "suite": "edge_active",
+      "probe": "SQ-CLI-03"
+    },
+    {
+      "id": "SQ-BG-01",
+      "title": "full-res corner sample + white letterbox (no 64x64 bleed)",
+      "status": "covered",
+      "category": "boundaries",
+      "suite": "bg_default",
+      "probe": "SQ-BG-01"
+    },
+    {
+      "id": "SQ-BG-02",
+      "title": "sample_corner_bg_hex never resize-64x64-before-crop",
+      "status": "covered",
+      "category": "boundaries",
+      "suite": "edge_active",
+      "probe": "SQ-BG-02"
+    },
+    {
+      "id": "SQ-AP-01",
+      "title": "default pad clears squircle aperture (mid-side+corner \u2265 clearance)",
+      "status": "covered",
+      "category": "boundaries",
+      "suite": "aperture",
+      "probe": "SQ-AP-01"
+    },
+    {
+      "id": "SQ-AP-02",
+      "title": "aperture_safe_pad + APERTURE_CLEARANCE_PX + DstIn none-margin",
+      "status": "covered",
+      "category": "boundaries",
+      "suite": "edge_active",
+      "probe": "SQ-AP-02"
+    },
+    {
+      "id": "SQ-ISO-01",
+      "title": "bg-default and aperture suites isolated (both PASS independently)",
+      "status": "covered",
+      "category": "boundaries",
+      "suite": "edge_active",
+      "probe": "SQ-ISO-01"
+    },
+    {
+      "id": "SQ-FS-01",
+      "title": "webp write under tmp out path",
+      "status": "covered",
+      "category": "filesystem_io",
+      "suite": "edge_active",
+      "probe": "SQ-FS-01"
+    },
+    {
+      "id": "SQ-CLI-01b",
+      "title": "errors_exit: missing input path fails closed",
+      "status": "covered",
+      "category": "errors_exit",
+      "suite": "edge_active",
+      "probe": "SQ-CLI-01"
+    },
+    {
+      "id": "SQ-SHELL-01",
+      "title": "execution plane: bin/squircle.sh present and runnable",
+      "status": "covered",
+      "category": "shell_semantics",
+      "suite": "edge_active",
+      "probe": "SQ-SHELL-01"
+    },
+    {
+      "id": "SQ-CONC-01",
+      "title": "two parallel renders distinct outs (no clobber)",
+      "status": "covered",
+      "category": "concurrency",
+      "suite": "edge_active",
+      "probe": "SQ-CONC-01"
+    },
+    {
+      "id": "SQ-PLAT-01",
+      "title": "magick + mask.png + squircle.sh present on host",
+      "status": "covered",
+      "category": "platform",
+      "suite": "edge_active",
+      "probe": "SQ-PLAT-01"
+    },
+    {
+      "id": "SQ-ENC-01",
+      "title": "unicode dirname/filename round-trip to webp",
+      "status": "covered",
+      "category": "encoding",
+      "suite": "edge_active",
+      "probe": "SQ-ENC-01"
+    },
+    {
+      "id": "SQ-SLUG-01",
+      "title": "sluggify-paths renames webp/ only (skip bin/notes/.gitignore)",
+      "status": "covered",
+      "category": "filesystem_io",
+      "suite": "sluggify",
+      "probe": "SQ-SLUG-01"
+    }
+  ]
+}

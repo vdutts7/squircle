@@ -1,0 +1,73 @@
+# squircle render — constraint satisfaction problem (SSOT)
+# Implementation: bin/squircle-render-plan.py (solver) + bin/squircle.sh (executor)
+# User overrides (--bg, --padding, --no-clip-detect) freeze the matching variables.
+
+version: 1
+
+fixtures_registry: "$CURREGISTRY/squircle/render-csp/fixtures.json"
+regression: "test/squircle-render-csp.regression.sh"
+field_color: "bin/detect-field-color.sh"
+colorpick: "bin/colorpick.sh"
+
+fixed:
+  canvas_px: 1024
+  output_format: webp
+  mask: squircle_alpha  # transparent outside mask in deliverable
+  aspect: preserve      # fit inside logo box, no ^ crop on logo art
+  logo_box_min_px: 8
+
+variables:
+  source_class: { opaque_tile, transparent_logo }  # from get-bg-color probe
+  prep_raster: { original, trimmed }             # optional fuzz-trim for screenshots
+  render_mode: { fill, padding }                 # padding = inset logo box
+  padding_px: P                                  # per-side inset; L = canvas - 2P
+  logo_extent_px: L                              # derived
+  margin_hex: M                                  # -background for opaque extent / base
+  clip_score: S                                  # corner mean diff after mask (lower = safer)
+
+hard_constraints:
+  - id: canvas
+    expr: "output is canvas_px × canvas_px"
+  - id: logo_extent_bounds
+    expr: "L = canvas_px - 2*P && L >= logo_box_min_px && P >= 0"
+  - id: no_squircle_clip
+    expr: "S < clip_threshold_effective(P)"
+    note: "effective threshold looser in padding mode (×1.75) — see squircle.sh"
+  - id: margin_when_opaque
+    expr: "source_class=opaque_tile => M matches uniform field (corner sample + chroma gate) unless --bg"
+  - id: margin_when_transparent
+    expr: "source_class=transparent_logo && !--bg => M = DEFAULT_BG_HEX (#FFFFFF)"
+  - id: user_bg
+    expr: "--bg => M = user hex (frozen)"
+  - id: user_padding
+    expr: "--padding => P frozen (solver skipped)"
+
+soft_objectives:
+  priority_order:
+    - id: satisfy_hard_first
+      weight: inf
+    - id: minimize_padding_excess
+      expr: "among feasible P, prefer smallest P (tight but safe)"
+      note: "fixes 'too much letterbox' on screenshots when combined with correct M"
+    - id: meet_content_inset
+      expr: "P >= P_content(trim_bbox)"
+      note: "fixes 'logo too close / clipped' — trim bbox drives minimum inset"
+    - id: align_target_ratio
+      expr: "prefer P near P_target = (canvas - LOGO_RATIO) / 2 when still feasible"
+      constants: { LOGO_RATIO: 824 }
+
+derived:
+  P_target: "(canvas_px - LOGO_RATIO) / 2"
+  P_content: "from trimmed raster: min P such that scaled max(w,h) <= canvas - 2P"
+  P_search_min: "max(P_content, clip_padding_floor)"
+  P_search_max: "(canvas_px - logo_box_min_px) / 2"
+
+search:
+  strategy: "ascending P from P_search_min by clip_padding_step until S < threshold or max_iter"
+  prep_gate:
+    when: "opaque_tile && max(w,h) >= screenshot_min_px && corner_field_uniform"
+    action: "fuzz-trim prep (squircle_prep_logo_raster rules) then recompute trim bbox"
+  constants_ref: "bin/squircle.sh CONFIG block"
+
+failure:
+  - "if no P feasible: emit best-effort at max P with .CLIPPED marker (batch clip-queue)"

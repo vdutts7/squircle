@@ -21,17 +21,15 @@ hook:
   on_allow: "strip metadata"
 
 layout:
-  root: "config, docs, bin, hooks, registry"
-  planes:
-    control: "workflow.yaml + repo.spine.json"
-    data: "registry/ (manifest, tests, edge-case-matrix)"
-    execution: "bin/ + bin/test/ + .hooks/"
+  root: "config, docs, bin, hooks"
+  bin: "CLI + mask + helpers"
+  bin_test: "bin/test/* = smoke, regression, edge-case-matrix, run-all"
   webp: "flat CDN at webp/*.webp; bulk packs only in webp/material-icons/ — see webp-naming.config.json"
 
 verify:
   runner: "bin/test/run-all.sh"
-  registry: "registry/tests.json"
-  edge_case_matrix: "registry/edge-case-matrix.json"
+  tests: "bin/test/tests.json"
+  edge_case_matrix: "bin/test/edge-case-matrix.json"
 
 related_workflows:
   - "workflows/clip-queue.yaml (operation profile for --clip-queue tuning/reruns)"

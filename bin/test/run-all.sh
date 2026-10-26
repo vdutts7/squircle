@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Repo-native verify runner (execution plane). No $CURTOOLS required.
-# Reads registry/tests.json + registry/edge-case-matrix.json (data plane).
+# Reads bin/test/tests.json + bin/test/edge-case-matrix.json (data plane).
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 export SQUIRCLE="${SQUIRCLE:-$ROOT}"
-MATRIX="$SQUIRCLE/registry/edge-case-matrix.json"
-TESTS="$SQUIRCLE/registry/tests.json"
+MATRIX="$SQUIRCLE/bin/test/edge-case-matrix.json"
+TESTS="$SQUIRCLE/bin/test/tests.json"
 
 pass=0
 fail=0
@@ -14,7 +14,7 @@ bad() { echo "  FAIL $1" >&2; fail=$((fail + 1)); }
 
 [[ -f "$MATRIX" ]] || { bad "missing $MATRIX"; exit 2; }
 [[ -f "$TESTS" ]] || { bad "missing $TESTS"; exit 2; }
-ok "registry data present"
+ok "bin/test registry data present"
 
 # Lyapunov L: gap/deferred/incomplete covered → fail closed
 L="$(python3 - "$MATRIX" <<'PY'

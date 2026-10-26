@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "description": "Granular test modules. Bodies under bin/test/ + .hooks/scripts/.",
+  "runner": "bin/test/run-all.sh",
+  "modules": [
+    {
+      "id": "bg_default",
+      "kind": "regression",
+      "script": "bin/test/squircle-bg-default.regression.sh",
+      "smoke": "bin/test/squircle-bg-default.smoke.sh",
+      "covers": [
+        "bin/squircle.sh#sample_corner_bg_hex",
+        "bin/get-bg-color.sh"
+      ],
+      "isolation": "bleed/letterbox only; not aperture gaps"
+    },
+    {
+      "id": "padding_aperture",
+      "kind": "regression",
+      "script": "bin/test/squircle-padding-aperture.regression.sh",
+      "smoke": "bin/test/squircle-padding-aperture.smoke.sh",
+      "covers": [
+        "bin/squircle.sh#aperture_safe_pad",
+        "bin/mask.png#aperture"
+      ],
+      "isolation": "aperture clearance only; not bg color"
+    },
+    {
+      "id": "edge_active",
+      "kind": "edge_suite",
+      "script": "bin/test/squircle-edge-active.sh",
+      "covers": [
+        "bin/test/edge-case-matrix.json"
+      ],
+      "isolation": "matrix active_run; invokes bg_default + padding_aperture + sluggify probes"
+    },
+    {
+      "id": "sluggify_webp_only",
+      "kind": "regression",
+      "script": ".hooks/scripts/sluggify-paths.regression.sh",
+      "covers": [
+        ".hooks/scripts/sluggify-paths.sh"
+      ],
+      "isolation": "webp/ rename scope only"
+    }
+  ]
+}

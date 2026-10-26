@@ -1,7 +1,7 @@
 #!/bin/zsh
 # =============================================================================
 # SPEC: squircle.sh — raster input → WebP composited with squircle alpha; transparent outside mask.
-# All tunables live in CONFIG below (no .env / no SQUIRCLE_PARALLEL_J). Optional: SQUIRCLE=project dir with webp/ → REPO_ROOT for tools-only installs ($CURTOOLS/squircle/…). CLI overrides where listed.
+# All tunables live in CONFIG below (no .env / no SQUIRCLE_PARALLEL_J). Optional: SQUIRCLE=project dir with webp/ → REPO_ROOT for tools-only installs (tools-only install). CLI overrides where listed.
 # =============================================================================
 #
 # ENTRY_MODES:
@@ -17,7 +17,7 @@
 #     Default (domain_dump): durable dir /tmp/squircle-domain-artifacts/<host>-<pid>/ (always under /tmp; not deleted on exit);
 #     symlink /tmp/squircle-domain-artifacts/_last -> latest run. --no-domain-dump: mktemp under TMPDIR (deleted on exit unless --logo-rip-keep).
 #
-# REPO_ROOT: parent of bin/ in-repo; else SQUIRCLE (if webp/ exists) when tools live under e.g. $CURTOOLS/squircle/. Default --out uses REPO_ROOT/webp/.
+# REPO_ROOT: parent of bin/ in-repo; else SQUIRCLE (if webp/ exists) when tools live under e.g. a tools install of . Default --out uses REPO_ROOT/webp/.
 #
 # INTERFACE (CLI overrides; defaults from CONFIG):
 #   --size N                    output square size (CONFIG: DEFAULT_SIZE).
@@ -132,9 +132,10 @@ setopt pipefail 2>/dev/null || true
 SCRIPT_DIR="${0:h}"
 SCRIPT_NAME="${0:t}"
 
-CURTOOLS="${CURTOOLS:-$HOME/.cursor/tools}"
-PATH_INVOKE_LIB="$CURTOOLS/path-invocation/path-invoke.zsh"
-METRICS_LIB="$CURTOOLS/subroutines/metrics-latency.zsh"
+# Optional latency/path-invoke libs if operator provides CURTOOLS; public runs need neither.
+CURTOOLS="${CURTOOLS:-}"
+PATH_INVOKE_LIB="${CURTOOLS:+$CURTOOLS/path-invocation/path-invoke.zsh}"
+METRICS_LIB="${CURTOOLS:+$CURTOOLS/subroutines/metrics-latency.zsh}"
 [[ -f "$PATH_INVOKE_LIB" ]] && source "$PATH_INVOKE_LIB"
 [[ -f "$METRICS_LIB" ]] && source "$METRICS_LIB"
 
@@ -142,7 +143,7 @@ METRICS_LIB="$CURTOOLS/subroutines/metrics-latency.zsh"
 # CONFIG — single edit block (no env vars for squircle behavior). ImageMagick: -limit thread 1 on every magick call.
 # =============================================================================
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-# If scripts live under a tools prefix (e.g. $CURTOOLS/squircle/), parent is not the icon repo — use a checkout that has webp/.
+# If scripts live under a tools prefix (e.g. a tools install of ), parent is not the icon repo — use a checkout that has webp/.
 [[ -n "${SQUIRCLE:-}" && -d "${SQUIRCLE}/webp" ]] && REPO_ROOT="${SQUIRCLE:A}"
 SQUIRCLE_TMP_PARENT=/tmp
 PARALLEL_J=100%
@@ -653,7 +654,7 @@ Options:
   --bg #HEX        Background color (e.g. #FFFFFF). With --padding, margin color.
   --icon-color #   Recolor logo (transparent-background path only).
   --size N         Output size (default: CONFIG DEFAULT_SIZE).
-  --out path.webp  Default: REPO_ROOT/webp/<input_basename>.webp (REPO_ROOT = parent of bin/ in a git checkout, or SQUIRCLE when set and webp/ exists — e.g. __CURTOOLS__/squircle/squircle.sh + project dir).
+  --out path.webp  Default: REPO_ROOT/webp/<input_basename>.webp (REPO_ROOT = parent of bin/ in a git checkout, or SQUIRCLE when set and webp/ exists — e.g. __TOOLS__/squircle/squircle.sh + project dir).
   --out-dir DIR    Batch (directory input): output tree root; default REPO_ROOT/webp. Single-file / --domain: treated as output
                    location (.webp path = that file; else directory + input basename.webp). Prefer --out for one file.
                    Path scope (path-invocation process): one dir = flat children; multi-arg = each file /
@@ -705,7 +706,7 @@ Examples:
 EOF
 )
   _help=${_help//__SCRIPT__/$SCRIPT_NAME}
-  _help=${_help//__CURTOOLS__/$CURTOOLS}
+  _help=${_help//__TOOLS__/$CURTOOLS}
   _help=${_help//__CLIP_MARKER_SUFFIX__/$CLIP_MARKER_SUFFIX}
   _help=${_help//__CLIP_PADDING_START__/$CLIP_PADDING_START}
   _help=${_help//__CLIP_PADDING_STEP__/$CLIP_PADDING_STEP}
