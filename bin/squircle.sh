@@ -1143,6 +1143,8 @@ get_background() {
 
 # Sample average corner background color (full-res corner crops — never resize-first;
 # downscale bleeds logo chroma into corners and mis-detects white tiles as taupe).
+# Patch is 4×4 (not 16×16): logos with ink near the rim (fluentd wordmark) poison a 16×16
+# mean → grey letterbox (#CFD0D0) while the true corner pixels stay plate white.
 # Output: "#RRGGBB"
 sample_corner_bg_hex() {
   local img="$1"
@@ -1152,28 +1154,35 @@ sample_corner_bg_hex() {
   wh="$($MAGICK -limit thread 1 "$img" -format "%w %h" info: 2>/dev/null)" || wh="64 64"
   w="${wh%% *}"
   h="${wh##* }"
-  cw=16; ch=16
-  (( w < 32 )) && cw=$(( w > 1 ? w / 2 : 1 ))
-  (( h < 32 )) && ch=$(( h > 1 ? h / 2 : 1 ))
+  cw=4; ch=4
+  (( w < 8 )) && cw=$(( w > 1 ? w / 2 : 1 ))
+  (( h < 8 )) && ch=$(( h > 1 ? h / 2 : 1 ))
   x2=$(( w - cw )); y2=$(( h - ch ))
   (( x2 < 0 )) && x2=0
   (( y2 < 0 )) && y2=0
 
   get_corner_rgb() {
     local x="$1" y="$2"
+    # Include alpha: skip clear corners (transparent PNGs) so 0,0,0,a=0 does not taupe the mean.
     $MAGICK -limit thread 1 "$img" -alpha on -background none \
       -crop "${cw}x${ch}+${x}+${y}" +repage -scale 1x1! \
-      -format "%[fx:round(255*u.r)] %[fx:round(255*u.g)] %[fx:round(255*u.b)]" info: 2>/dev/null
+      -format "%[fx:round(255*u.r)] %[fx:round(255*u.g)] %[fx:round(255*u.b)] %[fx:u.a]" info: 2>/dev/null
   }
 
   local c1 c2 c3 c4
-  c1="$(get_corner_rgb 0 0)" || c1="255 255 255"
-  c2="$(get_corner_rgb "$x2" 0)" || c2="255 255 255"
-  c3="$(get_corner_rgb 0 "$y2")" || c3="255 255 255"
-  c4="$(get_corner_rgb "$x2" "$y2")" || c4="255 255 255"
+  c1="$(get_corner_rgb 0 0)" || c1="255 255 255 1"
+  c2="$(get_corner_rgb "$x2" 0)" || c2="255 255 255 1"
+  c3="$(get_corner_rgb 0 "$y2")" || c3="255 255 255 1"
+  c4="$(get_corner_rgb "$x2" "$y2")" || c4="255 255 255 1"
 
   local avg r g b
-  avg="$(printf '%s\n%s\n%s\n%s\n' "$c1" "$c2" "$c3" "$c4" | awk '{r+=$1;g+=$2;b+=$3} END{printf "%d %d %d", int(r/4+0.5), int(g/4+0.5), int(b/4+0.5)}' 2>/dev/null)" || avg="255 255 255"
+  # Opaque corners only (a >= 0.2), same gate as get-bg-color.sh.
+  avg="$(printf '%s\n%s\n%s\n%s\n' "$c1" "$c2" "$c3" "$c4" | awk '
+    $4+0 >= 0.2 { r+=$1; g+=$2; b+=$3; n++ }
+    END {
+      if (n < 1) { print "255 255 255"; exit }
+      printf "%d %d %d", int(r/n+0.5), int(g/n+0.5), int(b/n+0.5)
+    }' 2>/dev/null)" || avg="255 255 255"
   r="$(echo "$avg" | awk '{print $1}')"
   g="$(echo "$avg" | awk '{print $2}')"
   b="$(echo "$avg" | awk '{print $3}')"

@@ -36,13 +36,14 @@ if $(echo "$CENTER_ALPHA" | awk '{ exit !($1 >= 0.7) }'); then
   exit 0
 fi
 
-# Full-res corner crops (resize-first bleeds logo chroma into corners)
+# Full-res corner crops (resize-first bleeds logo chroma into corners).
+# 4×4 not 16×16: near-rim ink (wordmarks) must not taupe the sampled plate color.
 wh=$($MAGICK "$IN" -limit thread 1 -format "%w %h" info: 2>/dev/null) || wh="64 64"
 w="${wh%% *}"
 h="${wh##* }"
-cw=16; ch=16
-(( w < 32 )) && cw=$(( w > 1 ? w / 2 : 1 ))
-(( h < 32 )) && ch=$(( h > 1 ? h / 2 : 1 ))
+cw=4; ch=4
+(( w < 8 )) && cw=$(( w > 1 ? w / 2 : 1 ))
+(( h < 8 )) && ch=$(( h > 1 ? h / 2 : 1 ))
 x2=$(( w - cw )); y2=$(( h - ch ))
 (( x2 < 0 )) && x2=0
 (( y2 < 0 )) && y2=0

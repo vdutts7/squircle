@@ -37,12 +37,14 @@ bg="$("$GET_BG" "$FIX" 2>/dev/null || true)"
 [[ "$bg" == "OPAQUE" ]] && ok "get-bg → OPAQUE" || bad "get-bg expected OPAQUE got '$bg'"
 
 # --- prove 64x64-first would bleed (negative control; not production path) ---
+# Crop 16×16 after downscale: larger patch still catches plasma bleed into corners.
+# (Production sample is 4×4 full-res — different failure mode, covered by near-edge below.)
 bleed="$("$MAGICK" "$FIX" -resize 64x64 -crop 16x16+0+0 +repage -scale 1x1! \
   -format '%[fx:round(255*u.r)]' info:)"
 [[ "$bleed" != "255" ]] && ok "64x64-first bleeds (r=$bleed)" || bad "64x64-first unexpectedly pure white"
 
-# --- full-res corner crop stays white ---
-pure="$("$MAGICK" "$FIX" -crop 16x16+0+0 +repage -scale 1x1! \
+# --- full-res corner crop stays white (production patch size = 4×4) ---
+pure="$("$MAGICK" "$FIX" -crop 4x4+0+0 +repage -scale 1x1! \
   -format '%[fx:round(255*u.r)]' info:)"
 [[ "$pure" == "255" ]] && ok "full-res corner pure white" || bad "full-res corner r=$pure"
 
@@ -90,6 +92,33 @@ if (( cr < 250 || cg < 250 || cb < 250 )); then
   ok "center keeps plate chroma (rgb=$cr,$cg,$cb)"
 else
   bad "center washed to white rgb=$cr,$cg,$cb"
+fi
+
+# Near-rim ink trap (fluentd-class): dark mark inside former 16×16 BR corner, outside 4×4.
+# 16×16 mean → taupe pad; production 4×4 sample must keep white letterbox.
+NEAR="$WORK/near-edge.jpeg"
+"$MAGICK" -size 472x423 xc:white \
+  -fill '#1B1F20' -draw 'rectangle 456,407 467,418' \
+  "$NEAR"
+ok "fixture near-edge"
+# Negative control: 16×16 BR mean is not white
+near16="$("$MAGICK" "$NEAR" -crop 16x16+456+407 +repage -scale 1x1! \
+  -format '%[fx:round(255*u.r)]' info:)"
+[[ "$near16" != "255" ]] && ok "16x16 BR contaminated (r=$near16)" || bad "16x16 BR unexpectedly white"
+NEAR_OUT="$WORK/near-edge.webp"
+set +e
+near_status="$("$SQUIRCLE_SH" "$NEAR" --out "$NEAR_OUT" 2>&1)"
+near_rc=$?
+set -e
+echo "$near_status" >&2
+(( near_rc == 0 )) && ok "near-edge squircle exit 0" || bad "near-edge squircle exit $near_rc"
+nr="$("$MAGICK" "$NEAR_OUT" -crop 1x1+512+150 -format '%[fx:round(255*u.r)]' info:)"
+ng="$("$MAGICK" "$NEAR_OUT" -crop 1x1+512+150 -format '%[fx:round(255*u.g)]' info:)"
+nb="$("$MAGICK" "$NEAR_OUT" -crop 1x1+512+150 -format '%[fx:round(255*u.b)]' info:)"
+if (( nr >= 250 && ng >= 250 && nb >= 250 )); then
+  ok "near-edge padding white (rgb=$nr,$ng,$nb)"
+else
+  bad "near-edge padding taupe: rgb=$nr,$ng,$nb"
 fi
 
 echo "squircle-bg-default.regression pass=$pass fail=$fail" >&2
