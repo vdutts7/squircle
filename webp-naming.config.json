@@ -11,14 +11,6 @@
     "bulk_namespaces": {
       "webp/material-icons/": "curated icon pack (~1k+); internal storage, not primary CDN surface"
     },
-    "deprecated": [
-      "webp/adobe/",
-      "webp/amazon/",
-      "webp/aws/",
-      "webp/google/",
-      "webp/macos/",
-      "webp/microsoft/"
-    ],
     "note": "Brand/product icons live flat at webp/*.webp; only bulk import packs use subdirs"
   },
 

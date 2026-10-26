@@ -1,12 +1,11 @@
 # webp icon workflow — machine-parseable
 flow:
   - install: |
-      Namespace tools under $CURTOOLS/squircle/ (same layout as repo bin/): rsync -a --delete bin/ "$CURTOOLS/squircle/"
-      Venv: $CURTOOLS/squircle/.venv (venv.zsh or auto on --domain). Python deps only beside squircle.sh + system python3.
-      From a project checkout that has webp/, export SQUIRCLE="$PWD" so outputs go there (your shell can set this when webp/ exists).
-      Example: squircle () { [[ -d "$PWD/webp" ]] && export SQUIRCLE="$PWD"; "$CURTOOLS/squircle/squircle.sh" "$@" }
+      Install scripts to $CURTOOLS/squircle/ (mirror of repo bin/).
+      Venv: $CURTOOLS/squircle/.venv (venv.zsh or auto on --domain).
+      From a checkout with webp/, set SQUIRCLE to that checkout root so outputs land in webp/.
   - copy: "<repo>/webp/"
-    note: "squircle defaults to REPO_ROOT/webp; with $CURTOOLS/squircle/ scripts, set SQUIRCLE to the checkout (see install example)"
+    note: "default out dir is $SQUIRCLE/webp or REPO_ROOT/webp"
   - run: "squircle <file>  OR  squircle <dir> (batch, parallel); default size 1024"
   - commit: "pre-commit blocks unless normalized"
 
@@ -23,7 +22,7 @@ hook:
 
 layout:
   root: "config, docs, bin, hooks"
-  bin: "repo bin/* → install copy at $CURTOOLS/squircle/* (flat mirror); .venv lives in squircle/"
+  bin: "repo bin/* → $CURTOOLS/squircle/*; .venv beside squircle.sh"
   webp: "flat CDN at webp/*.webp; bulk packs only in webp/material-icons/ — see webp-naming.config.json"
 
 related_workflows:

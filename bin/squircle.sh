@@ -146,9 +146,12 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 [[ -n "${SQUIRCLE:-}" && -d "${SQUIRCLE}/webp" ]] && REPO_ROOT="${SQUIRCLE:A}"
 SQUIRCLE_TMP_PARENT=/tmp
 PARALLEL_J=100%
+# Floor before aperture bump. Square pad == mask mid-side inset (~100@1024) is flush — tips die on the curve.
 CLIP_PADDING_START=100
 CLIP_PADDING_STEP=50
 CLIP_PADDING_MAX_ITER=6
+# Min clearance (px) from squircle opaque edge to full-bleed square ink (mid-side + diagonal).
+APERTURE_CLEARANCE_PX=48
 CLIP_THRESHOLD=0.05
 CLIP_CROP_DIVISOR=11
 CLIP_MARKER_SUFFIX=.CLIPPED
@@ -1137,25 +1140,36 @@ get_background() {
   echo "$bg"
 }
 
-# Sample average corner background color (downscale + average 4 corners).
+# Sample average corner background color (full-res corner crops — never resize-first;
+# downscale bleeds logo chroma into corners and mis-detects white tiles as taupe).
 # Output: "#RRGGBB"
 sample_corner_bg_hex() {
   local img="$1"
   [[ ! -f "$img" ]] && { echo "#FFFFFF"; return 0; }
 
+  local wh w h cw ch x2 y2
+  wh="$($MAGICK -limit thread 1 "$img" -format "%w %h" info: 2>/dev/null)" || wh="64 64"
+  w="${wh%% *}"
+  h="${wh##* }"
+  cw=16; ch=16
+  (( w < 32 )) && cw=$(( w > 1 ? w / 2 : 1 ))
+  (( h < 32 )) && ch=$(( h > 1 ? h / 2 : 1 ))
+  x2=$(( w - cw )); y2=$(( h - ch ))
+  (( x2 < 0 )) && x2=0
+  (( y2 < 0 )) && y2=0
+
   get_corner_rgb() {
     local x="$1" y="$2"
-    # 64x64 sample; corners are at 0/48 for a 16x16 crop.
-    $MAGICK -limit thread 1 "$img" -resize 64x64 -alpha on -background none \
-      -crop 16x16+${x}+${y} +repage -scale 1x1! \
+    $MAGICK -limit thread 1 "$img" -alpha on -background none \
+      -crop "${cw}x${ch}+${x}+${y}" +repage -scale 1x1! \
       -format "%[fx:round(255*u.r)] %[fx:round(255*u.g)] %[fx:round(255*u.b)]" info: 2>/dev/null
   }
 
   local c1 c2 c3 c4
   c1="$(get_corner_rgb 0 0)" || c1="255 255 255"
-  c2="$(get_corner_rgb 48 0)" || c2="255 255 255"
-  c3="$(get_corner_rgb 0 48)" || c3="255 255 255"
-  c4="$(get_corner_rgb 48 48)" || c4="255 255 255"
+  c2="$(get_corner_rgb "$x2" 0)" || c2="255 255 255"
+  c3="$(get_corner_rgb 0 "$y2")" || c3="255 255 255"
+  c4="$(get_corner_rgb "$x2" "$y2")" || c4="255 255 255"
 
   local avg r g b
   avg="$(printf '%s\n%s\n%s\n%s\n' "$c1" "$c2" "$c3" "$c4" | awk '{r+=$1;g+=$2;b+=$3} END{printf "%d %d %d", int(r/4+0.5), int(g/4+0.5), int(b/4+0.5)}' 2>/dev/null)" || avg="255 255 255"
@@ -1217,6 +1231,42 @@ build_mask() {
   echo "$MASK_TMP"
 }
 
+# Min square-canvas pad so a full-bleed logo clears the squircle aperture (mid-side + 45° corners).
+# Square pad == mask mid-side inset alone is flush → curve clips tips. Bound: APERTURE_CLEARANCE_PX.
+aperture_safe_pad() {
+  local size="$1" mask="$2" clear="${3:-$APERTURE_CLEARANCE_PX}"
+  /usr/bin/python3 - "$size" "$mask" "$clear" <<'PY'
+import subprocess, sys
+SIZE = int(sys.argv[1])
+mask_path = sys.argv[2]
+CLEAR = int(sys.argv[3])
+magick = "/opt/homebrew/bin/magick"
+import os
+if not os.path.isfile(magick):
+    magick = "/usr/local/bin/magick"
+raw = subprocess.check_output(
+    [magick, mask_path, "-depth", "8", "gray:-"],
+    stderr=subprocess.DEVNULL,
+)
+def mv(x, y):
+    return raw[y * SIZE + x]
+mid = SIZE // 2
+mt = next((y for y in range(SIZE) if mv(mid, y) > 127), 0)
+ml = next((x for x in range(SIZE) if mv(mid, x) > 127), 0)
+mid_inset = max(mt, ml)
+# NW diagonal frontier
+x = y = 0
+while x < SIZE and mv(x, y) <= 127:
+    x += 1
+    y += 1
+diag = x
+need = max(mid_inset + CLEAR, diag + CLEAR)
+# clamp: leave at least 8px logo
+max_pad = max(0, (SIZE - 8) // 2)
+print(min(need, max_pad))
+PY
+}
+
 # --- Render: OPAQUE fill (trim, then fit inside S×S — no ^ crop; wide wordmarks stay legible) ---
 render_opaque_fill() {
   local raster="$1" mask="$2" output="$3" size="$4"
@@ -1231,10 +1281,19 @@ render_opaque_fill() {
 # --- Render: OPAQUE with padding (scale to LOGO_SIZE, center, margin color) ---
 render_opaque_padding() {
   local raster="$1" mask="$2" output="$3" size="$4" margin_bg="$5" logo_size="$6"
-  $MAGICK -limit thread 1 \
-    \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}" -gravity center -background "$margin_bg" -extent "${size}x${size}" \) \
-    "$mask" -alpha off -compose CopyOpacity -composite \
-    "${WEBP_OUT[@]}" "$output"
+  if [[ "$margin_bg" == "none" || "$margin_bg" == "transparent" ]]; then
+    # CopyOpacity replaces alpha with the mask → transparent pad becomes opaque black under the squircle.
+    # DstIn: keep logo RGBA, intersect opacity with mask (letterbox stays clear).
+    $MAGICK -limit thread 1 \
+      \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}" -gravity center -background none -extent "${size}x${size}" \) \
+      "$mask" -compose DstIn -composite \
+      "${WEBP_OUT[@]}" "$output"
+  else
+    $MAGICK -limit thread 1 \
+      \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}" -gravity center -background "$margin_bg" -extent "${size}x${size}" \) \
+      "$mask" -alpha off -compose CopyOpacity -composite \
+      "${WEBP_OUT[@]}" "$output"
+  fi
 }
 
 # --- Render: base layer + logo for transparent-background sources; optional icon_color recols logo ---
@@ -1406,6 +1465,11 @@ main() {
   typeset -g BG_HEX
   BG_HEX=$(get_background "$IN_FOR_MAGICK")
   build_mask "$SIZE" >/dev/null
+  # Raise CLIP_PADDING_START to aperture-safe (mask mid-side + clearance; diagonal dominates on this mask).
+  local ap_pad
+  ap_pad="$(aperture_safe_pad "$SIZE" "$MASK_TMP" "$APERTURE_CLEARANCE_PX" 2>/dev/null || echo "$CLIP_PADDING_START")"
+  [[ "$ap_pad" == [0-9]* ]] || ap_pad="$CLIP_PADDING_START"
+  (( ap_pad > CLIP_PADDING_START )) && typeset -g CLIP_PADDING_START=$ap_pad
   local padding_bg="#FFFFFF"
   if (( ${#BG_OVERRIDE[@]} > 0 )); then
     padding_bg="$BG_OVERRIDE[1]"
@@ -1413,6 +1477,10 @@ main() {
   local logo_size
   if [[ -n "$PADDING_PX" && "$PADDING_PX" -ge 0 ]]; then
     logo_size=$(( SIZE - 2 * PADDING_PX ))
+    [[ $logo_size -lt 8 ]] && logo_size=8
+  elif [[ $OPAQUE_PADDING -eq 1 || $CLIP_DETECT -eq 1 ]]; then
+    # Default opaque / clip-detect inset follows aperture-safe CLIP_PADDING_START (not LOGO_RATIO flush).
+    logo_size=$(( SIZE - 2 * CLIP_PADDING_START ))
     [[ $logo_size -lt 8 ]] && logo_size=8
   else
     logo_size=$(( SIZE * LOGO_RATIO / 1024 ))
@@ -1453,7 +1521,7 @@ main() {
           mitigate_opaque_clipping "$CLIP_PADDING_START" "$CLIP_PADDING_STEP" "$CLIP_PADDING_MAX_ITER"
         else
           # Fill heuristic said OK but fill still pins art to the squircle rim (tips die on the curve). With
-          # --clip-detect, never emit fill-only opaque WebPs; minimum inset matches prior "working" batch look.
+          # --clip-detect, never emit fill-only opaque WebPs; minimum inset = aperture_safe_pad (CLIP_PADDING_START bumped).
           typeset -g OPAQUE_PADDING=1
           typeset -g PADDING_PX=$CLIP_PADDING_START
           local safe_logo=$(( SIZE - 2 * CLIP_PADDING_START ))
@@ -1461,7 +1529,8 @@ main() {
           local margin="#FFFFFF"
           if (( ${#BG_OVERRIDE[@]} > 0 )); then margin="$BG_OVERRIDE[1]"; fi
           if [[ "$margin" == "#FFFFFF" ]]; then
-            margin="$(sample_corner_bg_hex "$IN_FOR_MAGICK" || echo "#FFFFFF")"
+            # pad_mode 1: high-chroma corners → none (avoid logo-color halo / false ink ring at rim)
+            margin="$(opaque_extent_margin_hex "$IN_FOR_MAGICK" 1)"
           fi
           compute_clip_marker "$IN_FOR_MAGICK" "$MASK_TMP" "$SIZE" "$margin" "$safe_logo" || true
           render_opaque_padding "$IN_FOR_MAGICK" "$MASK_TMP" "$OUTPUT" "$SIZE" "$margin" "$safe_logo"

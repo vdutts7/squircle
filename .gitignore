@@ -20,6 +20,8 @@
 !data/
 !data/domains.txt.example
 !TODOs.md
+!test/
+!test/**
 
 # Icons and source images (webp/ and namespaced subdirs: webp/aws/, webp/macos/, etc.)
 !webp/
