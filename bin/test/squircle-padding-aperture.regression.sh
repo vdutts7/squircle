@@ -34,10 +34,13 @@ WORK="$(mktemp -d "${TMPDIR:-/tmp}/squircle-aperture-regr.XXXXXX")"
 cleanup() { /usr/bin/trash "$WORK" 2>/dev/null || true; }
 trap cleanup EXIT
 
-# Full-bleed opaque plate (square). No landscape letterbox — that is bg-default's concern.
-# Orange on white so "ink" is chromatically distinct from margin white.
+# Orange ink on WHITE canvas (corners white → low-chroma white margin).
+# Fixture class for C-APERTURE: opaque_ink_on_white_margin. Uniform full-bleed orange is
+# C-FIELD-PLATE's concern — this suite must keep white margin to measure ink gaps.
 FIX="$WORK/fullbleed-plate.png"
-"$MAGICK" -size 512x512 xc:'#F7A41D' -bordercolor white -border 0 "$FIX"
+"$MAGICK" -size 512x512 xc:white \
+  \( -size 400x400 xc:'#F7A41D' \) -gravity center -compose over -composite \
+  "$FIX"
 ok "fixture fullbleed-plate"
 
 OUT="$WORK/out.webp"

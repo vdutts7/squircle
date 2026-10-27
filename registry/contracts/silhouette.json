@@ -1,0 +1,29 @@
+{
+  "id": "C-SILHOUETTE",
+  "version": "1.0.0",
+  "feature": "F-SILHOUETTE",
+  "invariant": "Default opaque render: opaque alpha region matches mask.png silhouette (not an inset axis-aligned rectangle).",
+  "assert_dimensions": [
+    "opaque_row_width_variance",
+    "opaque_pixel_count_vs_mask",
+    "mask_mid_row_vs_edge_row"
+  ],
+  "forbidden_dimensions": [
+    "margin_hex",
+    "letterbox_rgb",
+    "aperture_ink_gap"
+  ],
+  "fixture_class": "opaque_high_chroma_landscape",
+  "suite": "silhouette",
+  "script": "bin/test/squircle-silhouette.regression.sh",
+  "smoke": "bin/test/squircle-silhouette.smoke.sh",
+  "gates": {
+    "min_unique_opaque_row_widths": 8,
+    "opaque_count_vs_mask_rel_err_max": 0.02,
+    "require_mid_width_gt_edge_width": true
+  },
+  "restores": {
+    "render": "e129be9 CopyOpacity-only opaque padding",
+    "forbids_auto": "margin_bg=none via chroma gate"
+  }
+}

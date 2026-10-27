@@ -58,6 +58,42 @@ mkdir -p "$WORK/ünicode"
 "$SQUIRCLE_ROOT/bin/squircle.sh" "$WORK/ünicode/tïle.png" --out "$WORK/ünicode/out.webp" >/dev/null
 [[ -f "$WORK/ünicode/out.webp" ]] && ok "unicode path" || bad "unicode path"
 
+probe SQ-ONT-01
+"$SQUIRCLE_ROOT/scripts/contracts-gate.sh"
+ok "contracts ontology"
+
+probe SQ-MC-01
+"$SQUIRCLE_ROOT/bin/test/squircle-margin-chroma.regression.sh"
+ok "margin-chroma regression"
+
+probe SQ-FP-01
+"$SQUIRCLE_ROOT/bin/test/squircle-field-plate.regression.sh"
+ok "field-plate regression"
+
+probe SQ-SIL-01
+"$SQUIRCLE_ROOT/bin/test/squircle-silhouette.regression.sh"
+ok "silhouette regression"
+
+probe SQ-CD-01
+"$SQUIRCLE_ROOT/bin/test/squircle-clip-detect.regression.sh"
+ok "clip-detect regression"
+
+probe SQ-FILL-01
+"$SQUIRCLE_ROOT/bin/test/squircle-fill-mode.regression.sh"
+ok "fill-mode regression"
+
+probe SQ-TBG-01
+"$SQUIRCLE_ROOT/bin/test/squircle-transparent-bg.regression.sh"
+ok "transparent-bg regression"
+
+probe SQ-PAD-01
+"$SQUIRCLE_ROOT/bin/test/squircle-explicit-padding.regression.sh"
+ok "explicit-padding regression"
+
+probe SQ-BGO-01
+"$SQUIRCLE_ROOT/bin/test/squircle-bg-override.regression.sh"
+ok "bg-override regression"
+
 probe SQ-BG-01
 "$SQUIRCLE_ROOT/bin/test/squircle-bg-default.regression.sh"
 ok "bg-default regression"
@@ -67,7 +103,7 @@ probe SQ-AP-01
 ok "aperture regression"
 
 probe SQ-ISO-01
-ok "bg-default ⊥ aperture (both live PASS)"
+ok "contract suites ⊥ (ontology gate + live PASS)"
 
 probe SQ-BG-02
 fn="$(sed -n '/^sample_corner_bg_hex()/,/^}/p' "$SQUIRCLE_ROOT/bin/squircle.sh")"
@@ -80,7 +116,14 @@ fi
 probe SQ-AP-02
 grep -q '^aperture_safe_pad()' "$SQUIRCLE_ROOT/bin/squircle.sh" && ok "aperture_safe_pad fn" || bad "aperture_safe_pad missing"
 grep -q 'APERTURE_CLEARANCE_PX' "$SQUIRCLE_ROOT/bin/squircle.sh" && ok "APERTURE_CLEARANCE_PX" || bad "clearance const"
-grep -q 'DstIn' "$SQUIRCLE_ROOT/bin/squircle.sh" && ok "DstIn transparent margin" || bad "DstIn missing"
+# C-SILHOUETTE: opaque padding is CopyOpacity-only (eceff6cc DstIn auto-none path removed)
+pad_fn="$(sed -n '/^render_opaque_padding()/,/^}/p' "$SQUIRCLE_ROOT/bin/squircle.sh")"
+print -r -- "$pad_fn" | grep -q 'CopyOpacity' && ok "CopyOpacity opaque padding" || bad "CopyOpacity missing"
+if print -r -- "$pad_fn" | grep -q 'DstIn'; then
+  bad "DstIn still in render_opaque_padding (silhouette break)"
+else
+  ok "no DstIn in render_opaque_padding"
+fi
 
 probe SQ-SLUG-01
 "$SQUIRCLE_ROOT/.hooks/scripts/sluggify-paths.regression.sh"

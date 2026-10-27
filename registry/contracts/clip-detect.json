@@ -1,0 +1,26 @@
+{
+  "id": "C-CLIP-DETECT",
+  "version": "1.0.0",
+  "feature": "F-CLIP-DETECT",
+  "invariant": "DEFAULT_CLIP_DETECT=1 opaque path never emits fill-only; status is padding; pad ≥ aperture floor.",
+  "assert_dimensions": [
+    "status_mode_is_padding",
+    "clip_detect_rejects_fill_only"
+  ],
+  "forbidden_dimensions": [
+    "opaque_row_width_variance",
+    "aperture_ink_gap",
+    "letterbox_rgb",
+    "margin_hex"
+  ],
+  "fixture_class": "opaque_square_default_argv",
+  "suite": "clip_detect",
+  "script": "bin/test/squircle-clip-detect.regression.sh",
+  "smoke": "bin/test/squircle-clip-detect.smoke.sh",
+  "gates": {
+    "status_must_match": "padding",
+    "status_must_not_match": "mode: fill",
+    "min_pad_px": 148
+  },
+  "blame_anchor": "8f848be never emit fill-only when --clip-detect"
+}

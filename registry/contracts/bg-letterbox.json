@@ -1,0 +1,22 @@
+{
+  "id": "C-BG-LETTERBOX",
+  "version": "1.0.0",
+  "feature": "F-BG-LETTERBOX",
+  "invariant": "sample_corner_bg_hex is full-res (never resize-64x64-first). Default landscape opaque path keeps white opaque letterbox (no plasma/logo bleed into pad).",
+  "assert_dimensions": [
+    "letterbox_rgb",
+    "sample_corner_no_resize_first"
+  ],
+  "forbidden_dimensions": [
+    "opaque_row_width_variance",
+    "aperture_ink_gap"
+  ],
+  "fixture_class": "landscape_white_canvas_plate",
+  "suite": "bg_default",
+  "script": "bin/test/squircle-bg-default.regression.sh",
+  "smoke": "bin/test/squircle-bg-default.smoke.sh",
+  "gates": {
+    "letterbox_rgb_min": 250,
+    "padding_alpha_min": 0.99
+  }
+}

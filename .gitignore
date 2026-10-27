@@ -16,6 +16,10 @@
 !image-formats.txt
 !bin/
 !bin/**
+!registry/
+!registry/**
+!scripts/
+!scripts/**
 !git-template
 !data/
 !data/domains.txt.example

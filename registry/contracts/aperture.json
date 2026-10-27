@@ -1,0 +1,23 @@
+{
+  "id": "C-APERTURE",
+  "version": "1.0.0",
+  "feature": "F-APERTURE",
+  "invariant": "When margin is white (low-chroma corners or high-chroma→#FFFFFF), chromatically distinct ink stays ≥ APERTURE_CLEARANCE_PX from mask rim (mid-side + 45°).",
+  "assert_dimensions": [
+    "aperture_ink_gap"
+  ],
+  "forbidden_dimensions": [
+    "opaque_row_width_variance",
+    "opaque_pixel_count_vs_mask",
+    "letterbox_rgb"
+  ],
+  "fixture_class": "opaque_ink_on_white_margin",
+  "suite": "aperture",
+  "script": "bin/test/squircle-padding-aperture.regression.sh",
+  "smoke": "bin/test/squircle-padding-aperture.smoke.sh",
+  "gates": {
+    "min_side_gap_px": 48,
+    "min_corner_gap_px": 48
+  },
+  "isolation_note": "Ink = opaque AND not near-white. Does not own silhouette curve shape."
+}

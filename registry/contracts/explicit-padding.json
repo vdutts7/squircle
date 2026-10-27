@@ -1,0 +1,24 @@
+{
+  "id": "C-EXPLICIT-PADDING",
+  "version": "1.0.0",
+  "feature": "F-EXPLICIT-PADDING",
+  "invariant": "--padding N appears in status as padding Npx; output remains mask silhouette.",
+  "assert_dimensions": [
+    "status_padding_px_honored",
+    "explicit_pad_opaque_matches_mask"
+  ],
+  "forbidden_dimensions": [
+    "aperture_ink_gap",
+    "letterbox_rgb",
+    "margin_hex",
+    "status_mode_is_fill"
+  ],
+  "fixture_class": "opaque_with_cli_padding",
+  "suite": "explicit_padding",
+  "script": "bin/test/squircle-explicit-padding.regression.sh",
+  "smoke": "bin/test/squircle-explicit-padding.smoke.sh",
+  "gates": {
+    "padding_px": 80,
+    "opaque_count_vs_mask_rel_err_max": 0.02
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "C-BG-OVERRIDE",
+  "version": "1.0.0",
+  "feature": "F-BG-OVERRIDE",
+  "invariant": "--bg #HEX forces plate/margin color; sampled letterbox pixel matches override (not auto-white).",
+  "assert_dimensions": [
+    "override_bg_pixel_rgb"
+  ],
+  "forbidden_dimensions": [
+    "aperture_ink_gap",
+    "opaque_row_width_variance",
+    "sample_corner_no_resize_first",
+    "margin_hex"
+  ],
+  "fixture_class": "opaque_landscape_with_bg_flag",
+  "suite": "bg_override",
+  "script": "bin/test/squircle-bg-override.regression.sh",
+  "smoke": "bin/test/squircle-bg-override.smoke.sh",
+  "gates": {
+    "bg_hex": "#112233",
+    "sample_xy": [512, 120],
+    "rgb_tolerance": 8
+  }
+}

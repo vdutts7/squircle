@@ -160,8 +160,11 @@ CLIP_MARKER_SUFFIX=.CLIPPED
 DEFAULT_CLIP_DETECT=1
 DEFAULT_SIZE=1024
 LOGO_RATIO=824
-# Opaque margin from corner sample: if max(r,g,b)-min(r,g,b) > this, corners read as logo (e.g. full-bleed favicon) → use #FFFFFF.
+# Opaque margin from corner sample: if max(r,g,b)-min(r,g,b) > this, corners read as logo (e.g. full-bleed favicon) → use #FFFFFF
+# unless corners are uniform (flat brand field) — then keep sampled field (C-FIELD-PLATE). Never auto none.
 OPAQUE_MARGIN_MAX_CHROMA=42
+# Max per-channel delta across the 4 opaque corners to count as a uniform flat field.
+OPAQUE_MARGIN_CORNER_DELTA=16
 WEBP_QUALITY=95
 WEBP_METHOD=4
 # 1 = lossless WebP (sharp text/lines; larger files). 0 = lossy at WEBP_QUALITY.
@@ -1194,12 +1197,14 @@ sample_corner_bg_hex() {
   printf "#%02X%02X%02X\n" "$r" "$g" "$b"
 }
 
-# Full-bleed icons (GitLab fox, etc.): corners are saturated logo, not a flat app-tile frame — don't use that as margin color.
-# Fill path (pad_mode 0): high chroma → #FFFFFF (legacy matte for trim/fill).
-# Padding path (pad_mode 1): high chroma → none — white letterbox around a full-bleed blue tile reads as a halo at the squircle edge.
+# High-chroma margin gate (never auto none — C-MARGIN-CHROMA / 8b37b5c1 anti-none):
+#   uniform=0 (default / disagreeing corners): high chroma → #FFFFFF (logo art at rim).
+#   uniform=1 (flat brand field, C-FIELD-PLATE): high chroma → keep sampled $s (extend field into plate).
+# pad_mode kept for callers; unused for the chroma decision.
 opaque_margin_from_corner_hex() {
   local s="$1"
   local pad_mode="${2:-0}"
+  local uniform="${3:-0}"
   [[ ${#s} -eq 7 && "${s:0:1}" == '#' ]] || { echo "#FFFFFF"; return }
   local x="${s:1}"
   (( ${#x} == 6 )) || { echo "#FFFFFF"; return }
@@ -1211,8 +1216,8 @@ opaque_margin_from_corner_hex() {
   (( b < lo )) && lo=$b
   local chroma=$(( hi - lo )) lim="${OPAQUE_MARGIN_MAX_CHROMA:-42}"
   if (( chroma > lim )); then
-    if [[ "$pad_mode" == "1" ]]; then
-      echo "none"
+    if [[ "$uniform" == "1" ]]; then
+      echo "$s"
     else
       echo "#FFFFFF"
     fi
@@ -1221,11 +1226,45 @@ opaque_margin_from_corner_hex() {
   fi
 }
 
+# 1 if four opaque corners agree within OPAQUE_MARGIN_CORNER_DELTA (flat field); else 0.
+corners_uniform_p() {
+  local img="$1"
+  [[ ! -f "$img" ]] && { echo 0; return 0; }
+  local wh w h cw ch x2 y2
+  wh="$($MAGICK -limit thread 1 "$img" -format "%w %h" info: 2>/dev/null)" || wh="64 64"
+  w="${wh%% *}"; h="${wh##* }"
+  cw=4; ch=4
+  (( w < 8 )) && cw=$(( w > 1 ? w / 2 : 1 ))
+  (( h < 8 )) && ch=$(( h > 1 ? h / 2 : 1 ))
+  x2=$(( w - cw )); y2=$(( h - ch ))
+  (( x2 < 0 )) && x2=0
+  (( y2 < 0 )) && y2=0
+  local c1 c2 c3 c4
+  c1="$($MAGICK -limit thread 1 "$img" -alpha on -background none -crop "${cw}x${ch}+0+0" +repage -scale 1x1! -format "%[fx:round(255*u.r)] %[fx:round(255*u.g)] %[fx:round(255*u.b)] %[fx:u.a]" info: 2>/dev/null)" || c1="255 255 255 1"
+  c2="$($MAGICK -limit thread 1 "$img" -alpha on -background none -crop "${cw}x${ch}+${x2}+0" +repage -scale 1x1! -format "%[fx:round(255*u.r)] %[fx:round(255*u.g)] %[fx:round(255*u.b)] %[fx:u.a]" info: 2>/dev/null)" || c2="255 255 255 1"
+  c3="$($MAGICK -limit thread 1 "$img" -alpha on -background none -crop "${cw}x${ch}+0+${y2}" +repage -scale 1x1! -format "%[fx:round(255*u.r)] %[fx:round(255*u.g)] %[fx:round(255*u.b)] %[fx:u.a]" info: 2>/dev/null)" || c3="255 255 255 1"
+  c4="$($MAGICK -limit thread 1 "$img" -alpha on -background none -crop "${cw}x${ch}+${x2}+${y2}" +repage -scale 1x1! -format "%[fx:round(255*u.r)] %[fx:round(255*u.g)] %[fx:round(255*u.b)] %[fx:u.a]" info: 2>/dev/null)" || c4="255 255 255 1"
+  local lim="${OPAQUE_MARGIN_CORNER_DELTA:-16}"
+  printf '%s\n%s\n%s\n%s\n' "$c1" "$c2" "$c3" "$c4" | awk -v lim="$lim" '
+    $4+0 >= 0.2 { n++; r[n]=$1; g[n]=$2; b[n]=$3 }
+    END {
+      if (n < 2) { print 0; exit }
+      for (i = 1; i <= n; i++) for (j = i + 1; j <= n; j++) {
+        dr = r[i] - r[j]; if (dr < 0) dr = -dr
+        dg = g[i] - g[j]; if (dg < 0) dg = -dg
+        db = b[i] - b[j]; if (db < 0) db = -db
+        if (dr > lim || dg > lim || db > lim) { print 0; exit }
+      }
+      print 1
+    }'
+}
+
 opaque_extent_margin_hex() {
-  local hx
+  local hx uniform
   local pad_mode="${2:-0}"
   hx="$(sample_corner_bg_hex "$1" || echo "#FFFFFF")"
-  opaque_margin_from_corner_hex "$hx" "$pad_mode"
+  uniform="$(corners_uniform_p "$1" || echo 0)"
+  opaque_margin_from_corner_hex "$hx" "$pad_mode" "$uniform"
 }
 
 # --- Mask: IconSur mask.png or round-rect fallback ---
@@ -1289,21 +1328,15 @@ render_opaque_fill() {
 }
 
 # --- Render: OPAQUE with padding (scale to LOGO_SIZE, center, margin color) ---
+# Restores e129be9 / pre-eceff6cc: always CopyOpacity (squircle silhouette). Contract: C-SILHOUETTE.
+# If margin_bg is none, IM still composites under CopyOpacity → opaque plate (never rect-in-clear).
 render_opaque_padding() {
   local raster="$1" mask="$2" output="$3" size="$4" margin_bg="$5" logo_size="$6"
-  if [[ "$margin_bg" == "none" || "$margin_bg" == "transparent" ]]; then
-    # CopyOpacity replaces alpha with the mask → transparent pad becomes opaque black under the squircle.
-    # DstIn: keep logo RGBA, intersect opacity with mask (letterbox stays clear).
-    $MAGICK -limit thread 1 \
-      \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}" -gravity center -background none -extent "${size}x${size}" \) \
-      "$mask" -compose DstIn -composite \
-      "${WEBP_OUT[@]}" "$output"
-  else
-    $MAGICK -limit thread 1 \
-      \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}" -gravity center -background "$margin_bg" -extent "${size}x${size}" \) \
-      "$mask" -alpha off -compose CopyOpacity -composite \
-      "${WEBP_OUT[@]}" "$output"
-  fi
+  [[ "$margin_bg" == "none" || "$margin_bg" == "transparent" ]] && margin_bg="#FFFFFF"
+  $MAGICK -limit thread 1 \
+    \( "$raster" "${MAGICK_RF[@]}" -resize "${logo_size}x${logo_size}" -gravity center -background "$margin_bg" -extent "${size}x${size}" \) \
+    "$mask" -alpha off -compose CopyOpacity -composite \
+    "${WEBP_OUT[@]}" "$output"
 }
 
 # --- Render: base layer + logo for transparent-background sources; optional icon_color recols logo ---
@@ -1497,7 +1530,7 @@ main() {
     [[ $logo_size -lt 8 ]] && logo_size=8
   fi
 
-  # In OPAQUE+padding mode, default margin matches sampled corners unless corners look like logo (high chroma) → white.
+  # OPAQUE+padding: sample corners; high chroma → #FFFFFF (C-MARGIN-CHROMA / 8b37b5c1).
   if [[ "$BG_HEX" == "OPAQUE" && $OPAQUE_PADDING -eq 1 && "$padding_bg" == "#FFFFFF" ]]; then
     padding_bg="$(opaque_extent_margin_hex "$IN_FOR_MAGICK" 1)"
   fi
@@ -1539,7 +1572,7 @@ main() {
           local margin="#FFFFFF"
           if (( ${#BG_OVERRIDE[@]} > 0 )); then margin="$BG_OVERRIDE[1]"; fi
           if [[ "$margin" == "#FFFFFF" ]]; then
-            # pad_mode 1: high-chroma corners → none (avoid logo-color halo / false ink ring at rim)
+            # C-MARGIN-CHROMA: high-chroma → #FFFFFF (never none)
             margin="$(opaque_extent_margin_hex "$IN_FOR_MAGICK" 1)"
           fi
           compute_clip_marker "$IN_FOR_MAGICK" "$MASK_TMP" "$SIZE" "$margin" "$safe_logo" || true

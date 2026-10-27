@@ -1,0 +1,78 @@
+{
+  "version": "1.2.0",
+  "description": "High-level features. Each feature binds exactly one primary contract. Supporting contracts must not share assert_dimensions with the primary.",
+  "features": [
+    {
+      "id": "F-SILHOUETTE",
+      "title": "Opaque output alpha silhouette is the squircle mask",
+      "primary_contract": "C-SILHOUETTE",
+      "supporting": [],
+      "blame_anchor": "e129be9 CopyOpacity; broken by 1e986bcc none + eceff6cc DstIn"
+    },
+    {
+      "id": "F-APERTURE",
+      "title": "Inset ink clears squircle aperture (mid-side + corner)",
+      "primary_contract": "C-APERTURE",
+      "supporting": [],
+      "blame_anchor": "eceff6cc aperture_safe_pad"
+    },
+    {
+      "id": "F-BG-LETTERBOX",
+      "title": "Full-res corner sample; white landscape letterbox; no 64x64 bleed",
+      "primary_contract": "C-BG-LETTERBOX",
+      "supporting": [],
+      "blame_anchor": "sample_corner_bg_hex full-res path"
+    },
+    {
+      "id": "F-MARGIN-CHROMA",
+      "title": "High-chroma corners \u2192 #FFFFFF matte (never auto none)",
+      "primary_contract": "C-MARGIN-CHROMA",
+      "supporting": [
+        "C-SILHOUETTE"
+      ],
+      "blame_anchor": "8b37b5c1; broken by 1e986bcc pad_mode\u2192none"
+    },
+    {
+      "id": "F-CLIP-DETECT",
+      "title": "Default clip-detect never emits fill-only opaque WebP",
+      "primary_contract": "C-CLIP-DETECT",
+      "supporting": [],
+      "blame_anchor": "8f848be never emit fill-only"
+    },
+    {
+      "id": "F-FILL-MODE",
+      "title": "--no-clip-detect fill path still squircles",
+      "primary_contract": "C-FILL-MODE",
+      "supporting": [],
+      "blame_anchor": "render_opaque_fill CopyOpacity"
+    },
+    {
+      "id": "F-TRANSPARENT-BG",
+      "title": "Transparent-source path reports bg and squircles",
+      "primary_contract": "C-TRANSPARENT-BG",
+      "supporting": [],
+      "blame_anchor": "render_with_base"
+    },
+    {
+      "id": "F-EXPLICIT-PADDING",
+      "title": "--padding N honored in status; silhouette preserved",
+      "primary_contract": "C-EXPLICIT-PADDING",
+      "supporting": [],
+      "blame_anchor": "--padding CLI"
+    },
+    {
+      "id": "F-BG-OVERRIDE",
+      "title": "--bg #HEX forces plate color",
+      "primary_contract": "C-BG-OVERRIDE",
+      "supporting": [],
+      "blame_anchor": "--bg CLI"
+    },
+    {
+      "id": "F-FIELD-PLATE",
+      "title": "Uniform high-chroma brand field extends into squircle plate",
+      "primary_contract": "C-FIELD-PLATE",
+      "supporting": [],
+      "blame_anchor": "IRS/easyoptouts flat field; complements C-MARGIN-CHROMA without overriding anti-none"
+    }
+  ]
+}

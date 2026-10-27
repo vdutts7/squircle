@@ -1,29 +1,133 @@
 {
-  "version": "1.0.0",
-  "description": "Granular test modules. Bodies under bin/test/ + .hooks/scripts/.",
+  "version": "1.3.0",
+  "description": "Granular test modules. Bodies under bin/test/ + scripts/ + .hooks/scripts/. Contracts: registry/.",
   "runner": "bin/test/run-all.sh",
+  "contracts_ssot": "registry/manifest.json",
   "modules": [
+    {
+      "id": "contracts_gate",
+      "kind": "ontology",
+      "script": "scripts/contracts-gate.sh",
+      "covers": [
+        "registry/manifest.json",
+        "registry/features.json",
+        "registry/contracts/*"
+      ],
+      "isolation": "assert_dimensions pairwise disjoint; feature\u2192contract wiring"
+    },
+    {
+      "id": "margin_chroma",
+      "kind": "regression",
+      "contract": "C-MARGIN-CHROMA",
+      "script": "bin/test/squircle-margin-chroma.regression.sh",
+      "smoke": "bin/test/squircle-margin-chroma.smoke.sh",
+      "covers": [
+        "bin/squircle.sh#opaque_margin_from_corner_hex"
+      ],
+      "isolation": "margin hex + source lock only"
+    },
+    {
+      "id": "field_plate",
+      "kind": "regression",
+      "contract": "C-FIELD-PLATE",
+      "script": "bin/test/squircle-field-plate.regression.sh",
+      "smoke": "bin/test/squircle-field-plate.smoke.sh",
+      "covers": [
+        "bin/squircle.sh#corners_uniform_p",
+        "bin/squircle.sh#opaque_extent_margin_hex"
+      ],
+      "isolation": "field_plate_rgb only; does not own margin_hex / letterbox / aperture"
+    },
+    {
+      "id": "silhouette",
+      "kind": "regression",
+      "contract": "C-SILHOUETTE",
+      "script": "bin/test/squircle-silhouette.regression.sh",
+      "smoke": "bin/test/squircle-silhouette.smoke.sh",
+      "covers": [
+        "bin/squircle.sh#render_opaque_padding",
+        "bin/mask.png#silhouette"
+      ],
+      "isolation": "opaque silhouette vs mask only"
+    },
+    {
+      "id": "clip_detect",
+      "kind": "regression",
+      "contract": "C-CLIP-DETECT",
+      "script": "bin/test/squircle-clip-detect.regression.sh",
+      "smoke": "bin/test/squircle-clip-detect.smoke.sh",
+      "covers": [
+        "bin/squircle.sh#DEFAULT_CLIP_DETECT"
+      ],
+      "isolation": "status padding vs fill only"
+    },
+    {
+      "id": "fill_mode",
+      "kind": "regression",
+      "contract": "C-FILL-MODE",
+      "script": "bin/test/squircle-fill-mode.regression.sh",
+      "smoke": "bin/test/squircle-fill-mode.smoke.sh",
+      "covers": [
+        "bin/squircle.sh#render_opaque_fill"
+      ],
+      "isolation": "fill status + mask count only"
+    },
+    {
+      "id": "transparent_bg",
+      "kind": "regression",
+      "contract": "C-TRANSPARENT-BG",
+      "script": "bin/test/squircle-transparent-bg.regression.sh",
+      "smoke": "bin/test/squircle-transparent-bg.smoke.sh",
+      "covers": [
+        "bin/squircle.sh#render_with_base"
+      ],
+      "isolation": "bg hex status + mask count only"
+    },
+    {
+      "id": "explicit_padding",
+      "kind": "regression",
+      "contract": "C-EXPLICIT-PADDING",
+      "script": "bin/test/squircle-explicit-padding.regression.sh",
+      "smoke": "bin/test/squircle-explicit-padding.smoke.sh",
+      "covers": [
+        "bin/squircle.sh#--padding"
+      ],
+      "isolation": "padding Npx status + mask count only"
+    },
+    {
+      "id": "bg_override",
+      "kind": "regression",
+      "contract": "C-BG-OVERRIDE",
+      "script": "bin/test/squircle-bg-override.regression.sh",
+      "smoke": "bin/test/squircle-bg-override.smoke.sh",
+      "covers": [
+        "bin/squircle.sh#--bg"
+      ],
+      "isolation": "override plate pixel rgb only"
+    },
     {
       "id": "bg_default",
       "kind": "regression",
+      "contract": "C-BG-LETTERBOX",
       "script": "bin/test/squircle-bg-default.regression.sh",
       "smoke": "bin/test/squircle-bg-default.smoke.sh",
       "covers": [
         "bin/squircle.sh#sample_corner_bg_hex",
         "bin/get-bg-color.sh"
       ],
-      "isolation": "bleed/letterbox only; not aperture gaps"
+      "isolation": "bleed/letterbox only"
     },
     {
       "id": "padding_aperture",
       "kind": "regression",
+      "contract": "C-APERTURE",
       "script": "bin/test/squircle-padding-aperture.regression.sh",
       "smoke": "bin/test/squircle-padding-aperture.smoke.sh",
       "covers": [
         "bin/squircle.sh#aperture_safe_pad",
         "bin/mask.png#aperture"
       ],
-      "isolation": "aperture clearance only; not bg color"
+      "isolation": "aperture clearance only"
     },
     {
       "id": "edge_active",
@@ -32,7 +136,7 @@
       "covers": [
         "bin/test/edge-case-matrix.json"
       ],
-      "isolation": "matrix active_run; invokes bg_default + padding_aperture + sluggify probes"
+      "isolation": "matrix active_run"
     },
     {
       "id": "sluggify_webp_only",

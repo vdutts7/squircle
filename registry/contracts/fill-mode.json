@@ -1,0 +1,24 @@
+{
+  "id": "C-FILL-MODE",
+  "version": "1.0.0",
+  "feature": "F-FILL-MODE",
+  "invariant": "--no-clip-detect opaque path may use fill; fill still CopyOpacity-squircle (not rect-in-clear).",
+  "assert_dimensions": [
+    "status_mode_is_fill",
+    "fill_opaque_matches_mask"
+  ],
+  "forbidden_dimensions": [
+    "status_mode_is_padding",
+    "aperture_ink_gap",
+    "letterbox_rgb",
+    "margin_hex"
+  ],
+  "fixture_class": "opaque_square_no_clip_detect",
+  "suite": "fill_mode",
+  "script": "bin/test/squircle-fill-mode.regression.sh",
+  "smoke": "bin/test/squircle-fill-mode.smoke.sh",
+  "gates": {
+    "status_must_match": "mode: fill",
+    "opaque_count_vs_mask_rel_err_max": 0.02
+  }
+}

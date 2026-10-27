@@ -1,0 +1,27 @@
+{
+  "id": "C-FIELD-PLATE",
+  "version": "1.0.0",
+  "feature": "F-FIELD-PLATE",
+  "invariant": "Opaque source with uniform high-chroma corners (flat brand field, e.g. IRS blue tile) → padding plate uses sampled field color, not white. Extends background into squircle. Does not weaken C-MARGIN-CHROMA (non-uniform high chroma still → #FFFFFF; never auto none).",
+  "assert_dimensions": [
+    "field_plate_rgb",
+    "uniform_high_chroma_keeps_sample"
+  ],
+  "forbidden_dimensions": [
+    "aperture_ink_gap",
+    "letterbox_rgb",
+    "margin_hex",
+    "source_lock_no_auto_none",
+    "opaque_row_width_variance"
+  ],
+  "fixture_class": "opaque_uniform_high_chroma_landscape",
+  "suite": "field_plate",
+  "script": "bin/test/squircle-field-plate.regression.sh",
+  "smoke": "bin/test/squircle-field-plate.smoke.sh",
+  "gates": {
+    "field_hex": "#00599C",
+    "sample_xy": [512, 150],
+    "rgb_tolerance": 12,
+    "require_not_near_white": true
+  }
+}

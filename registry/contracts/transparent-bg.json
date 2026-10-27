@@ -1,0 +1,24 @@
+{
+  "id": "C-TRANSPARENT-BG",
+  "version": "1.0.0",
+  "feature": "F-TRANSPARENT-BG",
+  "invariant": "Non-OPAQUE source → render_with_base; status reports bg #HEX; opaque alpha matches mask.",
+  "assert_dimensions": [
+    "status_reports_bg_hex",
+    "transparent_src_opaque_matches_mask"
+  ],
+  "forbidden_dimensions": [
+    "status_mode_is_padding",
+    "status_mode_is_fill",
+    "aperture_ink_gap",
+    "letterbox_rgb"
+  ],
+  "fixture_class": "rgba_logo_on_clear",
+  "suite": "transparent_bg",
+  "script": "bin/test/squircle-transparent-bg.regression.sh",
+  "smoke": "bin/test/squircle-transparent-bg.smoke.sh",
+  "gates": {
+    "status_must_match": "bg #",
+    "opaque_count_vs_mask_rel_err_max": 0.02
+  }
+}

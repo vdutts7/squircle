@@ -1,0 +1,28 @@
+{
+  "version": "1.3.0",
+  "id": "squircle-registry",
+  "description": "Canonical feature contracts for squircle. Tests gate contracts; contracts do not overlap (no whack-a-mole).",
+  "ssot": "registry/manifest.json",
+  "features": "registry/features.json",
+  "contracts_dir": "registry/contracts",
+  "isolation_law": "Each contract owns exclusive assert dimensions. A suite may only assert dimensions listed in its contract. Cross-suite claims FAIL CLOSED via scripts/contracts-gate.sh.",
+  "verify": {
+    "contracts_gate": "scripts/contracts-gate.sh",
+    "run_all": "bin/test/run-all.sh",
+    "invoke": "$SQUIRCLE/bin/test/run-all.sh",
+    "parity_protocol_template": "$CURREGISTRY/regression-tests/manifest.json",
+    "parity_protocol_role": "template only \u2014 do not route consumer suites through $CURTOOLS/regression-tests.sh"
+  },
+  "contracts": [
+    "registry/contracts/silhouette.json",
+    "registry/contracts/aperture.json",
+    "registry/contracts/bg-letterbox.json",
+    "registry/contracts/margin-chroma.json",
+    "registry/contracts/clip-detect.json",
+    "registry/contracts/fill-mode.json",
+    "registry/contracts/transparent-bg.json",
+    "registry/contracts/explicit-padding.json",
+    "registry/contracts/bg-override.json",
+    "registry/contracts/field-plate.json"
+  ]
+}

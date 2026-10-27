@@ -1,0 +1,35 @@
+{
+  "id": "C-MARGIN-CHROMA",
+  "version": "1.1.0",
+  "feature": "F-MARGIN-CHROMA",
+  "invariant": "opaque_margin_from_corner_hex(s, pad, uniform=0): chroma > OPAQUE_MARGIN_MAX_CHROMA → #FFFFFF. Never auto-emit none/transparent. uniform=1 is owned by C-FIELD-PLATE (exclusive). Restores 8b37b5c1 anti-none.",
+  "assert_dimensions": [
+    "margin_hex",
+    "source_lock_no_auto_none"
+  ],
+  "forbidden_dimensions": [
+    "aperture_ink_gap",
+    "letterbox_rgb",
+    "field_plate_rgb",
+    "uniform_high_chroma_keeps_sample"
+  ],
+  "fixture_class": "source_lock_plus_high_chroma_unit_uniform0",
+  "suite": "margin_chroma",
+  "script": "bin/test/squircle-margin-chroma.regression.sh",
+  "smoke": "bin/test/squircle-margin-chroma.smoke.sh",
+  "gates": {
+    "high_chroma_uniform0_must_return": "#FFFFFF",
+    "forbid_source_substrings": [
+      "echo \"none\"",
+      "echo 'none'"
+    ],
+    "require_source_substrings": [
+      "echo \"#FFFFFF\""
+    ]
+  },
+  "blame": {
+    "proper": "8b37b5c1",
+    "broke_none": "1e986bcc",
+    "broke_dstin": "eceff6cc"
+  }
+}

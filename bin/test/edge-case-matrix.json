@@ -1,7 +1,8 @@
 {
-  "version": "1.1.0",
-  "description": "squircle edge catalog. Bodies: bin/test/*.sh",
+  "version": "1.4.0",
+  "description": "squircle edge catalog. Bodies: bin/test/*.sh. Contracts: registry/contracts/.",
   "verify_script": "$SQUIRCLE/bin/test/run-all.sh",
+  "contracts_ssot": "$SQUIRCLE/registry/manifest.json",
   "active_run": [
     "$SQUIRCLE/bin/test/squircle-edge-active.sh"
   ],
@@ -11,11 +12,47 @@
   },
   "suites": {
     "edge_active": "$SQUIRCLE/bin/test/squircle-edge-active.sh",
+    "contracts_gate": "$SQUIRCLE/scripts/contracts-gate.sh",
+    "margin_chroma": "$SQUIRCLE/bin/test/squircle-margin-chroma.regression.sh",
+    "silhouette": "$SQUIRCLE/bin/test/squircle-silhouette.regression.sh",
     "bg_default": "$SQUIRCLE/bin/test/squircle-bg-default.regression.sh",
     "aperture": "$SQUIRCLE/bin/test/squircle-padding-aperture.regression.sh",
-    "sluggify": "$SQUIRCLE/.hooks/scripts/sluggify-paths.regression.sh"
+    "sluggify": "$SQUIRCLE/.hooks/scripts/sluggify-paths.regression.sh",
+    "clip_detect": "$SQUIRCLE/bin/test/squircle-clip-detect.regression.sh",
+    "fill_mode": "$SQUIRCLE/bin/test/squircle-fill-mode.regression.sh",
+    "transparent_bg": "$SQUIRCLE/bin/test/squircle-transparent-bg.regression.sh",
+    "explicit_padding": "$SQUIRCLE/bin/test/squircle-explicit-padding.regression.sh",
+    "bg_override": "$SQUIRCLE/bin/test/squircle-bg-override.regression.sh",
+    "field_plate": "$SQUIRCLE/bin/test/squircle-field-plate.regression.sh"
   },
   "cases": [
+    {
+      "id": "SQ-ONT-01",
+      "title": "registry contracts pairwise disjoint assert_dimensions",
+      "status": "covered",
+      "category": "ontology",
+      "suite": "contracts_gate",
+      "probe": "SQ-ONT-01",
+      "contract": "registry/manifest.json"
+    },
+    {
+      "id": "SQ-MC-01",
+      "title": "high-chroma corners \u2192 #FFFFFF; never auto none (8b37b5c1)",
+      "status": "covered",
+      "category": "boundaries",
+      "suite": "margin_chroma",
+      "probe": "SQ-MC-01",
+      "contract": "C-MARGIN-CHROMA"
+    },
+    {
+      "id": "SQ-SIL-01",
+      "title": "opaque alpha silhouette matches mask (not inset rectangle)",
+      "status": "covered",
+      "category": "boundaries",
+      "suite": "silhouette",
+      "probe": "SQ-SIL-01",
+      "contract": "C-SILHOUETTE"
+    },
     {
       "id": "SQ-CLI-01",
       "title": "no argv \u2192 non-zero exit (usage)",
@@ -46,7 +83,8 @@
       "status": "covered",
       "category": "boundaries",
       "suite": "bg_default",
-      "probe": "SQ-BG-01"
+      "probe": "SQ-BG-01",
+      "contract": "C-BG-LETTERBOX"
     },
     {
       "id": "SQ-BG-02",
@@ -54,7 +92,8 @@
       "status": "covered",
       "category": "boundaries",
       "suite": "edge_active",
-      "probe": "SQ-BG-02"
+      "probe": "SQ-BG-02",
+      "contract": "C-BG-LETTERBOX"
     },
     {
       "id": "SQ-AP-01",
@@ -62,19 +101,21 @@
       "status": "covered",
       "category": "boundaries",
       "suite": "aperture",
-      "probe": "SQ-AP-01"
+      "probe": "SQ-AP-01",
+      "contract": "C-APERTURE"
     },
     {
       "id": "SQ-AP-02",
-      "title": "aperture_safe_pad + APERTURE_CLEARANCE_PX + DstIn none-margin",
+      "title": "aperture_safe_pad + APERTURE_CLEARANCE_PX present; CopyOpacity opaque padding (no auto DstIn none)",
       "status": "covered",
       "category": "boundaries",
       "suite": "edge_active",
-      "probe": "SQ-AP-02"
+      "probe": "SQ-AP-02",
+      "contract": "C-SILHOUETTE"
     },
     {
       "id": "SQ-ISO-01",
-      "title": "bg-default and aperture suites isolated (both PASS independently)",
+      "title": "contract suites isolated (disjoint assert_dimensions; both PASS independently)",
       "status": "covered",
       "category": "boundaries",
       "suite": "edge_active",
@@ -135,6 +176,60 @@
       "category": "filesystem_io",
       "suite": "sluggify",
       "probe": "SQ-SLUG-01"
+    },
+    {
+      "id": "SQ-CD-01",
+      "title": "default clip-detect \u2192 padding not fill-only",
+      "status": "covered",
+      "category": "boundaries",
+      "suite": "clip_detect",
+      "probe": "SQ-CD-01",
+      "contract": "C-CLIP-DETECT"
+    },
+    {
+      "id": "SQ-FILL-01",
+      "title": "--no-clip-detect fill still matches mask",
+      "status": "covered",
+      "category": "boundaries",
+      "suite": "fill_mode",
+      "probe": "SQ-FILL-01",
+      "contract": "C-FILL-MODE"
+    },
+    {
+      "id": "SQ-TBG-01",
+      "title": "transparent source \u2192 bg #HEX + mask silhouette",
+      "status": "covered",
+      "category": "boundaries",
+      "suite": "transparent_bg",
+      "probe": "SQ-TBG-01",
+      "contract": "C-TRANSPARENT-BG"
+    },
+    {
+      "id": "SQ-PAD-01",
+      "title": "--padding N honored; silhouette preserved",
+      "status": "covered",
+      "category": "boundaries",
+      "suite": "explicit_padding",
+      "probe": "SQ-PAD-01",
+      "contract": "C-EXPLICIT-PADDING"
+    },
+    {
+      "id": "SQ-BGO-01",
+      "title": "--bg #HEX forces plate pixel",
+      "status": "covered",
+      "category": "boundaries",
+      "suite": "bg_override",
+      "probe": "SQ-BGO-01",
+      "contract": "C-BG-OVERRIDE"
+    },
+    {
+      "id": "SQ-FP-01",
+      "title": "uniform high-chroma field \u2192 plate = field (not white)",
+      "status": "covered",
+      "category": "boundaries",
+      "suite": "field_plate",
+      "probe": "SQ-FP-01",
+      "contract": "C-FIELD-PLATE"
     }
   ]
 }
