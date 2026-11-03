@@ -1,4 +1,6 @@
 #!/bin/zsh
+# TUI_EMIT_MODE: end_artifact
+# TUI_PROFILE: convert_image
 # =============================================================================
 # SPEC: squircle.sh — raster input → WebP composited with squircle alpha; transparent outside mask.
 # All tunables live in CONFIG below (no .env / no SQUIRCLE_PARALLEL_J). Optional: SQUIRCLE=project dir with webp/ → REPO_ROOT for tools-only installs (tools-only install). CLI overrides where listed.
