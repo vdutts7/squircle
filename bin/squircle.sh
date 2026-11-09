@@ -1,6 +1,8 @@
 #!/bin/zsh
 # TUI_EMIT_MODE: end_artifact
 # TUI_PROFILE: convert_image
+# PIPE_SHAPE: path_chain
+# PIPE_COMPLIANCE: CONSUMER
 # =============================================================================
 # SPEC: squircle.sh — raster input → WebP composited with squircle alpha; transparent outside mask.
 # All tunables live in CONFIG below (no .env / no SQUIRCLE_PARALLEL_J). Optional: SQUIRCLE=project dir with webp/ → REPO_ROOT for tools-only installs (tools-only install). CLI overrides where listed.
@@ -9,12 +11,13 @@
 # ENTRY_MODES:
 #   file_mode: argv[1] is regular file → parse_args → main → exit (no parallel).
 #   batch_mode: dir and/or multi-arg (path-invocation process scope; -r recursive) → GNU Parallel → "Done.".
-#   domain_mode: --domain HOST → parallel fetch (Google s2 favicons, site icons, Bing Images HTML scrape for bing-*.bin)
+#   domain_mode: --domain HOST | bare HOST | https://HOST → parallel fetch (Google s2 favicons, site icons, Bing Images HTML scrape for bing-*.bin)
 #     → winner: phash-pick (g256/g128 vs Bing) → largest Bing under Hamming + max-edge; if no Bing match or no Bing rips,
 #       Google favicon (g256/g128); if those missing → geometric sort → optional prep
 #     (bin/squircle-prep-logo.zsh: fuzz-trim content bounds) → main on temp file
 #     (default --out REPO_ROOT/webp/<first-label>.webp e.g. medium.com -> medium.webp). --logo-rip-only = fetch/compare table only (no WebP).
-#     Requires curl + magick. If --domain is present it wins over dir/file first-arg routing.
+#     Requires curl + magick. --domain or a single bare host/URL positional wins over dir/file first-arg routing
+#     (existing path / image-looking extension stays file_mode).
 #     Opaque sources still use CONFIG clip-detect in main; prep tightens margins before get-bg / render.
 #     Default (domain_dump): durable dir /tmp/squircle-domain-artifacts/<host>-<pid>/ (always under /tmp; not deleted on exit);
 #     symlink /tmp/squircle-domain-artifacts/_last -> latest run. --no-domain-dump: mktemp under TMPDIR (deleted on exit unless --logo-rip-keep).
@@ -134,12 +137,14 @@ setopt pipefail 2>/dev/null || true
 SCRIPT_DIR="${0:h}"
 SCRIPT_NAME="${0:t}"
 
-# Optional latency/path-invoke libs if operator provides CURTOOLS; public runs need neither.
-CURTOOLS="${CURTOOLS:-}"
+# Optional latency/path-invoke/pipe-emit libs if operator provides CURTOOLS; public runs need neither.
+CURTOOLS="${CURTOOLS:-$HOME/.cursor/tools}"
 PATH_INVOKE_LIB="${CURTOOLS:+$CURTOOLS/path-invocation/path-invoke.zsh}"
 METRICS_LIB="${CURTOOLS:+$CURTOOLS/subroutines/metrics-latency.zsh}"
+PIPE_EMIT_LIB="${CURTOOLS:+$CURTOOLS/pipe-composability/pipe-emit.zsh}"
 [[ -f "$PATH_INVOKE_LIB" ]] && source "$PATH_INVOKE_LIB"
 [[ -f "$METRICS_LIB" ]] && source "$METRICS_LIB"
+[[ -f "$PIPE_EMIT_LIB" ]] && source "$PIPE_EMIT_LIB"
 
 # =============================================================================
 # CONFIG — single edit block (no env vars for squircle behavior). ImageMagick: -limit thread 1 on every magick call.
@@ -687,10 +692,11 @@ Options:
                    Winner: phash Bing vs Google g256 (phash-pick.zsh; Python in SCRIPT_DIR/.venv if present, else auto ./venv.zsh + bin/requirements.txt unless SQUIRCLE_AUTO_VENV=0).
                    Hamming ≤ SQUIRCLE_PHASH_THRESHOLD (26), max edge SQUIRCLE_PHASH_MAX_EDGE (2000); no match → favicon; else geometric.
                    Bing HTML parse needs python3; curl required.
-  --logo-rip-only  With --domain: print comparison table only; do not write WebP.
-  --logo-rip-keep  With --domain: keep download temp dir on disk (otherwise removed on exit); tmpdir path is printed.
-  --no-domain-prep With --domain: skip squircle-prep-logo.zsh (fuzz-trim / margin crop before main).
-  --no-domain-dump With --domain: ephemeral mktemp fetch dir only (deleted on exit); no durable inspect_dir or _last symlink.
+                   Bare HOST / https://HOST (single positional, path not on disk) is the same as --domain HOST; flags still apply.
+  --logo-rip-only  With --domain / bare host: print comparison table only; do not write WebP.
+  --logo-rip-keep  With --domain / bare host: keep download temp dir on disk (otherwise removed on exit); tmpdir path is printed.
+  --no-domain-prep With --domain / bare host: skip squircle-prep-logo.zsh (fuzz-trim / margin crop before main).
+  --no-domain-dump With --domain / bare host: ephemeral mktemp fetch dir only (deleted on exit); no durable inspect_dir or _last symlink.
   -h, --help       Show this help.
 
   Batch interrupt: Use Ctrl+C once and wait. Do not Ctrl+Z (suspends). Hammering Ctrl+C can hit GNU Parallel's signal limit.
@@ -705,8 +711,10 @@ Examples:
   __SCRIPT__ ~/Downloads
   __SCRIPT__ /path/to/dir
   __SCRIPT__ --domain example.com
+  __SCRIPT__ example.com
+  __SCRIPT__ https://example.com --logo-rip-only
   __SCRIPT__ --domain example.com --logo-rip-only
-  __SCRIPT__ --domain example.com --out webp/custom.webp --padding
+  __SCRIPT__ example.com --out webp/custom.webp --padding
 
 EOF
 )
@@ -728,7 +736,7 @@ for a in "$@"; do
   case "$a" in -h|--help) show_help ;; esac
 done
 
-# --- Router: --domain (logo fetch) → optional main(); takes precedence over file/dir first arg ---
+# --- Router: --domain / bare host|URL (logo fetch) → optional main(); takes precedence over file/dir first arg ---
 typeset DOMAIN_ARG=""
 typeset LOGO_RIP_ONLY=0
 typeset LOGO_RIP_KEEP=0
@@ -762,8 +770,64 @@ while (( _si <= $# )); do
   esac
 done
 
+# Bare host/URL when --domain omitted: exactly one positional, not an on-disk path / image-looking name.
+looks_like_domain_arg() {
+  local x="$1"
+  [[ -n "$x" && "$x" != -* ]] || return 1
+  [[ -e "$x" || -L "$x" ]] && return 1
+  case "${x:l}" in
+    http://*|https://*) return 0 ;;
+  esac
+  [[ "$x" == */* || "$x" == ./* || "$x" == ../* || "$x" == ~* ]] && return 1
+  case "${x:l}" in
+    *.png|*.jpg|*.jpeg|*.webp|*.gif|*.svg|*.svgz|*.ico|*.icns|*.cur|*.bmp|*.tif|*.tiff|*.heic|*.heif|*.avif|*.pdf)
+      return 1 ;;
+  esac
+  # hostname-ish (dot required); reject leading/trailing dot
+  [[ "$x" == *.* && "$x" != *[[:space:]]* && "$x" != .* && "$x" != *. ]] || return 1
+  return 0
+}
+
+if [[ -z "$DOMAIN_ARG" && ${#ARGV_WITHOUT_DOMAIN[@]} -gt 0 ]]; then
+  typeset -a _dom_pos_idx=()
+  typeset -i _di=1 _dskip=0
+  typeset _da
+  while (( _di <= ${#ARGV_WITHOUT_DOMAIN[@]} )); do
+    if (( _dskip )); then _dskip=0; ((_di++)); continue; fi
+    _da="${ARGV_WITHOUT_DOMAIN[_di]}"
+    case "$_da" in
+      --bg|--icon-color|--size|--out|--out-dir|--parallel-j|--clip-padding-start|--clip-padding-step|--clip-padding-max-iter|--clip-threshold|--clip-crop-divisor)
+        (( _di < ${#ARGV_WITHOUT_DOMAIN[@]} )) && _dskip=1
+        ;;
+      --padding)
+        if (( _di < ${#ARGV_WITHOUT_DOMAIN[@]} )) && [[ "${ARGV_WITHOUT_DOMAIN[_di+1]}" == [0-9]* ]]; then
+          _dskip=1
+        fi
+        ;;
+      --*=*|-) ;;
+      -*) ;;
+      *)
+        _dom_pos_idx+=("$_di")
+        ;;
+    esac
+    ((_di++))
+  done
+  if (( ${#_dom_pos_idx[@]} == 1 )); then
+    typeset _dom_cand="${ARGV_WITHOUT_DOMAIN[${_dom_pos_idx[1]}]}"
+    if looks_like_domain_arg "$_dom_cand"; then
+      DOMAIN_ARG="$_dom_cand"
+      typeset -a _dom_rest=()
+      for (( _di=1; _di <= ${#ARGV_WITHOUT_DOMAIN[@]}; _di++ )); do
+        (( _di == _dom_pos_idx[1] )) && continue
+        _dom_rest+=("${ARGV_WITHOUT_DOMAIN[_di]}")
+      done
+      ARGV_WITHOUT_DOMAIN=( "${_dom_rest[@]}" )
+    fi
+  fi
+fi
+
 # --- Router: batch via path-invocation (dir / multi-arg / -r) → exit ---
-# (--domain is handled at end of script so run_domain_entry can call main after it is defined.)
+# (domain_mode is handled at end of script so run_domain_entry can call main after it is defined.)
 # Single regular file (+ flags) falls through to main. Process-kind scope:
 #   one dir → flat children; multi-arg → per-arg (dirs flat); -r → full tree under dirs.
 
@@ -851,6 +915,14 @@ if [[ -z "$DOMAIN_ARG" ]]; then
         ;;
     esac
   done
+
+  if (( ${#POSITIONALS[@]} < 1 )); then
+    typeset -a _pipe_in=()
+    if typeset -f pipe_ingest_paths >/dev/null 2>&1 && pipe_ingest_paths _pipe_in; then
+      POSITIONALS=( "${_pipe_in[@]}" )
+      argv=( "${POSITIONALS[@]}" )
+    fi
+  fi
 
   typeset need_batch=0
   if (( ${#POSITIONALS[@]} > 1 )); then
@@ -1597,16 +1669,17 @@ main() {
   if [[ "$BG_HEX" == "OPAQUE" ]]; then
     if [[ $OPAQUE_PADDING -eq 1 ]]; then
       if [[ -n "$PADDING_PX" ]]; then
-        echo "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: padding ${PADDING_PX}px — transparent outside squircle)"
+        print -r -- "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: padding ${PADDING_PX}px — transparent outside squircle)" >&2
       else
-        echo "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: padding (inset) — transparent outside squircle)"
+        print -r -- "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: padding (inset) — transparent outside squircle)" >&2
       fi
     else
-    echo "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: fill — transparent outside squircle)"
+    print -r -- "🟢 $OUTPUT (${SIZE}×${SIZE}, mode: fill — transparent outside squircle)" >&2
     fi
   else
-    echo "🟢 $OUTPUT (${SIZE}×${SIZE}, bg ${BG_HEX})"
+    print -r -- "🟢 $OUTPUT (${SIZE}×${SIZE}, bg ${BG_HEX})" >&2
   fi
+  typeset -f pipe_emit_path >/dev/null 2>&1 && pipe_emit_path "$OUTPUT"
 }
 
 if [[ -n "$DOMAIN_ARG" ]]; then
