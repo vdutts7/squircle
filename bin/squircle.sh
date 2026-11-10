@@ -330,7 +330,7 @@ for u in urls[:20]:
   wait || true
   local bf
   for bf in "${TMP}"/raw/bing-*.bin(N); do
-    [[ -s "$bf" ]] || /bin/unlink "$bf"
+    [[ -e "$bf" && ! -s "$bf" ]] && /bin/unlink "$bf"
   done
   return 0
 }
@@ -426,7 +426,8 @@ run_domain_entry() {
     if curl -sfL --max-time 20 -A "squircle-logo-rip/1.0" "$url" -o "$out" 2>/dev/null && [[ -s "$out" ]]; then
       :
     else
-      /bin/unlink "$out"
+      # curl -f may leave no file; never unlink a missing path (noise on stderr)
+      [[ -e "$out" ]] && /bin/unlink "$out"
     fi
   }
 
@@ -478,15 +479,18 @@ run_domain_entry() {
     LOGO_ROWS+=( "${sp}"$'\t'"${arp}"$'\t'"${mp}"$'\t'"${base}"$'\t'"${fmt}"$'\t'"${wh}"$'\t'"${sz}"$'\t'"${bytes}"$'\t'"${rank_pad}" )
   done
 
-  print -r -- "domain: $d"
-  print -r -- $'maxPx\tsource\tformat\tgeometry\tsize_field\tbytes'
   if (( ! ${#LOGO_ROWS[@]} )); then
-    print -r -- "(no valid images downloaded)"
+    print -r -- "🔴 no valid images downloaded for $d" >&2
     return 1
   fi
 
-  printf '%s\n' "${LOGO_ROWS[@]}" | LC_ALL=C sort -t $'\t' -k1,1nr -k2,2nr -k9,9nr -k8,8nr | cut -f3-8
-  print -r -- ""
+  # Default: quiet (status line from main only). --logo-rip-only: candidate table + inspect hints.
+  if (( rip_only )); then
+    print -r -- "domain: $d"
+    print -r -- $'maxPx\tsource\tformat\tgeometry\tsize_field\tbytes'
+    printf '%s\n' "${LOGO_ROWS[@]}" | LC_ALL=C sort -t $'\t' -k1,1nr -k2,2nr -k9,9nr -k8,8nr | cut -f3-8
+    print -r -- ""
+  fi
 
   local sort_best
   sort_best="$(printf '%s\n' "${LOGO_ROWS[@]}" | LC_ALL=C sort -t $'\t' -k1,1nr -k2,2nr -k9,9nr -k8,8nr | head -n1)"
@@ -525,7 +529,7 @@ run_domain_entry() {
     local _szb
     _szb="$("$MAGICK" identify -format '%b' "${best_bin}[0]" 2>/dev/null | head -n1)"
     printf -v _mxp '%05d' "$_mx"
-    print -r -- "best_line: ${_mxp}"$'\t'"${best_src}"$'\t'"${best_fmt}"$'\t'"${_wh}"$'\t'"${_szb}"$'\t'"${_bc}"$'\t'"phash≤${phash_th} cap≤${phash_cap}px vs ${anchor:t}"
+    (( rip_only )) && print -r -- "best_line: ${_mxp}"$'\t'"${best_src}"$'\t'"${best_fmt}"$'\t'"${_wh}"$'\t'"${_szb}"$'\t'"${_bc}"$'\t'"phash≤${phash_th} cap≤${phash_cap}px vs ${anchor:t}"
   elif [[ -s "$anchor" ]]; then
     # No Bing passed phash (or no Bing downloads / phash unavailable): use Google favicon as raster, not a random Bing sort.
     best_bin="$anchor"
@@ -539,15 +543,15 @@ run_domain_entry() {
     _bc="$(wc -c <"$best_bin" | tr -d '[:space:]')"
     _szb="$("$MAGICK" identify -format '%b' "${best_bin}[0]" 2>/dev/null | head -n1)"
     printf -v _mxp '%05d' "$_mx"
-    print -r -- "best_line: ${_mxp}"$'\t'"${best_src}"$'\t'"${best_fmt}"$'\t'"${_wh}"$'\t'"${_szb}"$'\t'"${_bc}"$'\t'"Google favicon fallback (no Bing perceptual match)"
+    (( rip_only )) && print -r -- "best_line: ${_mxp}"$'\t'"${best_src}"$'\t'"${best_fmt}"$'\t'"${_wh}"$'\t'"${_szb}"$'\t'"${_bc}"$'\t'"Google favicon fallback (no Bing perceptual match)"
   else
     local best="$sort_best"
-    print -r -- "best_line: $(print -r -- "$best" | cut -f3-8)"$'\t'"geometric sort (no g256/g128; phash/Bing unusable)"
+    (( rip_only )) && print -r -- "best_line: $(print -r -- "$best" | cut -f3-8)"$'\t'"geometric sort (no g256/g128; phash/Bing unusable)"
     IFS=$'\t' read -r _sp _ar _mp best_src best_fmt _g _s _b _rank <<<"$best"
     best_bin="${TMP}/raw/${best_src}.bin"
   fi
 
-  if (( ! domain_dump )); then
+  if (( rip_only && ! domain_dump )); then
     print -r -- "fetch_tmp (deleted when squircle exits unless --logo-rip-keep): $TMP" >&2
     (( rip_keep )) && print -r -- "(logo-rip-keep: tmp not auto-deleted)" >&2
   fi
@@ -592,9 +596,11 @@ run_domain_entry() {
     esac
     cp -f "$best_bin" "$DUMP_DIR/CHOSEN-${best_src}.${chosen_ex}"
     "$MAGICK" -limit thread 1 "${best_bin}[0]" "${MAGICK_RF[@]}" -strip PNG32:"$DUMP_DIR/00-CHOSEN.png" 2>/dev/null || cp -f "$best_bin" "$DUMP_DIR/00-CHOSEN.${chosen_ex}"
-    print -r -- "inspect_dir (PNG previews on top): $DUMP_DIR" >&2
-    print -r -- "inspect_symlink: $ART_ROOT/_last -> $TMP" >&2
-    print -r -- "open (macOS): open '$DUMP_DIR'" >&2
+    if (( rip_only )); then
+      print -r -- "inspect_dir (PNG previews on top): $DUMP_DIR" >&2
+      print -r -- "inspect_symlink: $ART_ROOT/_last -> $TMP" >&2
+      print -r -- "open (macOS): open '$DUMP_DIR'" >&2
+    fi
   fi
 
   if (( rip_only )); then
@@ -636,17 +642,11 @@ run_domain_entry() {
     local prep_out="${TMP}/squircle-input-prep.png"
     if squircle_prep_logo_raster "$rip_in" "$prep_out" && [[ -s "$prep_out" ]]; then
       rip_in="$prep_out"
-      print -r -- "domain-prep: fuzz-trim → $rip_in" >&2
       [[ -n "$DUMP_DIR" ]] && cp -f "$prep_out" "$DUMP_DIR/after-domain-prep.png"
     fi
   fi
 
-  if [[ -n "$DUMP_DIR" ]]; then
-    print -r -- "squircle_raster_input: $rip_in (copy also in inspect_dir)" >&2
-  fi
-  print -r -- "squircle: $rip_in → (see status line below)"
   main "$rip_in" "${pa[@]}"
-  [[ -n "$DUMP_DIR" ]] && print -r -- "done. inspect: $DUMP_DIR   or: ls -la $ART_ROOT/_last" >&2
 }
 
 # --- Help (scriptify requirement) ---
@@ -693,10 +693,10 @@ Options:
                    Hamming ≤ SQUIRCLE_PHASH_THRESHOLD (26), max edge SQUIRCLE_PHASH_MAX_EDGE (2000); no match → favicon; else geometric.
                    Bing HTML parse needs python3; curl required.
                    Bare HOST / https://HOST (single positional, path not on disk) is the same as --domain HOST; flags still apply.
-  --logo-rip-only  With --domain / bare host: print comparison table only; do not write WebP.
-  --logo-rip-keep  With --domain / bare host: keep download temp dir on disk (otherwise removed on exit); tmpdir path is printed.
+  --logo-rip-only  With --domain / bare host: candidate table + inspect paths only (no WebP). Default domain render is quiet (status line only).
+  --logo-rip-keep  With --domain / bare host: keep download temp dir on disk (otherwise removed on exit); printed only with --logo-rip-only.
   --no-domain-prep With --domain / bare host: skip squircle-prep-logo.zsh (fuzz-trim / margin crop before main).
-  --no-domain-dump With --domain / bare host: ephemeral mktemp fetch dir only (deleted on exit); no durable inspect_dir or _last symlink.
+  --no-domain-dump With --domain / bare host: ephemeral mktemp fetch dir only (deleted on exit); no durable dump under /tmp/squircle-domain-artifacts.
   -h, --help       Show this help.
 
   Batch interrupt: Use Ctrl+C once and wait. Do not Ctrl+Z (suspends). Hammering Ctrl+C can hit GNU Parallel's signal limit.
