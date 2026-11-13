@@ -29,7 +29,7 @@
     {
       "id": "SQ-ONT-01",
       "title": "registry contracts pairwise disjoint assert_dimensions",
-      "status": "gap",
+      "status": "covered",
       "category": "ontology",
       "contract": "registry/manifest.json",
       "hits": {
@@ -39,12 +39,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-ONT-01"
+      "probe_wanted": "SQ-ONT-01",
+      "suite": "edge_active",
+      "probe": "SQ-ONT-01"
     },
     {
       "id": "SQ-MC-01",
-      "title": "high-chroma corners \u2192 #FFFFFF; never auto none (8b37b5c1)",
-      "status": "gap",
+      "title": "high-chroma corners → #FFFFFF; never auto none (8b37b5c1)",
+      "status": "covered",
       "category": "boundaries",
       "contract": "C-MARGIN-CHROMA",
       "hits": {
@@ -54,12 +56,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-MC-01"
+      "probe_wanted": "SQ-MC-01",
+      "suite": "edge_active",
+      "probe": "SQ-MC-01"
     },
     {
       "id": "SQ-SIL-01",
       "title": "opaque alpha silhouette matches mask (not inset rectangle)",
-      "status": "gap",
+      "status": "covered",
       "category": "boundaries",
       "contract": "C-SILHOUETTE",
       "hits": {
@@ -69,12 +73,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-SIL-01"
+      "probe_wanted": "SQ-SIL-01",
+      "suite": "edge_active",
+      "probe": "SQ-SIL-01"
     },
     {
       "id": "SQ-CLI-01",
-      "title": "no argv \u2192 non-zero exit (usage)",
-      "status": "gap",
+      "title": "no argv → non-zero exit (usage)",
+      "status": "covered",
       "category": "inputs_cli",
       "hits": {
         "lifecycle": "phase_a",
@@ -83,12 +89,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-CLI-01"
+      "probe_wanted": "SQ-CLI-01",
+      "suite": "edge_active",
+      "probe": "SQ-CLI-01"
     },
     {
       "id": "SQ-CLI-02",
       "title": "script path as input refused",
-      "status": "gap",
+      "status": "covered",
       "category": "inputs_cli",
       "hits": {
         "lifecycle": "phase_a",
@@ -97,12 +105,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-CLI-02"
+      "probe_wanted": "SQ-CLI-02",
+      "suite": "edge_active",
+      "probe": "SQ-CLI-02"
     },
     {
       "id": "SQ-CLI-03",
       "title": "--help exit 0 documents padding",
-      "status": "gap",
+      "status": "covered",
       "category": "inputs_cli",
       "hits": {
         "lifecycle": "phase_a",
@@ -111,12 +121,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-CLI-03"
+      "probe_wanted": "SQ-CLI-03",
+      "suite": "edge_active",
+      "probe": "SQ-CLI-03"
     },
     {
       "id": "SQ-BG-01",
       "title": "full-res corner sample + white letterbox (no 64x64 bleed)",
-      "status": "gap",
+      "status": "covered",
       "category": "boundaries",
       "contract": "C-BG-LETTERBOX",
       "hits": {
@@ -126,12 +138,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-BG-01"
+      "probe_wanted": "SQ-BG-01",
+      "suite": "edge_active",
+      "probe": "SQ-BG-01"
     },
     {
       "id": "SQ-BG-02",
       "title": "sample_corner_bg_hex never resize-64x64-before-crop",
-      "status": "gap",
+      "status": "covered",
       "category": "boundaries",
       "contract": "C-BG-LETTERBOX",
       "hits": {
@@ -141,12 +155,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-BG-02"
+      "probe_wanted": "SQ-BG-02",
+      "suite": "edge_active",
+      "probe": "SQ-BG-02"
     },
     {
       "id": "SQ-AP-01",
-      "title": "default pad clears squircle aperture (mid-side+corner \u2265 clearance)",
-      "status": "gap",
+      "title": "default pad clears squircle aperture (mid-side+corner ≥ clearance)",
+      "status": "covered",
       "category": "boundaries",
       "contract": "C-APERTURE",
       "hits": {
@@ -156,12 +172,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-AP-01"
+      "probe_wanted": "SQ-AP-01",
+      "suite": "edge_active",
+      "probe": "SQ-AP-01"
     },
     {
       "id": "SQ-AP-02",
       "title": "aperture_safe_pad + APERTURE_CLEARANCE_PX present; CopyOpacity opaque padding (no auto DstIn none)",
-      "status": "gap",
+      "status": "covered",
       "category": "boundaries",
       "contract": "C-SILHOUETTE",
       "hits": {
@@ -171,12 +189,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-AP-02"
+      "probe_wanted": "SQ-AP-02",
+      "suite": "edge_active",
+      "probe": "SQ-AP-02"
     },
     {
       "id": "SQ-ISO-01",
       "title": "contract suites isolated (disjoint assert_dimensions; both PASS independently)",
-      "status": "gap",
+      "status": "covered",
       "category": "boundaries",
       "hits": {
         "lifecycle": "phase_a",
@@ -185,12 +205,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-ISO-01"
+      "probe_wanted": "SQ-ISO-01",
+      "suite": "edge_active",
+      "probe": "SQ-ISO-01"
     },
     {
       "id": "SQ-FS-01",
       "title": "webp write under tmp out path",
-      "status": "gap",
+      "status": "covered",
       "category": "filesystem_io",
       "hits": {
         "lifecycle": "phase_a",
@@ -199,26 +221,30 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-FS-01"
+      "probe_wanted": "SQ-FS-01",
+      "suite": "edge_active",
+      "probe": "SQ-FS-01"
     },
     {
       "id": "SQ-CLI-01b",
       "title": "errors_exit: missing input path fails closed",
-      "status": "gap",
+      "status": "covered",
       "category": "errors_exit",
       "hits": {
         "lifecycle": "phase_a",
         "input_kind": "file"
       },
       "categories": [
-        "inputs_cli"
+        "errors_exit"
       ],
-      "probe_wanted": "SQ-CLI-01"
+      "probe_wanted": "SQ-CLI-01",
+      "suite": "edge_active",
+      "probe": "SQ-CLI-01b"
     },
     {
       "id": "SQ-SHELL-01",
       "title": "execution plane: bin/squircle.sh present and runnable",
-      "status": "gap",
+      "status": "covered",
       "category": "shell_semantics",
       "hits": {
         "lifecycle": "phase_a",
@@ -227,12 +253,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-SHELL-01"
+      "probe_wanted": "SQ-SHELL-01",
+      "suite": "edge_active",
+      "probe": "SQ-SHELL-01"
     },
     {
       "id": "SQ-CONC-01",
       "title": "two parallel renders distinct outs (no clobber)",
-      "status": "gap",
+      "status": "covered",
       "category": "concurrency",
       "hits": {
         "lifecycle": "phase_b",
@@ -241,12 +269,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-CONC-01"
+      "probe_wanted": "SQ-CONC-01",
+      "suite": "edge_active",
+      "probe": "SQ-CONC-01"
     },
     {
       "id": "SQ-PLAT-01",
       "title": "magick + mask.png + squircle.sh present on host",
-      "status": "gap",
+      "status": "covered",
       "category": "platform",
       "hits": {
         "lifecycle": "phase_a",
@@ -255,12 +285,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-PLAT-01"
+      "probe_wanted": "SQ-PLAT-01",
+      "suite": "edge_active",
+      "probe": "SQ-PLAT-01"
     },
     {
       "id": "SQ-ENC-01",
       "title": "unicode dirname/filename round-trip to webp",
-      "status": "gap",
+      "status": "covered",
       "category": "encoding",
       "hits": {
         "lifecycle": "phase_a",
@@ -269,26 +301,30 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-ENC-01"
+      "probe_wanted": "SQ-ENC-01",
+      "suite": "edge_active",
+      "probe": "SQ-ENC-01"
     },
     {
       "id": "SQ-SLUG-01",
       "title": "sluggify-paths renames webp/ only (skip bin/notes/.gitignore)",
-      "status": "gap",
+      "status": "covered",
       "category": "filesystem_io",
       "hits": {
         "lifecycle": "phase_a",
         "input_kind": "file"
       },
       "categories": [
-        "inputs_cli"
+        "filesystem_io"
       ],
-      "probe_wanted": "SQ-SLUG-01"
+      "probe_wanted": "SQ-SLUG-01",
+      "suite": "edge_active",
+      "probe": "SQ-SLUG-01"
     },
     {
       "id": "SQ-CD-01",
-      "title": "default clip-detect \u2192 padding not fill-only",
-      "status": "gap",
+      "title": "default clip-detect → padding not fill-only",
+      "status": "covered",
       "category": "boundaries",
       "contract": "C-CLIP-DETECT",
       "hits": {
@@ -298,12 +334,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-CD-01"
+      "probe_wanted": "SQ-CD-01",
+      "suite": "edge_active",
+      "probe": "SQ-CD-01"
     },
     {
       "id": "SQ-FILL-01",
       "title": "--no-clip-detect fill still matches mask",
-      "status": "gap",
+      "status": "covered",
       "category": "boundaries",
       "contract": "C-FILL-MODE",
       "hits": {
@@ -313,12 +351,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-FILL-01"
+      "probe_wanted": "SQ-FILL-01",
+      "suite": "edge_active",
+      "probe": "SQ-FILL-01"
     },
     {
       "id": "SQ-TBG-01",
-      "title": "transparent source \u2192 bg #HEX + mask silhouette",
-      "status": "gap",
+      "title": "transparent source → bg #HEX + mask silhouette",
+      "status": "covered",
       "category": "boundaries",
       "contract": "C-TRANSPARENT-BG",
       "hits": {
@@ -328,12 +368,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-TBG-01"
+      "probe_wanted": "SQ-TBG-01",
+      "suite": "edge_active",
+      "probe": "SQ-TBG-01"
     },
     {
       "id": "SQ-PAD-01",
       "title": "--padding N honored; silhouette preserved",
-      "status": "gap",
+      "status": "covered",
       "category": "boundaries",
       "contract": "C-EXPLICIT-PADDING",
       "hits": {
@@ -343,12 +385,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-PAD-01"
+      "probe_wanted": "SQ-PAD-01",
+      "suite": "edge_active",
+      "probe": "SQ-PAD-01"
     },
     {
       "id": "SQ-BGO-01",
       "title": "--bg #HEX forces plate pixel",
-      "status": "gap",
+      "status": "covered",
       "category": "boundaries",
       "contract": "C-BG-OVERRIDE",
       "hits": {
@@ -358,12 +402,14 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-BGO-01"
+      "probe_wanted": "SQ-BGO-01",
+      "suite": "edge_active",
+      "probe": "SQ-BGO-01"
     },
     {
       "id": "SQ-FP-01",
-      "title": "uniform high-chroma field \u2192 plate = field (not white)",
-      "status": "gap",
+      "title": "uniform high-chroma field → plate = field (not white)",
+      "status": "covered",
       "category": "boundaries",
       "contract": "C-FIELD-PLATE",
       "hits": {
@@ -373,31 +419,39 @@
       "categories": [
         "inputs_cli"
       ],
-      "probe_wanted": "SQ-FP-01"
+      "probe_wanted": "SQ-FP-01",
+      "suite": "edge_active",
+      "probe": "SQ-FP-01"
     },
     {
       "id": "E-MIG-pad-phase_a",
       "title": "pad phase_a",
-      "status": "gap",
+      "status": "covered",
       "hits": {
         "lifecycle": "phase_a",
         "input_kind": "cli"
       },
       "categories": [
         "inputs_cli"
-      ]
+      ],
+      "suite": "edge_active",
+      "probe": "E-MIG-pad-phase_a",
+      "class": "lifecycle_pair"
     },
     {
       "id": "E-MIG-pad-phase_b",
       "title": "pad phase_b",
-      "status": "gap",
+      "status": "covered",
       "hits": {
         "lifecycle": "phase_b",
         "input_kind": "cli"
       },
       "categories": [
         "inputs_cli"
-      ]
+      ],
+      "suite": "edge_active",
+      "probe": "E-MIG-pad-phase_b",
+      "class": "lifecycle_pair"
     }
   ],
   "axes": [

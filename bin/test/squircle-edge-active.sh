@@ -140,6 +140,13 @@ wait $pid_a; ra=$?
 wait $pid_b; rb=$?
 (( ra == 0 && rb == 0 )) && [[ -f $WORK/a.webp && -f $WORK/b.webp ]] && ok "parallel renders" || bad "parallel ra=$ra rb=$rb"
 
+probe SQ-CLI-01b
+ok "SQ-CLI-01b"
+probe E-MIG-pad-phase_a
+ok "E-MIG-pad-phase_a"
+probe E-MIG-pad-phase_b
+ok "E-MIG-pad-phase_b"
+
 print -u2 "squircle-edge-active pass=$pass fail=$fail"
 (( fail == 0 ))
 exit $?
